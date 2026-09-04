@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { AdPlaceholder } from "@/components/AdPlaceholder";
+import { DuctCalculator } from "@/components/duct-calculator/DuctCalculator";
 import { Header } from "@/components/Header";
 import { ToolPageIntro } from "@/components/ToolPageIntro";
 
@@ -20,25 +21,6 @@ const calculatorOutputs = [
   "Friction rate",
   "Equivalent rectangular duct dimensions",
 ];
-
-function WorkspaceIcon() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 32 32" fill="none">
-      <path
-        d="M5 10h15v12H5zM20 13h7v6h-7"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M9 10V7m7 3V7M9 25v-3m7 3v-3"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
 
 function ArrowIcon() {
   return (
@@ -71,11 +53,7 @@ export default function DuctCalculatorPage() {
         aria-labelledby="calculator-workspace-title"
       >
         <div className={styles.workspace}>
-          <span className={styles.workspaceIcon}>
-            <WorkspaceIcon />
-          </span>
-          <h2 id="calculator-workspace-title">HVAC Duct Calculator</h2>
-          <p>Calculator interface will be inserted here.</p>
+          <DuctCalculator />
         </div>
       </section>
 

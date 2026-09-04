@@ -1070,6 +1070,10 @@ export function DuctCalculator() {
                 <strong id="nominalDiameter">—</strong>
               </div>
               <div className={`${styles.resultCard} ${styles.inset}`}>
+                <span>Round area</span>
+                <strong id="roundArea">—</strong>
+              </div>
+              <div className={`${styles.resultCard} ${styles.inset}`}>
                 <span>Velocity at calculated Ø</span>
                 <strong id="exactVelocity">—</strong>
               </div>
@@ -1080,10 +1084,6 @@ export function DuctCalculator() {
               <div className={`${styles.resultCard} ${styles.inset}`}>
                 <span>Actual friction at nominal Ø</span>
                 <strong id="nominalFriction">—</strong>
-              </div>
-              <div className={`${styles.resultCard} ${styles.inset}`}>
-                <span>Round area</span>
-                <strong id="roundArea">—</strong>
               </div>
             </div>
           </section>

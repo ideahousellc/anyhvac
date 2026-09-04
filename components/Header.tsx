@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 function SearchIcon() {
@@ -39,7 +40,7 @@ export function Header() {
   return (
     <header className="site-header page-shell" aria-label="Site header">
       <div className="header-surface">
-        <a className="brand" href="#top" aria-label="AnyHVAC home">
+        <Link className="brand" href="/" aria-label="AnyHVAC home">
           <Image
             className="brand-mark"
             src="/Favicon.png"
@@ -52,7 +53,7 @@ export function Header() {
             <span className="brand-name"><span>Any</span><strong>HVAC</strong></span>
             <span className="brand-tagline">Free HVAC Calculators &amp; Tools</span>
           </span>
-        </a>
+        </Link>
 
         <nav className="primary-nav" aria-label="Primary navigation">
           {navigation.map((item) => (

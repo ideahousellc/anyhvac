@@ -1,0 +1,245 @@
+.toolPage {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.workspaceSection {
+  padding-bottom: 42px;
+}
+
+.workspace {
+  display: grid;
+  min-height: 430px;
+  align-content: center;
+  justify-items: center;
+  padding: clamp(40px, 7vw, 86px);
+  border: 1px solid rgba(255, 255, 255, 0.54);
+  border-radius: 30px;
+  background: var(--surface);
+  text-align: center;
+  box-shadow:
+    13px 15px 32px rgba(166, 175, 188, 0.35),
+    -12px -12px 30px rgba(255, 255, 255, 0.76),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.72);
+}
+
+.workspaceIcon {
+  display: grid;
+  width: 58px;
+  height: 58px;
+  margin-bottom: 22px;
+  place-items: center;
+  border-radius: 18px;
+  color: var(--primary);
+  box-shadow:
+    inset 3px 3px 7px var(--shadow-dark),
+    inset -3px -3px 7px var(--shadow-light);
+}
+
+.workspaceIcon svg {
+  width: 29px;
+  height: 29px;
+}
+
+.workspace h2 {
+  margin: 0;
+  font-size: clamp(25px, 3vw, 34px);
+  font-weight: 730;
+  letter-spacing: -0.035em;
+}
+
+.workspace p {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.adWrap {
+  padding-top: 0;
+  padding-bottom: 4px;
+}
+
+.content {
+  padding-top: 47px;
+  padding-bottom: 96px;
+}
+
+.contentBlock + .contentBlock {
+  margin-top: 52px;
+}
+
+.content h2 {
+  margin: 0;
+  font-size: clamp(28px, 3.4vw, 40px);
+  font-weight: 740;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+.contentBlock > p {
+  max-width: 810px;
+  margin: 15px 0 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+  margin: 25px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.featureGrid li {
+  display: flex;
+  min-height: 112px;
+  align-items: flex-start;
+  gap: 11px;
+  padding: 18px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.46);
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow:
+    5px 6px 14px rgba(166, 175, 188, 0.29),
+    -5px -5px 14px rgba(255, 255, 255, 0.68);
+  font-size: 14px;
+  font-weight: 670;
+  line-height: 1.45;
+}
+
+.check {
+  display: grid;
+  width: 25px;
+  height: 25px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 8px;
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 800;
+  box-shadow:
+    inset 2px 2px 5px var(--shadow-dark),
+    inset -2px -2px 5px var(--shadow-light);
+}
+
+.footerAction {
+  display: flex;
+  justify-content: center;
+  margin-top: 58px;
+  padding-top: 42px;
+  border-top: 1px solid rgba(166, 175, 188, 0.24);
+}
+
+.backLink {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  padding: 0 22px;
+  border: 1px solid rgba(255, 255, 255, 0.46);
+  border-radius: 15px;
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: 710;
+  box-shadow:
+    5px 6px 13px rgba(166, 175, 188, 0.34),
+    -5px -5px 13px rgba(255, 255, 255, 0.72);
+  transition: box-shadow 160ms ease, transform 160ms ease;
+}
+
+.backLink:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    7px 8px 16px rgba(166, 175, 188, 0.38),
+    -5px -5px 13px rgba(255, 255, 255, 0.78);
+}
+
+.backLink svg {
+  width: 18px;
+  height: 18px;
+}
+
+:global(.dark) .workspace {
+  border-color: rgba(255, 255, 255, 0.07);
+  box-shadow:
+    13px 15px 32px rgba(4, 10, 17, 0.42),
+    -12px -12px 30px rgba(48, 65, 82, 0.3),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+:global(.dark) .featureGrid li,
+:global(.dark) .backLink {
+  border-color: rgba(255, 255, 255, 0.07);
+  box-shadow:
+    5px 6px 14px rgba(4, 10, 17, 0.36),
+    -5px -5px 14px rgba(48, 65, 82, 0.27);
+}
+
+:global(.dark) .backLink:hover {
+  box-shadow:
+    7px 8px 16px rgba(4, 10, 17, 0.42),
+    -5px -5px 13px rgba(48, 65, 82, 0.32);
+}
+
+:global(.dark) .footerAction {
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 1100px) {
+  .featureGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .workspaceSection {
+    padding-bottom: 34px;
+  }
+
+  .workspace {
+    min-height: 360px;
+    padding: 42px 24px;
+    border-radius: 24px;
+  }
+
+  .content {
+    padding-top: 39px;
+    padding-bottom: 76px;
+  }
+
+  .contentBlock + .contentBlock {
+    margin-top: 43px;
+  }
+
+  .featureGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .workspace {
+    min-height: 320px;
+    border-radius: 21px;
+  }
+
+  .featureGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .featureGrid li {
+    min-height: 0;
+  }
+
+  .footerAction {
+    margin-top: 48px;
+  }
+
+  .backLink {
+    width: 100%;
+  }
+}

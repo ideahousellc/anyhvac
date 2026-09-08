@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { Header } from "@/components/Header";
 import { AirDistributionTools } from "@/components/air-distribution/AirDistributionTools";
+import { EngineeringNotice } from "@/components/EngineeringNotice";
 import {
   UnitsAndTerms,
   type UnitTerm,
@@ -108,6 +109,8 @@ export default function AirDistributionToolsPage() {
       >
         <AirDistributionTools />
       </section>
+
+      <EngineeringNotice />
 
       <div className={`page-shell ${styles.termsSection}`}>
         <UnitsAndTerms terms={AIR_DISTRIBUTION_TERMS} />

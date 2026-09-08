@@ -2,6 +2,8 @@
 
 import { useEffect, useRef } from "react";
 
+import { markSuccessfulToolUse } from "@/lib/support";
+
 import styles from "./DuctCalculator.module.css";
 
 const NS = "http://www.w3.org/2000/svg";
@@ -772,9 +774,12 @@ export function DuctCalculator() {
       );
     }
 
+    let dragChanged = false;
+
     function onPointerDown(event: PointerEvent) {
       event.preventDefault();
       state.drag = true;
+      dragChanged = false;
       state.last = pointerAngle(event);
       frictionRing.classList.add(styles.dragging);
       frictionRing.setPointerCapture(event.pointerId);
@@ -796,6 +801,7 @@ export function DuctCalculator() {
       velocityRing.setAttribute("transform", transform);
       showResults(calculate());
       cfmInput.value = String(Math.round(state.cfm));
+      dragChanged = true;
     }
 
     function stopDragging(event: PointerEvent) {
@@ -804,16 +810,31 @@ export function DuctCalculator() {
       frictionRing.classList.remove(styles.dragging);
       if (frictionRing.hasPointerCapture(event.pointerId))
         frictionRing.releasePointerCapture(event.pointerId);
+      if (dragChanged) markSuccessfulToolUse();
     }
 
-    const onCfmChange = () => setCFM(Number(cfmInput.value));
-    const onFrictionChange = () => setFriction(Number(frictionInput.value));
+    const onCfmChange = () => {
+      const value = Number(cfmInput.value);
+      if (!Number.isFinite(value)) return;
+      setCFM(value);
+      markSuccessfulToolUse();
+    };
+    const onFrictionChange = () => {
+      const value = Number(frictionInput.value);
+      if (!Number.isFinite(value)) return;
+      setFriction(value);
+      markSuccessfulToolUse();
+    };
     const onFixedSideChange = () => {
       state.side = clamp(Number(fixedSideInput.value) || 12, 4, 96);
       render();
+      markSuccessfulToolUse();
     };
     const quickHandlers = quick.map((button) => {
-      const handler = () => setFriction(Number(button.dataset.friction));
+      const handler = () => {
+        setFriction(Number(button.dataset.friction));
+        markSuccessfulToolUse();
+      };
       button.addEventListener("click", handler);
       return { button, handler };
     });

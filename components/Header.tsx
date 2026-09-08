@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
+import { SupportLink } from "@/components/SupportLink";
+
 function SearchIcon() {
   return (
     <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
@@ -26,7 +28,11 @@ function ThemeIcon({ dark }: { dark: boolean }) {
   );
 }
 
-const navigation = ["Tools", "Resources", "About", "Contact"];
+const navigation = [
+  { label: "Tools", href: "/tools" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
+];
 
 export function Header() {
   const [dark, setDark] = useState(false);
@@ -57,8 +63,16 @@ export function Header() {
 
         <nav className="primary-nav" aria-label="Primary navigation">
           {navigation.map((item) => (
-            <a key={item} href={`#${item.toLowerCase()}`}>{item}</a>
+            <Link key={item.href} href={item.href}>
+              {item.label}
+            </Link>
           ))}
+          <SupportLink
+            className="header-support-link"
+            aria-label="Support AnyHVAC"
+          >
+            Support $
+          </SupportLink>
         </nav>
 
         <div className="header-actions">

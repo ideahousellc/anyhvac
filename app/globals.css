@@ -121,6 +121,23 @@ button { font: inherit; }
 .primary-nav a:hover, .primary-nav a:focus-visible { color: var(--primary); }
 .primary-nav a:hover::after, .primary-nav a:focus-visible::after { transform: scaleX(1); }
 
+.primary-nav .header-support-link {
+  cursor: pointer;
+  padding: 8px 12px;
+  border: 1px solid rgba(102, 176, 255, 0.28);
+  border-radius: 11px;
+  color: var(--primary);
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.primary-nav .header-support-link::after { display: none; }
+.primary-nav .header-support-link:hover,
+.primary-nav .header-support-link:focus-visible {
+  background: color-mix(in srgb, var(--primary-light) 7%, transparent);
+  text-decoration: none;
+}
+
 .header-actions { display: flex; gap: 10px; }
 
 .icon-button {
@@ -569,6 +586,7 @@ button { font: inherit; }
   .icon-button:first-child { display: none; }
   .primary-nav { gap: 8px; }
   .primary-nav a { font-size: 12px; }
+  .primary-nav .header-support-link { padding: 7px 9px; font-size: 11px; }
   .hero { gap: 25px; padding-top: 27.5px; padding-bottom: 54px; }
   .hero h1 { font-size: clamp(45px, 14vw, 64px); }
   .hero-description { margin-top: 23px; font-size: 16px; line-height: 1.55; }

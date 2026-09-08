@@ -1,0 +1,83 @@
+.backdrop {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: none;
+  overflow-y: auto;
+  padding: 24px;
+  background: rgba(20, 29, 39, 0.5);
+  place-items: center;
+}
+
+.open {
+  display: grid;
+}
+
+.dialog {
+  position: relative;
+  width: min(100%, 520px);
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  padding: clamp(27px, 5vw, 38px);
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  border-radius: 24px;
+  background: var(--surface);
+  box-shadow:
+    16px 18px 42px rgba(18, 31, 45, 0.3),
+    -8px -8px 22px rgba(255, 255, 255, 0.35);
+}
+
+.close {
+  position: absolute;
+  z-index: 1;
+  top: 14px;
+  right: 14px;
+  display: grid;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  place-items: center;
+  border: 0;
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 22px;
+  line-height: 1;
+  box-shadow:
+    3px 4px 9px var(--shadow-dark),
+    -3px -3px 9px var(--shadow-light);
+}
+
+.dialog h2 {
+  max-width: calc(100% - 34px);
+  margin: 0;
+  font-size: clamp(24px, 4vw, 31px);
+  font-weight: 740;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+}
+
+.dialog h2 + p {
+  margin: 17px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+:global(.dark) .dialog {
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow:
+    16px 18px 42px rgba(4, 10, 17, 0.5),
+    -8px -8px 22px rgba(48, 65, 82, 0.18);
+}
+
+@media (max-width: 480px) {
+  .backdrop {
+    padding: 14px;
+  }
+
+  .dialog {
+    max-height: calc(100vh - 28px);
+    border-radius: 20px;
+  }
+}

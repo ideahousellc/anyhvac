@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 
 import { InfoTip } from "@/components/units-and-terms/UnitsAndTerms";
+import { markSuccessfulToolUse } from "@/lib/support";
 
 import styles from "./AirDistributionTools.module.css";
 import { SystemPressureLoss } from "./SystemPressureLoss";
@@ -190,6 +191,7 @@ function AirflowCalculator() {
       setResult(next);
     }
     setMessage("");
+    markSuccessfulToolUse();
   }
 
   return (
@@ -290,6 +292,7 @@ function AchCalculator() {
     }
     setResult({ volume, value: mode === "ach" ? source * 60 / volume : source * volume / 60 });
     setMessage("");
+    markSuccessfulToolUse();
   }
 
   return (
@@ -376,6 +379,7 @@ function FrictionCalculator() {
       frictionRate: availableStatic < 0 ? null : availableStatic * 100 / length,
     });
     setMessage(availableStatic < 0 ? "Component losses exceed the fan external static pressure. No valid design friction rate is available." : "");
+    if (availableStatic >= 0) markSuccessfulToolUse();
   }
 
   return (

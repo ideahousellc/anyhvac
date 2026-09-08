@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { AdPlaceholder } from "@/components/AdPlaceholder";
 import { DuctCalculator } from "@/components/duct-calculator/DuctCalculator";
+import { EngineeringNotice } from "@/components/EngineeringNotice";
 import { Header } from "@/components/Header";
 import { ToolPageIntro } from "@/components/ToolPageIntro";
 
@@ -56,6 +57,8 @@ export default function DuctCalculatorPage() {
           <DuctCalculator />
         </div>
       </section>
+
+      <EngineeringNotice />
 
       <div className={styles.adWrap}>
         <AdPlaceholder />

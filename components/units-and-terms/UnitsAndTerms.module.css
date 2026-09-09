@@ -114,11 +114,13 @@
   left: 0;
   width: min(250px, calc(100vw - 64px));
   padding: 9px 11px;
-  border: 1px solid color-mix(in srgb, var(--primary) 18%, transparent);
+  border: 1px solid rgba(102, 176, 255, 0.34);
   border-radius: 9px;
-  background: var(--text);
-  box-shadow: 0 7px 18px rgba(14, 25, 39, 0.2);
-  color: var(--surface);
+  background: #1f2a37;
+  box-shadow:
+    0 8px 20px rgba(14, 25, 39, 0.34),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.08);
+  color: #f7f9fc;
   font-size: 11px;
   font-weight: 560;
   line-height: 1.45;
@@ -148,8 +150,11 @@
 }
 
 :global(.dark) .tooltip {
-  border-color: rgba(255, 255, 255, 0.12);
-  background: #eef4fa;
+  border-color: rgba(102, 176, 255, 0.3);
+  background: #edf3f9;
+  box-shadow:
+    0 8px 20px rgba(4, 10, 17, 0.52),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.9);
   color: #172331;
 }
 

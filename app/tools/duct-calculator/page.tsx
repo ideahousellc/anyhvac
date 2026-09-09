@@ -51,7 +51,7 @@ export default function DuctCalculatorPage() {
 
       <section
         className={`page-shell ${styles.workspaceSection}`}
-        aria-labelledby="calculator-workspace-title"
+        aria-label="HVAC duct calculator workspace"
       >
         <div className={styles.workspace}>
           <DuctCalculator />

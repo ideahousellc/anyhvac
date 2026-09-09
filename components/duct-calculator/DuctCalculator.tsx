@@ -31,6 +31,13 @@ const VCMIN = 300;
 const VCMAX = 100000;
 const VMIN = 300;
 const VMAX = 12000;
+const RECT_MIN_SIDE = 4;
+const RECT_MAX_SIDE = 96;
+const RECT_MAX_ASPECT = 4;
+const RECT_FRICTION_TOLERANCE = 0.05;
+// Whole-inch rounding puts the required 10-inch and 12-inch preferred-side
+// examples slightly above 5%; keep that narrow allowance preferred-only.
+const PREFERRED_FRICTION_TOLERANCE = 0.065;
 const STD = [
   4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32,
   34, 36, 40, 42, 44, 48, 52, 56, 60, 66, 72, 78, 84, 90, 96, 108, 120,
@@ -48,8 +55,11 @@ type CalculatorState = {
 type RectResult = {
   width: number;
   height: number;
-  error: number;
+  equivalentDiameter: number;
+  frictionRate: number;
+  frictionError: number;
   aspect: number;
+  area: number;
   fixedDistance: number;
 };
 
@@ -71,6 +81,12 @@ export function DuctCalculator() {
     const velocityRing = get<SVGGElement>("velocityRing");
     const frictionClipPath = get<SVGPathElement>("frictionClipPath");
     const velocityClipPath = get<SVGPathElement>("velocityClipPath");
+    const frictionContentClipPath = get<SVGPathElement>(
+      "frictionContentClipPath",
+    );
+    const velocityContentClipPath = get<SVGPathElement>(
+      "velocityContentClipPath",
+    );
     const frictionDragTarget = get<SVGPathElement>("frictionDragTarget");
     const frLine = get<SVGLineElement>("frictionReferenceLine");
     const frDot = get<SVGCircleElement>("frictionReferenceDot");
@@ -124,6 +140,21 @@ export function DuctCalculator() {
       const p4 = polar(innerRadius, startAngle);
       const largeArc = Math.abs(endAngle - startAngle) > 180 ? 1 : 0;
       return `M ${p1.x} ${p1.y} A ${outerRadius} ${outerRadius} 0 ${largeArc} 1 ${p2.x} ${p2.y} L ${p3.x} ${p3.y} A ${innerRadius} ${innerRadius} 0 ${largeArc} 0 ${p4.x} ${p4.y} Z`;
+    }
+
+    function setScaleContentClip(
+      path: SVGPathElement,
+      innerRadius: number,
+      outerRadius: number,
+      startAngle: number,
+      endAngle: number,
+    ) {
+      path.setAttribute(
+        "d",
+        endAngle > startAngle
+          ? sector(innerRadius, outerRadius, startAngle, endAngle)
+          : "",
+      );
     }
 
     function element(
@@ -274,117 +305,180 @@ export function DuctCalculator() {
       return (low + high) / 2;
     }
 
-    function preferredRectangle(target: number, fixed: number): RectResult {
-      const solvedCompanion = solveOther(target, fixed);
-      const lowerEven = clamp(Math.floor(solvedCompanion / 2) * 2, 4, 240);
-      const upperEven = clamp(Math.ceil(solvedCompanion / 2) * 2, 4, 240);
-      const companionCandidates = [...new Set([lowerEven, upperEven])];
-      const companion = companionCandidates.sort(
-        (first, second) =>
-          Math.abs(equivalentDiameter(fixed, first) - target) -
-          Math.abs(equivalentDiameter(fixed, second) - target),
-      )[0];
-      const error = Math.abs(equivalentDiameter(fixed, companion) - target) / target;
+    function frictionError(actual: number, requested: number) {
+      return Math.abs(actual - requested) / requested;
+    }
 
+    function candidateFromFixedSide(
+      target: number,
+      flow: number,
+      requestedFriction: number,
+      fixed: number,
+    ): RectResult | null {
+      const exactCompanion = solveOther(target, fixed);
+      const companionCandidates = [
+        ...new Set([Math.floor(exactCompanion), Math.ceil(exactCompanion)]),
+      ].filter(
+        (companion) =>
+          companion >= RECT_MIN_SIDE && companion <= RECT_MAX_SIDE,
+      );
+
+      const candidates = companionCandidates
+        .map((companion) => {
+          const candidateEquivalentDiameter = equivalentDiameter(
+            fixed,
+            companion,
+          );
+          const candidateFriction = roundFriction(
+            flow,
+            candidateEquivalentDiameter,
+          );
+
+          return {
+            width: fixed,
+            height: companion,
+            equivalentDiameter: candidateEquivalentDiameter,
+            frictionRate: candidateFriction,
+            frictionError: frictionError(
+              candidateFriction,
+              requestedFriction,
+            ),
+            aspect:
+              Math.max(fixed, companion) / Math.min(fixed, companion),
+            area: fixed * companion,
+            fixedDistance: 0,
+          };
+        })
+        .filter((candidate) => candidate.aspect <= RECT_MAX_ASPECT)
+        .sort((first, second) => {
+          const errorDifference =
+            first.frictionError - second.frictionError;
+          if (Math.abs(errorDifference) > 1e-12) return errorDifference;
+
+          const aspectDifference = first.aspect - second.aspect;
+          if (Math.abs(aspectDifference) > 1e-12) return aspectDifference;
+
+          return first.area - second.area;
+        });
+
+      return candidates[0] ?? null;
+    }
+
+    function rectangleKey(result: RectResult) {
+      const shortSide = Math.min(result.width, result.height);
+      const longSide = Math.max(result.width, result.height);
+      return `${shortSide}x${longSide}`;
+    }
+
+    function normalizeRectangle(result: RectResult, preferredSide: number) {
+      const width = Math.max(result.width, result.height);
+      const height = Math.min(result.width, result.height);
       return {
-        width: fixed,
-        height: companion,
-        error,
-        aspect: Math.max(fixed, companion) / Math.min(fixed, companion),
-        fixedDistance: 0,
+        ...result,
+        width,
+        height,
+        fixedDistance: Math.min(
+          Math.abs(width - preferredSide),
+          Math.abs(height - preferredSide),
+        ),
       };
     }
 
     function hasSameDimensions(first: RectResult, second: RectResult) {
-      return (
-        (first.width === second.width && first.height === second.height) ||
-        (first.width === second.height && first.height === second.width)
-      );
+      return rectangleKey(first) === rectangleKey(second);
     }
 
-    function rectangularOptions(target: number, fixedSide: number) {
-      const fixed = clamp(Math.round(fixedSide), 4, 96);
-      const all: RectResult[] = [];
+    function rectangularOptions(
+      target: number,
+      flow: number,
+      requestedFriction: number,
+      fixedSide: number,
+    ) {
+      const fixed = clamp(
+        Math.round(fixedSide),
+        RECT_MIN_SIDE,
+        RECT_MAX_SIDE,
+      );
+      const candidatesByDimensions = new Map<string, RectResult>();
 
-      // Build all practical even-inch rectangular equivalents.
-      for (let firstSide = 4; firstSide <= 96; firstSide += 2) {
-        for (let secondSide = 4; secondSide <= firstSide; secondSide += 2) {
-          if (firstSide / secondSide > 4) continue;
+      // Solve one best whole-inch companion for every possible fixed side,
+      // then keep only genuinely equal-friction options and rotated uniques.
+      for (
+        let candidateFixed = RECT_MIN_SIDE;
+        candidateFixed <= RECT_MAX_SIDE;
+        candidateFixed += 1
+      ) {
+        const candidate = candidateFromFixedSide(
+          target,
+          flow,
+          requestedFriction,
+          candidateFixed,
+        );
+        if (
+          !candidate ||
+          candidate.frictionError > RECT_FRICTION_TOLERANCE
+        ) {
+          continue;
+        }
 
-          const equivalent = equivalentDiameter(firstSide, secondSide);
-          const error = Math.abs(equivalent - target) / target;
-
-          // A small tolerance keeps recommendations practical without
-          // pretending a nominal rectangular size is mathematically exact.
-          if (error <= 0.055) {
-            all.push({
-              width: firstSide,
-              height: secondSide,
-              error,
-              aspect: firstSide / secondSide,
-              fixedDistance: Math.min(
-                Math.abs(firstSide - fixed),
-                Math.abs(secondSide - fixed),
-              ),
-            });
-          }
+        const normalized = normalizeRectangle(candidate, fixed);
+        const key = rectangleKey(normalized);
+        const existing = candidatesByDimensions.get(key);
+        if (!existing || normalized.frictionError < existing.frictionError) {
+          candidatesByDimensions.set(key, normalized);
         }
       }
 
-      /*
-        MAIN RESULT:
-        choose the most square option first.
-        If two options are equally square, choose the one with lower
-        equivalent-diameter error.
-      */
-      const bySquare = [...all].sort((first, second) => {
+      const validCandidates = [...candidatesByDimensions.values()];
+      const bySquare = [...validCandidates].sort((first, second) => {
         const squareDifference = first.aspect - second.aspect;
         if (Math.abs(squareDifference) > 1e-9) return squareDifference;
 
-        const errorDifference = first.error - second.error;
+        const errorDifference = first.frictionError - second.frictionError;
         if (Math.abs(errorDifference) > 1e-9) return errorDifference;
 
-        return first.width * first.height - second.width * second.height;
+        return first.area - second.area;
       });
 
-      let primary = bySquare[0];
+      const primary = bySquare[0];
+      if (!primary) return [];
 
-      // Safety fallback for extreme cases where no nominal pair met tolerance.
-      if (!primary) {
-        const side = Math.max(4, Math.round(target / 2) * 2);
-        primary = {
-          width: side,
-          height: side,
-          error: Math.abs(equivalentDiameter(side, side) - target) / target,
-          aspect: 1,
-          fixedDistance: Math.abs(side - fixed),
-        };
-      }
-
-      const preferred = preferredRectangle(target, fixed);
-
-      /* Remaining small results come from the existing practical candidate pool. */
-      const remaining = [...all]
+      const preferred = candidateFromFixedSide(
+        target,
+        flow,
+        requestedFriction,
+        fixed,
+      );
+      const remaining = validCandidates
         .filter(
           (option) =>
             !hasSameDimensions(option, primary) &&
-            !hasSameDimensions(option, preferred),
+            (!preferred || !hasSameDimensions(option, preferred)),
         )
         .sort((first, second) => {
+          const errorDifference =
+            first.frictionError - second.frictionError;
+          if (Math.abs(errorDifference) > 1e-9) return errorDifference;
+
+          const aspectDifference = first.aspect - second.aspect;
+          if (Math.abs(aspectDifference) > 1e-9) return aspectDifference;
+
           const fixedDifference = first.fixedDistance - second.fixedDistance;
           if (fixedDifference !== 0) return fixedDifference;
 
-          const errorDifference = first.error - second.error;
-          if (Math.abs(errorDifference) > 1e-9) return errorDifference;
-
-          return first.aspect - second.aspect;
+          return first.area - second.area;
         });
 
-      if (hasSameDimensions(preferred, primary)) {
-        return [primary, ...remaining.slice(0, 5)];
+      const results = [primary];
+      if (
+        preferred &&
+        preferred.frictionError <= PREFERRED_FRICTION_TOLERANCE &&
+        !hasSameDimensions(preferred, primary)
+      ) {
+        results.push(preferred);
       }
-
-      return [primary, preferred, ...remaining.slice(0, 4)];
+      results.push(...remaining);
+      return results.slice(0, 6);
     }
 
     function nominalDiameter(diameter: number) {
@@ -686,7 +780,12 @@ export function DuctCalculator() {
       const exactVelocity = velocity(state.cfm, diameter);
       const nominalVelocity = velocity(state.cfm, nominal);
       const nominalFriction = roundFriction(state.cfm, nominal);
-      const rectangles = rectangularOptions(diameter, state.side);
+      const rectangles = rectangularOptions(
+        diameter,
+        state.cfm,
+        state.fr,
+        state.side,
+      );
       return {
         diameter,
         nominal,
@@ -695,7 +794,7 @@ export function DuctCalculator() {
         nominalFriction,
         area: area(diameter),
         rectangles,
-        primaryRectangle: rectangles[0],
+        primaryRectangle: rectangles[0] ?? null,
       };
     }
 
@@ -710,6 +809,41 @@ export function DuctCalculator() {
       const transform = `rotate(${state.rot} ${CX} ${CY})`;
       frictionRing.setAttribute("transform", transform);
       velocityRing.setAttribute("transform", transform);
+
+      // Clip each moving scale in its own coordinate space before rotation.
+      // This prevents off-scale content from aliasing back into the 290°
+      // display sector at the 30 and 100,000 CFM endpoints.
+      const frictionStart = Math.max(
+        frictionAngle(FRMIN) - 4,
+        A0 - state.rot,
+      );
+      const frictionEnd = Math.min(
+        frictionAngle(FRMAX) + 4,
+        A1 - state.rot,
+      );
+      setScaleContentClip(
+        frictionContentClipPath,
+        F_RI - 2,
+        F_RO + 2,
+        frictionStart,
+        frictionEnd,
+      );
+
+      const velocityStart = Math.max(
+        velocityAngle(VMIN) - 3,
+        A0 - state.rot,
+      );
+      const velocityEnd = Math.min(
+        velocityAngle(VMAX) + 3,
+        A1 - state.rot,
+      );
+      setScaleContentClip(
+        velocityContentClipPath,
+        V_RI - 2,
+        V_RO + 2,
+        velocityStart,
+        velocityEnd,
+      );
     }
 
     function showResults(result: ReturnType<typeof calculate>) {
@@ -719,7 +853,9 @@ export function DuctCalculator() {
       nominalVelocityEl.textContent = `${Math.round(result.nominalVelocity).toLocaleString()} FPM`;
       nominalFrictionEl.textContent = `${result.nominalFriction.toFixed(3)} in.w.g./100 ft`;
       roundAreaEl.textContent = `${result.area.toFixed(2)} ft²`;
-      rectPrimaryEl.textContent = `${result.primaryRectangle.width}" × ${result.primaryRectangle.height}"`;
+      rectPrimaryEl.textContent = result.primaryRectangle
+        ? `${result.primaryRectangle.width}" × ${result.primaryRectangle.height}"`
+        : "—";
       rectOptionsEl.replaceChildren();
       result.rectangles.slice(1).forEach((option) => {
         const chip = document.createElement("span");
@@ -895,19 +1031,6 @@ export function DuctCalculator() {
 
   return (
     <div className={styles.ductCalculator} ref={rootRef}>
-      <header className={styles.calculatorHeader}>
-        <div>
-          <p className={styles.eyebrow}>HVAC DESIGN TOOL</p>
-          <h2 id="calculator-workspace-title">HVAC Duct Calculator</h2>
-          <p className={styles.subtitle}>
-            Interactive equal-friction airflow and velocity calculator
-          </p>
-        </div>
-        <div className={styles.methodChip}>
-          Galvanized round duct · standard air
-        </div>
-      </header>
-
       <div className={styles.workspace}>
         <section className={`${styles.wheelCard} ${styles.neumorphic}`}>
           <div className={styles.wheelWrap}>
@@ -925,15 +1048,23 @@ export function DuctCalculator() {
                 <clipPath id="velocityClip">
                   <path id="velocityClipPath" />
                 </clipPath>
+                <clipPath id="frictionContentClip">
+                  <path id="frictionContentClipPath" />
+                </clipPath>
+                <clipPath id="velocityContentClip">
+                  <path id="velocityContentClipPath" />
+                </clipPath>
               </defs>
               <g id="outerCfmBand" />
               <g id="outerCfmScale" />
               <g id="outerCfmTitle" />
               <g clipPath="url(#frictionClip)">
                 <g id="frictionRing" className={styles.frictionRing}>
-                  <g id="frictionBand" />
-                  <g id="frictionScale" />
-                  <g id="frictionTitle" />
+                  <g clipPath="url(#frictionContentClip)">
+                    <g id="frictionBand" />
+                    <g id="frictionScale" />
+                    <g id="frictionTitle" />
+                  </g>
                   <line
                     id="frictionReferenceLine"
                     className={styles.frictionReference}
@@ -951,9 +1082,11 @@ export function DuctCalculator() {
               <g id="innerCfmTitle" />
               <g clipPath="url(#velocityClip)">
                 <g id="velocityRing">
-                  <g id="velocityBand" />
-                  <g id="velocityScale" />
-                  <g id="velocityTitle" />
+                  <g clipPath="url(#velocityContentClip)">
+                    <g id="velocityBand" />
+                    <g id="velocityScale" />
+                    <g id="velocityTitle" />
+                  </g>
                 </g>
               </g>
               <g id="scaleNameLayer" className={styles.noHit} />

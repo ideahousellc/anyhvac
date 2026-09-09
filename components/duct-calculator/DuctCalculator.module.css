@@ -22,15 +22,6 @@
   box-sizing: border-box;
 }
 
-.calculatorHeader {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 22px;
-  margin-bottom: 18px;
-}
-
-.eyebrow,
 .sectionKicker {
   margin: 0 0 6px;
   font-size: 0.72rem;
@@ -38,28 +29,9 @@
   letter-spacing: 0.12em;
 }
 
-.calculatorHeader h2 {
-  margin: 0;
-  font-size: clamp(2rem, 4vw, 3.15rem);
-}
-
-.subtitle {
-  margin: 8px 0 0;
-  color: var(--muted);
-}
-
-.methodChip,
 .neumorphic {
   background: var(--surface);
   box-shadow: 10px 10px 22px var(--sd), -10px -10px 22px var(--sl);
-}
-
-.methodChip {
-  padding: 10px 14px;
-  border-radius: 999px;
-  color: var(--muted);
-  font-size: 0.82rem;
-  white-space: nowrap;
 }
 
 .workspace {
@@ -383,15 +355,6 @@
 }
 
 @media (max-width: 650px) {
-  .calculatorHeader {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .methodChip {
-    white-space: normal;
-  }
-
   .resultsGrid {
     grid-template-columns: 1fr;
   }

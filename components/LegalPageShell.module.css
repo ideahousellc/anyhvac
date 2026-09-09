@@ -1,0 +1,26 @@
+.updated {
+  margin: 0 0 38px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+}
+
+.document a {
+  color: var(--primary);
+  font-weight: 650;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.document a:hover,
+.document a:focus-visible {
+  color: var(--primary-light);
+}
+
+@media (max-width: 520px) {
+  .updated {
+    margin-bottom: 32px;
+  }
+}

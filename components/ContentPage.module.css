@@ -93,6 +93,15 @@
   margin-top: 13px;
 }
 
+.section ul + p {
+  margin-top: 18px;
+}
+
+.section code {
+  color: var(--foreground);
+  font-size: 0.9em;
+  overflow-wrap: anywhere;
+}
 
 .section ul {
   display: grid;

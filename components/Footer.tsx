@@ -96,7 +96,7 @@ export function Footer() {
 
         <div className={styles.bottom}>
           <p>&copy; {new Date().getFullYear()} AnyHVAC.</p>
-          <p>A project by Idea House LLC.</p>
+          <p>A project by Idea House.</p>
         </div>
       </div>
     </footer>

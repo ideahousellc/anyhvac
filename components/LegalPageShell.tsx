@@ -1,27 +1,27 @@
-import { ContentPage, StatusPanel } from "@/components/ContentPage";
+import type { ReactNode } from "react";
+
+import { ContentPage } from "@/components/ContentPage";
+
+import styles from "./LegalPageShell.module.css";
 
 export function LegalPageShell({
   title,
-  documentName,
+  intro,
+  children,
 }: {
   title: string;
-  documentName: string;
+  intro: string;
+  children: ReactNode;
 }) {
   return (
     <ContentPage
       compact
       eyebrow="Legal"
       title={title}
-      intro={`The final ${documentName} is being prepared as part of AnyHVAC's public-launch development.`}
+      intro={intro}
     >
-      <StatusPanel>
-        <p>
-          This page is a route and presentation shell only. It does not contain
-          the final {documentName} and should not be treated as a published legal
-          document.
-        </p>
-        <p>Final content will be added after dedicated legal review and research.</p>
-      </StatusPanel>
+      <p className={styles.updated}>Last Updated: September 9, 2026</p>
+      <div className={styles.document}>{children}</div>
     </ContentPage>
   );
 }

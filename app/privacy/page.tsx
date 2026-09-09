@@ -86,13 +86,27 @@ export default function PrivacyPage() {
         </p>
       </ContentSection>
 
-      {/* TODO: Update this section with the selected analytics provider before public launch. */}
       <ContentSection title="6. Analytics">
         <p>
-          AnyHVAC has not selected or installed an analytics provider. Analytics may be
-          used in the future to understand how the site and tools are used, diagnose
-          performance, and guide improvements. This Privacy Policy will identify material
-          analytics providers when analytics is implemented.
+          AnyHVAC uses Cloudflare Web Analytics to understand general website usage and
+          performance. It helps us understand information such as page views, visits,
+          referral sources, general device and browser information, and website
+          performance metrics, including Core Web Vitals.
+        </p>
+        <p>
+          Cloudflare describes Web Analytics as a privacy-first analytics service that
+          does not use cookies for visitor analytics and is not designed to track
+          individual users across websites. You can learn more in the{" "}
+          <a href="https://developers.cloudflare.com/web-analytics/about/">
+            Cloudflare Web Analytics documentation
+          </a>.
+        </p>
+        <p>
+          Analytics information is used to understand how AnyHVAC is used, identify
+          performance issues, improve tools and content, and help guide future
+          development. AnyHVAC does not use Cloudflare Web Analytics to alter HVAC
+          calculation results or engineering outcomes based on a visitor&apos;s identity or
+          behavior.
         </p>
       </ContentSection>
 

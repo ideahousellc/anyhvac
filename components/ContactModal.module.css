@@ -1,5 +1,11 @@
 .dialog {
   width: min(100%, 680px);
+  transition: width 220ms ease;
+}
+
+.dialogSuccess {
+  width: min(100%, 440px);
+  overflow: hidden;
 }
 
 .form {
@@ -57,8 +63,7 @@
 }
 
 .helper,
-.deliveryNotice,
-.success {
+.deliveryNotice {
   margin: -6px 0 0;
   padding: 12px 14px;
   border-radius: 11px;
@@ -74,8 +79,59 @@
 }
 
 .success {
-  background: color-mix(in srgb, #2c9b69 11%, var(--surface));
-  color: color-mix(in srgb, #18764d 82%, var(--foreground));
+  position: relative;
+  display: grid;
+  min-height: 270px;
+  overflow: hidden;
+  place-items: center;
+  text-align: center;
+}
+
+.watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(78%, 300px);
+  height: auto;
+  opacity: 0.045;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  user-select: none;
+}
+
+.successContent {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+}
+
+.successIcon {
+  display: grid;
+  width: 58px;
+  height: 58px;
+  margin-bottom: 20px;
+  place-items: center;
+  border-radius: 50%;
+  background: color-mix(in srgb, #2c9b69 13%, var(--surface));
+  color: #21895c;
+  font-size: 29px;
+  font-weight: 760;
+  line-height: 1;
+  box-shadow:
+    6px 7px 15px var(--shadow-dark),
+    -5px -5px 13px var(--shadow-light);
+}
+
+.success h2 {
+  max-width: none;
+  font-size: clamp(25px, 5vw, 31px);
+}
+
+.success h2 + p {
+  margin-top: 13px;
+  font-size: 14px;
+  line-height: 1.65;
 }
 
 .honeypot {
@@ -105,7 +161,15 @@
 }
 
 :global(.dark) .success {
-  color: #9fe2c1;
+  color: var(--foreground);
+}
+
+:global(.dark) .watermark {
+  opacity: 0.06;
+}
+
+:global(.dark) .successIcon {
+  color: #86d6ad;
 }
 
 .submit:disabled {
@@ -122,5 +186,15 @@
 @media (max-width: 560px) {
   .fieldRow {
     grid-template-columns: 1fr;
+  }
+
+  .success {
+    min-height: 245px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dialog {
+    transition: none;
   }
 }

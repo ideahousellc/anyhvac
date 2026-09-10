@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 import { Modal } from "@/components/Modal";
@@ -38,8 +39,21 @@ export function ContactModal({
   const errors = validateContactSubmission(form);
 
   useEffect(() => {
-    startedAt.current = Date.now();
-  }, []);
+    if (open && startedAt.current === null) startedAt.current = Date.now();
+  }, [open]);
+
+  function resetContactState() {
+    setForm(INITIAL_FORM);
+    setWebsite("");
+    setMessageTouched(false);
+    setSubmissionState("idle");
+    startedAt.current = null;
+  }
+
+  function handleClose() {
+    resetContactState();
+    onClose();
+  }
 
   function update(field: keyof typeof form, value: string) {
     setForm((current) => ({ ...current, [field]: value }));
@@ -66,8 +80,10 @@ export function ContactModal({
         return;
       }
 
-      setSubmissionState("success");
       setForm(INITIAL_FORM);
+      setWebsite("");
+      setMessageTouched(false);
+      setSubmissionState("success");
       startedAt.current = Date.now();
     } catch {
       setSubmissionState("error");
@@ -82,17 +98,38 @@ export function ContactModal({
   return (
     <Modal
       open={open}
-      onClose={onClose}
+      onClose={handleClose}
       titleId="contact-modal-title"
       descriptionId="contact-modal-description"
-      className={styles.dialog}
+      className={`${styles.dialog} ${submissionState === "success" ? styles.dialogSuccess : ""}`}
     >
-      <h2 id="contact-modal-title">Contact AnyHVAC</h2>
-      <p id="contact-modal-description">
-        Share a calculation issue, tool idea, or general feedback.
-      </p>
+      {submissionState === "success" ? (
+        <div className={styles.success} role="status" aria-live="polite">
+          <Image
+            className={styles.watermark}
+            src="/Compact AH logo.png"
+            alt=""
+            width={300}
+            height={300}
+            aria-hidden="true"
+          />
+          <div className={styles.successContent}>
+            <span className={styles.successIcon} aria-hidden="true">✓</span>
+            <h2 id="contact-modal-title">Message sent!</h2>
+            <p id="contact-modal-description">
+              Thanks for contacting AnyHVAC.<br />
+              We’ll get back to you as soon as we can.
+            </p>
+          </div>
+        </div>
+      ) : (
+        <>
+          <h2 id="contact-modal-title">Contact AnyHVAC</h2>
+          <p id="contact-modal-description">
+            Share a calculation issue, tool idea, or general feedback.
+          </p>
 
-      <form className={styles.form} onSubmit={handleSubmit}>
+          <form className={styles.form} onSubmit={handleSubmit}>
         <label>
           <span>Reason</span>
           <select
@@ -169,11 +206,6 @@ export function ContactModal({
           />
         </label>
 
-        {submissionState === "success" ? (
-          <div className={styles.success} role="status">
-            Message sent. Thanks for contacting AnyHVAC.
-          </div>
-        ) : null}
         {submissionState === "error" ? (
           <div className={styles.deliveryNotice} role="alert">
             We couldn&apos;t send your message. Please try again or email{" "}
@@ -188,7 +220,9 @@ export function ContactModal({
         >
           {submissionState === "submitting" ? "Sending…" : "Send Message"}
         </button>
-      </form>
+          </form>
+        </>
+      )}
     </Modal>
   );
 }

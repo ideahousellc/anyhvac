@@ -225,6 +225,8 @@ export default function TermsPage() {
       <ContentSection title="20. Contact">
         <p>
           Questions about these Terms may be submitted through the AnyHVAC <Link href="/contact">Contact page</Link>.
+          You may also email{" "}
+          <a href="mailto:contact@anyhvac.net">contact@anyhvac.net</a>.
         </p>
       </ContentSection>
     </LegalPageShell>

@@ -47,10 +47,12 @@ export default function ContactPage() {
 
       <ContentSection title="Contact AnyHVAC">
         <StatusPanel>
-          <h3>Contact options are being finalized.</h3>
+          <h3>Send us a message.</h3>
           <p>
-            You can preview the contact form now. Online delivery will be
-            enabled when the launch submission service is connected.
+            Use the form below, email general inquiries to{" "}
+            <a href="mailto:contact@anyhvac.net">contact@anyhvac.net</a>, or
+            send calculator and technical problems to{" "}
+            <a href="mailto:support@anyhvac.net">support@anyhvac.net</a>.
           </p>
           <ContactTrigger className={styles.contactButton}>
             Contact AnyHVAC
@@ -59,7 +61,11 @@ export default function ContactPage() {
       </ContentSection>
 
       <ContentSection title="Reporting a Calculation Issue">
-        <p>To help us verify a technical issue, please include:</p>
+        <p>
+          Use the contact form or email{" "}
+          <a href="mailto:support@anyhvac.net">support@anyhvac.net</a>. To help
+          us verify a technical issue, please include:
+        </p>
         <ul>
           <li>The tool name</li>
           <li>The inputs used</li>

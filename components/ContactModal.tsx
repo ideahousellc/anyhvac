@@ -1,10 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { Modal } from "@/components/Modal";
 import {
+  CONTACT_LIMITS,
   CONTACT_REASONS,
+  submitContactSubmission,
   type ContactReason,
   validateContactSubmission,
 } from "@/lib/contact";
@@ -18,6 +20,8 @@ const INITIAL_FORM = {
   message: "",
 };
 
+type SubmissionState = "idle" | "submitting" | "success" | "error";
+
 export function ContactModal({
   open,
   onClose,
@@ -26,12 +30,54 @@ export function ContactModal({
   onClose: () => void;
 }) {
   const [form, setForm] = useState(INITIAL_FORM);
+  const [website, setWebsite] = useState("");
   const [messageTouched, setMessageTouched] = useState(false);
+  const [submissionState, setSubmissionState] =
+    useState<SubmissionState>("idle");
+  const startedAt = useRef<number | null>(null);
   const errors = validateContactSubmission(form);
+
+  useEffect(() => {
+    startedAt.current = Date.now();
+  }, []);
 
   function update(field: keyof typeof form, value: string) {
     setForm((current) => ({ ...current, [field]: value }));
+    if (submissionState !== "idle") setSubmissionState("idle");
   }
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setMessageTouched(true);
+
+    if (Object.keys(errors).length > 0 || submissionState === "submitting") {
+      return;
+    }
+
+    setSubmissionState("submitting");
+    try {
+      const result = await submitContactSubmission(form, {
+        website,
+        startedAt: startedAt.current ?? 0,
+      });
+
+      if (!result.delivered) {
+        setSubmissionState("error");
+        return;
+      }
+
+      setSubmissionState("success");
+      setForm(INITIAL_FORM);
+      startedAt.current = Date.now();
+    } catch {
+      setSubmissionState("error");
+    }
+  }
+
+  const fallbackEmail =
+    form.reason === "Report a Calculation Issue"
+      ? "support@anyhvac.net"
+      : "contact@anyhvac.net";
 
   return (
     <Modal
@@ -46,7 +92,7 @@ export function ContactModal({
         Share a calculation issue, tool idea, or general feedback.
       </p>
 
-      <form className={styles.form} onSubmit={(event) => event.preventDefault()}>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <label>
           <span>Reason</span>
           <select
@@ -74,6 +120,7 @@ export function ContactModal({
             <input
               type="text"
               autoComplete="name"
+              maxLength={CONTACT_LIMITS.name}
               value={form.name}
               onChange={(event) => update("name", event.target.value)}
             />
@@ -83,6 +130,7 @@ export function ContactModal({
             <input
               type="email"
               autoComplete="email"
+              maxLength={CONTACT_LIMITS.email}
               value={form.email}
               aria-invalid={Boolean(errors.email)}
               aria-describedby={errors.email ? "contact-email-error" : undefined}
@@ -97,6 +145,7 @@ export function ContactModal({
           <textarea
             required
             rows={6}
+            maxLength={CONTACT_LIMITS.message}
             value={form.message}
             aria-invalid={messageTouched && Boolean(errors.message)}
             aria-describedby={messageTouched && errors.message ? "contact-message-error" : undefined}
@@ -108,12 +157,36 @@ export function ContactModal({
           ) : null}
         </label>
 
-        <div className={styles.deliveryNotice} role="note">
-          Online delivery is being finalized. Submission will be enabled at
-          launch; nothing entered here is currently sent or stored.
-        </div>
-        <button className={styles.submit} type="submit" disabled>
-          Submit — Coming at Launch
+        <label className={styles.honeypot} aria-hidden="true">
+          <span>Website</span>
+          <input
+            type="text"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            value={website}
+            onChange={(event) => setWebsite(event.target.value)}
+          />
+        </label>
+
+        {submissionState === "success" ? (
+          <div className={styles.success} role="status">
+            Message sent. Thanks for contacting AnyHVAC.
+          </div>
+        ) : null}
+        {submissionState === "error" ? (
+          <div className={styles.deliveryNotice} role="alert">
+            We couldn&apos;t send your message. Please try again or email{" "}
+            <a href={`mailto:${fallbackEmail}`}>{fallbackEmail}</a> directly.
+          </div>
+        ) : null}
+
+        <button
+          className={styles.submit}
+          type="submit"
+          disabled={submissionState === "submitting"}
+        >
+          {submissionState === "submitting" ? "Sending…" : "Send Message"}
         </button>
       </form>
     </Modal>

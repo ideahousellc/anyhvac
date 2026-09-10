@@ -27,10 +27,8 @@ export default function PrivacyPage() {
         <p>
           Contact and feedback features may ask for an optional name, optional email
           address, reason for contact, comments, questions, suggestions, issues, and
-          technical information or screenshots you voluntarily provide. The final
-          contact-delivery backend is not yet connected, so the current contact interface
-          does not deliver a submission to an AnyHVAC provider or database. This Policy
-          will be updated as appropriate when contact delivery is enabled.
+          technical information you voluntarily provide. AnyHVAC uses Resend to deliver
+          contact-form submissions by email.
         </p>
       </ContentSection>
 
@@ -116,7 +114,7 @@ export default function PrivacyPage() {
           <li>Operate and provide the website, calculators, and related tools</li>
           <li>Manage and deliver newsletters</li>
           <li>Process voluntary financial support</li>
-          <li>Receive and respond to feedback when contact delivery is available</li>
+          <li>Receive and respond to feedback and support requests</li>
           <li>Investigate reported calculator issues</li>
           <li>Understand usage and improve tools, content, and user experience</li>
           <li>Maintain security and perform diagnostics</li>
@@ -133,8 +131,9 @@ export default function PrivacyPage() {
           AnyHVAC does not sell personal information simply because someone uses an HVAC
           calculator. Information may be shared with service providers when reasonably
           necessary to operate the site and requested features. Current relevant providers
-          include beehiiv for newsletters and Stripe for payments. Providers process
-          information under their own terms, privacy practices, and legal obligations.
+          include beehiiv for newsletters, Stripe for payments, and Resend for contact
+          email delivery. Providers process information under their own terms, privacy
+          practices, and legal obligations.
         </p>
         <p>
           Information may also be disclosed when required by law, to protect rights or
@@ -184,7 +183,8 @@ export default function PrivacyPage() {
         </ul>
         <p>
           Requests concerning applicable privacy rights may be submitted through the
-          AnyHVAC <Link href="/contact">Contact page</Link>.
+          AnyHVAC <Link href="/contact">Contact page</Link> or emailed to{" "}
+          <a href="mailto:contact@anyhvac.net">contact@anyhvac.net</a>.
         </p>
       </ContentSection>
 
@@ -236,6 +236,8 @@ export default function PrivacyPage() {
       <ContentSection title="18. Contact Regarding Privacy">
         <p>
           Privacy questions or requests may be submitted through the AnyHVAC <Link href="/contact">Contact page</Link>.
+          You may also email{" "}
+          <a href="mailto:contact@anyhvac.net">contact@anyhvac.net</a>.
         </p>
       </ContentSection>
     </LegalPageShell>

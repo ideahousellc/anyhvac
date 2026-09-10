@@ -57,7 +57,8 @@
 }
 
 .helper,
-.deliveryNotice {
+.deliveryNotice,
+.success {
   margin: -6px 0 0;
   padding: 12px 14px;
   border-radius: 11px;
@@ -65,6 +66,26 @@
   color: var(--muted);
   font-size: 12px;
   line-height: 1.55;
+}
+
+.deliveryNotice a {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.success {
+  background: color-mix(in srgb, #2c9b69 11%, var(--surface));
+  color: color-mix(in srgb, #18764d 82%, var(--foreground));
+}
+
+.honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 .error {
@@ -76,10 +97,15 @@
   min-height: 45px;
   border: 0;
   border-radius: 13px;
-  background: var(--soft-gray);
-  color: var(--muted);
+  cursor: pointer;
+  background: var(--primary);
+  color: #fff;
   font-size: 13px;
   font-weight: 700;
+}
+
+:global(.dark) .success {
+  color: #9fe2c1;
 }
 
 .submit:disabled {

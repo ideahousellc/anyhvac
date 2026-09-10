@@ -20,7 +20,7 @@ export function LegalPageShell({
       title={title}
       intro={intro}
     >
-      <p className={styles.updated}>Last Updated: September 9, 2026</p>
+      <p className={styles.updated}>Last Updated: September 10, 2026</p>
       <div className={styles.document}>{children}</div>
     </ContentPage>
   );

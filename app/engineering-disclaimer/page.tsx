@@ -82,7 +82,8 @@ export default function EngineeringDisclaimerPage() {
           Users should independently verify important results using appropriate
           engineering methods, authoritative references, manufacturer documentation,
           or qualified professional review. If you believe a calculation is incorrect,
-          please report the issue through the AnyHVAC <Link href="/contact">Contact page</Link>.
+          please report the issue through the AnyHVAC <Link href="/contact">Contact page</Link>{" "}
+          or email <a href="mailto:support@anyhvac.net">support@anyhvac.net</a>.
         </p>
       </ContentSection>
 

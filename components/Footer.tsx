@@ -95,8 +95,7 @@ export function Footer() {
         <NewsletterCTA compact />
 
         <div className={styles.bottom}>
-          <p>&copy; {new Date().getFullYear()} AnyHVAC.</p>
-          <p>A project by Idea House.</p>
+          <p>&copy; 2026 AnyHVAC. A project by Idea House.</p>
         </div>
       </div>
     </footer>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Header } from "@/components/Header";
 import { AirDistributionTools } from "@/components/air-distribution/AirDistributionTools";
 import { EngineeringNotice } from "@/components/EngineeringNotice";
+import { createPageMetadata } from "@/lib/seo";
 import {
   UnitsAndTerms,
   type UnitTerm,
@@ -11,11 +12,12 @@ import {
 
 import styles from "./page.module.css";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Air Distribution Tools | AnyHVAC",
   description:
     "Practical calculators for airflow, velocity, air changes, friction rate, pressure, and duct-system design.",
-};
+  path: "/tools/air-distribution",
+});
 
 const AIR_DISTRIBUTION_TERMS: readonly UnitTerm[] = [
   {

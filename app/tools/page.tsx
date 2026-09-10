@@ -3,14 +3,16 @@ import type { Metadata } from "next";
 import { AdPlaceholder } from "@/components/AdPlaceholder";
 import { Header } from "@/components/Header";
 import { ToolsDirectory } from "@/components/ToolsDirectory";
+import { createPageMetadata } from "@/lib/seo";
 
 import styles from "./page.module.css";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "HVAC Calculators & Tools | AnyHVAC",
   description:
     "Free, practical tools for HVAC professionals, engineers, designers, technicians, and students.",
-};
+  path: "/tools",
+});
 
 const benefits = [
   { title: "Free to Use", description: "No account required." },

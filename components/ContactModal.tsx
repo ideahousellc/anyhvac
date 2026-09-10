@@ -143,7 +143,7 @@ export function ContactModal({
         {form.reason === "Report a Calculation Issue" ? (
           <p className={styles.helper}>
             Please include the tool name, inputs used, result received,
-            expected result if known, and a screenshot if useful.
+            and expected result if known.
           </p>
         ) : null}
 

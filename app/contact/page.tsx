@@ -7,14 +7,16 @@ import {
   StatusPanel,
 } from "@/components/ContentPage";
 import { ContactTrigger } from "@/components/ModalTriggers";
+import { createPageMetadata } from "@/lib/seo";
 
 import styles from "./page.module.css";
 
-export const metadata: Metadata = {
-  title: "Contact | AnyHVAC",
+export const metadata: Metadata = createPageMetadata({
+  title: "Contact AnyHVAC",
   description:
     "Contact AnyHVAC to report a calculation issue, suggest a tool, or share general feedback.",
-};
+  path: "/contact",
+});
 
 const contactReasons = [
   {
@@ -71,7 +73,6 @@ export default function ContactPage() {
           <li>The inputs used</li>
           <li>The result received</li>
           <li>The result expected, if known</li>
-          <li>A screenshot, if useful</li>
         </ul>
       </ContentSection>
     </ContentPage>

@@ -8,12 +8,14 @@ import {
 } from "@/components/ContentPage";
 import { NewsletterCTA } from "@/components/NewsletterCTA";
 import { SupportLink } from "@/components/SupportLink";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "About AnyHVAC | AnyHVAC",
+export const metadata: Metadata = createPageMetadata({
+  title: "About AnyHVAC | Free HVAC Tools",
   description:
     "Learn why AnyHVAC is building free, practical, and transparent HVAC tools and resources.",
-};
+  path: "/about",
+});
 
 const principles = [
   {

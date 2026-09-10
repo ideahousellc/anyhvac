@@ -3,12 +3,14 @@ import Link from "next/link";
 
 import { ContentSection } from "@/components/ContentPage";
 import { LegalPageShell } from "@/components/LegalPageShell";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Engineering Disclaimer | AnyHVAC",
   description:
     "Important limitations and user responsibilities for AnyHVAC calculators, technical information, and design-assistance tools.",
-};
+  path: "/engineering-disclaimer",
+});
 
 export default function EngineeringDisclaimerPage() {
   return (

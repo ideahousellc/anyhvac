@@ -4,6 +4,12 @@ import Script from "next/script";
 
 import { Footer } from "@/components/Footer";
 import { ModalProvider } from "@/components/ModalProvider";
+import {
+  createPageMetadata,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_URL,
+} from "@/lib/seo";
 
 import "./globals.css";
 
@@ -18,12 +24,24 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AnyHVAC | Free HVAC Calculators & Tools",
-  description:
-    "Free calculators and practical tools for HVAC professionals and designers.",
+  metadataBase: new URL(SITE_URL),
+  applicationName: SITE_NAME,
+  ...createPageMetadata({
+    title: "AnyHVAC | Free HVAC Calculators & Tools",
+    description: SITE_DESCRIPTION,
+    path: "/",
+  }),
   icons: {
     icon: "/Favicon.png",
   },
+};
+
+const websiteStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: SITE_NAME,
+  url: SITE_URL,
+  description: SITE_DESCRIPTION,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -33,6 +51,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteStructuredData),
+          }}
+        />
         <ModalProvider>
           {children}
           <Footer />

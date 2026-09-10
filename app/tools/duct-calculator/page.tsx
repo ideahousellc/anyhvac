@@ -6,14 +6,16 @@ import { DuctCalculator } from "@/components/duct-calculator/DuctCalculator";
 import { EngineeringNotice } from "@/components/EngineeringNotice";
 import { Header } from "@/components/Header";
 import { ToolPageIntro } from "@/components/ToolPageIntro";
+import { createPageMetadata } from "@/lib/seo";
 
 import styles from "./page.module.css";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "HVAC Duct Calculator | AnyHVAC",
   description:
     "Interactive duct sizing tool for airflow, friction rate, velocity, round duct, and rectangular duct design.",
-};
+  path: "/tools/duct-calculator",
+});
 
 const calculatorOutputs = [
   "Round duct diameter",

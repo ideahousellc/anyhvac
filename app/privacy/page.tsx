@@ -3,12 +3,14 @@ import Link from "next/link";
 
 import { ContentSection } from "@/components/ContentPage";
 import { LegalPageShell } from "@/components/LegalPageShell";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Privacy Policy | AnyHVAC",
   description:
     "How AnyHVAC may collect, use, share, and protect information across its website, calculators, newsletter, contact, and support features.",
-};
+  path: "/privacy",
+});
 
 export default function PrivacyPage() {
   return (

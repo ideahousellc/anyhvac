@@ -3,12 +3,14 @@ import Link from "next/link";
 
 import { ContentSection } from "@/components/ContentPage";
 import { LegalPageShell } from "@/components/LegalPageShell";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Terms of Use | AnyHVAC",
   description:
     "Terms governing access to and use of AnyHVAC calculators, tools, reference materials, content, and related services.",
-};
+  path: "/terms",
+});
 
 export default function TermsPage() {
   return (

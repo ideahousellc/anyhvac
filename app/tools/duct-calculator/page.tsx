@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { AdPlaceholder } from "@/components/AdPlaceholder";
 import { DuctCalculator } from "@/components/duct-calculator/DuctCalculator";
+import { DuctSizingGuide } from "@/components/duct-calculator/DuctSizingGuide";
 import { EngineeringNotice } from "@/components/EngineeringNotice";
 import { Header } from "@/components/Header";
 import { ToolPageIntro } from "@/components/ToolPageIntro";
@@ -89,13 +90,7 @@ export default function DuctCalculatorPage() {
           </ul>
         </div>
 
-        <div className={styles.contentBlock}>
-          <h2>Equal Friction Method</h2>
-          <p>
-            The equal friction method sizes ductwork around a consistent friction
-            rate while maintaining the airflow required by the system.
-          </p>
-        </div>
+        <DuctSizingGuide />
 
         <div className={styles.footerAction}>
           <Link className={styles.backLink} href="/tools">

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import { Modal } from "@/components/Modal";
 import {
@@ -42,18 +42,14 @@ export function ContactModal({
     if (open && startedAt.current === null) startedAt.current = Date.now();
   }, [open]);
 
-  function resetContactState() {
+  const handleClose = useCallback(() => {
     setForm(INITIAL_FORM);
     setWebsite("");
     setMessageTouched(false);
     setSubmissionState("idle");
     startedAt.current = null;
-  }
-
-  function handleClose() {
-    resetContactState();
     onClose();
-  }
+  }, [onClose]);
 
   function update(field: keyof typeof form, value: string) {
     setForm((current) => ({ ...current, [field]: value }));

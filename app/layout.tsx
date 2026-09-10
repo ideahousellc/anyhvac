@@ -21,6 +21,9 @@ export const metadata: Metadata = {
   title: "AnyHVAC | Free HVAC Calculators & Tools",
   description:
     "Free calculators and practical tools for HVAC professionals and designers.",
+  icons: {
+    icon: "/Favicon.png",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

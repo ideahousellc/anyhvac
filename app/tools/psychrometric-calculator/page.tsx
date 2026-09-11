@@ -4,6 +4,7 @@ import Link from "next/link";
 import { EngineeringNotice } from "@/components/EngineeringNotice";
 import { Header } from "@/components/Header";
 import { PsychrometricCalculator } from "@/components/psychrometrics/PsychrometricCalculator";
+import { PsychrometricGuide } from "@/components/psychrometrics/PsychrometricGuide";
 import { createPageMetadata } from "@/lib/seo";
 
 import styles from "./page.module.css";
@@ -54,6 +55,10 @@ export default function PsychrometricCalculatorPage() {
       </section>
 
       <EngineeringNotice />
+
+      <div className={`page-shell ${styles.guideSection}`}>
+        <PsychrometricGuide />
+      </div>
 
       <section className={`page-shell ${styles.guidance}`} aria-labelledby="using-tool">
         <div>

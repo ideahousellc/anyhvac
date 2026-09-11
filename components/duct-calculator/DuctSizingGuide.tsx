@@ -1,17 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { ToolGuide, type ToolGuideSection } from "../ToolGuide";
 
 import styles from "./DuctSizingGuide.module.css";
 
-type GuideSection = {
-  id: string;
-  label: string;
-  title: string;
-  content: React.ReactNode;
-};
-
-const guideSections: readonly GuideSection[] = [
+const guideSections: readonly ToolGuideSection[] = [
   {
     id: "how-to-size",
     label: "How to Size",
@@ -308,101 +301,13 @@ const guideSections: readonly GuideSection[] = [
 ];
 
 export function DuctSizingGuide() {
-  const [selectedSection, setSelectedSection] = useState<string | null>(null);
-  const [panelHeight, setPanelHeight] = useState(0);
-  const contentRefs = useRef(new Map<string, HTMLElement>());
-
-  useEffect(() => {
-    if (!selectedSection) return;
-
-    const content = contentRefs.current.get(selectedSection);
-    if (!content) return;
-
-    const updateHeight = () => setPanelHeight(content.scrollHeight);
-    const observer = new ResizeObserver(updateHeight);
-    observer.observe(content);
-    return () => observer.disconnect();
-  }, [selectedSection]);
-
-  function toggleSection(id: string) {
-    const nextSection = selectedSection === id ? null : id;
-    const nextContent = nextSection
-      ? contentRefs.current.get(nextSection)
-      : null;
-
-    setPanelHeight(nextContent?.scrollHeight ?? 0);
-    setSelectedSection(nextSection);
-  }
-
   return (
-    <section
-      className={styles.guide}
-      aria-labelledby="duct-sizing-guide-title"
-    >
-      <header className={styles.heading}>
-        <h2 id="duct-sizing-guide-title">Duct Sizing Guide</h2>
-        <p>
-          Practical explanations for using the calculator and understanding the
-          results.
-        </p>
-      </header>
-
-      <div className={styles.topicMenu} aria-label="Duct sizing guide topics">
-        {guideSections.map((section) => {
-          const isOpen = selectedSection === section.id;
-
-          return (
-            <button
-              className={`${styles.topicButton} ${isOpen ? styles.active : ""}`}
-              id={`${section.id}-button`}
-              key={section.id}
-              type="button"
-              aria-controls="duct-sizing-guide-panel"
-              aria-expanded={isOpen}
-              onClick={() => toggleSection(section.id)}
-            >
-              <span>{section.label}</span>
-              <span className={styles.indicator} aria-hidden="true" />
-            </button>
-          );
-        })}
-      </div>
-
-      <div
-        className={`${styles.panel} ${selectedSection ? styles.panelOpen : ""}`}
-        id="duct-sizing-guide-panel"
-        role="region"
-        aria-live="polite"
-        aria-labelledby={
-          selectedSection ? `${selectedSection}-button` : undefined
-        }
-        aria-hidden={!selectedSection}
-      >
-        <div className={styles.panelClip}>
-          <div className={styles.panelCard}>
-            <div className={styles.contentStage} style={{ height: panelHeight }}>
-              {guideSections.map((section) => {
-                const isActive = selectedSection === section.id;
-
-                return (
-                  <article
-                    className={`${styles.topicContent} ${isActive ? styles.contentActive : ""}`}
-                    key={section.id}
-                    ref={(node) => {
-                      if (node) contentRefs.current.set(section.id, node);
-                      else contentRefs.current.delete(section.id);
-                    }}
-                    aria-hidden={!isActive}
-                  >
-                    <h3>{section.title}</h3>
-                    <div className={styles.panelContent}>{section.content}</div>
-                  </article>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <ToolGuide
+      id="duct-sizing-guide"
+      title="Duct Sizing Guide"
+      subtitle="Practical explanations for using the calculator and understanding the results."
+      topicsLabel="Duct sizing guide topics"
+      sections={guideSections}
+    />
   );
 }

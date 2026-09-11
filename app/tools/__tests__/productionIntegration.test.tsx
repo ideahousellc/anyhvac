@@ -40,6 +40,7 @@ describe("psychrometric production integration", () => {
   it("renders the production calculator with exactly one H1", () => {
     const markup = render(<PsychrometricCalculatorPage />);
     expect(markup).toContain("Psychrometric Calculator");
+    expect(markup).toContain("Psychrometric Guide");
     expect(h1Count(markup)).toBe(1);
   });
 

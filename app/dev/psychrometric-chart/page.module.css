@@ -1,0 +1,134 @@
+.page {
+  width: calc(100% - 48px);
+  max-width: 1380px;
+  margin-inline: auto;
+  overflow-x: clip;
+  padding: 56px 0 96px;
+}
+
+.intro {
+  max-width: 760px;
+}
+
+.eyebrow,
+.context {
+  margin: 0 0 10px;
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.intro h1 {
+  margin: 0;
+  font-size: clamp(38px, 5vw, 64px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+
+.intro > p:last-child {
+  max-width: 670px;
+  margin: 20px 0 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 16px;
+  margin-top: 34px;
+}
+
+.controls label {
+  display: grid;
+  min-width: 170px;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.controls select,
+.controls input {
+  min-height: 44px;
+  padding: 0 13px;
+  border: 1px solid color-mix(in srgb, var(--muted) 30%, transparent);
+  border-radius: 11px;
+  background: var(--surface-soft);
+  color: var(--foreground);
+  font: inherit;
+}
+
+.controls button {
+  min-height: 44px;
+  cursor: pointer;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 11px;
+  background: var(--primary);
+  color: var(--background);
+  font-weight: 500;
+}
+
+.chartSection,
+.error {
+  margin-top: 42px;
+}
+
+.chartSection {
+  min-width: 0;
+}
+
+.chartHeading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.chartHeading h2,
+.error h2 {
+  margin: 0;
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.pressureSummary {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.error {
+  color: var(--foreground);
+}
+
+.error ul {
+  padding-left: 22px;
+}
+
+@media (max-width: 700px) {
+  .page {
+    width: calc(100% - 24px);
+    max-width: 620px;
+    padding-top: 34px;
+  }
+
+  .controls,
+  .chartHeading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .controls label,
+  .controls button {
+    width: 100%;
+  }
+}

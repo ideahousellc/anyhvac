@@ -5,9 +5,12 @@ import { useMemo, useState } from "react";
 import type {
   MoistureMode,
   PressureMode,
+  PsychrometricState,
   PsychrometricValidationField,
   UnitSystem,
 } from "../../lib/psychrometrics";
+import type { PsychrometricChartPoint } from "../../lib/psychrometrics/chart";
+import { solvePsychrometricStateFromChartPoint } from "./chartInteractionSolver";
 import { PsychrometricChart } from "./PsychrometricChart";
 import { PsychrometricResults } from "./PsychrometricResults";
 import {
@@ -18,6 +21,7 @@ import {
   switchMoistureMode,
   switchPressureMode,
   switchUnitSystem,
+  synchronizeFormWithState,
   type CalculatorFormState,
 } from "./calculatorState";
 
@@ -39,13 +43,17 @@ export function PsychrometricCalculator({
   initialForm?: CalculatorFormState;
 }) {
   const [form, setForm] = useState<CalculatorFormState>(initialForm);
+  const [chartSelectedState, setChartSelectedState] =
+    useState<PsychrometricState>();
+  const [interactionMessage, setInteractionMessage] = useState<string>();
   const calculation = useMemo(() => calculateSelectedState(form), [form]);
   const { unitSystem, pressureMode, elevation, pressure } = form;
   const chartGeometry = useMemo(
     () => generateChartForPressure(unitSystem, pressureMode, elevation, pressure),
     [unitSystem, pressureMode, elevation, pressure],
   );
-  const state = calculation.ok ? calculation.value : undefined;
+  const calculatedState = calculation.ok ? calculation.value : undefined;
+  const state = chartSelectedState ?? calculatedState;
   const fieldErrors = calculation.ok
     ? new Map<PsychrometricValidationField, string>()
     : new Map(calculation.errors.map((error) => [error.field, error.message]));
@@ -68,7 +76,22 @@ export function PsychrometricCalculator({
     field: K,
     value: CalculatorFormState[K],
   ) {
+    setChartSelectedState(undefined);
+    setInteractionMessage(undefined);
     setForm((current) => ({ ...current, [field]: value }));
+  }
+
+  function handleChartSelection(point: PsychrometricChartPoint) {
+    if (!chartGeometry.ok) return;
+    const result = solvePsychrometricStateFromChartPoint(point, chartGeometry.value);
+    if (!result.ok) {
+      setInteractionMessage(result.message);
+      return;
+    }
+
+    setChartSelectedState(result.state);
+    setForm((current) => synchronizeFormWithState(current, result.state));
+    setInteractionMessage(undefined);
   }
 
   return (
@@ -88,15 +111,17 @@ export function PsychrometricCalculator({
               <span>Unit system</span>
               <select
                 value={form.unitSystem}
-                onChange={(event) =>
+                onChange={(event) => {
+                  setChartSelectedState(undefined);
+                  setInteractionMessage(undefined);
                   setForm((current) =>
                     switchUnitSystem(
                       current,
                       state,
                       event.target.value as UnitSystem,
                     ),
-                  )
-                }
+                  );
+                }}
               >
                 <option value="IP">IP</option>
                 <option value="SI">SI</option>
@@ -107,15 +132,16 @@ export function PsychrometricCalculator({
               <span>Moisture input</span>
               <select
                 value={form.moistureMode}
-                onChange={(event) =>
+                onChange={(event) => {
+                  setInteractionMessage(undefined);
                   setForm((current) =>
                     switchMoistureMode(
                       current,
                       state,
                       event.target.value as MoistureMode,
                     ),
-                  )
-                }
+                  );
+                }}
               >
                 <option value="relativeHumidity">Relative Humidity</option>
                 <option value="wetBulb">Wet Bulb</option>
@@ -171,15 +197,17 @@ export function PsychrometricCalculator({
               <span>Pressure input</span>
               <select
                 value={form.pressureMode}
-                onChange={(event) =>
+                onChange={(event) => {
+                  setChartSelectedState(undefined);
+                  setInteractionMessage(undefined);
                   setForm((current) =>
                     switchPressureMode(
                       current,
                       state,
                       event.target.value as PressureMode,
                     ),
-                  )
-                }
+                  );
+                }}
               >
                 <option value="elevation">Elevation</option>
                 <option value="manual">Manual Pressure</option>
@@ -244,11 +272,19 @@ export function PsychrometricCalculator({
               <p>Interactive chart</p>
               <h2 id="chart-heading">{`${form.unitSystem} psychrometric chart`}</h2>
             </div>
-            {state && !stateInsideChart ? (
+            {interactionMessage ? (
+              <p className={styles.chartNotice} role="status">
+                {interactionMessage}
+              </p>
+            ) : state && !stateInsideChart ? (
               <p className={styles.chartNotice} role="status">
                 The calculated state is outside the current chart range and is not plotted.
               </p>
-            ) : null}
+            ) : (
+              <p className={styles.interactionHint}>
+                Click a valid point or drag the state marker. Numeric inputs remain available.
+              </p>
+            )}
           </div>
           <PsychrometricChart
             geometry={chartGeometry.value}
@@ -263,6 +299,7 @@ export function PsychrometricCalculator({
                   }
                 : undefined
             }
+            onSelectPoint={handleChartSelection}
           />
         </section>
       ) : (

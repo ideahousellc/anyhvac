@@ -1,6 +1,11 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type PointerEvent as ReactPointerEvent,
+} from "react";
 
 import {
   humidityRatioToGrainsPerPound,
@@ -11,11 +16,15 @@ import type {
   PsychrometricChartGeometry,
   PsychrometricChartPoint,
 } from "../../lib/psychrometrics/chart";
+import { interactionPointsAreEquivalent } from "./chartInteractionSolver";
+import { ChartPointerDragSession } from "./chartPointerDrag";
 
 import styles from "./PsychrometricChart.module.css";
 import {
   physicalToSvgPoint,
   pointsToSvgPath,
+  clientToSvgPoint,
+  svgToPhysicalPoint,
   type SvgPlotBox,
 } from "./svgCoordinates";
 
@@ -40,6 +49,7 @@ type PsychrometricChartProps = {
   idPrefix?: string;
   className?: string;
   selectedState?: ChartSelectedState;
+  onSelectPoint?: (point: PsychrometricChartPoint) => void;
 };
 
 type CurveLabelProps = {
@@ -117,8 +127,16 @@ export function PsychrometricChart({
   idPrefix = "psychrometric-chart",
   className,
   selectedState,
+  onSelectPoint,
 }: PsychrometricChartProps) {
   const viewportRef = useRef<HTMLDivElement>(null);
+  const centeredContextRef = useRef<string | undefined>(undefined);
+  const dragSessionRef = useRef(new ChartPointerDragSession());
+  const animationFrameRef = useRef<number | undefined>(undefined);
+  const lastDispatchedPointRef = useRef<PsychrometricChartPoint | undefined>(
+    undefined,
+  );
+  const [isDragging, setIsDragging] = useState(false);
   const titleId = `${idPrefix}-title`;
   const descriptionId = `${idPrefix}-description`;
   const clipId = `${idPrefix}-plot-clip`;
@@ -140,16 +158,112 @@ export function PsychrometricChart({
     ? physicalToSvgPoint(selectedState, geometry, PLOT)
     : undefined;
   const markerX = markerPoint?.x;
+  const centeringContext = `${idPrefix}:${geometry.unitSystem}:${geometry.atmosphericPressure}`;
 
   useEffect(() => {
     const viewport = viewportRef.current;
-    if (viewport === null || markerX === undefined || viewport.scrollWidth <= viewport.clientWidth) {
+    if (
+      viewport === null ||
+      markerX === undefined ||
+      viewport.scrollWidth <= viewport.clientWidth ||
+      centeredContextRef.current === centeringContext
+    ) {
       return;
     }
 
     const markerPosition = (markerX / VIEWBOX_WIDTH) * viewport.scrollWidth;
     viewport.scrollLeft = Math.max(0, markerPosition - viewport.clientWidth / 2);
-  }, [markerX]);
+    centeredContextRef.current = centeringContext;
+  }, [centeringContext, markerX]);
+
+  useEffect(
+    () => () => {
+      if (animationFrameRef.current !== undefined) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+    },
+    [],
+  );
+
+  function physicalPointFromPointer(
+    event: ReactPointerEvent<SVGElement>,
+  ): PsychrometricChartPoint | undefined {
+    const svg = event.currentTarget.ownerSVGElement;
+    if (svg === null) return undefined;
+    const svgPoint = clientToSvgPoint(
+      { x: event.clientX, y: event.clientY },
+      svg.getBoundingClientRect(),
+      { width: VIEWBOX_WIDTH, height: VIEWBOX_HEIGHT },
+    );
+    return svgToPhysicalPoint(svgPoint, geometry, PLOT);
+  }
+
+  function handlePlotClick(event: ReactPointerEvent<SVGRectElement>) {
+    const point = physicalPointFromPointer(event);
+    if (
+      point &&
+      !interactionPointsAreEquivalent(lastDispatchedPointRef.current, point)
+    ) {
+      lastDispatchedPointRef.current = point;
+      onSelectPoint?.(point);
+    }
+  }
+
+  function flushPendingDrag() {
+    animationFrameRef.current = undefined;
+    const point = dragSessionRef.current.takePending();
+    if (
+      point &&
+      !interactionPointsAreEquivalent(lastDispatchedPointRef.current, point)
+    ) {
+      lastDispatchedPointRef.current = point;
+      onSelectPoint?.(point);
+    }
+  }
+
+  function handleMarkerPointerDown(event: ReactPointerEvent<SVGGElement>) {
+    if (!onSelectPoint) return;
+    event.stopPropagation();
+    event.preventDefault();
+    dragSessionRef.current.begin(event.pointerId);
+    event.currentTarget.setPointerCapture(event.pointerId);
+    setIsDragging(true);
+  }
+
+  function handleMarkerPointerMove(event: ReactPointerEvent<SVGGElement>) {
+    if (!dragSessionRef.current.isActive(event.pointerId)) return;
+    const point = physicalPointFromPointer(event);
+    if (!point) return;
+    dragSessionRef.current.queue(event.pointerId, point);
+    if (animationFrameRef.current === undefined) {
+      animationFrameRef.current = requestAnimationFrame(flushPendingDrag);
+    }
+  }
+
+  function finishMarkerDrag(event: ReactPointerEvent<SVGGElement>) {
+    if (!dragSessionRef.current.isActive(event.pointerId)) return;
+    event.stopPropagation();
+    const releasePoint = physicalPointFromPointer(event);
+    if (releasePoint) {
+      dragSessionRef.current.queue(event.pointerId, releasePoint);
+    }
+    if (animationFrameRef.current !== undefined) {
+      cancelAnimationFrame(animationFrameRef.current);
+      animationFrameRef.current = undefined;
+    }
+    const finalPoint = dragSessionRef.current.end(event.pointerId);
+    if (
+      finalPoint &&
+      !interactionPointsAreEquivalent(lastDispatchedPointRef.current, finalPoint)
+    ) {
+      lastDispatchedPointRef.current = finalPoint;
+      onSelectPoint?.(finalPoint);
+    }
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+    setIsDragging(false);
+  }
 
   return (
     <figure
@@ -318,9 +432,27 @@ export function PsychrometricChart({
                 ))}
             </g>
 
+            {onSelectPoint ? (
+              <rect
+                className={styles.interactionSurface}
+                data-chart-interaction-surface="true"
+                x={PLOT.left}
+                y={PLOT.top}
+                width={PLOT.width}
+                height={PLOT.height}
+                onClick={handlePlotClick}
+              />
+            ) : null}
+
             {markerPoint && selectedState ? (
               <g
+                className={
+                  onSelectPoint
+                    ? `${styles.stateInteraction}${isDragging ? ` ${styles.stateDragging}` : ""}`
+                    : undefined
+                }
                 data-selected-state="true"
+                data-dragging={isDragging || undefined}
                 data-svg-x={markerPoint.x}
                 data-svg-y={markerPoint.y}
                 role="img"
@@ -328,6 +460,10 @@ export function PsychrometricChart({
                   selectedState.accessibleLabel ??
                   `Selected state at dry bulb ${selectedState.dryBulb} and humidity ratio ${selectedState.humidityRatio}`
                 }
+                onPointerDown={onSelectPoint ? handleMarkerPointerDown : undefined}
+                onPointerMove={onSelectPoint ? handleMarkerPointerMove : undefined}
+                onPointerUp={onSelectPoint ? finishMarkerDrag : undefined}
+                onPointerCancel={onSelectPoint ? finishMarkerDrag : undefined}
               >
                 <title>
                   {selectedState.accessibleLabel ?? "Selected psychrometric state"}

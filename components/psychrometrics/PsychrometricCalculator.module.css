@@ -86,6 +86,15 @@
   line-height: 1.45;
 }
 
+.interactionHint {
+  max-width: 430px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+  text-align: right;
+}
+
 .errorSummary {
   margin-top: 18px;
   padding: 8px 0 8px 12px;
@@ -175,5 +184,9 @@
   .chartHeading {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .interactionHint {
+    text-align: left;
   }
 }

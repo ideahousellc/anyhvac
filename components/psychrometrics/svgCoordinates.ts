@@ -1,4 +1,5 @@
 import {
+  normalizedToPhysical,
   physicalToNormalized,
   type NormalizedChartPoint,
   type PsychrometricChartGeometry,
@@ -15,6 +16,13 @@ export type SvgPlotBox = {
 export type SvgPoint = {
   x: number;
   y: number;
+};
+
+export type ClientRect = {
+  left: number;
+  top: number;
+  width: number;
+  height: number;
 };
 
 export function normalizedToSvgPoint(
@@ -36,6 +44,34 @@ export function physicalToSvgPoint(
   plot: SvgPlotBox,
 ): SvgPoint {
   return normalizedToSvgPoint(physicalToNormalized(point, geometry), plot);
+}
+
+export function svgToPhysicalPoint(
+  point: SvgPoint,
+  geometry: Pick<
+    PsychrometricChartGeometry,
+    "dryBulbDomain" | "humidityRatioDomain"
+  >,
+  plot: SvgPlotBox,
+): PsychrometricChartPoint {
+  return normalizedToPhysical(
+    {
+      x: (point.x - plot.left) / plot.width,
+      y: 1 - (point.y - plot.top) / plot.height,
+    },
+    geometry,
+  );
+}
+
+export function clientToSvgPoint(
+  point: SvgPoint,
+  bounds: ClientRect,
+  viewBox: { width: number; height: number },
+): SvgPoint {
+  return {
+    x: ((point.x - bounds.left) / bounds.width) * viewBox.width,
+    y: ((point.y - bounds.top) / bounds.height) * viewBox.height,
+  };
 }
 
 function formatSvgNumber(value: number): string {

@@ -126,6 +126,17 @@ function temperatureForMode(
   return state.dewPoint;
 }
 
+export function synchronizeFormWithState(
+  form: CalculatorFormState,
+  state: PsychrometricState,
+): CalculatorFormState {
+  return {
+    ...form,
+    dryBulb: formatInput(state.dryBulb),
+    moistureValue: formatInput(temperatureForMode(state, form.moistureMode)),
+  };
+}
+
 export function switchMoistureMode(
   form: CalculatorFormState,
   state: PsychrometricState | undefined,

@@ -32,8 +32,15 @@
 .axisLine,
 .tick {
   fill: none;
+  pointer-events: none;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+.interactionSurface {
+  cursor: crosshair;
+  fill: transparent;
+  touch-action: auto;
 }
 
 .gridLine {
@@ -99,6 +106,16 @@
   fill: var(--primary);
   stroke: var(--surface-soft);
   stroke-width: 2;
+}
+
+.stateInteraction {
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+
+.stateDragging {
+  cursor: grabbing;
 }
 
 .tickLabel,

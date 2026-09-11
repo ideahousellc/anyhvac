@@ -2,10 +2,12 @@
 
 import {
   useEffect,
+  useLayoutEffect,
   useRef,
   useState,
   type PointerEvent as ReactPointerEvent,
 } from "react";
+import { gsap } from "gsap";
 
 import {
   humidityRatioToGrainsPerPound,
@@ -18,6 +20,12 @@ import type {
 } from "../../lib/psychrometrics/chart";
 import { interactionPointsAreEquivalent } from "./chartInteractionSolver";
 import { ChartPointerDragSession } from "./chartPointerDrag";
+import {
+  chartGeometryMotionKey,
+  createMarkerMotionPlan,
+  MARKER_EMPHASIS_DURATION_SECONDS,
+  MARKER_EMPHASIS_SCALE,
+} from "./chartMotion";
 
 import styles from "./PsychrometricChart.module.css";
 import {
@@ -130,6 +138,16 @@ export function PsychrometricChart({
   onSelectPoint,
 }: PsychrometricChartProps) {
   const viewportRef = useRef<HTMLDivElement>(null);
+  const markerPresentationRef = useRef<SVGGElement>(null);
+  const markerHaloRef = useRef<SVGCircleElement>(null);
+  const motionContextRef = useRef<gsap.Context | undefined>(undefined);
+  const previousMarkerPointRef = useRef<{ x: number; y: number } | undefined>(
+    undefined,
+  );
+  const previousGeometryMotionKeyRef = useRef<string | undefined>(undefined);
+  const directManipulationPointRef = useRef<
+    PsychrometricChartPoint | undefined
+  >(undefined);
   const centeredContextRef = useRef<string | undefined>(undefined);
   const dragSessionRef = useRef(new ChartPointerDragSession());
   const animationFrameRef = useRef<number | undefined>(undefined);
@@ -158,7 +176,124 @@ export function PsychrometricChart({
     ? physicalToSvgPoint(selectedState, geometry, PLOT)
     : undefined;
   const markerX = markerPoint?.x;
+  const markerY = markerPoint?.y;
+  const selectedDryBulb = selectedState?.dryBulb;
+  const selectedHumidityRatio = selectedState?.humidityRatio;
   const centeringContext = `${idPrefix}:${geometry.unitSystem}:${geometry.atmosphericPressure}`;
+  const geometryMotionKey = chartGeometryMotionKey(geometry);
+
+  useLayoutEffect(() => {
+    const marker = markerPresentationRef.current;
+    if (!marker) return;
+    const context = gsap.context(() => undefined, marker);
+    motionContextRef.current = context;
+    return () => {
+      context.revert();
+      if (motionContextRef.current === context) motionContextRef.current = undefined;
+    };
+  }, [selectedStateIsVisible]);
+
+  useLayoutEffect(() => {
+    const marker = markerPresentationRef.current;
+    const target =
+      markerX !== undefined && markerY !== undefined
+        ? { x: markerX, y: markerY }
+        : undefined;
+    if (!marker || !target) {
+      previousMarkerPointRef.current = target;
+      previousGeometryMotionKeyRef.current = geometryMotionKey;
+      directManipulationPointRef.current = undefined;
+      return;
+    }
+
+    const currentOffset = {
+      x: Number(gsap.getProperty(marker, "x")) || 0,
+      y: Number(gsap.getProperty(marker, "y")) || 0,
+    };
+    const directManipulationPoint = directManipulationPointRef.current;
+    const matchesDirectManipulation =
+      directManipulationPoint !== undefined &&
+      selectedDryBulb !== undefined &&
+      selectedHumidityRatio !== undefined &&
+      Math.abs(directManipulationPoint.dryBulb - selectedDryBulb) < 1e-6 &&
+      Math.abs(
+        directManipulationPoint.humidityRatio - selectedHumidityRatio,
+      ) <= 1e-8;
+    const plan = createMarkerMotionPlan({
+      previousTarget: previousMarkerPointRef.current,
+      target,
+      currentOffset,
+      directManipulation: isDragging || matchesDirectManipulation,
+      reducedMotion:
+        typeof window !== "undefined" &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+      geometryChanged:
+        previousGeometryMotionKeyRef.current !== undefined &&
+        previousGeometryMotionKeyRef.current !== geometryMotionKey,
+    });
+
+    directManipulationPointRef.current = undefined;
+    previousMarkerPointRef.current = target;
+    previousGeometryMotionKeyRef.current = geometryMotionKey;
+    gsap.killTweensOf(marker);
+    if (markerHaloRef.current) gsap.killTweensOf(markerHaloRef.current);
+
+    const context = motionContextRef.current;
+    const applyMotion = () => {
+      if (plan.mode !== "animate") {
+        gsap.set(marker, { x: 0, y: 0 });
+        return;
+      }
+
+      const timeline = gsap.timeline({ defaults: { overwrite: true } });
+      timeline.fromTo(
+        marker,
+        { x: plan.from.x, y: plan.from.y },
+        { x: 0, y: 0, duration: plan.duration, ease: plan.ease },
+        0,
+      );
+      if (markerHaloRef.current) {
+        timeline
+          .fromTo(
+            markerHaloRef.current,
+            { scale: 1, transformOrigin: "center" },
+            {
+              scale: MARKER_EMPHASIS_SCALE,
+              duration: MARKER_EMPHASIS_DURATION_SECONDS / 2,
+              ease: "power1.out",
+            },
+            0,
+          )
+          .to(markerHaloRef.current, {
+            scale: 1,
+            duration: MARKER_EMPHASIS_DURATION_SECONDS / 2,
+            ease: "power1.inOut",
+          });
+      }
+    };
+    if (context) context.add(applyMotion);
+    else applyMotion();
+  }, [
+    geometryMotionKey,
+    isDragging,
+    markerX,
+    markerY,
+    selectedDryBulb,
+    selectedHumidityRatio,
+  ]);
+
+  useEffect(() => {
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const handleChange = () => {
+      if (!media.matches || !markerPresentationRef.current) return;
+      gsap.killTweensOf(markerPresentationRef.current);
+      if (markerHaloRef.current) gsap.killTweensOf(markerHaloRef.current);
+      gsap.set(markerPresentationRef.current, { x: 0, y: 0 });
+      if (markerHaloRef.current) gsap.set(markerHaloRef.current, { scale: 1 });
+    };
+    media.addEventListener("change", handleChange);
+    return () => media.removeEventListener("change", handleChange);
+  }, []);
 
   useEffect(() => {
     const viewport = viewportRef.current;
@@ -256,6 +391,7 @@ export function PsychrometricChart({
       finalPoint &&
       !interactionPointsAreEquivalent(lastDispatchedPointRef.current, finalPoint)
     ) {
+      directManipulationPointRef.current = finalPoint;
       lastDispatchedPointRef.current = finalPoint;
       onSelectPoint?.(finalPoint);
     }
@@ -446,6 +582,7 @@ export function PsychrometricChart({
 
             {markerPoint && selectedState ? (
               <g
+                ref={markerPresentationRef}
                 className={
                   onSelectPoint
                     ? `${styles.stateInteraction}${isDragging ? ` ${styles.stateDragging}` : ""}`
@@ -487,6 +624,7 @@ export function PsychrometricChart({
                   vectorEffect="non-scaling-stroke"
                 />
                 <circle
+                  ref={markerHaloRef}
                   className={styles.stateHalo}
                   cx={markerPoint.x}
                   cy={markerPoint.y}

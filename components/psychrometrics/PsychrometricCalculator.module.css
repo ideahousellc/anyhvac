@@ -1,0 +1,179 @@
+.calculator {
+  min-width: 0;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.9fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.controls,
+.results,
+.resultsPlaceholder {
+  min-width: 0;
+  padding: 24px;
+  border: 1px solid color-mix(in srgb, var(--muted) 18%, transparent);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: 7px 8px 18px color-mix(in srgb, var(--shadow-dark) 55%, transparent),
+    -7px -7px 18px color-mix(in srgb, var(--shadow-light) 62%, transparent);
+}
+
+.sectionHeading > p {
+  margin: 0 0 7px;
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.sectionHeading h2 {
+  margin: 0;
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.inputGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.field {
+  display: grid;
+  min-width: 0;
+  align-content: start;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.field select,
+.field input {
+  width: 100%;
+  min-width: 0;
+  min-height: 43px;
+  padding: 0 12px;
+  border: 1px solid color-mix(in srgb, var(--muted) 30%, transparent);
+  border-radius: 11px;
+  background: var(--surface-soft);
+  color: var(--foreground);
+  font: inherit;
+}
+
+.field input[aria-invalid="true"] {
+  border-color: color-mix(in srgb, var(--primary) 70%, var(--foreground));
+}
+
+.fieldError {
+  color: var(--foreground);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.errorSummary,
+.chartNotice {
+  border-left: 3px solid var(--primary);
+  color: var(--foreground);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.errorSummary {
+  margin-top: 18px;
+  padding: 8px 0 8px 12px;
+}
+
+.resultGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 22px;
+  margin: 17px 0 0;
+}
+
+.resultGrid > div {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--muted) 17%, transparent);
+}
+
+.resultGrid dt {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.resultGrid dd {
+  margin: 0;
+  color: var(--foreground);
+  font-size: 13px;
+  font-weight: 500;
+  text-align: right;
+}
+
+.resultsPlaceholder {
+  min-height: 245px;
+}
+
+.resultsPlaceholder > p,
+.chartUnavailable > p {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.chartSection,
+.chartUnavailable {
+  min-width: 0;
+  margin-top: 42px;
+}
+
+.chartHeading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.chartNotice {
+  max-width: 420px;
+  margin: 0;
+  padding-left: 12px;
+}
+
+@media (max-width: 1080px) {
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .controls,
+  .results,
+  .resultsPlaceholder {
+    padding: 19px;
+    border-radius: 17px;
+  }
+
+  .inputGrid,
+  .resultGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .chartHeading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}

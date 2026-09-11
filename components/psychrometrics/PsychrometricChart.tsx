@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+
 import {
   humidityRatioToGrainsPerPound,
   humidityRatioToGramsPerKilogram,
@@ -17,7 +21,17 @@ import {
 
 const VIEWBOX_WIDTH = 1_280;
 const VIEWBOX_HEIGHT = 760;
-const PLOT: SvgPlotBox = { left: 78, top: 34, width: 1_092, height: 640 };
+export const PSYCHROMETRIC_CHART_PLOT: SvgPlotBox = {
+  left: 78,
+  top: 34,
+  width: 1_092,
+  height: 640,
+};
+const PLOT = PSYCHROMETRIC_CHART_PLOT;
+
+export type ChartSelectedState = PsychrometricChartPoint & {
+  accessibleLabel?: string;
+};
 
 type PsychrometricChartProps = {
   geometry: PsychrometricChartGeometry;
@@ -25,6 +39,7 @@ type PsychrometricChartProps = {
   description?: string;
   idPrefix?: string;
   className?: string;
+  selectedState?: ChartSelectedState;
 };
 
 type CurveLabelProps = {
@@ -101,7 +116,9 @@ export function PsychrometricChart({
   description,
   idPrefix = "psychrometric-chart",
   className,
+  selectedState,
 }: PsychrometricChartProps) {
+  const viewportRef = useRef<HTMLDivElement>(null);
   const titleId = `${idPrefix}-title`;
   const descriptionId = `${idPrefix}-description`;
   const clipId = `${idPrefix}-plot-clip`;
@@ -111,6 +128,28 @@ export function PsychrometricChart({
   const resolvedDescription =
     description ??
     `Psychrometric chart at ${pressureSummary(geometry)}, showing saturation, relative humidity, dry-bulb, humidity-ratio, wet-bulb, enthalpy, and specific-volume lines.`;
+  const selectedStateIsVisible =
+    selectedState !== undefined &&
+    Number.isFinite(selectedState.dryBulb) &&
+    Number.isFinite(selectedState.humidityRatio) &&
+    selectedState.dryBulb >= geometry.dryBulbDomain.min &&
+    selectedState.dryBulb <= geometry.dryBulbDomain.max &&
+    selectedState.humidityRatio >= geometry.humidityRatioDomain.min &&
+    selectedState.humidityRatio <= geometry.humidityRatioDomain.max;
+  const markerPoint = selectedStateIsVisible
+    ? physicalToSvgPoint(selectedState, geometry, PLOT)
+    : undefined;
+  const markerX = markerPoint?.x;
+
+  useEffect(() => {
+    const viewport = viewportRef.current;
+    if (viewport === null || markerX === undefined || viewport.scrollWidth <= viewport.clientWidth) {
+      return;
+    }
+
+    const markerPosition = (markerX / VIEWBOX_WIDTH) * viewport.scrollWidth;
+    viewport.scrollLeft = Math.max(0, markerPosition - viewport.clientWidth / 2);
+  }, [markerX]);
 
   return (
     <figure
@@ -118,7 +157,7 @@ export function PsychrometricChart({
       data-atmospheric-pressure={geometry.atmosphericPressure}
       data-unit-system={geometry.unitSystem}
     >
-      <div className={styles.viewport}>
+      <div className={styles.viewport} ref={viewportRef}>
         <svg
           className={styles.chart}
           viewBox={`0 0 ${VIEWBOX_WIDTH} ${VIEWBOX_HEIGHT}`}
@@ -278,6 +317,62 @@ export function PsychrometricChart({
                   </CurveLabel>
                 ))}
             </g>
+
+            {markerPoint && selectedState ? (
+              <g
+                data-selected-state="true"
+                data-svg-x={markerPoint.x}
+                data-svg-y={markerPoint.y}
+                role="img"
+                aria-label={
+                  selectedState.accessibleLabel ??
+                  `Selected state at dry bulb ${selectedState.dryBulb} and humidity ratio ${selectedState.humidityRatio}`
+                }
+              >
+                <title>
+                  {selectedState.accessibleLabel ?? "Selected psychrometric state"}
+                </title>
+                <line
+                  className={styles.stateGuide}
+                  data-state-guide="dry-bulb"
+                  x1={markerPoint.x}
+                  x2={markerPoint.x}
+                  y1={markerPoint.y}
+                  y2={PLOT.top + PLOT.height}
+                  vectorEffect="non-scaling-stroke"
+                />
+                <line
+                  className={styles.stateGuide}
+                  data-state-guide="humidity-ratio"
+                  x1={markerPoint.x}
+                  x2={PLOT.left + PLOT.width}
+                  y1={markerPoint.y}
+                  y2={markerPoint.y}
+                  vectorEffect="non-scaling-stroke"
+                />
+                <circle
+                  className={styles.stateHalo}
+                  cx={markerPoint.x}
+                  cy={markerPoint.y}
+                  r="11"
+                  vectorEffect="non-scaling-stroke"
+                />
+                <circle
+                  className={styles.stateMarker}
+                  cx={markerPoint.x}
+                  cy={markerPoint.y}
+                  r="6"
+                  vectorEffect="non-scaling-stroke"
+                />
+                <text
+                  className={styles.stateLabel}
+                  x={markerPoint.x + 15}
+                  y={markerPoint.y - 12}
+                >
+                  State
+                </text>
+              </g>
+            ) : null}
           </g>
 
           <path

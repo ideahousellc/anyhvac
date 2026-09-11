@@ -25,6 +25,14 @@ export function createDefaultChartConfig(
       dryBulbGridInterval: 10,
       humidityRatioGridInterval: 20 / 7_000,
       intersectionTolerance: 1e-10,
+      derivedLineTemperatureInterval: 1,
+      wetBulbLineInterval: 10,
+      enthalpyLineInterval: 5,
+      specificVolumeLineInterval: 0.5,
+      enthalpySolverTolerance: 0.001,
+      specificVolumeSolverTolerance: 0.00001,
+      dryBulbBoundaryTolerance: 0.001,
+      maxPropertySolverIterations: 40,
     };
   }
 
@@ -38,5 +46,13 @@ export function createDefaultChartConfig(
     dryBulbGridInterval: 5,
     humidityRatioGridInterval: 0.002,
     intersectionTolerance: 1e-10,
+    derivedLineTemperatureInterval: 5 / 9,
+    wetBulbLineInterval: 5,
+    enthalpyLineInterval: 10,
+    specificVolumeLineInterval: 0.05,
+    enthalpySolverTolerance: 0.001,
+    specificVolumeSolverTolerance: 0.00001,
+    dryBulbBoundaryTolerance: 0.001,
+    maxPropertySolverIterations: 40,
   };
 }

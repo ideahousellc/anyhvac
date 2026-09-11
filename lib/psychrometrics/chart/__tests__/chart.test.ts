@@ -176,6 +176,9 @@ describe("grid geometry and physical clipping", () => {
       ...ipGeometry.relativeHumidityCurves.map((curve) => curve.points),
       ...ipGeometry.dryBulbGridLines.map((line) => line.points),
       ...ipGeometry.humidityRatioGridLines.map((line) => line.points),
+      ...ipGeometry.wetBulbLines.map((line) => line.points),
+      ...ipGeometry.enthalpyLines.map((line) => line.points),
+      ...ipGeometry.specificVolumeLines.map((line) => line.points),
     ];
     for (const points of pointCollections) {
       for (const point of points) {
@@ -193,6 +196,9 @@ describe("grid geometry and physical clipping", () => {
       ...ipGeometry.relativeHumidityCurves.map((curve) => curve.points),
       ...ipGeometry.dryBulbGridLines.map((line) => line.points),
       ...ipGeometry.humidityRatioGridLines.map((line) => line.points),
+      ...ipGeometry.wetBulbLines.map((line) => line.points),
+      ...ipGeometry.enthalpyLines.map((line) => line.points),
+      ...ipGeometry.specificVolumeLines.map((line) => line.points),
     ];
     for (const points of pointCollections) {
       for (const point of points) {

@@ -35,6 +35,23 @@ export type PsychrometricChartConfig = {
   /** Canonical humidity ratio interval. */
   humidityRatioGridInterval: number;
   intersectionTolerance: number;
+  /** Sampling interval for smooth Phase 2B line interiors. */
+  derivedLineTemperatureInterval: number;
+  /** Native °F or °C spacing. */
+  wetBulbLineInterval: number;
+  /** Native Btu/lb (IP) or kJ/kg (SI) spacing. */
+  enthalpyLineInterval: number;
+  /** Native ft³/lb (IP) or m³/kg (SI) spacing. */
+  specificVolumeLineInterval: number;
+  enthalpySolverTolerance: number;
+  specificVolumeSolverTolerance: number;
+  /** Native °F or °C tolerance for refined dry-bulb boundary positions. */
+  dryBulbBoundaryTolerance: number;
+  maxPropertySolverIterations: number;
+  /** Optional explicit native-unit targets, primarily for focused geometry. */
+  wetBulbLineValues?: number[];
+  enthalpyLineValues?: number[];
+  specificVolumeLineValues?: number[];
 };
 
 export type PsychrometricChartPoint = {
@@ -66,6 +83,21 @@ export type HumidityRatioGridLine = {
   points: [PsychrometricChartPoint, PsychrometricChartPoint];
 };
 
+export type WetBulbLine = ChartCurve & {
+  /** °F in IP and °C in SI. */
+  wetBulb: number;
+};
+
+export type EnthalpyLine = ChartCurve & {
+  /** Btu/lb dry air in IP and kJ/kg dry air in SI. */
+  enthalpy: number;
+};
+
+export type SpecificVolumeLine = ChartCurve & {
+  /** ft³/lb dry air in IP and m³/kg dry air in SI. */
+  specificVolume: number;
+};
+
 export type PsychrometricChartGeometry = {
   unitSystem: UnitSystem;
   /** psi in IP and Pa in SI. */
@@ -77,13 +109,23 @@ export type PsychrometricChartGeometry = {
   relativeHumidityCurves: RelativeHumidityCurve[];
   dryBulbGridLines: DryBulbGridLine[];
   humidityRatioGridLines: HumidityRatioGridLine[];
+  wetBulbLines: WetBulbLine[];
+  enthalpyLines: EnthalpyLine[];
+  specificVolumeLines: SpecificVolumeLine[];
   /** Number of calls made to calculatePsychrometricState for this geometry. */
   stateEvaluationCount: number;
+  stateEvaluationBreakdown: {
+    phase2A: number;
+    wetBulbLines: number;
+    enthalpyLines: number;
+    specificVolumeLines: number;
+  };
 };
 
 export type ChartGeometryErrorCode =
   | "INVALID_CONFIG"
   | "ENGINE_CALCULATION_FAILED"
+  | "PROPERTY_SOLVER_FAILED"
   | "EMPTY_GEOMETRY";
 
 export type ChartGeometryError = {

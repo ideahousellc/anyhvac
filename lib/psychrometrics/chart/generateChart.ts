@@ -4,6 +4,11 @@ import {
   clipCurveToHumidityRatioDomain,
   findSaturationIntersectionDryBulb,
 } from "./curves";
+import {
+  generateConstantPropertyLines,
+  generateWetBulbLines,
+  type ChartStateEvaluator,
+} from "./lineFamilies";
 import type {
   ChartGeometryError,
   ChartPressureCondition,
@@ -24,6 +29,8 @@ function validateConfig(config: PsychrometricChartConfig): ChartGeometryError[] 
     config.dryBulbDomain.max - config.dryBulbDomain.min;
   const estimatedTemperatureSamples =
     temperatureSpan / config.temperatureSampleInterval + 1;
+  const estimatedDerivedLineSamples =
+    temperatureSpan / config.derivedLineTemperatureInterval + 1;
   const values = [
     config.dryBulbDomain.min,
     config.dryBulbDomain.max,
@@ -33,6 +40,14 @@ function validateConfig(config: PsychrometricChartConfig): ChartGeometryError[] 
     config.dryBulbGridInterval,
     config.humidityRatioGridInterval,
     config.intersectionTolerance,
+    config.derivedLineTemperatureInterval,
+    config.wetBulbLineInterval,
+    config.enthalpyLineInterval,
+    config.specificVolumeLineInterval,
+    config.enthalpySolverTolerance,
+    config.specificVolumeSolverTolerance,
+    config.dryBulbBoundaryTolerance,
+    config.maxPropertySolverIterations,
   ];
   const valid =
     values.every(Number.isFinite) &&
@@ -46,8 +61,30 @@ function validateConfig(config: PsychrometricChartConfig): ChartGeometryError[] 
     config.intersectionTolerance < config.temperatureSampleInterval &&
     config.intersectionTolerance < config.dryBulbGridInterval &&
     config.intersectionTolerance < config.humidityRatioGridInterval &&
+    config.intersectionTolerance < config.derivedLineTemperatureInterval &&
+    config.derivedLineTemperatureInterval > 0 &&
+    config.wetBulbLineInterval > 0 &&
+    config.enthalpyLineInterval > 0 &&
+    config.specificVolumeLineInterval > 0 &&
+    config.enthalpySolverTolerance > 0 &&
+    config.specificVolumeSolverTolerance > 0 &&
+    config.dryBulbBoundaryTolerance > 0 &&
+    Number.isInteger(config.maxPropertySolverIterations) &&
+    config.maxPropertySolverIterations > 0 &&
+    config.maxPropertySolverIterations <= 100 &&
+    [
+      config.wetBulbLineValues,
+      config.enthalpyLineValues,
+      config.specificVolumeLineValues,
+    ].every(
+      (targets) =>
+        targets === undefined ||
+        (targets.length > 0 && targets.every(Number.isFinite)),
+    ) &&
     Number.isFinite(estimatedTemperatureSamples) &&
-    estimatedTemperatureSamples <= 5_000;
+    estimatedTemperatureSamples <= 5_000 &&
+    Number.isFinite(estimatedDerivedLineSamples) &&
+    estimatedDerivedLineSamples <= 5_000;
 
   return valid
     ? []
@@ -55,7 +92,7 @@ function validateConfig(config: PsychrometricChartConfig): ChartGeometryError[] 
         {
           code: "INVALID_CONFIG",
           message:
-            "Chart domains must be finite and increasing; humidity ratio must start at zero; intervals must be positive; tolerance must be smaller than each interval; the temperature grid must not exceed 5,000 samples.",
+            "Chart domains and targets must be finite; domains must increase; humidity ratio must start at zero; intervals and solver tolerances must be positive; intersection tolerance must be smaller than Phase 2A intervals; solver iterations must be an integer from 1 to 100; the temperature grid must not exceed 5,000 samples.",
         },
       ];
 }
@@ -71,12 +108,15 @@ function generateTicks(min: number, max: number, interval: number): number[] {
   return ticks;
 }
 
-function generateTemperatureSamples(config: PsychrometricChartConfig): number[] {
+function generateTemperatureSamples(
+  config: PsychrometricChartConfig,
+  interval = config.temperatureSampleInterval,
+): number[] {
   const { min, max } = config.dryBulbDomain;
-  const sampleCount = Math.floor((max - min) / config.temperatureSampleInterval);
+  const sampleCount = Math.floor((max - min) / interval);
   const samples = Array.from(
     { length: sampleCount + 1 },
-    (_, index) => min + index * config.temperatureSampleInterval,
+    (_, index) => min + index * interval,
   ).filter((temperature) => temperature <= max + config.intersectionTolerance);
   samples.push(max);
   samples.push(...generateTicks(min, max, config.dryBulbGridInterval));
@@ -93,13 +133,14 @@ function toEngineInput(
   config: PsychrometricChartConfig,
   pressure: ChartPressureCondition,
   dryBulb: number,
-  relativeHumidity: number,
+  moistureMode: "relativeHumidity" | "wetBulb",
+  moistureValue: number,
 ): PsychrometricInput {
   const common = {
     unitSystem: config.unitSystem,
     dryBulb,
-    moistureMode: "relativeHumidity" as const,
-    moistureValue: relativeHumidity,
+    moistureMode,
+    moistureValue,
   };
 
   return pressure.pressureMode === "elevation"
@@ -120,6 +161,12 @@ export function generatePsychrometricChartGeometry(
   if (configErrors.length > 0) return { ok: false, errors: configErrors };
 
   let stateEvaluationCount = 0;
+  const stateCache = new Map<string, PsychrometricState>();
+  const cacheKey = (
+    dryBulb: number,
+    moistureMode: "relativeHumidity" | "wetBulb",
+    moistureValue: number,
+  ) => `${moistureMode}:${dryBulb}:${moistureValue}`;
   const calculate = (
     dryBulb: number,
     relativeHumidity: number,
@@ -130,21 +177,63 @@ export function generatePsychrometricChartGeometry(
         config,
         config.pressureCondition,
         dryBulb,
+        "relativeHumidity",
         relativeHumidity,
       ),
     );
-    return result.ok
-      ? result.value
-      : {
-          code: "ENGINE_CALCULATION_FAILED",
-          message: "The locked psychrometric engine rejected a chart sample.",
-          dryBulb,
-          relativeHumidity,
-          engineErrors: result.errors,
-        };
+    if (result.ok) {
+      stateCache.set(
+        cacheKey(dryBulb, "relativeHumidity", relativeHumidity),
+        result.value,
+      );
+      return result.value;
+    }
+    return {
+      code: "ENGINE_CALCULATION_FAILED",
+      message: "The locked psychrometric engine rejected a chart sample.",
+      dryBulb,
+      relativeHumidity,
+      engineErrors: result.errors,
+    };
+  };
+
+  const evaluateState: ChartStateEvaluator = (
+    dryBulb,
+    moistureMode,
+    moistureValue,
+  ) => {
+    const key = cacheKey(dryBulb, moistureMode, moistureValue);
+    const cached = stateCache.get(key);
+    if (cached) return cached;
+    stateEvaluationCount += 1;
+    const result = calculatePsychrometricState(
+      toEngineInput(
+        config,
+        config.pressureCondition,
+        dryBulb,
+        moistureMode,
+        moistureValue,
+      ),
+    );
+    if (result.ok) {
+      stateCache.set(key, result.value);
+      return result.value;
+    }
+    return {
+      code: "ENGINE_CALCULATION_FAILED",
+      message: "The locked psychrometric engine rejected a chart sample.",
+      dryBulb,
+      relativeHumidity:
+        moistureMode === "relativeHumidity" ? moistureValue : undefined,
+      engineErrors: result.errors,
+    };
   };
 
   const temperatures = generateTemperatureSamples(config);
+  const derivedLineTemperatures = generateTemperatureSamples(
+    config,
+    config.derivedLineTemperatureInterval,
+  );
   const saturationStates: PsychrometricState[] = [];
   const saturationStateCache = new Map<number, PsychrometricState>();
   for (const dryBulb of temperatures) {
@@ -321,6 +410,38 @@ export function generatePsychrometricChartGeometry(
     },
   );
 
+  const phase2AEvaluationCount = stateEvaluationCount;
+  const wetBulbResult = generateWetBulbLines(
+    config,
+    derivedLineTemperatures,
+    evaluateState,
+  );
+  if (!wetBulbResult.ok) return { ok: false, errors: [wetBulbResult.error] };
+  const wetBulbEvaluationCount = stateEvaluationCount - phase2AEvaluationCount;
+  const enthalpyResult = generateConstantPropertyLines(
+    config,
+    derivedLineTemperatures,
+    "enthalpy",
+    evaluateState,
+  );
+  if (!enthalpyResult.ok) return { ok: false, errors: [enthalpyResult.error] };
+  const enthalpyEvaluationCount =
+    stateEvaluationCount - phase2AEvaluationCount - wetBulbEvaluationCount;
+  const specificVolumeResult = generateConstantPropertyLines(
+    config,
+    derivedLineTemperatures,
+    "specificVolume",
+    evaluateState,
+  );
+  if (!specificVolumeResult.ok) {
+    return { ok: false, errors: [specificVolumeResult.error] };
+  }
+  const specificVolumeEvaluationCount =
+    stateEvaluationCount -
+    phase2AEvaluationCount -
+    wetBulbEvaluationCount -
+    enthalpyEvaluationCount;
+
   return {
     ok: true,
     value: {
@@ -333,7 +454,16 @@ export function generatePsychrometricChartGeometry(
       relativeHumidityCurves,
       dryBulbGridLines,
       humidityRatioGridLines,
+      wetBulbLines: wetBulbResult.lines,
+      enthalpyLines: enthalpyResult.lines,
+      specificVolumeLines: specificVolumeResult.lines,
       stateEvaluationCount,
+      stateEvaluationBreakdown: {
+        phase2A: phase2AEvaluationCount,
+        wetBulbLines: wetBulbEvaluationCount,
+        enthalpyLines: enthalpyEvaluationCount,
+        specificVolumeLines: specificVolumeEvaluationCount,
+      },
     },
   };
 }

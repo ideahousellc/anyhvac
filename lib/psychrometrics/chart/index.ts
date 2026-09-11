@@ -9,6 +9,7 @@ export {
 } from "./coordinates";
 export {
   clipCurveToHumidityRatioDomain,
+  clipPolylineToHumidityRatioDomain,
   findSaturationIntersectionDryBulb,
 } from "./curves";
 export {
@@ -22,6 +23,9 @@ export type {
   ChartPressureCondition,
   DryBulbGridLine,
   HumidityRatioGridLine,
+  WetBulbLine,
+  EnthalpyLine,
+  SpecificVolumeLine,
   NormalizedChartPoint,
   NumericDomain,
   PsychrometricChartConfig,

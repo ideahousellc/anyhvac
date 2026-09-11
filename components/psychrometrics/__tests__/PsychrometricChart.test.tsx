@@ -79,6 +79,11 @@ describe("PsychrometricChart", () => {
     expect(siMarkup).toContain("Humidity Ratio (g/kg dry air)");
   });
 
+  it("keeps the bottom and right axes open on the left", () => {
+    expect(ipMarkup).toContain('d="M78 674H1170V34"');
+    expect(ipMarkup).not.toContain('d="M78 34V674H1170V34"');
+  });
+
   it("uses semantic curve values for direct labels", () => {
     expect(ipMarkup).toContain("100% RH");
     expect(ipMarkup).toMatch(/WB -?\d+/);

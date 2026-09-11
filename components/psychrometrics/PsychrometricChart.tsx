@@ -651,7 +651,7 @@ export function PsychrometricChart({
 
           <path
             className={styles.axisLine}
-            d={`M${PLOT.left} ${PLOT.top}V${PLOT.top + PLOT.height}H${
+            d={`M${PLOT.left} ${PLOT.top + PLOT.height}H${
               PLOT.left + PLOT.width
             }V${PLOT.top}`}
             vectorEffect="non-scaling-stroke"

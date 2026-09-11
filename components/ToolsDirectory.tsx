@@ -119,6 +119,38 @@ function CardContents({ tool }: { tool: HvacTool }) {
   );
 }
 
+export function ToolCardGrid({
+  tools,
+  ariaLive,
+}: {
+  tools: readonly HvacTool[];
+  ariaLive?: "polite";
+}) {
+  return (
+    <div className={styles.toolsGrid} aria-live={ariaLive}>
+      {tools.map((tool) =>
+        tool.status === "Available" && tool.href ? (
+          <Link
+            className={`${styles.toolCard} ${styles.availableCard}`}
+            href={tool.href}
+            aria-label={`Open ${tool.title}`}
+            key={tool.id}
+          >
+            <CardContents tool={tool} />
+          </Link>
+        ) : (
+          <article
+            className={`${styles.toolCard} ${styles.soonCard}`}
+            key={tool.id}
+          >
+            <CardContents tool={tool} />
+          </article>
+        ),
+      )}
+    </div>
+  );
+}
+
 export function ToolsDirectory() {
   const [activeCategory, setActiveCategory] = useState<
     (typeof TOOL_CATEGORIES)[number]
@@ -151,27 +183,7 @@ export function ToolsDirectory() {
         ))}
       </div>
 
-      <div className={styles.toolsGrid} aria-live="polite">
-        {visibleTools.map((tool) =>
-          tool.status === "Available" && tool.href ? (
-            <Link
-              className={`${styles.toolCard} ${styles.availableCard}`}
-              href={tool.href}
-              aria-label={`Open ${tool.title}`}
-              key={tool.id}
-            >
-              <CardContents tool={tool} />
-            </Link>
-          ) : (
-            <article
-              className={`${styles.toolCard} ${styles.soonCard}`}
-              key={tool.id}
-            >
-              <CardContents tool={tool} />
-            </article>
-          ),
-        )}
-      </div>
+      <ToolCardGrid tools={visibleTools} ariaLive="polite" />
     </section>
   );
 }

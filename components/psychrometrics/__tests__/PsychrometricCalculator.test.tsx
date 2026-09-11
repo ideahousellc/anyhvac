@@ -42,6 +42,8 @@ describe("single-state psychrometric calculator", () => {
 
   it("renders the default selected-state marker and projection guides", () => {
     const markup = renderToStaticMarkup(<PsychrometricCalculator />);
+    expect(markup).toContain("Air state inputs");
+    expect(markup).not.toContain("Development inputs");
     expect(markup).toContain('data-selected-state="true"');
     expect(markup).toContain('data-state-guide="dry-bulb"');
     expect(markup).toContain('data-state-guide="humidity-ratio"');

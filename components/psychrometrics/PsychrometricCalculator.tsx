@@ -102,7 +102,7 @@ export function PsychrometricCalculator({
           aria-labelledby="psychrometric-inputs-heading"
         >
           <div className={styles.sectionHeading}>
-            <p>Development inputs</p>
+            <p>Air state inputs</p>
             <h2 id="psychrometric-inputs-heading">Define one air state</h2>
           </div>
 

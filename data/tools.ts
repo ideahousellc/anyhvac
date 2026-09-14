@@ -78,4 +78,17 @@ export const HVAC_TOOLS: readonly HvacTool[] = [
     showOnHomepage: true,
     showInDirectory: true,
   },
+  {
+    id: "mixed-air-calculator",
+    title: "Mixed Air Calculator",
+    category: "Air Properties",
+    description:
+      "Combine outdoor air and return air using psychrometric mass and energy conservation.",
+    status: "Available",
+    href: "/tools/mixed-air-calculator",
+    cta: "Open Calculator",
+    icon: "psychrometric",
+    showOnHomepage: false,
+    showInDirectory: true,
+  },
 ];

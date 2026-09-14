@@ -14,6 +14,15 @@ declare module "psychrolib" {
     readonly SI: 2;
     SetUnitSystem(unitSystem: 1 | 2): void;
     GetStandardAtmPressure(elevation: number): number;
+    GetTDryBulbFromEnthalpyAndHumRatio(
+      moistAirEnthalpy: number,
+      humidityRatio: number,
+    ): number;
+    GetRelHumFromHumRatio(
+      dryBulb: number,
+      humidityRatio: number,
+      pressure: number,
+    ): number;
     CalcPsychrometricsFromRelHum(
       dryBulb: number,
       relativeHumidity: number,

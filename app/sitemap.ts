@@ -9,6 +9,7 @@ const PUBLIC_ROUTES = [
   "/tools/air-distribution",
   "/tools/air-properties",
   "/tools/psychrometric-calculator",
+  "/tools/mixed-air-calculator",
   "/about",
   "/contact",
   "/engineering-disclaimer",

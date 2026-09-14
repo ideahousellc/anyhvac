@@ -1,0 +1,122 @@
+.calculator { min-width: 0; }
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(390px, .92fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.visualCard,
+.controls,
+.results,
+.resultsPlaceholder {
+  min-width: 0;
+  border: 1px solid color-mix(in srgb, var(--muted) 18%, transparent);
+  border-radius: 22px;
+  background: var(--surface);
+  box-shadow: 8px 9px 20px color-mix(in srgb, var(--shadow-dark) 55%, transparent), -8px -8px 20px color-mix(in srgb, var(--shadow-light) 64%, transparent);
+}
+
+.visualCard { position: sticky; top: 20px; padding: 25px; overflow: hidden; }
+.controls { padding: 25px; }
+.visualHeading p,
+.controlHeading p,
+.resultsHeading p {
+  margin: 0 0 7px;
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+.visualHeading h2,
+.controlHeading h2,
+.resultsHeading h2 { margin: 0; font-size: 24px; font-weight: 680; letter-spacing: -.03em; }
+
+.visualization { display: block; width: 100%; height: auto; margin-top: 8px; overflow: visible; }
+.fixedPath { fill: none; stroke: color-mix(in srgb, var(--muted) 15%, transparent); stroke-linecap: round; }
+.flowPath { fill: none; stroke-dasharray: 18 13; stroke-linecap: round; }
+.outdoorFlow { stroke: #2085d8; }
+.returnFlow { stroke: #785ba8; }
+.mixedFlow { stroke: url(#mixed-air-gradient); }
+.mixingBox { fill: var(--surface-soft); stroke: color-mix(in srgb, var(--primary) 28%, var(--muted)); stroke-width: 2; }
+.damper { fill: none; stroke: color-mix(in srgb, var(--muted) 62%, transparent); stroke-linecap: round; stroke-width: 7; }
+.mixingPulse { opacity: .28; }
+.mixingPulse circle { fill: none; stroke: var(--primary-light); stroke-width: 3; }
+.streamLabel text { fill: var(--foreground); font-size: 14px; font-weight: 760; letter-spacing: .08em; }
+.streamLabel .labelValue { fill: var(--muted); font-size: 13px; font-weight: 560; letter-spacing: 0; }
+.visualNote { margin: -2px 0 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
+
+.inputSection { min-width: 0; margin: 23px 0 0; padding: 18px 0 0; border: 0; border-top: 1px solid color-mix(in srgb, var(--muted) 18%, transparent); }
+.inputSection legend { padding: 0; color: var(--foreground); font-size: 12px; font-weight: 780; letter-spacing: .1em; text-transform: uppercase; }
+.fieldGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 13px; }
+.field { display: grid; min-width: 0; align-content: start; gap: 7px; color: var(--muted); font-size: 12px; font-weight: 600; }
+.field input,
+.field select,
+.weatherSearch input {
+  width: 100%; min-width: 0; min-height: 43px; padding: 0 11px;
+  border: 1px solid color-mix(in srgb, var(--muted) 30%, transparent);
+  border-radius: 11px; background: var(--surface-soft); color: var(--foreground); font: inherit;
+}
+.field input[aria-invalid="true"] { border-color: color-mix(in srgb, #c33 70%, var(--foreground)); }
+.fieldError { color: color-mix(in srgb, #c33 76%, var(--foreground)); font-size: 11px; line-height: 1.35; }
+
+.segmented { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 13px; }
+.segmented button,
+.weatherSearch button {
+  min-height: 40px; cursor: pointer; border: 1px solid color-mix(in srgb, var(--muted) 23%, transparent); border-radius: 11px;
+  background: var(--surface); color: var(--muted); font-size: 12px; font-weight: 680;
+  box-shadow: 3px 4px 8px color-mix(in srgb, var(--shadow-dark) 50%, transparent), -3px -3px 8px color-mix(in srgb, var(--shadow-light) 60%, transparent);
+}
+.segmented button[aria-pressed="true"] { color: var(--primary); box-shadow: inset 3px 3px 7px var(--shadow-dark), inset -3px -3px 7px var(--shadow-light); }
+.weatherBox { display: grid; gap: 7px; margin-top: 13px; padding: 13px; border-radius: 13px; background: var(--surface-soft); color: var(--muted); font-size: 12px; }
+.weatherSearch { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; }
+.weatherSearch button { padding: 0 13px; color: var(--primary); }
+.weatherSearch button:disabled { cursor: wait; opacity: .65; }
+.weatherBox small { line-height: 1.45; }
+
+.calculateButton {
+  width: 100%; min-height: 51px; margin-top: 23px; cursor: pointer; border: 0; border-radius: 14px;
+  background: var(--primary); color: white; font-weight: 730; box-shadow: 7px 8px 16px rgba(0, 62, 130, .24);
+}
+.calculateButton:disabled { cursor: not-allowed; opacity: .52; }
+.submitHint { margin: 9px 0 0; color: var(--muted); font-size: 11px; text-align: center; }
+.errorSummary { margin: 16px 0 0; padding: 9px 0 9px 12px; border-left: 3px solid #c33; font-size: 13px; line-height: 1.45; }
+
+.results,
+.resultsPlaceholder { margin-top: 24px; padding: 25px; }
+.resultsPlaceholder { min-height: 100px; display: grid; place-items: center; color: var(--muted); font-size: 14px; text-align: center; }
+.resultsPlaceholder p { margin: 0; }
+.resultGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 19px 0 0; }
+.resultGrid > div { min-width: 0; padding: 15px; border-radius: 14px; background: var(--surface); box-shadow: inset 2px 2px 6px var(--shadow-dark), inset -2px -2px 6px var(--shadow-light); }
+.resultGrid dt { color: var(--muted); font-size: 11px; line-height: 1.35; }
+.resultGrid dd { margin: 7px 0 0; color: var(--foreground); font-size: 15px; font-weight: 720; overflow-wrap: anywhere; }
+
+:global(.dark) .visualCard,
+:global(.dark) .controls,
+:global(.dark) .results,
+:global(.dark) .resultsPlaceholder { border-color: rgba(255,255,255,.07); }
+
+@media (max-width: 1080px) {
+  .workspace { grid-template-columns: 1fr; }
+  .visualCard { position: static; }
+}
+
+@media (max-width: 720px) {
+  .visualCard, .controls, .results, .resultsPlaceholder { padding: 18px; border-radius: 18px; }
+  .resultGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 540px) {
+  .fieldGrid, .resultGrid { grid-template-columns: 1fr; }
+  .segmented, .weatherSearch { grid-template-columns: 1fr; }
+  .visualCard { padding-inline: 10px; }
+  .visualHeading, .visualNote { margin-inline: 8px; }
+  .streamLabel text { font-size: 19px; }
+  .streamLabel .labelValue { font-size: 17px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flowPath { stroke-dasharray: none; }
+}

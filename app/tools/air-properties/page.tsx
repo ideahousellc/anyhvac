@@ -35,6 +35,20 @@ const PSYCHROMETRIC_CALCULATOR_TOOL: HvacTool = {
   showInDirectory: false,
 };
 
+const MIXED_AIR_CALCULATOR_TOOL: HvacTool = {
+  id: "mixed-air-calculator",
+  title: "Mixed Air Calculator",
+  category: "Air Properties",
+  description:
+    "Combine outdoor and return air using dry-air mass flow, humidity ratio, enthalpy, and project pressure.",
+  status: "Available",
+  href: "/tools/mixed-air-calculator",
+  cta: "Open Calculator",
+  icon: "psychrometric",
+  showOnHomepage: false,
+  showInDirectory: false,
+};
+
 export default function AirPropertiesPage() {
   return (
     <main className={styles.categoryPage} id="top">
@@ -66,7 +80,7 @@ export default function AirPropertiesPage() {
           <h2 id="available-tools">Moist-air analysis</h2>
         </div>
 
-        <ToolCardGrid tools={[PSYCHROMETRIC_CALCULATOR_TOOL]} />
+        <ToolCardGrid tools={[PSYCHROMETRIC_CALCULATOR_TOOL, MIXED_AIR_CALCULATOR_TOOL]} />
 
         <div className={styles.futureSection}>
           <div>

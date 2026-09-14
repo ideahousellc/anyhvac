@@ -1,4 +1,5 @@
 import type { PressureMode, UnitSystem } from "../../lib/psychrometrics";
+import type { CurrentWeather } from "../../lib/weather";
 import {
   calculateMixedAir,
   type MixedAirInput,
@@ -129,4 +130,18 @@ export function airflowStrokeWidths(outdoorAirflow: number, returnAirflow: numbe
   const share = (value: number) => total > 0 ? Math.max(0, value) / total : 0.5;
   const width = (value: number) => 7 + Math.min(1, Math.max(0, share(value))) * 15;
   return { outdoor: width(outdoorAirflow), return: width(returnAirflow), mixed: 22 };
+}
+
+export function weatherAutofillValues(
+  weather: CurrentWeather,
+  unitSystem: UnitSystem,
+): Pick<MixedAirFormState, "outdoorDryBulb" | "outdoorRelativeHumidity"> {
+  return {
+    outdoorDryBulb: String(
+      unitSystem === "IP"
+        ? weather.temperatureFahrenheit
+        : weather.temperatureCelsius,
+    ),
+    outdoorRelativeHumidity: String(weather.relativeHumidity),
+  };
 }

@@ -35,17 +35,28 @@
 .resultsHeading h2 { margin: 0; font-size: 24px; font-weight: 680; letter-spacing: -.03em; }
 
 .visualization { display: block; width: 100%; height: auto; margin-top: 8px; overflow: visible; }
-.fixedPath { fill: none; stroke: color-mix(in srgb, var(--muted) 15%, transparent); stroke-linecap: round; }
-.flowPath { fill: none; stroke-dasharray: 18 13; stroke-linecap: round; }
-.outdoorFlow { stroke: #2085d8; }
-.returnFlow { stroke: #785ba8; }
-.mixedFlow { stroke: url(#mixed-air-gradient); }
-.mixingBox { fill: var(--surface-soft); stroke: color-mix(in srgb, var(--primary) 28%, var(--muted)); stroke-width: 2; }
-.damper { fill: none; stroke: color-mix(in srgb, var(--muted) 62%, transparent); stroke-linecap: round; stroke-width: 7; }
-.mixingPulse { opacity: .28; }
-.mixingPulse circle { fill: none; stroke: var(--primary-light); stroke-width: 3; }
-.streamLabel text { fill: var(--foreground); font-size: 14px; font-weight: 760; letter-spacing: .08em; }
-.streamLabel .labelValue { fill: var(--muted); font-size: 13px; font-weight: 560; letter-spacing: 0; }
+.casingTopFace { fill: url(#ahu-top-face); stroke: color-mix(in srgb, var(--muted) 30%, transparent); stroke-linejoin: round; stroke-width: 1.5; }
+.casingEndFace { fill: color-mix(in srgb, var(--surface-soft) 68%, var(--muted) 32%); stroke: color-mix(in srgb, var(--muted) 32%, transparent); stroke-width: 1.5; }
+.casingRearFace { fill: color-mix(in srgb, var(--surface-soft) 84%, var(--primary-light) 16%); stroke: color-mix(in srgb, var(--muted) 24%, transparent); stroke-width: 1.5; }
+.casingFrontFrame { fill: url(#ahu-front-face); stroke: color-mix(in srgb, var(--primary) 38%, var(--muted)); stroke-linejoin: round; stroke-width: 2; pointer-events: none; }
+.windowGlazing { fill: color-mix(in srgb, var(--surface) 28%, transparent); stroke: rgba(255,255,255,.64); stroke-width: 1.5; pointer-events: none; }
+.baseRail { fill: none; stroke: color-mix(in srgb, var(--muted) 42%, transparent); stroke-linecap: round; stroke-linejoin: round; stroke-width: 4; }
+.casingHighlight { fill: none; stroke: color-mix(in srgb, white 75%, transparent); stroke-linecap: round; stroke-width: 2; pointer-events: none; }
+.apertureRims { fill: none; stroke: color-mix(in srgb, var(--muted) 38%, transparent); stroke-linecap: round; stroke-width: 2; }
+.mixingZoneGlow { fill: url(#mixing-zone-glow); }
+.airwayBed { fill: none; stroke: color-mix(in srgb, var(--surface-soft) 78%, var(--muted) 22%); stroke-linecap: round; }
+.airRibbon,
+.progressiveMixing path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.outdoorRibbon { stroke: url(#outdoor-ribbon); }
+.returnRibbon { stroke: url(#return-ribbon); }
+.outdoorMixLayer { stroke: #58aee9; opacity: .72; }
+.returnMixLayer { stroke: #9a7ac4; opacity: .72; }
+.interwovenMixLayer { stroke: url(#progressive-mix); stroke-width: 12; opacity: .62; filter: url(#ribbon-softness); }
+.compositeMixLayer { stroke: url(#progressive-mix); opacity: .82; }
+.unifiedMixedRibbon { stroke: url(#unified-mixed-ribbon); }
+.staticDirectionCues path { fill: none; stroke: rgba(255,255,255,.72); stroke-linecap: round; stroke-linejoin: round; stroke-width: 3; }
+.streamLabel text { fill: var(--foreground); font-size: 15px; font-weight: 760; letter-spacing: .08em; }
+.streamLabel .labelValue { fill: var(--muted); font-size: 14px; font-weight: 560; letter-spacing: 0; }
 .visualNote { margin: -2px 0 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
 
 .inputSection { min-width: 0; margin: 23px 0 0; padding: 18px 0 0; border: 0; border-top: 1px solid color-mix(in srgb, var(--muted) 18%, transparent); }
@@ -75,6 +86,11 @@
 .weatherSearch button { padding: 0 13px; color: var(--primary); }
 .weatherSearch button:disabled { cursor: wait; opacity: .65; }
 .weatherBox small { line-height: 1.45; }
+.weatherStatus { margin: 0; color: var(--foreground); font-size: 12px; font-weight: 650; line-height: 1.45; }
+.weatherMeta { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.45; }
+.weatherAttribution { color: var(--primary); text-decoration: underline; text-underline-offset: 2px; }
+.weatherDisclaimer { margin: 1px 0 0; padding-top: 9px; border-top: 1px solid color-mix(in srgb, var(--muted) 18%, transparent); color: var(--muted); font-size: 11px; line-height: 1.48; }
+.weatherDisclaimer strong { color: var(--foreground); }
 
 .calculateButton {
   width: 100%; min-height: 51px; margin-top: 23px; cursor: pointer; border: 0; border-radius: 14px;
@@ -97,6 +113,11 @@
 :global(.dark) .controls,
 :global(.dark) .results,
 :global(.dark) .resultsPlaceholder { border-color: rgba(255,255,255,.07); }
+:global(.dark) .casingTopFace { fill: #263746; }
+:global(.dark) .casingEndFace { fill: #14202a; }
+:global(.dark) .casingRearFace { fill: #203344; }
+:global(.dark) .casingFrontFrame { fill: #1c2b38; }
+:global(.dark) .windowGlazing { fill: rgba(21, 35, 47, .24); stroke: rgba(255,255,255,.12); }
 
 @media (max-width: 1080px) {
   .workspace { grid-template-columns: 1fr; }
@@ -113,10 +134,14 @@
   .segmented, .weatherSearch { grid-template-columns: 1fr; }
   .visualCard { padding-inline: 10px; }
   .visualHeading, .visualNote { margin-inline: 8px; }
-  .streamLabel text { font-size: 19px; }
-  .streamLabel .labelValue { font-size: 17px; }
+  .streamLabel text { font-size: 23px; }
+  .streamLabel .labelValue { font-size: 20px; }
+  .mixedAirLabel text { font-size: 22px; }
+  .mixedAirLabel .labelValue { font-size: 18px; }
+  .casingHighlight { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .flowPath { stroke-dasharray: none; }
+  .airRibbon,
+  .progressiveMixing path { stroke-dasharray: none; }
 }

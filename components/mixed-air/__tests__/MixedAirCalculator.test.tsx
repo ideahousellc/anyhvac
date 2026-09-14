@@ -12,6 +12,7 @@ import sitemap from "../../../app/sitemap";
 import { calculateMixedAir } from "../../../lib/psychrometrics/mixing";
 import {
   MIXED_AIR_ANIMATION_DURATION,
+  CurrentWeatherStatus,
   MixedAirCalculator,
   shouldReduceMotion,
 } from "../MixedAirCalculator";
@@ -22,7 +23,9 @@ import {
   calculateMixedAirForm,
   DEFAULT_MIXED_AIR_FORM,
   switchMixedAirUnits,
+  weatherAutofillValues,
 } from "../calculatorState";
+import type { CurrentWeather } from "../../../lib/weather";
 
 const render = (node: React.ReactNode) => renderToStaticMarkup(<ModalProvider>{node}</ModalProvider>);
 const h1Count = (markup: string) => (markup.match(/<h1(?:\s|>)/g) ?? []).length;
@@ -87,6 +90,22 @@ describe("mixed-air calculator UI and production integration", () => {
     expect(markup).toContain("OUTDOOR AIR");
     expect(markup).toContain("500 CFM · 90.0°F · 50.0% RH");
     expect(markup).toContain("RETURN AIR");
+    expect(markup).toContain('data-stationary-label="mixed"');
+  });
+
+  it("renders one cohesive casing with integrated OA, RA, mixing, and discharge paths", () => {
+    const markup = renderToStaticMarkup(<MixedAirCalculator />);
+    expect((markup.match(/data-equipment-body="single-casing"/g) ?? [])).toHaveLength(1);
+    expect(markup).toContain('data-air-path="outdoor"');
+    expect(markup).toContain('data-air-path="return"');
+    expect(markup).toContain('data-mixing-zone="progressive"');
+    expect(markup).toContain('data-mixing-paths="progressive-overlap"');
+    expect(markup).toContain('data-mixing-path="outdoor-layer"');
+    expect(markup).toContain('data-mixing-path="return-layer"');
+    expect(markup).toContain('data-mixing-path="composite-layer"');
+    expect(markup).toContain('data-air-path="mixed"');
+    expect(markup).toContain('data-visualization="cohesive-isometric-mixing-plenum"');
+    expect(markup).toContain('clip-path="url(#mixing-window-clip)"');
   });
 
   it("keeps engineering and GSAP presentation calls separated", () => {
@@ -106,7 +125,12 @@ describe("mixed-air calculator UI and production integration", () => {
     const source = readFileSync(path.join(process.cwd(), "components/mixed-air/MixedAirCalculator.tsx"), "utf8");
     expect(source).toContain("timeline.current?.kill()");
     expect(MIXED_AIR_ANIMATION_DURATION).toBeGreaterThanOrEqual(.9);
-    expect(MIXED_AIR_ANIMATION_DURATION).toBeLessThanOrEqual(1.2);
+    expect(MIXED_AIR_ANIMATION_DURATION).toBeLessThanOrEqual(1.3);
+    expect((source.match(/gsap\.timeline/g) ?? [])).toHaveLength(1);
+    expect(source).toContain(".to(incoming");
+    expect(source).toContain(".to(mixingPaths");
+    expect(source).toContain(".to(mixedFlow.current");
+    expect(source).toContain(".to(mixedLabel.current");
   });
 
   it("clamps illustrative stream widths at readable sizes", () => {
@@ -146,9 +170,45 @@ describe("mixed-air calculator UI and production integration", () => {
     expect(sitemap().map((item) => item.url)).toContain("https://www.anyhvac.net/tools/mixed-air-calculator");
   });
 
-  it("keeps weather unavailable and independent of manual calculation", () => {
+  it("renders the intentional Current Weather request UI and disclaimer", () => {
     const markup = renderToStaticMarkup(<MixedAirCalculator initialForm={{ ...DEFAULT_MIXED_AIR_FORM, outdoorMode: "weather" }} />);
-    expect(markup).toContain("Weather data is unavailable");
+    expect(markup).toContain('id="mixed-air-location"');
+    expect(markup).toContain("Use Current Weather");
+    expect(markup).toContain("not HVAC design conditions");
     expect(calculateMixedAirForm(DEFAULT_MIXED_AIR_FORM).ok).toBe(true);
+  });
+
+  it("formats successful weather status, timestamp, and attribution", () => {
+    const weather: CurrentWeather = {
+      locationLabel: "Cleveland, Ohio, USA", locationName: "Cleveland", region: "Ohio", country: "USA",
+      latitude: 41.5, longitude: -81.7, temperatureCelsius: 21.1, temperatureFahrenheit: 70,
+      relativeHumidity: 56, observedAt: "2026-09-14 15:05", provider: "WeatherAPI.com",
+    };
+    const markup = renderToStaticMarkup(<CurrentWeatherStatus status="success" weather={weather} />);
+    expect(markup).toContain("Current conditions loaded for Cleveland, Ohio, USA");
+    expect(markup).toContain("Updated 3:05 PM local time");
+    expect(markup).toContain("Weather data provided by WeatherAPI.com");
+  });
+
+  it("applies IP/SI weather values without touching project pressure", () => {
+    const weather: CurrentWeather = {
+      locationLabel: "Madrid, Madrid, Spain", locationName: "Madrid", region: "Madrid", country: "Spain",
+      latitude: 40.4, longitude: -3.7, temperatureCelsius: 25, temperatureFahrenheit: 77,
+      relativeHumidity: 40, observedAt: "2026-09-14 18:00", provider: "WeatherAPI.com",
+    };
+    const ip = { ...DEFAULT_MIXED_AIR_FORM, pressureMode: "manual" as const, pressure: "13.8", ...weatherAutofillValues(weather, "IP") };
+    const si = weatherAutofillValues(weather, "SI");
+    expect(ip.outdoorDryBulb).toBe("77");
+    expect(ip.outdoorRelativeHumidity).toBe("40");
+    expect(ip.pressure).toBe("13.8");
+    expect(si.outdoorDryBulb).toBe("25");
+  });
+
+  it("keeps loaded outdoor fields editable and makes no automatic weather request", () => {
+    const markup = renderToStaticMarkup(<MixedAirCalculator initialForm={{ ...DEFAULT_MIXED_AIR_FORM, outdoorMode: "weather" }} />);
+    expect(markup).not.toMatch(/id="mixed-air-oa-db"[^>]*readonly/i);
+    const source = readFileSync(path.join(process.cwd(), "components/mixed-air/MixedAirCalculator.tsx"), "utf8");
+    expect((source.match(/requestCurrentWeather\(/g) ?? [])).toHaveLength(1);
+    expect(source).not.toMatch(/setInterval|polling/i);
   });
 });

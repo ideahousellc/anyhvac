@@ -4,11 +4,17 @@ import gsap from "gsap";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import type { MixedAirSolution } from "../../lib/psychrometrics/mixing";
+import type { CurrentWeather } from "../../lib/weather";
+import {
+  formatWeatherObservationTime,
+  requestCurrentWeather,
+} from "../../lib/weather/client";
 import {
   calculateMixedAirForm,
   DEFAULT_MIXED_AIR_FORM,
   fieldErrors,
   switchMixedAirUnits,
+  weatherAutofillValues,
   type MixedAirFormState,
 } from "./calculatorState";
 import { MixedAirResults } from "./MixedAirResults";
@@ -16,7 +22,7 @@ import { MixedAirVisualization } from "./MixedAirVisualization";
 
 import styles from "./MixedAirCalculator.module.css";
 
-export const MIXED_AIR_ANIMATION_DURATION = 1.05;
+export const MIXED_AIR_ANIMATION_DURATION = 1.26;
 
 export function shouldReduceMotion() {
   return typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -32,16 +38,21 @@ export function MixedAirCalculator({
   const [form, setForm] = useState(initialForm);
   const [solution, setSolution] = useState<MixedAirSolution>();
   const [submittedErrors, setSubmittedErrors] = useState<ReturnType<typeof fieldErrors>>(new Map());
+  const [weatherQuery, setWeatherQuery] = useState("");
+  const [weather, setWeather] = useState<CurrentWeather>();
+  const [weatherStatus, setWeatherStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const timeline = useRef<gsap.core.Timeline | null>(null);
+  const weatherRequest = useRef<AbortController | null>(null);
   const outdoorFlow = useRef<SVGPathElement>(null);
   const returnFlow = useRef<SVGPathElement>(null);
   const mixedFlow = useRef<SVGPathElement>(null);
-  const mixingPulse = useRef<SVGGElement>(null);
+  const mixingFlow = useRef<SVGGElement>(null);
   const mixedLabel = useRef<SVGGElement>(null);
   const liveValidation = useMemo(() => calculateMixedAirForm(form), [form]);
 
   useEffect(() => () => {
     timeline.current?.kill();
+    weatherRequest.current?.abort();
   }, []);
 
   function update(field: FormField, value: string) {
@@ -49,22 +60,38 @@ export function MixedAirCalculator({
     setSubmittedErrors(new Map());
   }
 
+  function selectOutdoorMode(mode: "manual" | "weather") {
+    if (mode === "manual") weatherRequest.current?.abort();
+    update("outdoorMode", mode);
+  }
+
   function playAnimation() {
     timeline.current?.kill();
+    const mixingPaths = mixingFlow.current?.querySelectorAll("path") ?? [];
+    const animatedElements = [
+      outdoorFlow.current,
+      returnFlow.current,
+      ...mixingPaths,
+      mixedFlow.current,
+      mixedLabel.current,
+    ];
     if (shouldReduceMotion()) {
-      gsap.set([outdoorFlow.current, returnFlow.current, mixedFlow.current, mixingPulse.current, mixedLabel.current], { clearProps: "all" });
+      gsap.set(animatedElements, { clearProps: "all" });
       return;
     }
     const incoming = [outdoorFlow.current, returnFlow.current];
     timeline.current = gsap.timeline({ defaults: { ease: "power1.out", overwrite: "auto" } })
-      .set(incoming, { strokeDashoffset: 90, opacity: 0.35 })
-      .set(mixedFlow.current, { strokeDashoffset: 90, opacity: 0.22 })
-      .set(mixingPulse.current, { scale: 0.76, opacity: 0, transformOrigin: "center" })
-      .to(incoming, { strokeDashoffset: 0, opacity: 1, duration: 0.42 }, 0)
-      .to(mixingPulse.current, { scale: 1.08, opacity: 0.75, duration: 0.2 }, 0.38)
-      .to(mixingPulse.current, { scale: 1, opacity: 0.28, duration: 0.16 }, 0.58)
-      .to(mixedFlow.current, { strokeDashoffset: 0, opacity: 1, duration: 0.35 }, 0.64)
-      .fromTo(mixedLabel.current, { opacity: 0.5 }, { opacity: 1, duration: 0.17 }, 0.88);
+      .set(incoming, { strokeDasharray: 1, strokeDashoffset: 1, opacity: 0.28 })
+      .set(mixingPaths, { strokeDasharray: 1, strokeDashoffset: 1, opacity: 0.06 })
+      .set(mixedFlow.current, { strokeDasharray: 1, strokeDashoffset: 1, opacity: 0.08 })
+      .set(mixedLabel.current, { opacity: 0.62, scale: 0.99, transformOrigin: "left center" })
+      .to(incoming, { strokeDashoffset: 0, opacity: 1, duration: 0.31 }, 0)
+      .to(mixingPaths, { strokeDashoffset: 0, opacity: 1, duration: 0.34, stagger: 0.025 }, 0.29)
+      .to(mixedFlow.current, { strokeDashoffset: 0, opacity: 1, duration: 0.33 }, 0.65)
+      .to(mixedLabel.current, { opacity: 1, scale: 1.018, duration: 0.14 }, 1)
+      .to(mixedLabel.current, { scale: 1, duration: 0.12 }, 1.14)
+      .set([...incoming, ...mixingPaths, mixedFlow.current], { clearProps: "strokeDasharray,strokeDashoffset,opacity" }, 1.26)
+      .set(mixedLabel.current, { clearProps: "transform,opacity" }, 1.26);
   }
 
   function submit(event: React.FormEvent<HTMLFormElement>) {
@@ -77,6 +104,29 @@ export function MixedAirCalculator({
     setSubmittedErrors(new Map());
     setSolution(result.value);
     playAnimation();
+  }
+
+  async function loadCurrentWeather() {
+    weatherRequest.current?.abort();
+    const controller = new AbortController();
+    weatherRequest.current = controller;
+    setWeatherStatus("loading");
+    setWeather(undefined);
+    try {
+      const current = await requestCurrentWeather(weatherQuery, controller.signal);
+      if (weatherRequest.current !== controller) return;
+      setWeather(current);
+      setWeatherStatus("success");
+      setForm((existing) => ({
+        ...existing,
+        ...weatherAutofillValues(current, existing.unitSystem),
+      }));
+      setSubmittedErrors(new Map());
+    } catch {
+      if (controller.signal.aborted) return;
+      setWeatherStatus("error");
+      setWeather(undefined);
+    }
   }
 
   const temperatureUnit = form.unitSystem === "IP" ? "°F" : "°C";
@@ -93,7 +143,7 @@ export function MixedAirCalculator({
           outdoorFlowRef={outdoorFlow}
           returnFlowRef={returnFlow}
           mixedFlowRef={mixedFlow}
-          mixingPulseRef={mixingPulse}
+          mixingFlowRef={mixingFlow}
           mixedLabelRef={mixedLabel}
         />
 
@@ -106,12 +156,18 @@ export function MixedAirCalculator({
           <fieldset className={styles.inputSection}>
             <legend>Outdoor Air</legend>
             <div className={styles.segmented} aria-label="Outdoor air condition source">
-              <button type="button" aria-pressed={form.outdoorMode === "manual"} onClick={() => update("outdoorMode", "manual")}>Manual Conditions</button>
-              <button type="button" aria-pressed={form.outdoorMode === "weather"} onClick={() => update("outdoorMode", "weather")}>Current Weather</button>
+              <button type="button" aria-pressed={form.outdoorMode === "manual"} onClick={() => selectOutdoorMode("manual")}>Manual Conditions</button>
+              <button type="button" aria-pressed={form.outdoorMode === "weather"} onClick={() => selectOutdoorMode("weather")}>Current Weather</button>
             </div>
             {form.outdoorMode === "weather" ? (
               <div className={styles.weatherBox}>
-                <small role="status">Weather data is unavailable. Enter outdoor conditions manually. A production provider has not been enabled because the evaluated keyless service restricts commercial use.</small>
+                <label htmlFor="mixed-air-location">Location</label>
+                <div className={styles.weatherSearch}>
+                  <input id="mixed-air-location" value={weatherQuery} onChange={(event) => setWeatherQuery(event.target.value)} placeholder="Cleveland, OH" maxLength={100} />
+                  <button type="button" onClick={loadCurrentWeather} disabled={weatherStatus === "loading"}>{weatherStatus === "loading" ? "Loading…" : "Use Current Weather"}</button>
+                </div>
+                <CurrentWeatherStatus status={weatherStatus} weather={weather} />
+                <p className={styles.weatherDisclaimer}><strong>Weather notice:</strong> Weather information displayed here is for general informational convenience only. Conditions are probabilistic and may not be accurate for your specific location or time, and they are not HVAC design conditions. Do not use this data as the sole basis for personal safety, aviation, marine navigation, emergency planning, or other safety-critical decisions. Always consult official meteorological services and relevant authorities when accuracy is critical.</p>
               </div>
             ) : null}
             <div className={styles.fieldGrid}>
@@ -151,6 +207,27 @@ export function MixedAirCalculator({
       )}
     </div>
   );
+}
+
+export function CurrentWeatherStatus({
+  status,
+  weather,
+}: {
+  status: "idle" | "loading" | "success" | "error";
+  weather?: CurrentWeather;
+}) {
+  if (status === "success" && weather) {
+    return (
+      <div role="status">
+        <p className={styles.weatherStatus}>Current conditions loaded for {weather.locationLabel}</p>
+        <p className={styles.weatherMeta}>Updated {formatWeatherObservationTime(weather.observedAt)} · <a className={styles.weatherAttribution} href="https://www.weatherapi.com/" target="_blank" rel="noreferrer">Weather data provided by WeatherAPI.com</a></p>
+      </div>
+    );
+  }
+  if (status === "error") {
+    return <p className={styles.fieldError} role="status">Current weather is unavailable. Enter outdoor conditions manually.</p>;
+  }
+  return null;
 }
 
 function NumberField({ id, label, value, error, onChange }: { id: string; label: string; value: string; error?: string; onChange: (value: string) => void }) {

@@ -42,7 +42,7 @@ function FooterLinks({
 
 export function Footer() {
   return (
-    <footer className={styles.footer} aria-label="Site footer">
+    <footer className={`site-footer ${styles.footer}`} aria-label="Site footer">
       <div className={`page-shell ${styles.inner}`}>
         <div className={styles.grid}>
           <div className={styles.brandColumn}>

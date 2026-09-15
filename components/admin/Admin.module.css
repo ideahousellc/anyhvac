@@ -1,0 +1,153 @@
+.brand {
+  text-align: center;
+}
+
+.brand img {
+  display: block;
+  width: min(220px, 72%);
+  height: auto;
+  margin: 0 auto 18px;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: clamp(26px, 5vw, 34px);
+  font-weight: 750;
+  letter-spacing: -0.045em;
+}
+
+.sectionHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(166, 175, 188, 0.3);
+}
+
+.sectionHeading h2 {
+  margin: 0;
+  color: var(--primary);
+  font-size: 15px;
+  font-weight: 760;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.form {
+  display: grid;
+  gap: 20px;
+  margin-top: 28px;
+}
+
+.form label {
+  display: grid;
+  gap: 8px;
+}
+
+.form label > span {
+  color: #445164;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.form input,
+.form textarea {
+  width: 100%;
+  border: 1px solid rgba(166, 175, 188, 0.27);
+  border-radius: 13px;
+  background: var(--surface-soft);
+  color: var(--foreground);
+  font: inherit;
+  font-size: 15px;
+  line-height: 1.5;
+  box-shadow: inset 3px 3px 7px rgba(166, 175, 188, 0.34), inset -3px -3px 7px rgba(255, 255, 255, 0.75);
+}
+
+.form input {
+  height: 48px;
+  padding: 0 14px;
+}
+
+.form textarea {
+  min-height: 190px;
+  resize: vertical;
+  padding: 13px 14px;
+}
+
+.form input[readonly] {
+  cursor: default;
+  color: var(--muted);
+  background: #e9edf2;
+}
+
+.primaryButton,
+.logoutButton {
+  cursor: pointer;
+  border-radius: 13px;
+  font-weight: 720;
+  transition: transform 150ms ease, box-shadow 150ms ease, opacity 150ms ease;
+}
+
+.primaryButton {
+  min-height: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 6px 7px 15px rgba(0, 62, 130, 0.24), -4px -4px 10px var(--shadow-light);
+}
+
+.logoutButton {
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid rgba(166, 175, 188, 0.25);
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 12px;
+  box-shadow: 4px 4px 9px rgba(166, 175, 188, 0.33), -4px -4px 9px rgba(255, 255, 255, 0.72);
+}
+
+.primaryButton:hover:not(:disabled),
+.logoutButton:hover {
+  transform: translateY(-1px);
+}
+
+.primaryButton:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.error,
+.success {
+  margin: -4px 0 0;
+  padding: 11px 13px;
+  border-radius: 11px;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.error {
+  background: #fbe9e8;
+  color: #9b2c25;
+}
+
+.success {
+  background: #e5f4eb;
+  color: #17653a;
+}
+
+.fieldError {
+  color: #9b2c25;
+  font-size: 12px;
+}
+
+@media (max-width: 520px) {
+  .brand img {
+    width: min(190px, 70%);
+  }
+
+  .form {
+    gap: 17px;
+  }
+}

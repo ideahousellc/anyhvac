@@ -8,6 +8,7 @@ import {
   ADMIN_SESSION_COOKIE,
   getAdminSessionMetadata,
 } from "@/lib/admin/session";
+import { loadControlRoomIntegrations } from "@/lib/admin/integrations/load";
 
 import styles from "./page.module.css";
 
@@ -16,12 +17,13 @@ export default async function AdminLoginPage() {
   const sessionMetadata = getAdminSessionMetadata(session);
 
   if (sessionMetadata) {
+    const integrations = await loadControlRoomIntegrations();
     return (
       <AdminSessionGuard
         expiresAt={sessionMetadata.expiresAt}
         serverNow={sessionMetadata.serverNow}
       >
-        <ControlRoomDashboard />
+        <ControlRoomDashboard integrations={integrations} />
       </AdminSessionGuard>
     );
   }

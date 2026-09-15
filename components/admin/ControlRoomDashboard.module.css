@@ -132,6 +132,53 @@
   font-weight: 650;
 }
 
+.emailMetrics {
+  margin-top: 14px;
+}
+
+.emailPrimary,
+.emailRate,
+.emailBreakdown,
+.metricPeriod {
+  margin: 0;
+}
+
+.emailPrimary {
+  color: var(--foreground);
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.emailPrimary strong {
+  color: var(--primary);
+  font-size: 26px;
+  font-weight: 770;
+  letter-spacing: -0.04em;
+}
+
+.emailRate {
+  margin-top: 3px;
+  color: #17653a;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.emailBreakdown {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 9px;
+  line-height: 1.45;
+}
+
+.metricPeriod {
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .chartEmpty {
   display: grid;
   min-height: 245px;
@@ -217,6 +264,9 @@
   font-size: 11px;
   font-weight: 680;
 }
+
+.statusValue[data-state="connected"] { color: #17653a; }
+.statusValue[data-state="unavailable"] { color: #9b2c25; }
 
 .quickGrid {
   display: grid;

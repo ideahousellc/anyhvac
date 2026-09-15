@@ -26,6 +26,7 @@ ADMIN_USERNAME=
 ADMIN_PIN_HASH=
 ADMIN_SESSION_SECRET=
 RESEND_API_KEY=
+RESEND_ADMIN_API_KEY=
 ```
 
 Generate a bcrypt hash for the chosen six-digit PIN from the project directory
@@ -46,6 +47,10 @@ per-IP progressive cooldown with a signed HttpOnly cooldown cookie. This is a
 best-effort fallback for the current database-free stack, not a distributed
 Vercel-wide rate limiter: configure an additional Vercel Firewall or Cloudflare
 rate-limit rule for `POST /api/admin/login` before production use.
+
+`RESEND_API_KEY` remains the sending-only key. `RESEND_ADMIN_API_KEY` is a
+separate full-access, server-only key used exclusively for private Control Room
+email metrics.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 

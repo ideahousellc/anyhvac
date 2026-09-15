@@ -100,6 +100,76 @@ describe("admin route integration", () => {
     expect(markup).toContain("Trend data not connected");
   });
 
+  it("renders real normalized Resend values without exposing credentials", () => {
+    const secret = "re_admin_must_never_render";
+    const markup = renderToStaticMarkup(
+      <ControlRoomDashboard
+        integrations={{
+          resend: {
+            state: "connected",
+            data: {
+              sent: 1234,
+              delivered: 1200,
+              failed: 12,
+              bounced: 22,
+              deliveryRate: 97.2,
+              period: "last-30-days",
+            },
+          },
+        }}
+      />,
+    );
+    expect(markup).toContain("1,234");
+    expect(markup).toContain("97.2% delivered");
+    expect(markup).toContain("Delivered 1,200");
+    expect(markup).toContain("Failed 12");
+    expect(markup).toContain("Bounced 22");
+    expect(markup).toContain("Last 30 days");
+    expect(markup).not.toContain(secret);
+  });
+
+  it("renders zero Resend activity as Connected", () => {
+    const markup = renderToStaticMarkup(
+      <ControlRoomDashboard
+        integrations={{
+          resend: {
+            state: "connected",
+            data: {
+              sent: 0,
+              delivered: 0,
+              failed: 0,
+              bounced: 0,
+              deliveryRate: null,
+              period: "last-30-days",
+            },
+          },
+        }}
+      />,
+    );
+    expect(markup).toContain("<strong>0</strong> sent");
+    expect(markup).toContain("Last 30 days");
+    expect(markup).not.toContain("0% delivered");
+  });
+
+  it("isolates an unavailable Resend provider from the rest of Control Room", () => {
+    const markup = renderToStaticMarkup(
+      <ControlRoomDashboard
+        integrations={{ resend: { state: "unavailable", data: null } }}
+      />,
+    );
+    expect(markup).toContain("Unavailable");
+    expect(markup).toContain("Website Traffic");
+    expect(markup).toContain("Google Search");
+    expect(markup).toContain("Newsletter");
+    expect(markup).toContain("Trend data not connected");
+  });
+
+  it("uses the requested lower-section wording", () => {
+    const markup = renderToStaticMarkup(<ControlRoomDashboard />);
+    expect(markup).toContain("System Health");
+    expect(markup).toContain("Quick Access");
+  });
+
   it("sets noindex and nofollow metadata for all admin pages", () => {
     expect(metadata.robots).toMatchObject({ index: false, follow: false });
     const markup = renderToStaticMarkup(

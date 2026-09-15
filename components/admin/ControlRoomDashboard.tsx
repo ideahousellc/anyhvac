@@ -8,6 +8,7 @@ import {
   ADMIN_SYSTEM_STATUS,
   integrationStateLabel,
 } from "@/lib/admin/integrations/catalog";
+import type { ControlRoomIntegrations } from "@/lib/admin/integrations/load";
 
 import styles from "./ControlRoomDashboard.module.css";
 
@@ -15,7 +16,31 @@ function ArrowIcon() {
   return <span aria-hidden="true">↗</span>;
 }
 
-export function ControlRoomDashboard() {
+const DEFAULT_INTEGRATIONS: ControlRoomIntegrations = {
+  resend: { state: "not-connected", data: null },
+};
+
+function formatMetric(value: number) {
+  return new Intl.NumberFormat("en-US").format(value);
+}
+
+function formatRate(value: number) {
+  return new Intl.NumberFormat("en-US", { maximumFractionDigits: 1 }).format(value);
+}
+
+export function ControlRoomDashboard({
+  integrations = DEFAULT_INTEGRATIONS,
+}: {
+  integrations?: ControlRoomIntegrations;
+}) {
+  const emailSnapshot = integrations.resend;
+  const metrics = ADMIN_METRICS.map((metric) =>
+    metric.id === "email" ? { ...metric, state: emailSnapshot.state } : metric,
+  );
+  const systemStatus = ADMIN_SYSTEM_STATUS.map((service) =>
+    service.id === "email" ? { ...service, state: emailSnapshot.state } : service,
+  );
+
   return (
     <div className={styles.dashboard}>
       <header className={styles.header}>
@@ -44,13 +69,30 @@ export function ControlRoomDashboard() {
           <h2 id="overview-heading">At a glance</h2>
         </div>
         <div className={styles.metricGrid}>
-          {ADMIN_METRICS.map((metric) => (
+          {metrics.map((metric) => (
             <article className={styles.metricCard} key={metric.id}>
               <p className={styles.provider}>{metric.provider}</p>
               <h3>{metric.label}</h3>
-              <p className={styles.metricValue} data-state={metric.state}>
-                {metric.value ?? integrationStateLabel(metric.state)}
-              </p>
+              {metric.id === "email" && emailSnapshot.state === "connected" ? (
+                <div className={styles.emailMetrics} data-state="connected">
+                  <p className={styles.emailPrimary}>
+                    <strong>{formatMetric(emailSnapshot.data.sent)}</strong> sent
+                  </p>
+                  <p className={styles.emailRate}>
+                    {emailSnapshot.data.deliveryRate === null
+                      ? "—"
+                      : `${formatRate(emailSnapshot.data.deliveryRate)}% delivered`}
+                  </p>
+                  <p className={styles.emailBreakdown}>
+                    Delivered {formatMetric(emailSnapshot.data.delivered)} · Failed {formatMetric(emailSnapshot.data.failed)} · Bounced {formatMetric(emailSnapshot.data.bounced)}
+                  </p>
+                  <p className={styles.metricPeriod}>Last 30 days</p>
+                </div>
+              ) : (
+                <p className={styles.metricValue} data-state={metric.state}>
+                  {metric.value ?? integrationStateLabel(metric.state)}
+                </p>
+              )}
             </article>
           ))}
         </div>
@@ -76,10 +118,10 @@ export function ControlRoomDashboard() {
         <section className={styles.section} aria-labelledby="status-heading">
           <div className={styles.sectionTitle}>
             <p>System Status</p>
-            <h2 id="status-heading">Services</h2>
+            <h2 id="status-heading">System Health</h2>
           </div>
           <div className={styles.statusList}>
-            {ADMIN_SYSTEM_STATUS.map((service) => (
+            {systemStatus.map((service) => (
               <div className={styles.statusRow} key={service.id}>
                 <div>
                   <strong>{service.label}</strong>
@@ -96,7 +138,7 @@ export function ControlRoomDashboard() {
         <section className={styles.section} aria-labelledby="access-heading">
           <div className={styles.sectionTitle}>
             <p>Quick Access</p>
-            <h2 id="access-heading">Services</h2>
+            <h2 id="access-heading">Quick Access</h2>
           </div>
           <div className={styles.quickGrid}>
             {ADMIN_QUICK_LINKS.map((link) =>

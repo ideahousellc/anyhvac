@@ -57,12 +57,14 @@ beforeEach(() => {
   process.env.ADMIN_PIN_HASH = pinHash;
   process.env.ADMIN_SESSION_SECRET = SECRET;
   process.env.RESEND_API_KEY = "test-resend-key";
+  process.env.RESEND_ADMIN_API_KEY = "admin-metrics-key";
   resetLoginLimitsForTests();
 });
 
 afterEach(() => {
   vi.restoreAllMocks();
   vi.unstubAllGlobals();
+  delete process.env.RESEND_ADMIN_API_KEY;
 });
 
 describe("admin login", () => {
@@ -243,6 +245,9 @@ describe("admin mail API", () => {
     expect(payload.text).toContain("Hello,\nThank you.");
     expect(new Headers(options.headers).get("Idempotency-Key")).toBe(
       `admin-mail/${REQUEST_ID}`,
+    );
+    expect(new Headers(options.headers).get("Authorization")).toBe(
+      "Bearer test-resend-key",
     );
   });
 

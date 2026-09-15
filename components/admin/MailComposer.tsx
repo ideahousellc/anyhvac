@@ -4,6 +4,7 @@ import { type FormEvent, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { ADMIN_FROM, MAIL_LIMITS } from "@/lib/admin/mail";
+import { handleAdminUnauthorized } from "@/components/admin/session-expiration";
 
 import styles from "./Admin.module.css";
 
@@ -47,16 +48,20 @@ export function MailComposer() {
           requestId: requestId.current,
         }),
       });
+      if (
+        handleAdminUnauthorized(result.status, () => {
+          router.replace("/admin");
+          router.refresh();
+        })
+      ) {
+        return;
+      }
+
       const body: unknown = await result.json().catch(() => null);
       if (result.ok) {
         formElement.reset();
         requestId.current = "";
         setSuccess(true);
-        return;
-      }
-      if (result.status === 401) {
-        router.replace("/admin");
-        router.refresh();
         return;
       }
       if (typeof body === "object" && body !== null) {

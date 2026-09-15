@@ -92,6 +92,25 @@ export function verifyAdminSession(
   );
 }
 
+export function getAdminSessionExpiration(
+  token: string | undefined,
+  secret = process.env.ADMIN_SESSION_SECRET,
+  now = Date.now(),
+) {
+  if (!verifyAdminSession(token, secret, now)) return null;
+  const payload = verifyAdminValue<SessionPayload>(token, secret, "session");
+  return payload ? payload.exp * 1000 : null;
+}
+
+export function getAdminSessionMetadata(
+  token: string | undefined,
+  secret = process.env.ADMIN_SESSION_SECRET,
+  now = Date.now(),
+) {
+  const expiresAt = getAdminSessionExpiration(token, secret, now);
+  return expiresAt === null ? null : { expiresAt, serverNow: now };
+}
+
 export const adminSessionCookieOptions = {
   httpOnly: true,
   secure: process.env.NODE_ENV === "production",

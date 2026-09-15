@@ -15,7 +15,9 @@ import { resetLoginLimitsForTests } from "@/lib/admin/rate-limit";
 import {
   ADMIN_SESSION_COOKIE,
   SESSION_TTL_SECONDS,
+  adminSessionCookieOptions,
   createAdminSession,
+  getAdminSessionExpiration,
   verifyAdminSession,
 } from "@/lib/admin/session";
 
@@ -110,7 +112,12 @@ describe("admin login", () => {
 
 describe("signed admin sessions", () => {
   it("accepts a valid session", () => {
-    expect(verifyAdminSession(createAdminSession(SECRET), SECRET)).toBe(true);
+    const now = Date.now();
+    const token = createAdminSession(SECRET, now);
+    expect(verifyAdminSession(token, SECRET, now)).toBe(true);
+    expect(getAdminSessionExpiration(token, SECRET, now)).toBe(
+      Math.floor(now / 1000) * 1000 + SESSION_TTL_SECONDS * 1000,
+    );
   });
 
   it("rejects missing, expired, invalid, and tampered sessions", () => {
@@ -128,6 +135,16 @@ describe("signed admin sessions", () => {
     expect(result.headers.get("set-cookie")).toContain(`${ADMIN_SESSION_COOKIE}=;`);
     expect(result.headers.get("set-cookie")).toContain("Max-Age=0");
   });
+
+  it("keeps the original HttpOnly, strict, root-path, 30-minute cookie policy", () => {
+    expect(adminSessionCookieOptions).toMatchObject({
+      httpOnly: true,
+      sameSite: "strict",
+      path: "/",
+      maxAge: 30 * 60,
+      priority: "high",
+    });
+  });
 });
 
 describe("admin mail API", () => {
@@ -141,6 +158,19 @@ describe("admin mail API", () => {
   it("rejects an unauthenticated send", async () => {
     const result = await send(request("/api/admin/send", validMail));
     expect(result.status).toBe(401);
+  });
+
+  it("rejects a send when the signed session has expired", async () => {
+    const fetchMock = vi.fn();
+    vi.stubGlobal("fetch", fetchMock);
+    const expiredAt = Date.now() - (SESSION_TTL_SECONDS + 1) * 1000;
+    const result = await send(
+      request("/api/admin/send", validMail, {
+        cookie: authenticatedCookie(expiredAt),
+      }),
+    );
+    expect(result.status).toBe(401);
+    expect(fetchMock).not.toHaveBeenCalled();
   });
 
   it("rejects an invalid recipient", async () => {

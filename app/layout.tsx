@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 
-import { Footer } from "@/components/Footer";
-import { ModalProvider } from "@/components/ModalProvider";
+import { PublicSiteBoundary } from "@/components/PublicSiteBoundary";
 import {
   createPageMetadata,
   SITE_DESCRIPTION,
@@ -57,10 +56,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             __html: JSON.stringify(websiteStructuredData),
           }}
         />
-        <ModalProvider>
-          {children}
-          <Footer />
-        </ModalProvider>
+        <PublicSiteBoundary>{children}</PublicSiteBoundary>
         <Script
           id="cloudflare-web-analytics"
           type="module"

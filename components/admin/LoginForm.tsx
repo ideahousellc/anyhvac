@@ -27,7 +27,7 @@ export function LoginForm() {
         }),
       });
       if (result.ok) {
-        router.replace("/admin/mail");
+        router.replace("/admin");
         router.refresh();
         return;
       }

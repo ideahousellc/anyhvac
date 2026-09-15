@@ -1,15 +1,30 @@
 import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
 
 import { AdminBrand } from "@/components/admin/AdminBrand";
+import { AdminSessionGuard } from "@/components/admin/AdminSessionGuard";
+import { ControlRoomDashboard } from "@/components/admin/ControlRoomDashboard";
 import { LoginForm } from "@/components/admin/LoginForm";
-import { ADMIN_SESSION_COOKIE, verifyAdminSession } from "@/lib/admin/session";
+import {
+  ADMIN_SESSION_COOKIE,
+  getAdminSessionMetadata,
+} from "@/lib/admin/session";
 
 import styles from "./page.module.css";
 
 export default async function AdminLoginPage() {
   const session = (await cookies()).get(ADMIN_SESSION_COOKIE)?.value;
-  if (verifyAdminSession(session)) redirect("/admin/mail");
+  const sessionMetadata = getAdminSessionMetadata(session);
+
+  if (sessionMetadata) {
+    return (
+      <AdminSessionGuard
+        expiresAt={sessionMetadata.expiresAt}
+        serverNow={sessionMetadata.serverNow}
+      >
+        <ControlRoomDashboard />
+      </AdminSessionGuard>
+    );
+  }
 
   return (
     <section className={`${styles.card} ${styles.loginCard}`}>

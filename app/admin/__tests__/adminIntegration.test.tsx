@@ -1,9 +1,14 @@
 import { renderToStaticMarkup } from "react-dom/server";
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import AdminLayout, { metadata } from "@/app/admin/layout";
 import sitemap from "@/app/sitemap";
 import { AdminBrand } from "@/components/admin/AdminBrand";
+import { ControlRoomDashboard } from "@/components/admin/ControlRoomDashboard";
+import {
+  ADMIN_METRICS,
+  integrationStateLabel,
+} from "@/lib/admin/integrations/catalog";
 import { ADMIN_SESSION_COOKIE, createAdminSession } from "@/lib/admin/session";
 
 const mocks = vi.hoisted(() => ({
@@ -20,6 +25,7 @@ vi.mock("next/navigation", () => ({
 }));
 
 import AdminMailPage from "@/app/admin/mail/page";
+import AdminPage from "@/app/admin/page";
 
 const SECRET = "test-session-secret-with-at-least-32-bytes-long";
 
@@ -32,7 +38,32 @@ beforeEach(() => {
   });
 });
 
+afterEach(() => {
+  vi.unstubAllGlobals();
+});
+
 describe("admin route integration", () => {
+  it("renders the login at /admin without a session", async () => {
+    mocks.cookies.mockResolvedValue({ get: () => undefined });
+    const markup = renderToStaticMarkup(await AdminPage());
+    expect(markup).toContain("AnyHVAC Admin");
+    expect(markup).toContain("Sign In");
+    expect(markup).not.toContain("Control Room");
+  });
+
+  it("renders the Control Room at /admin with a valid session", async () => {
+    const token = createAdminSession(SECRET);
+    mocks.cookies.mockResolvedValue({
+      get: (name: string) =>
+        name === ADMIN_SESSION_COOKIE ? { value: token } : undefined,
+    });
+    const markup = renderToStaticMarkup(await AdminPage());
+    expect(markup).toContain("Control Room");
+    expect(markup).toContain("Website Traffic");
+    expect(markup).toContain("System Status");
+    expect(markup).toContain("Quick Access");
+  });
+
   it("redirects the protected mail page without a session", async () => {
     mocks.cookies.mockResolvedValue({ get: () => undefined });
     await expect(AdminMailPage()).rejects.toThrow("NEXT_REDIRECT");
@@ -49,6 +80,24 @@ describe("admin route integration", () => {
     const markup = renderToStaticMarkup(page);
     expect(markup).toContain("AnyHVAC Admin");
     expect(markup).toContain("Send Email");
+    expect(markup).toContain('href="/admin"');
+    expect(markup).toContain("Control Room");
+  });
+
+  it("renders no invented metric values and makes no provider calls", () => {
+    const fetchMock = vi.fn();
+    vi.stubGlobal("fetch", fetchMock);
+    const markup = renderToStaticMarkup(<ControlRoomDashboard />);
+
+    expect(fetchMock).not.toHaveBeenCalled();
+    expect(ADMIN_METRICS.every((metric) => !("value" in metric))).toBe(true);
+    expect(ADMIN_METRICS.map((metric) => integrationStateLabel(metric.state))).toEqual([
+      "Not connected",
+      "Not connected",
+      "Not connected",
+      "Not connected",
+    ]);
+    expect(markup).toContain("Trend data not connected");
   });
 
   it("sets noindex and nofollow metadata for all admin pages", () => {

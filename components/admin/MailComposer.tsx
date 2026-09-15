@@ -1,6 +1,7 @@
 "use client";
 
 import { type FormEvent, useRef, useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import { ADMIN_FROM, MAIL_LIMITS } from "@/lib/admin/mail";
@@ -94,9 +95,12 @@ export function MailComposer() {
     <>
       <div className={styles.sectionHeading}>
         <h2>Mail</h2>
-        <button className={styles.logoutButton} type="button" onClick={logout}>
-          Logout
-        </button>
+        <div className={styles.sectionActions}>
+          <Link className={styles.controlRoomLink} href="/admin">Control Room</Link>
+          <button className={styles.logoutButton} type="button" onClick={logout}>
+            Logout
+          </button>
+        </div>
       </div>
       <form className={styles.form} onSubmit={submit} onChange={edited}>
         <label>

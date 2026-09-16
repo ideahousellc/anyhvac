@@ -62,11 +62,11 @@ export function Footer() {
 
           <div className={styles.linkGroup}>
             <h2>Resources</h2>
+            <ul>
+              <li><Link href="/resources">HVAC Design Resources</Link></li>
+              <li><Link href="/resources/duct-design-quick-reference">Duct Design Quick Reference</Link></li>
+            </ul>
             <ul className={styles.futureList}>
-              <li>
-                <span>Resources</span>
-                <small>Coming soon</small>
-              </li>
               <li>
                 <span>Codes &amp; Standards</span>
                 <small>Coming soon</small>

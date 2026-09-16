@@ -94,6 +94,10 @@
   gap: 3px;
 }
 
+.linkGroup ul + .futureList {
+  margin-top: 10px;
+}
+
 .futureList small {
   color: color-mix(in srgb, var(--muted) 72%, transparent);
   font-size: 9px;

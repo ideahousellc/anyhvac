@@ -584,7 +584,7 @@ button { font: inherit; }
   .brand-tagline { max-width: 122px; font-size: 6.5px; }
   .icon-button { width: 37px; height: 37px; border-radius: 11px; }
   .icon-button:first-child { display: none; }
-  .primary-nav { gap: 8px; }
+  .primary-nav { flex-wrap: wrap; gap: 8px; }
   .primary-nav a { font-size: 12px; }
   .primary-nav .header-support-link { padding: 7px 9px; font-size: 11px; }
   .hero { gap: 25px; padding-top: 27.5px; padding-bottom: 54px; }

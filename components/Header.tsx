@@ -30,6 +30,7 @@ function ThemeIcon({ dark }: { dark: boolean }) {
 
 const navigation = [
   { label: "Tools", href: "/tools" },
+  { label: "Resources", href: "/resources" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];

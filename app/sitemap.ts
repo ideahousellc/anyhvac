@@ -10,6 +10,8 @@ const PUBLIC_ROUTES = [
   "/tools/air-properties",
   "/tools/psychrometric-calculator",
   "/tools/mixed-air-calculator",
+  "/resources",
+  "/resources/duct-design-quick-reference",
   "/about",
   "/contact",
   "/engineering-disclaimer",

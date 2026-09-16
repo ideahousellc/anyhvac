@@ -19,6 +19,9 @@ const mocks = vi.hoisted(() => ({
 }));
 
 vi.mock("next/headers", () => ({ cookies: mocks.cookies }));
+vi.mock("next/cache", () => ({
+  unstable_cache: (loader: (...args: unknown[]) => Promise<unknown>) => loader,
+}));
 vi.mock("next/navigation", () => ({
   redirect: mocks.redirect,
   useRouter: () => ({ replace: mocks.replace, refresh: mocks.refresh }),
@@ -31,6 +34,8 @@ const SECRET = "test-session-secret-with-at-least-32-bytes-long";
 
 beforeEach(() => {
   process.env.ADMIN_SESSION_SECRET = SECRET;
+  delete process.env.BEEHIIV_ADMIN_API_KEY;
+  delete process.env.BEEHIIV_PUBLICATION_ID;
   mocks.cookies.mockReset();
   mocks.redirect.mockReset();
   mocks.redirect.mockImplementation(() => {
@@ -62,6 +67,36 @@ describe("admin route integration", () => {
     expect(markup).toContain("Website Traffic");
     expect(markup).toContain("System Status");
     expect(markup).toContain("Quick Access");
+  });
+
+  it("keeps Beehiiv credentials and unexpected subscriber data out of authenticated markup", async () => {
+    const publicationId = "pub_11111111-1111-1111-1111-111111111111";
+    const apiKey = "beehiiv-route-test-private-key";
+    process.env.BEEHIIV_ADMIN_API_KEY = apiKey;
+    process.env.BEEHIIV_PUBLICATION_ID = publicationId;
+    const fetchMock = vi.fn().mockResolvedValue(new Response(JSON.stringify({
+      data: {
+        id: publicationId,
+        stats: {
+          active_subscriptions: 8,
+          total_sent: 1,
+          average_open_rate: 0.5,
+          average_click_rate: 0.25,
+        },
+        subscribers: [{ email: "private-subscriber@example.com" }],
+      },
+    }), { status: 200 }));
+    vi.stubGlobal("fetch", fetchMock);
+    const token = createAdminSession(SECRET);
+    mocks.cookies.mockResolvedValue({
+      get: (name: string) => name === ADMIN_SESSION_COOKIE ? { value: token } : undefined,
+    });
+
+    const markup = renderToStaticMarkup(await AdminPage());
+    expect(markup).toContain("<strong>8</strong> subscribers");
+    expect(markup).not.toContain(apiKey);
+    expect(markup).not.toContain(publicationId);
+    expect(markup).not.toContain("private-subscriber@example.com");
   });
 
   it("redirects the protected mail page without a session", async () => {
@@ -105,6 +140,7 @@ describe("admin route integration", () => {
     const markup = renderToStaticMarkup(
       <ControlRoomDashboard
         integrations={{
+          beehiiv: { state: "not-connected", data: null },
           resend: {
             state: "connected",
             data: {
@@ -132,6 +168,7 @@ describe("admin route integration", () => {
     const markup = renderToStaticMarkup(
       <ControlRoomDashboard
         integrations={{
+          beehiiv: { state: "not-connected", data: null },
           resend: {
             state: "connected",
             data: {
@@ -154,7 +191,10 @@ describe("admin route integration", () => {
   it("isolates an unavailable Resend provider from the rest of Control Room", () => {
     const markup = renderToStaticMarkup(
       <ControlRoomDashboard
-        integrations={{ resend: { state: "unavailable", data: null } }}
+        integrations={{
+          beehiiv: { state: "not-connected", data: null },
+          resend: { state: "unavailable", data: null },
+        }}
       />,
     );
     expect(markup).toContain("Unavailable");
@@ -162,6 +202,39 @@ describe("admin route integration", () => {
     expect(markup).toContain("Google Search");
     expect(markup).toContain("Newsletter");
     expect(markup).toContain("Trend data not connected");
+  });
+
+  it("renders Beehiiv counts and rates with a Connected health state", () => {
+    const markup = renderToStaticMarkup(
+      <ControlRoomDashboard integrations={{
+        beehiiv: {
+          state: "connected",
+          data: { activeSubscribers: 1234, averageOpenRate: 80, averageClickRate: 45 },
+        },
+        resend: { state: "not-connected", data: null },
+      }} />,
+    );
+    expect(markup).toContain("<strong>1,234</strong> subscribers");
+    expect(markup).toContain("80% avg. open");
+    expect(markup).toContain("45% avg. click");
+    expect(markup).toMatch(/Newsletter<\/strong><span>Beehiiv<\/span><\/div><span[^>]*>Connected/);
+    expect(markup).toContain("Trend data not connected");
+  });
+
+  it("renders zero subscribers as Connected and missing engagement neutrally", () => {
+    const markup = renderToStaticMarkup(
+      <ControlRoomDashboard integrations={{
+        beehiiv: {
+          state: "connected",
+          data: { activeSubscribers: 0, averageOpenRate: null, averageClickRate: null },
+        },
+        resend: { state: "not-connected", data: null },
+      }} />,
+    );
+    expect(markup).toContain("<strong>0</strong> subscribers");
+    expect(markup).toContain("— avg. open");
+    expect(markup).toContain("— avg. click");
+    expect(markup).not.toContain("0% avg.");
   });
 
   it("uses the requested lower-section wording", () => {

@@ -17,6 +17,7 @@ function ArrowIcon() {
 }
 
 const DEFAULT_INTEGRATIONS: ControlRoomIntegrations = {
+  beehiiv: { state: "not-connected", data: null },
   resend: { state: "not-connected", data: null },
 };
 
@@ -34,11 +35,14 @@ export function ControlRoomDashboard({
   integrations?: ControlRoomIntegrations;
 }) {
   const emailSnapshot = integrations.resend;
+  const newsletterSnapshot = integrations.beehiiv;
   const metrics = ADMIN_METRICS.map((metric) =>
-    metric.id === "email" ? { ...metric, state: emailSnapshot.state } : metric,
+    metric.id === "email" ? { ...metric, state: emailSnapshot.state }
+      : metric.id === "newsletter" ? { ...metric, state: newsletterSnapshot.state } : metric,
   );
   const systemStatus = ADMIN_SYSTEM_STATUS.map((service) =>
-    service.id === "email" ? { ...service, state: emailSnapshot.state } : service,
+    service.id === "email" ? { ...service, state: emailSnapshot.state }
+      : service.id === "newsletter" ? { ...service, state: newsletterSnapshot.state } : service,
   );
 
   return (
@@ -73,7 +77,23 @@ export function ControlRoomDashboard({
             <article className={styles.metricCard} key={metric.id}>
               <p className={styles.provider}>{metric.provider}</p>
               <h3>{metric.label}</h3>
-              {metric.id === "email" && emailSnapshot.state === "connected" ? (
+              {metric.id === "newsletter" && newsletterSnapshot.state === "connected" ? (
+                <div className={styles.emailMetrics} data-state="connected">
+                  <p className={styles.emailPrimary}>
+                    <strong>{formatMetric(newsletterSnapshot.data.activeSubscribers)}</strong> subscribers
+                  </p>
+                  <p className={styles.newsletterRate}>
+                    {newsletterSnapshot.data.averageOpenRate === null
+                      ? "— avg. open"
+                      : `${formatRate(newsletterSnapshot.data.averageOpenRate)}% avg. open`}
+                  </p>
+                  <p className={styles.newsletterRate}>
+                    {newsletterSnapshot.data.averageClickRate === null
+                      ? "— avg. click"
+                      : `${formatRate(newsletterSnapshot.data.averageClickRate)}% avg. click`}
+                  </p>
+                </div>
+              ) : metric.id === "email" && emailSnapshot.state === "connected" ? (
                 <div className={styles.emailMetrics} data-state="connected">
                   <p className={styles.emailPrimary}>
                     <strong>{formatMetric(emailSnapshot.data.sent)}</strong> sent

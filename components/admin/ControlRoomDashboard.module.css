@@ -163,6 +163,13 @@
   font-weight: 700;
 }
 
+.newsletterRate {
+  margin: 5px 0 0;
+  color: #17653a;
+  font-size: 12px;
+  font-weight: 700;
+}
+
 .emailBreakdown {
   margin-top: 10px;
   color: var(--muted);

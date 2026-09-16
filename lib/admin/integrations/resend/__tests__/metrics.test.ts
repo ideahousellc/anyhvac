@@ -149,9 +149,11 @@ describe("Resend email metrics integration", () => {
     await expect(
       loadControlRoomIntegrations({
         loadResend: vi.fn().mockRejectedValue(new Error("provider failed")),
+        loadBeehiiv: vi.fn().mockResolvedValue({ state: "not-connected", data: null }),
       }),
     ).resolves.toEqual({
       resend: { state: "unavailable", data: null },
+      beehiiv: { state: "not-connected", data: null },
     });
   });
 });

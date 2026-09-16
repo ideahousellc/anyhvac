@@ -36,6 +36,9 @@ beforeEach(() => {
   process.env.ADMIN_SESSION_SECRET = SECRET;
   delete process.env.BEEHIIV_ADMIN_API_KEY;
   delete process.env.BEEHIIV_PUBLICATION_ID;
+  delete process.env.GOOGLE_SEARCH_CONSOLE_CLIENT_EMAIL;
+  delete process.env.GOOGLE_SEARCH_CONSOLE_PRIVATE_KEY;
+  delete process.env.GOOGLE_SEARCH_CONSOLE_PROPERTY;
   mocks.cookies.mockReset();
   mocks.redirect.mockReset();
   mocks.redirect.mockImplementation(() => {
@@ -141,6 +144,7 @@ describe("admin route integration", () => {
       <ControlRoomDashboard
         integrations={{
           beehiiv: { state: "not-connected", data: null },
+          googleSearch: { state: "not-connected", data: null },
           resend: {
             state: "connected",
             data: {
@@ -169,6 +173,7 @@ describe("admin route integration", () => {
       <ControlRoomDashboard
         integrations={{
           beehiiv: { state: "not-connected", data: null },
+          googleSearch: { state: "not-connected", data: null },
           resend: {
             state: "connected",
             data: {
@@ -193,6 +198,7 @@ describe("admin route integration", () => {
       <ControlRoomDashboard
         integrations={{
           beehiiv: { state: "not-connected", data: null },
+          googleSearch: { state: "not-connected", data: null },
           resend: { state: "unavailable", data: null },
         }}
       />,
@@ -211,6 +217,7 @@ describe("admin route integration", () => {
           state: "connected",
           data: { activeSubscribers: 1234, averageOpenRate: 80, averageClickRate: 45 },
         },
+        googleSearch: { state: "not-connected", data: null },
         resend: { state: "not-connected", data: null },
       }} />,
     );
@@ -228,6 +235,7 @@ describe("admin route integration", () => {
           state: "connected",
           data: { activeSubscribers: 0, averageOpenRate: null, averageClickRate: null },
         },
+        googleSearch: { state: "not-connected", data: null },
         resend: { state: "not-connected", data: null },
       }} />,
     );
@@ -235,6 +243,71 @@ describe("admin route integration", () => {
     expect(markup).toContain("— avg. open");
     expect(markup).toContain("— avg. click");
     expect(markup).not.toContain("0% avg.");
+  });
+
+  it("renders Google Search aggregates and only the returned daily impression rows", () => {
+    const markup = renderToStaticMarkup(
+      <ControlRoomDashboard integrations={{
+        beehiiv: { state: "not-connected", data: null },
+        googleSearch: {
+          state: "connected",
+          data: {
+            impressions: 1234,
+            clicks: 56,
+            ctr: 4.54,
+            averagePosition: 12.3,
+            daily: [
+              { date: "2026-09-11", impressions: 42, clicks: 2 },
+              { date: "2026-09-13", impressions: 51, clicks: 3 },
+            ],
+            startDate: "2026-08-17",
+            endDate: "2026-09-13",
+            period: "last-28-days",
+          },
+        },
+        resend: { state: "not-connected", data: null },
+      }} />,
+    );
+
+    expect(markup).toContain("<strong>1,234</strong> impressions");
+    expect(markup).toContain("56 clicks");
+    expect(markup).toContain("4.5% CTR");
+    expect(markup).toContain("Avg position 12.3");
+    expect(markup).toContain("Last 28 finalized days");
+    expect(markup).toContain("Google Search impressions");
+    expect(markup).toContain("Sep 11: 42 impressions");
+    expect(markup).toContain("Sep 13: 51 impressions");
+    expect((markup.match(/<rect /g) ?? []).length).toBe(2);
+    expect(markup).toMatch(/Google Search Console<\/span><\/div><span[^>]*>Connected/);
+    expect(markup).toMatch(/Cloudflare Web Analytics<\/p><h3>Website Traffic<\/h3><p[^>]*>Not connected/);
+  });
+
+  it("shows zero Search activity without inventing CTR, position, or daily chart rows", () => {
+    const markup = renderToStaticMarkup(
+      <ControlRoomDashboard integrations={{
+        beehiiv: { state: "not-connected", data: null },
+        googleSearch: {
+          state: "connected",
+          data: {
+            impressions: 0,
+            clicks: 0,
+            ctr: null,
+            averagePosition: null,
+            daily: [],
+            startDate: "2026-08-17",
+            endDate: "2026-09-13",
+            period: "last-28-days",
+          },
+        },
+        resend: { state: "not-connected", data: null },
+      }} />,
+    );
+
+    expect(markup).toContain("<strong>0</strong> impressions");
+    expect(markup).toContain("\u2014 CTR");
+    expect(markup).toContain("Avg position \u2014");
+    expect(markup).toContain("No finalized search data yet");
+    expect(markup).not.toContain("<rect ");
   });
 
   it("uses the requested lower-section wording", () => {

@@ -150,10 +150,12 @@ describe("Resend email metrics integration", () => {
       loadControlRoomIntegrations({
         loadResend: vi.fn().mockRejectedValue(new Error("provider failed")),
         loadBeehiiv: vi.fn().mockResolvedValue({ state: "not-connected", data: null }),
+        loadGoogleSearch: vi.fn().mockResolvedValue({ state: "not-connected", data: null }),
       }),
     ).resolves.toEqual({
       resend: { state: "unavailable", data: null },
       beehiiv: { state: "not-connected", data: null },
+      googleSearch: { state: "not-connected", data: null },
     });
   });
 });

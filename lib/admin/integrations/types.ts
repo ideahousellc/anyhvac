@@ -32,7 +32,7 @@ export type AdminMetric = {
 };
 
 export type AdminSystemStatus = {
-  id: "website" | "deployment" | "email" | "newsletter";
+  id: "website" | "deployment" | "search" | "email" | "newsletter";
   label: string;
   provider: string;
   providerId?: AdminProviderId;

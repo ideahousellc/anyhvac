@@ -51,6 +51,13 @@ export const ADMIN_SYSTEM_STATUS: readonly AdminSystemStatus[] = [
     state: "not-checked",
   },
   {
+    id: "search",
+    label: "Google Search",
+    provider: "Google Search Console",
+    providerId: "search-console",
+    state: "not-connected",
+  },
+  {
     id: "email",
     label: "Email",
     provider: "Resend",

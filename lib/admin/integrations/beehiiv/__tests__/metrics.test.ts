@@ -172,9 +172,11 @@ describe("independent Control Room providers", () => {
     const result = await loadControlRoomIntegrations({
       loadBeehiiv: vi.fn().mockRejectedValue(new Error("provider failed")),
       loadResend: vi.fn().mockResolvedValue(connectedResend),
+      loadGoogleSearch: vi.fn().mockResolvedValue({ state: "not-connected", data: null }),
     });
     expect(result).toEqual({
       beehiiv: { state: "unavailable", data: null }, resend: connectedResend,
+      googleSearch: { state: "not-connected", data: null },
     });
   });
 
@@ -182,9 +184,11 @@ describe("independent Control Room providers", () => {
     const result = await loadControlRoomIntegrations({
       loadBeehiiv: vi.fn().mockResolvedValue(connectedBeehiiv),
       loadResend: vi.fn().mockRejectedValue(new Error("provider failed")),
+      loadGoogleSearch: vi.fn().mockResolvedValue({ state: "not-connected", data: null }),
     });
     expect(result).toEqual({
       beehiiv: connectedBeehiiv, resend: { state: "unavailable", data: null },
+      googleSearch: { state: "not-connected", data: null },
     });
   });
 });

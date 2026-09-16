@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { AdminLogoutButton } from "@/components/admin/AdminLogoutButton";
+import { SearchImpressionsChart } from "@/components/admin/SearchImpressionsChart";
 import {
   ADMIN_METRICS,
   ADMIN_QUICK_LINKS,
@@ -18,6 +19,7 @@ function ArrowIcon() {
 
 const DEFAULT_INTEGRATIONS: ControlRoomIntegrations = {
   beehiiv: { state: "not-connected", data: null },
+  googleSearch: { state: "not-connected", data: null },
   resend: { state: "not-connected", data: null },
 };
 
@@ -36,13 +38,16 @@ export function ControlRoomDashboard({
 }) {
   const emailSnapshot = integrations.resend;
   const newsletterSnapshot = integrations.beehiiv;
+  const searchSnapshot = integrations.googleSearch;
   const metrics = ADMIN_METRICS.map((metric) =>
     metric.id === "email" ? { ...metric, state: emailSnapshot.state }
-      : metric.id === "newsletter" ? { ...metric, state: newsletterSnapshot.state } : metric,
+      : metric.id === "newsletter" ? { ...metric, state: newsletterSnapshot.state }
+        : metric.id === "search" ? { ...metric, state: searchSnapshot.state } : metric,
   );
   const systemStatus = ADMIN_SYSTEM_STATUS.map((service) =>
     service.id === "email" ? { ...service, state: emailSnapshot.state }
-      : service.id === "newsletter" ? { ...service, state: newsletterSnapshot.state } : service,
+      : service.id === "newsletter" ? { ...service, state: newsletterSnapshot.state }
+        : service.id === "search" ? { ...service, state: searchSnapshot.state } : service,
   );
 
   return (
@@ -77,7 +82,22 @@ export function ControlRoomDashboard({
             <article className={styles.metricCard} key={metric.id}>
               <p className={styles.provider}>{metric.provider}</p>
               <h3>{metric.label}</h3>
-              {metric.id === "newsletter" && newsletterSnapshot.state === "connected" ? (
+              {metric.id === "search" && searchSnapshot.state === "connected" ? (
+                <div className={styles.emailMetrics} data-state="connected">
+                  <p className={styles.emailPrimary}>
+                    <strong>{formatMetric(searchSnapshot.data.impressions)}</strong> impressions
+                  </p>
+                  <p className={styles.searchDetail}>
+                    {formatMetric(searchSnapshot.data.clicks)} clicks · {searchSnapshot.data.ctr === null
+                      ? "— CTR" : `${formatRate(searchSnapshot.data.ctr)}% CTR`}
+                  </p>
+                  <p className={styles.searchDetail}>
+                    Avg position {searchSnapshot.data.averagePosition === null
+                      ? "—" : formatRate(searchSnapshot.data.averagePosition)}
+                  </p>
+                  <p className={styles.metricPeriod}>Last 28 finalized days</p>
+                </div>
+              ) : metric.id === "newsletter" && newsletterSnapshot.state === "connected" ? (
                 <div className={styles.emailMetrics} data-state="connected">
                   <p className={styles.emailPrimary}>
                     <strong>{formatMetric(newsletterSnapshot.data.activeSubscribers)}</strong> subscribers
@@ -123,6 +143,9 @@ export function ControlRoomDashboard({
           <p>Performance</p>
           <h2 id="performance-heading">Traffic &amp; search trends</h2>
         </div>
+        {searchSnapshot.state === "connected" ? (
+          <SearchImpressionsChart metrics={searchSnapshot.data} />
+        ) : (
         <div className={styles.chartEmpty}>
           <div className={styles.chartMark} aria-hidden="true">
             <span />
@@ -132,6 +155,7 @@ export function ControlRoomDashboard({
           <strong>Trend data not connected</strong>
           <p>Traffic and search performance will appear here after a provider is connected.</p>
         </div>
+        )}
       </section>
 
       <div className={styles.lowerGrid}>

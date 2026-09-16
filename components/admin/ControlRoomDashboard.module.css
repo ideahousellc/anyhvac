@@ -170,6 +170,13 @@
   font-weight: 700;
 }
 
+.searchDetail {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 650;
+}
+
 .emailBreakdown {
   margin-top: 10px;
   color: var(--muted);
@@ -232,6 +239,31 @@
   font-size: 13px;
   line-height: 1.55;
 }
+
+.searchChart {
+  margin-top: 18px;
+  padding: 22px 24px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.52);
+  border-radius: 22px;
+  background: var(--surface);
+  box-shadow: 7px 8px 18px rgba(166, 175, 188, 0.3), -7px -7px 17px rgba(255, 255, 255, 0.72);
+}
+
+.searchChartHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+}
+
+.searchChartHeader strong { font-size: 15px; }
+.searchChartHeader span { color: var(--muted); font-size: 11px; }
+.searchChartScroll { overflow-x: auto; }
+.searchChart svg { display: block; min-width: 660px; width: 100%; margin-top: 10px; }
+.searchGridLine { stroke: rgba(120, 140, 160, 0.25); stroke-width: 1; }
+.searchAxisText { fill: var(--muted); font-size: 11px; }
+.searchBar { fill: var(--primary); }
 
 .lowerGrid {
   display: grid;

@@ -1,0 +1,127 @@
+.studio {
+  width: 100%;
+  min-width: 0;
+  min-height: 100vh;
+  padding: 42px 24px 96px;
+  background: #17212c;
+  color: #f3f5f8;
+}
+
+.utilityHeader {
+  display: flex;
+  width: calc(100vw - 48px);
+  max-width: 1080px;
+  align-items: end;
+  justify-content: space-between;
+  gap: 32px;
+  margin: 0 auto 52px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.kicker {
+  margin: 0 0 7px;
+  color: #66b0ff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.utilityHeader h1 {
+  margin: 0;
+  font-size: clamp(26px, 4vw, 38px);
+  font-weight: 690;
+  letter-spacing: -0.035em;
+}
+
+.specs {
+  display: flex;
+  gap: 26px;
+  margin: 0;
+}
+
+.utilityActions {
+  display: flex;
+  align-items: end;
+  gap: 28px;
+}
+
+.exportAllButton {
+  min-width: 112px;
+  min-height: 42px;
+  cursor: pointer;
+  border: 1px solid rgba(102, 176, 255, 0.62);
+  border-radius: 12px;
+  background: #0057b8;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 720;
+  box-shadow: 0 8px 22px rgba(0, 40, 84, 0.3);
+  transition: background 150ms ease, transform 150ms ease;
+}
+
+.exportAllButton:hover:not(:disabled) {
+  background: #0866ca;
+  transform: translateY(-1px);
+}
+
+.exportAllButton:disabled {
+  cursor: wait;
+  opacity: 0.68;
+}
+
+.specs div {
+  display: grid;
+  gap: 4px;
+}
+
+.specs dt {
+  color: #91a0b2;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.specs dd {
+  margin: 0;
+  color: #f3f5f8;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+@media (max-width: 680px) {
+  .studio {
+    padding: 28px 12px 64px;
+  }
+
+  .utilityHeader {
+    width: calc(100vw - 24px);
+    align-items: start;
+    flex-direction: column;
+    margin-bottom: 36px;
+  }
+
+  .specs {
+    width: 100%;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .utilityActions {
+    width: 100%;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .exportAllButton {
+    width: 100%;
+  }
+
+  .specs dd {
+    font-size: 11px;
+  }
+}

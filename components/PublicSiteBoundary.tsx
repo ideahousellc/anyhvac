@@ -10,10 +10,14 @@ export function isAdminPath(pathname: string) {
   return pathname === "/admin" || pathname.startsWith("/admin/");
 }
 
+function isStandalonePath(pathname: string) {
+  return pathname === "/dev/social";
+}
+
 export function PublicSiteBoundary({ children }: { children: ReactNode }) {
   const pathname = usePathname();
 
-  if (isAdminPath(pathname)) return children;
+  if (isAdminPath(pathname) || isStandalonePath(pathname)) return children;
 
   return (
     <ModalProvider>

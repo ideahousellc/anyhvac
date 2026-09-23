@@ -27,6 +27,7 @@ ADMIN_PIN_HASH=
 ADMIN_SESSION_SECRET=
 RESEND_API_KEY=
 RESEND_ADMIN_API_KEY=
+RESEND_WEBHOOK_SECRET=
 ```
 
 Generate a bcrypt hash for the chosen six-digit PIN from the project directory
@@ -49,8 +50,9 @@ Vercel-wide rate limiter: configure an additional Vercel Firewall or Cloudflare
 rate-limit rule for `POST /api/admin/login` before production use.
 
 `RESEND_API_KEY` remains the sending-only key. `RESEND_ADMIN_API_KEY` is a
-separate full-access, server-only key used exclusively for private Control Room
-email metrics.
+separate full-access, server-only key used for private Control Room metrics and
+retrieving inbound email. `RESEND_WEBHOOK_SECRET` is the server-only Resend
+signing secret used to authenticate inbound webhook requests.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 

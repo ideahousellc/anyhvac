@@ -161,9 +161,13 @@ describe("inbound email ingestion", () => {
     expect(repository.deletedThreads).toEqual(["thread-1"]);
   });
 
-  it("propagates database failures", async () => {
+  it("classifies database failures without propagating their raw message", async () => {
     const repository = new FakeRepository();
     repository.throwDatabaseFailure = true;
-    await expect(ingestInboundEmail(repository, email())).rejects.toThrow("database unavailable");
+    await expect(ingestInboundEmail(repository, email())).rejects.toMatchObject({
+      stage: "supabase.create_thread",
+      errorName: "Error",
+      message: "Inbound mail database operation failed.",
+    });
   });
 });

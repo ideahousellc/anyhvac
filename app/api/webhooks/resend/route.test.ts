@@ -3,6 +3,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 vi.mock("server-only", () => ({}));
 
 import { createResendWebhookHandler } from "@/lib/mail/inbound/webhook";
+import { InboundMailFailure } from "@/lib/mail/inbound/diagnostics";
 import type { InboundEmail, InboundMailRepository } from "@/lib/mail/inbound/types";
 
 const inboundEmail: InboundEmail = {
@@ -38,6 +39,7 @@ describe("POST /api/webhooks/resend", () => {
   const findDuplicate = vi.fn();
   const createThread = vi.fn();
   const insertMessage = vi.fn();
+  const logFailure = vi.fn();
 
   beforeEach(() => {
     vi.clearAllMocks();
@@ -68,6 +70,7 @@ describe("POST /api/webhooks/resend", () => {
       verifier: { verify },
       createReceivingClient: () => ({ retrieve }),
       createRepository: () => repository,
+      logFailure,
     });
   }
 
@@ -83,10 +86,18 @@ describe("POST /api/webhooks/resend", () => {
   });
 
   it("rejects an invalid signature without touching external services", async () => {
-    verify.mockImplementation(() => { throw new Error("invalid"); });
+    verify.mockImplementation(() => { throw new Error("invalid secret details"); });
     const response = await handler()(request());
     expect(response.status).toBe(400);
     expect(retrieve).not.toHaveBeenCalled();
+    expect(logFailure).toHaveBeenCalledWith({
+      component: "inbound_mail",
+      outcome: "failure",
+      stage: "webhook.verify",
+      error_name: "SignatureVerificationError",
+      error_code: "invalid_signature",
+      message: "Webhook signature verification failed.",
+    });
   });
 
   it("fails safely when the runtime webhook secret is missing", async () => {
@@ -112,16 +123,76 @@ describe("POST /api/webhooks/resend", () => {
   });
 
   it("returns 502 for a Resend retrieval failure without exposing details", async () => {
-    retrieve.mockRejectedValue(new Error("secret provider details"));
+    retrieve.mockRejectedValue(new Error("secret provider details sender@example.com email-1"));
     const response = await handler()(request());
     expect(response.status).toBe(502);
     expect(await response.text()).not.toContain("secret provider details");
+    expect(logFailure).toHaveBeenCalledWith({
+      component: "inbound_mail",
+      outcome: "failure",
+      stage: "resend.retrieve",
+      error_name: "Error",
+      message: "Received email retrieval failed.",
+    });
   });
 
   it("returns 500 for a database failure without exposing details", async () => {
-    findDuplicate.mockRejectedValue(new Error("secret database details"));
+    findDuplicate.mockRejectedValue(new InboundMailFailure(
+      "supabase.find_duplicate_message",
+      "Inbound mail database operation failed.",
+      "PostgrestError",
+      "42501",
+    ));
     const response = await handler()(request());
     expect(response.status).toBe(500);
     expect(await response.text()).not.toContain("secret database details");
+    expect(logFailure).toHaveBeenCalledWith({
+      component: "inbound_mail",
+      outcome: "failure",
+      stage: "supabase.find_duplicate_message",
+      error_name: "PostgrestError",
+      error_code: "42501",
+      message: "Inbound mail database operation failed.",
+    });
+  });
+
+  it("logs Supabase initialization failures without logging sensitive inputs", async () => {
+    const sensitiveValues = [
+      "webhook-secret",
+      "api-key",
+      "raw-body",
+      inboundEmail.providerMessageId,
+      inboundEmail.providerEventId,
+      inboundEmail.fromAddress,
+      inboundEmail.subject,
+    ];
+    const failingHandler = createResendWebhookHandler({
+      environment: {
+        RESEND_WEBHOOK_SECRET: sensitiveValues[0],
+        RESEND_ADMIN_API_KEY: sensitiveValues[1],
+      },
+      verifier: { verify },
+      createReceivingClient: () => ({ retrieve }),
+      createRepository: () => {
+        throw new Error(sensitiveValues.join(" "));
+      },
+      logFailure,
+    });
+
+    const response = await failingHandler(request(sensitiveValues[2]));
+    expect(response.status).toBe(500);
+    expect(await response.json()).toEqual({ error: "Email ingestion failed." });
+    expect(logFailure).toHaveBeenCalledWith({
+      component: "inbound_mail",
+      outcome: "failure",
+      stage: "supabase.initialize",
+      error_name: "Error",
+      message: "Inbound mail database initialization failed.",
+    });
+
+    const serializedLogs = JSON.stringify(logFailure.mock.calls);
+    for (const sensitiveValue of sensitiveValues) {
+      expect(serializedLogs).not.toContain(sensitiveValue);
+    }
   });
 });

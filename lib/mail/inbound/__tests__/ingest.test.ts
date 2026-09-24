@@ -39,14 +39,22 @@ class FakeRepository implements InboundMailRepository {
   insertedAttachments: Array<InboundEmail["attachments"][number]> = [];
   createdThreads = 0;
   insertedMessages = 0;
+  insertedThreadIds: string[] = [];
   deletedThreads: string[] = [];
   lookupMailboxes: Mailbox[] = [];
+  internetLookupIds: string[][] = [];
+  duplicateLookups: Array<{ providerMessageId: string; providerEventId: string }> = [];
+  updatedThreads: Array<{ threadId: string; receivedAt: string }> = [];
   throwDuplicateOnInsert = false;
   throwDatabaseFailure = false;
 
-  async findDuplicate() { return this.duplicate; }
+  async findDuplicate(providerMessageId: string, providerEventId: string) {
+    this.duplicateLookups.push({ providerMessageId, providerEventId });
+    return this.duplicate;
+  }
   async findThreadByInternetIds(mailbox: Mailbox, ids: string[]) {
     this.lookupMailboxes.push(mailbox);
+    this.internetLookupIds.push(ids);
     for (const id of ids) if (this.internetThreads.has(id)) return this.internetThreads.get(id)!;
     return null;
   }
@@ -66,6 +74,7 @@ class FakeRepository implements InboundMailRepository {
   async deleteThreadIfEmpty(id: string) { this.deletedThreads.push(id); }
   async insertMessage(_email: InboundEmail, threadId: string) {
     this.insertedMessages += 1;
+    this.insertedThreadIds.push(threadId);
     if (this.throwDuplicateOnInsert) {
       this.duplicate = { id: "existing-message", threadId: "existing-thread" };
       throw new DuplicateMessageError();
@@ -75,7 +84,9 @@ class FakeRepository implements InboundMailRepository {
   async insertAttachment(_messageId: string, attachment: InboundEmail["attachments"][number]) {
     this.insertedAttachments.push(attachment);
   }
-  async updateThreadLatestMessage() {}
+  async updateThreadLatestMessage(threadId: string, receivedAt: string) {
+    this.updatedThreads.push({ threadId, receivedAt });
+  }
 }
 
 describe("inbound email ingestion", () => {
@@ -87,12 +98,18 @@ describe("inbound email ingestion", () => {
     expect(repository.insertedMessages).toBe(1);
   });
 
-  it("joins a thread using In-Reply-To first", async () => {
+  it("joins a thread using In-Reply-To before References", async () => {
     const repository = new FakeRepository();
     repository.internetThreads.set("<parent@example.com>", "parent-thread");
-    const result = await ingestInboundEmail(repository, email({ inReplyTo: "<parent@example.com>" }));
+    repository.internetThreads.set("<reference@example.com>", "reference-thread");
+    const result = await ingestInboundEmail(repository, email({
+      inReplyTo: "<parent@example.com>",
+      referenceMessageIds: ["<reference@example.com>"],
+    }));
     expect(result.status).toBe("created");
     expect(repository.createdThreads).toBe(0);
+    expect(repository.internetLookupIds).toEqual([["<parent@example.com>"]]);
+    expect(repository.insertedThreadIds).toEqual(["parent-thread"]);
   });
 
   it("uses References from newest to oldest", async () => {
@@ -100,6 +117,16 @@ describe("inbound email ingestion", () => {
     repository.internetThreads.set("<newer@example.com>", "reference-thread");
     await ingestInboundEmail(repository, email({ referenceMessageIds: ["<older@example.com>", "<newer@example.com>"] }));
     expect(repository.createdThreads).toBe(0);
+    expect(repository.internetLookupIds).toEqual([["<newer@example.com>", "<older@example.com>"]]);
+    expect(repository.insertedThreadIds).toEqual(["reference-thread"]);
+  });
+
+  it("joins a thread that already references the arriving Message-ID", async () => {
+    const repository = new FakeRepository();
+    repository.reverseThread = "reverse-thread";
+    await ingestInboundEmail(repository, email({ internetMessageId: "<arriving@example.com>" }));
+    expect(repository.createdThreads).toBe(0);
+    expect(repository.insertedThreadIds).toEqual(["reverse-thread"]);
   });
 
   it("uses a participant-controlled normalized-subject fallback only for replies", async () => {
@@ -130,7 +157,7 @@ describe("inbound email ingestion", () => {
     ]);
   });
 
-  it("resumes attachment metadata work for a retried event", async () => {
+  it("replays an existing message without creating rows and resumes idempotent finishing work", async () => {
     const repository = new FakeRepository();
     repository.duplicate = { id: "existing-message", threadId: "existing-thread" };
     const result = await ingestInboundEmail(repository, email({ attachments: [{
@@ -151,6 +178,15 @@ describe("inbound email ingestion", () => {
       sizeBytes: 42,
     }]);
     expect(repository.insertedMessages).toBe(0);
+    expect(repository.createdThreads).toBe(0);
+    expect(repository.duplicateLookups).toEqual([{
+      providerMessageId: "email-1",
+      providerEventId: "event-1",
+    }]);
+    expect(repository.updatedThreads).toEqual([{
+      threadId: "existing-thread",
+      receivedAt: "2026-09-23T12:00:00.000Z",
+    }]);
   });
 
   it("recovers from a concurrent unique-index conflict", async () => {

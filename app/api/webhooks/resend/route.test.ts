@@ -122,6 +122,17 @@ describe("POST /api/webhooks/resend", () => {
     expect(findDuplicate).not.toHaveBeenCalled();
   });
 
+  it("returns HTTP 200 and reports a replayed message as a duplicate", async () => {
+    findDuplicate.mockResolvedValue({ id: "existing-message", threadId: "existing-thread" });
+
+    const response = await handler()(request());
+
+    expect(response.status).toBe(200);
+    expect(await response.json()).toEqual({ received: true, duplicate: true });
+    expect(createThread).not.toHaveBeenCalled();
+    expect(insertMessage).not.toHaveBeenCalled();
+  });
+
   it("returns 502 for a Resend retrieval failure without exposing details", async () => {
     retrieve.mockRejectedValue(new Error("secret provider details sender@example.com email-1"));
     const response = await handler()(request());

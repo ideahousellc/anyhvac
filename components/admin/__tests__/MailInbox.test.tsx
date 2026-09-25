@@ -40,4 +40,18 @@ describe("Control Room mail inbox", () => {
     expect(markup).toContain("Thread not found");
     expect(markup).toContain("selected mailbox");
   });
+
+  it("identifies the selected thread without conflating selection and keyboard focus", () => {
+    const markup = renderToStaticMarkup(<MailInbox filter="contact" selectedThread={{
+      id: "selected-thread", mailbox: "contact@anyhvac.net", subject: "Selected", messages: [],
+    }} threadRequested threads={[{
+      id: "selected-thread", mailbox: "contact@anyhvac.net", subject: "Selected", latestMessageAt: "2026-09-25T12:00:00.000Z", senderAddress: "sender@example.com", senderName: null, preview: "Selected preview", unread: true, hasAttachments: false, messageCount: 1,
+    }, {
+      id: "other-thread", mailbox: "contact@anyhvac.net", subject: "Other", latestMessageAt: "2026-09-24T12:00:00.000Z", senderAddress: "other@example.com", senderName: null, preview: "Other preview", unread: false, hasAttachments: false, messageCount: 1,
+    }]} />);
+
+    expect(markup).toMatch(/data-selected="true"[^>]*aria-current="true"/);
+    expect(markup).toContain("Unread");
+    expect(markup).toMatch(/data-selected="false"/);
+  });
 });

@@ -61,7 +61,14 @@ export function MailInbox({ filter, threads, selectedThread, threadRequested, fa
           {failed ? <div className={styles.state} role="alert"><strong>Inbox unavailable</strong><p>Mail could not be loaded. Please try again shortly.</p></div>
             : threads.length === 0 ? <div className={styles.state}><strong>No mail here</strong><p>This mailbox does not have any stored threads yet.</p></div>
               : <div className={styles.threadList}>{threads.map((thread) => (
-                <Link className={styles.thread} data-selected={selectedThread?.id === thread.id} data-unread={thread.unread} href={mailHref(filter, thread.id)} key={thread.id}>
+                <Link
+                  className={styles.thread}
+                  data-selected={selectedThread?.id === thread.id}
+                  data-unread={thread.unread}
+                  href={mailHref(filter, thread.id)}
+                  key={thread.id}
+                  aria-current={selectedThread?.id === thread.id ? "true" : undefined}
+                >
                   <span className={styles.srOnly}>{thread.unread ? "Unread" : "Read"}</span>
                   <div className={styles.threadTopline}><strong>{sender(thread.senderName, thread.senderAddress)}</strong><time dateTime={thread.latestMessageAt}>{formatDate(thread.latestMessageAt, true)}</time></div>
                   <p className={styles.threadSubject}>{thread.subject}</p><p className={styles.preview}>{thread.preview}</p>

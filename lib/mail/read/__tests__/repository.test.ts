@@ -68,6 +68,29 @@ describe("mail read mapping", () => {
     expect(result.messages[1]).toMatchObject({ textBody: null, hasHiddenHtmlBody: true, attachments: [{ filename: "photo.jpg", contentType: "image/jpeg", sizeBytes: 1200 }] });
     expect(JSON.stringify(result)).not.toContain("<script>");
   });
+
+  it("replaces Resend routing recipients with the friendly AnyHVAC mailbox", () => {
+    const messages = [{
+      ...baseMessage,
+      id: "message-1",
+      thread_id: "thread-a",
+      received_at: "2026-09-24T09:00:00.000Z",
+      to_addresses: [
+        "anyhvac-contact@inbound.resend.app",
+        "other-recipient@example.com",
+        "contact@anyhvac.net",
+      ],
+    }];
+
+    const result = buildThreadDetail(threadA, messages, []);
+
+    expect(result.messages[0].toAddresses).toEqual([
+      "contact@anyhvac.net",
+      "other-recipient@example.com",
+    ]);
+    expect(JSON.stringify(result)).not.toContain("resend.app");
+    expect(messages[0].to_addresses[0]).toBe("anyhvac-contact@inbound.resend.app");
+  });
 });
 
 describe("mail read query isolation", () => {

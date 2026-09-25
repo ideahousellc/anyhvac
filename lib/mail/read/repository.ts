@@ -58,6 +58,23 @@ function attachmentsFor(messageId: string, rows: AttachmentRow[]): MailAttachmen
     }));
 }
 
+function displayRecipients(addresses: string[], mailbox: Mailbox) {
+  const seen = new Set<string>();
+  return addresses
+    .map((address) => {
+      const domain = address.trim().toLowerCase().split("@").at(-1);
+      return domain === "resend.app" || domain?.endsWith(".resend.app")
+        ? mailbox
+        : address;
+    })
+    .filter((address) => {
+      const key = address.toLowerCase();
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+}
+
 export function buildThreadSummaries(
   threads: ThreadRow[],
   messages: MessageRow[],
@@ -98,7 +115,7 @@ export function buildThreadDetail(
       direction: message.direction,
       senderAddress: message.from_address,
       senderName: message.from_name,
-      toAddresses: message.to_addresses,
+      toAddresses: displayRecipients(message.to_addresses, thread.mailbox),
       ccAddresses: message.cc_addresses,
       subject: message.subject,
       textBody: message.text_body?.trim() || null,

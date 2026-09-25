@@ -67,7 +67,7 @@ export function ControlRoomDashboard({
           </div>
         </div>
         <div className={styles.headerActions}>
-          <Link className={styles.mailButton} href="/admin/mail">Mail</Link>
+          <Link className={styles.mailButton} href="/admin/email">Email</Link>
           <AdminLogoutButton />
         </div>
       </header>

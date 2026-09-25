@@ -26,8 +26,16 @@ vi.mock("next/navigation", () => ({
   redirect: mocks.redirect,
   useRouter: () => ({ replace: mocks.replace, refresh: mocks.refresh }),
 }));
+vi.mock("@/lib/mail/read/repository", () => ({
+  MailReadError: class MailReadError extends Error {},
+  SupabaseMailReadRepository: class {
+    listThreads() { return Promise.resolve([]); }
+    getThread() { return Promise.resolve(null); }
+  },
+}));
 
 import AdminMailPage from "@/app/admin/mail/page";
+import AdminEmailPage from "@/app/admin/email/page";
 import AdminPage from "@/app/admin/page";
 
 const SECRET = "test-session-secret-with-at-least-32-bytes-long";
@@ -120,6 +128,23 @@ describe("admin route integration", () => {
     expect(markup).toContain("Send Email");
     expect(markup).toContain('href="/admin"');
     expect(markup).toContain("Control Room");
+  });
+
+  it("redirects the protected email inbox without a session", async () => {
+    mocks.cookies.mockResolvedValue({ get: () => undefined });
+    await expect(AdminEmailPage()).rejects.toThrow("NEXT_REDIRECT");
+    expect(mocks.redirect).toHaveBeenCalledWith("/admin");
+  });
+
+  it("renders the protected read-only email inbox with a valid session", async () => {
+    const token = createAdminSession(SECRET);
+    mocks.cookies.mockResolvedValue({
+      get: (name: string) => name === ADMIN_SESSION_COOKIE ? { value: token } : undefined,
+    });
+    const markup = renderToStaticMarkup(await AdminEmailPage());
+    expect(markup).toContain("Read-only Control Room inbox");
+    expect(markup).toContain("All Mail");
+    expect(markup).toContain('href="/admin"');
   });
 
   it("renders no invented metric values and makes no provider calls", () => {

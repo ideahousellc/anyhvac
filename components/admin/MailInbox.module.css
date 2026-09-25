@@ -13,5 +13,6 @@
 .threadMeta span{padding:3px 6px;border-radius:999px;background:rgba(102,176,255,.1);line-height:1.25}
 .body{line-height:1.7;word-break:break-word}
 .attachment{border:1px solid rgba(166,175,188,.16);box-shadow:inset 1px 1px 3px rgba(166,175,188,.12),inset -1px -1px 3px rgba(255,255,255,.55)}
+.quotedNotice{margin:12px 0 0;color:var(--muted);font-size:10px;font-style:italic}
 @media(max-width:1050px){.workspace{grid-template-columns:170px minmax(320px,1fr)}}
 @media(max-width:650px){.threadList{padding:5px 6px 9px}.thread{padding-inline:16px}.headerActions{flex-wrap:wrap}.conversationHeading{align-items:stretch;flex-direction:column}}

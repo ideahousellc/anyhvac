@@ -14,6 +14,7 @@ import type {
   MailThreadSummary,
 } from "./types";
 import { mailboxAddress } from "./config";
+import { displayTextBody } from "./quoted-text";
 
 type Client = SupabaseClient<Database>;
 type ThreadRow = Pick<Tables<"mail_threads">, "id" | "mailbox" | "subject" | "latest_message_at">;
@@ -43,7 +44,7 @@ function timestamp(message: MessageRow) {
 }
 
 function preview(message: MessageRow) {
-  const body = message.text_body?.replace(/\s+/g, " ").trim();
+  const body = displayTextBody(message.text_body).text?.replace(/\s+/g, " ").trim();
   if (body) return body.slice(0, 180);
   return message.html_body ? "HTML-only message" : "No message preview";
 }
@@ -79,17 +80,21 @@ export function buildThreadSummaries(
   threads: ThreadRow[],
   messages: MessageRow[],
   attachments: AttachmentRow[],
+  sentOnly = false,
 ): MailThreadSummary[] {
-  return threads.map((thread) => {
+  return threads.flatMap((thread) => {
     const threadMessages = messages
       .filter((message) => message.thread_id === thread.id && message.mailbox === thread.mailbox)
       .sort((left, right) => timestamp(right).localeCompare(timestamp(left)));
-    const latest = threadMessages[0];
-    return {
+    const latest = sentOnly
+      ? threadMessages.find((message) => message.direction === "outbound")
+      : threadMessages[0];
+    if (!latest) return [];
+    return [{
       id: thread.id,
       mailbox: thread.mailbox,
       subject: thread.subject || "(No subject)",
-      latestMessageAt: thread.latest_message_at,
+      latestMessageAt: sentOnly ? timestamp(latest) : thread.latest_message_at,
       senderAddress: latest?.from_address ?? thread.mailbox,
       senderName: latest?.from_name ?? null,
       preview: latest ? preview(latest) : "No message preview",
@@ -98,7 +103,7 @@ export function buildThreadSummaries(
       hasAttachments: threadMessages.some((message) =>
         attachments.some((attachment) => attachment.message_id === message.id)),
       messageCount: threadMessages.length,
-    };
+    }];
   }).sort((left, right) => right.latestMessageAt.localeCompare(left.latestMessageAt));
 }
 
@@ -109,8 +114,10 @@ export function buildThreadDetail(
 ): MailThreadDetail {
   const detailMessages: MailMessageDetail[] = messages
     .filter((message) => message.thread_id === thread.id && message.mailbox === thread.mailbox)
-    .sort((left, right) => timestamp(left).localeCompare(timestamp(right)))
-    .map((message) => ({
+    .sort((left, right) => timestamp(right).localeCompare(timestamp(left)))
+    .map((message) => {
+      const displayed = displayTextBody(message.text_body);
+      return {
       id: message.id,
       direction: message.direction,
       senderAddress: message.from_address,
@@ -118,12 +125,14 @@ export function buildThreadDetail(
       toAddresses: displayRecipients(message.to_addresses, thread.mailbox),
       ccAddresses: message.cc_addresses,
       subject: message.subject,
-      textBody: message.text_body?.trim() || null,
+      displayTextBody: displayed.text,
+      quotedTextHidden: displayed.quotedTextHidden,
       hasHiddenHtmlBody: !message.text_body?.trim() && Boolean(message.html_body),
       timestamp: timestamp(message),
       isRead: message.is_read,
       attachments: attachmentsFor(message.id, attachments),
-    }));
+      };
+    });
   return {
     id: thread.id,
     mailbox: thread.mailbox,
@@ -145,10 +154,23 @@ export class SupabaseMailReadRepository {
 
   async listThreads(filter: MailboxFilter): Promise<MailThreadSummary[]> {
     const scope = mailboxScope(filter);
+    let sentThreadIds: string[] | null = null;
+    if (filter === "sent") {
+      const outboundResult = await safeQuery(() => this.client
+        .from("mail_messages")
+        .select("thread_id")
+        .eq("direction", "outbound")
+        .in("mailbox", scope));
+      if (outboundResult.error) throw new MailReadError();
+      sentThreadIds = [...new Set(outboundResult.data.map((message) => message.thread_id))];
+      if (!sentThreadIds.length) return [];
+    }
     let threadQuery = this.client
       .from("mail_threads")
       .select("id, mailbox, subject, latest_message_at");
-    threadQuery = scope.length === 1
+    threadQuery = sentThreadIds
+      ? threadQuery.in("id", sentThreadIds).in("mailbox", scope)
+      : scope.length === 1
       ? threadQuery.eq("mailbox", scope[0])
       : threadQuery.in("mailbox", scope);
     const threadResult = await safeQuery(() =>
@@ -175,7 +197,7 @@ export class SupabaseMailReadRepository {
       attachmentRows = attachmentResult.data;
     }
 
-    return buildThreadSummaries(threadResult.data, messageResult.data, attachmentRows);
+    return buildThreadSummaries(threadResult.data, messageResult.data, attachmentRows, filter === "sent");
   }
 
   async getThread(threadId: string, filter: MailboxFilter): Promise<MailThreadDetail | null> {
@@ -198,6 +220,7 @@ export class SupabaseMailReadRepository {
       .eq("thread_id", thread.id)
       .eq("mailbox", thread.mailbox));
     if (messageResult.error) throw new MailReadError();
+    if (filter === "sent" && !messageResult.data.some((message) => message.direction === "outbound")) return null;
 
     const messageIds = messageResult.data.map((message) => message.id);
     let attachmentRows: AttachmentRow[] = [];

@@ -1,6 +1,6 @@
 import type { Mailbox } from "@/lib/mail/inbound/types";
 
-export type MailboxFilter = "all" | "contact" | "support" | "social" | "mailtest";
+export type MailboxFilter = "all" | "sent" | "contact" | "support" | "social" | "mailtest";
 
 export type MailAttachmentSummary = {
   filename: string;
@@ -29,7 +29,8 @@ export type MailMessageDetail = {
   toAddresses: string[];
   ccAddresses: string[];
   subject: string;
-  textBody: string | null;
+  displayTextBody: string | null;
+  quotedTextHidden: boolean;
   hasHiddenHtmlBody: boolean;
   timestamp: string;
   isRead: boolean;

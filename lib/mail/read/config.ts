@@ -8,6 +8,7 @@ export const MAILBOXES: ReadonlyArray<{
   address: Mailbox | null;
 }> = [
   { id: "all", label: "All Mail", address: null },
+  { id: "sent", label: "Sent", address: null },
   { id: "contact", label: "Contact", address: "contact@anyhvac.net" },
   { id: "support", label: "Support", address: "support@anyhvac.net" },
   { id: "social", label: "Social", address: "social@anyhvac.net" },

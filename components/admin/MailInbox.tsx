@@ -74,7 +74,7 @@ export function MailInbox({ filter, threads, selectedThread, threadRequested, fa
                   <span className={styles.srOnly}>{thread.unread ? "Unread" : "Read"}</span>
                   <div className={styles.threadTopline}><strong>{sender(thread.senderName, thread.senderAddress)}</strong><time dateTime={thread.latestMessageAt}>{formatDate(thread.latestMessageAt, true)}</time></div>
                   <p className={styles.threadSubject}>{thread.subject}</p><p className={styles.preview}>{thread.preview}</p>
-                  <div className={styles.threadMeta}>{filter === "all" ? <span>{thread.mailbox}</span> : null}{thread.hasAttachments ? <span aria-label="Has attachments">Attachment</span> : null}{thread.messageCount > 1 ? <span>{thread.messageCount} messages</span> : null}</div>
+                  <div className={styles.threadMeta}>{filter === "all" || filter === "sent" ? <span>{thread.mailbox}</span> : null}{thread.hasAttachments ? <span aria-label="Has attachments">Attachment</span> : null}{thread.messageCount > 1 ? <span>{thread.messageCount} messages</span> : null}</div>
                 </Link>
               ))}</div>}
         </section>
@@ -85,7 +85,8 @@ export function MailInbox({ filter, threads, selectedThread, threadRequested, fa
                 <article className={styles.message} key={message.id}>
                   <header className={styles.messageHeader}><div><strong>{sender(message.senderName, message.senderAddress)}</strong>{message.senderName ? <span>{message.senderAddress}</span> : null}</div><time dateTime={message.timestamp}>{formatDate(message.timestamp)}</time></header>
                   <dl className={styles.recipients}><div><dt>To</dt><dd>{message.toAddresses.join(", ") || "Not recorded"}</dd></div>{message.ccAddresses.length ? <div><dt>Cc</dt><dd>{message.ccAddresses.join(", ")}</dd></div> : null}</dl>
-                  {message.textBody ? <div className={styles.body}>{message.textBody}</div> : message.hasHiddenHtmlBody ? <p className={styles.htmlNotice}>HTML-only content is hidden for safety.</p> : <p className={styles.htmlNotice}>This message has no text body.</p>}
+                  {message.displayTextBody ? <div className={styles.body}>{message.displayTextBody}</div> : message.quotedTextHidden ? null : message.hasHiddenHtmlBody ? <p className={styles.htmlNotice}>HTML-only content is hidden for safety.</p> : <p className={styles.htmlNotice}>This message has no text body.</p>}
+                  {message.quotedTextHidden ? <p className={styles.quotedNotice}>Quoted history hidden</p> : null}
                   {message.attachments.length ? <div className={styles.attachments}><p>Attachments</p>{message.attachments.map((attachment, index) => {
                     const size = formatBytes(attachment.sizeBytes);
                     return <div className={styles.attachment} key={`${attachment.filename}-${index}`}><strong>{attachment.filename}</strong><span>{attachment.contentType || "Unknown MIME type"}{size ? ` · ${size}` : ""}</span></div>;

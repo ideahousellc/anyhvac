@@ -54,6 +54,10 @@ separate full-access, server-only key used for private Control Room metrics and
 retrieving inbound email. `RESEND_WEBHOOK_SECRET` is the server-only Resend
 signing secret used to authenticate inbound webhook requests.
 
+### Mail backlog
+
+- Synchronize outbound Resend delivery events with locally persisted messages. Current outbound records represent provider API acceptance; a later event may report delivered, delayed, bounced, failed, suppressed, or complained.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

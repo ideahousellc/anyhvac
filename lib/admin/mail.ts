@@ -17,6 +17,16 @@ export type AdminMail = {
 const EMAIL_PATTERN =
   /^[A-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?(?:\.[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?)+$/i;
 
+export function isValidEmailAddress(value: string) {
+  return Boolean(
+    value &&
+    value.length <= MAIL_LIMITS.recipient &&
+    !/[\r\n,;]/.test(value) &&
+    EMAIL_PATTERN.test(value) &&
+    value.split("@")[0].length <= 64,
+  );
+}
+
 export function validateAdminMail(value: unknown) {
   const errors: Partial<Record<keyof AdminMail, string>> = {};
   if (typeof value !== "object" || value === null) {
@@ -34,11 +44,7 @@ export function validateAdminMail(value: unknown) {
   const message = typeof body.message === "string" ? body.message.trim() : "";
 
   if (
-    !to ||
-    to.length > MAIL_LIMITS.recipient ||
-    /[\r\n,;]/.test(to) ||
-    !EMAIL_PATTERN.test(to) ||
-    to.split("@")[0].length > 64
+    !isValidEmailAddress(to)
   ) {
     errors.to = "Enter one valid email address.";
   }
@@ -67,7 +73,7 @@ export function escapeEmailHtml(value: string) {
     .replaceAll("'", "&#39;");
 }
 
-export function createAdminEmailContent(message: string) {
+export function createAdminEmailContent(message: string, mailbox = ADMIN_REPLY_TO) {
   const safeMessage = escapeEmailHtml(message).replace(/\r?\n/g, "<br>");
   const html = `<!doctype html>
 <html lang="en"><body style="margin:0;padding:0;background:#ffffff;color:#1f2a37;font-family:Arial,Helvetica,sans-serif;">
@@ -75,7 +81,7 @@ export function createAdminEmailContent(message: string) {
   <div style="font-size:16px;line-height:1.65;white-space:normal;">${safeMessage}</div>
   <div style="margin-top:32px;padding-top:24px;border-top:1px solid #dfe4ea;">
     <img src="${ADMIN_LOGO_URL}" width="220" alt="AnyHVAC" style="display:block;width:220px;max-width:100%;height:auto;margin:0 0 18px;border:0;">
-    <div style="font-size:15px;line-height:1.55;color:#1f2a37;"><strong>Cesar Pepper</strong><br>AnyHVAC<br>Free HVAC Calculators &amp; Tools<br><a href="https://www.anyhvac.net" style="color:#0057b8;text-decoration:none;">www.anyhvac.net</a><br><a href="mailto:contact@anyhvac.net" style="color:#0057b8;text-decoration:none;">contact@anyhvac.net</a></div>
+    <div style="font-size:15px;line-height:1.55;color:#1f2a37;"><strong>Cesar Pepper</strong><br>AnyHVAC<br>Free HVAC Calculators &amp; Tools<br><a href="https://www.anyhvac.net" style="color:#0057b8;text-decoration:none;">www.anyhvac.net</a><br><a href="mailto:${mailbox}" style="color:#0057b8;text-decoration:none;">${mailbox}</a></div>
   </div>
 </div>
 </body></html>`;
@@ -88,7 +94,7 @@ export function createAdminEmailContent(message: string) {
     "AnyHVAC",
     "Free HVAC Calculators & Tools",
     "www.anyhvac.net",
-    "contact@anyhvac.net",
+    mailbox,
   ].join("\n");
 
   return { html, text };

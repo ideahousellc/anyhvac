@@ -1,6 +1,8 @@
 import Link from "next/link";
 
 import { AdminLogoutButton } from "@/components/admin/AdminLogoutButton";
+import { ComposeAction, ThreadActions } from "@/components/admin/MailActions";
+import { SUPPORTED_MAILBOXES } from "@/lib/mail/inbound/types";
 import { MAILBOXES, mailboxAddress } from "@/lib/mail/read/config";
 import type { MailboxFilter, MailThreadDetail, MailThreadSummary } from "@/lib/mail/read/types";
 
@@ -43,8 +45,8 @@ export function MailInbox({ filter, threads, selectedThread, threadRequested, fa
   return (
     <div className={styles.inbox}>
       <header className={styles.header}>
-        <div><p className={styles.eyebrow}>AnyHVAC Admin</p><h1>Email</h1><p className={styles.subtitle}>Read-only Control Room inbox</p></div>
-        <div className={styles.headerActions}><Link className={styles.controlRoomLink} href="/admin">Control Room</Link><AdminLogoutButton /></div>
+        <div><p className={styles.eyebrow}>AnyHVAC Admin</p><h1>Email</h1><p className={styles.subtitle}>Control Room inbox</p></div>
+        <div className={styles.headerActions}><ComposeAction defaultMailbox={address ?? SUPPORTED_MAILBOXES[0]} /><Link className={styles.controlRoomLink} href="/admin">Control Room</Link><AdminLogoutButton /></div>
       </header>
       <div className={styles.workspace}>
         <nav className={styles.mailboxes} aria-label="Mailboxes">
@@ -78,7 +80,7 @@ export function MailInbox({ filter, threads, selectedThread, threadRequested, fa
         </section>
         <section className={styles.conversation} aria-label="Conversation">
           {failed ? <div className={styles.conversationState}><strong>Conversation unavailable</strong><p>No database or provider details were exposed.</p></div>
-            : selectedThread ? <><div className={styles.conversationHeading}><p>{selectedThread.mailbox}</p><h2>{selectedThread.subject}</h2><span>{selectedThread.messages.length} {selectedThread.messages.length === 1 ? "message" : "messages"}</span></div>
+            : selectedThread ? <><div className={styles.conversationHeading}><div><p>{selectedThread.mailbox}</p><h2>{selectedThread.subject}</h2><span>{selectedThread.messages.length} {selectedThread.messages.length === 1 ? "message" : "messages"}</span></div><ThreadActions threadId={selectedThread.id} mailbox={selectedThread.mailbox} unread={selectedThread.messages.some((message) => message.direction === "inbound" && !message.isRead)} /></div>
               <div className={styles.messages}>{selectedThread.messages.map((message) => (
                 <article className={styles.message} key={message.id}>
                   <header className={styles.messageHeader}><div><strong>{sender(message.senderName, message.senderAddress)}</strong>{message.senderName ? <span>{message.senderAddress}</span> : null}</div><time dateTime={message.timestamp}>{formatDate(message.timestamp)}</time></header>

@@ -136,13 +136,13 @@ describe("admin route integration", () => {
     expect(mocks.redirect).toHaveBeenCalledWith("/admin");
   });
 
-  it("renders the protected read-only email inbox with a valid session", async () => {
+  it("renders the protected email inbox with a valid session", async () => {
     const token = createAdminSession(SECRET);
     mocks.cookies.mockResolvedValue({
       get: (name: string) => name === ADMIN_SESSION_COOKIE ? { value: token } : undefined,
     });
     const markup = renderToStaticMarkup(await AdminEmailPage());
-    expect(markup).toContain("Read-only Control Room inbox");
+    expect(markup).toContain("Control Room inbox");
     expect(markup).toContain("All Mail");
     expect(markup).toContain('href="/admin"');
   });

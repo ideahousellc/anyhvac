@@ -1,13 +1,12 @@
 import { type NextRequest, NextResponse } from "next/server";
 
 import {
-  ADMIN_FROM,
   ADMIN_REPLY_TO,
-  createAdminEmailContent,
   validateAdminMail,
 } from "@/lib/admin/mail";
 import { isSameOrigin, NO_STORE_HEADERS } from "@/lib/admin/request-security";
 import { ADMIN_SESSION_COOKIE, verifyAdminSession } from "@/lib/admin/session";
+import { OutboundDeliveryError, ResendOutboundMailDelivery } from "@/lib/mail/outbound/resend";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -61,49 +60,24 @@ export async function POST(request: NextRequest) {
     return response("Please check the mail fields.", 400, validation.errors);
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) {
+  if (!process.env.RESEND_API_KEY) {
     console.error("Admin mail delivery is unavailable: RESEND_API_KEY is not configured.");
     return response("Email delivery is unavailable.", 503);
   }
 
-  const content = createAdminEmailContent(validation.mail.message);
   try {
-    const providerResponse = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-        "Idempotency-Key": `admin-mail/${requestId}`,
-      },
-      body: JSON.stringify({
-        from: ADMIN_FROM,
-        to: [validation.mail.to],
-        subject: validation.mail.subject,
-        html: content.html,
-        text: content.text,
-        reply_to: ADMIN_REPLY_TO,
-      }),
-      signal: AbortSignal.timeout(10_000),
-    });
-
-    const providerResult: unknown = await providerResponse.json().catch(() => null);
-    const accepted =
-      providerResponse.ok &&
-      typeof providerResult === "object" &&
-      providerResult !== null &&
-      "id" in providerResult &&
-      typeof providerResult.id === "string" &&
-      providerResult.id.length > 0;
-
-    if (!accepted) {
-      console.error(`Admin mail delivery failed with provider status ${providerResponse.status}.`);
-      return response("Email could not be sent. Please try again.", 502);
-    }
+    await new ResendOutboundMailDelivery(false).send({
+      mailbox: ADMIN_REPLY_TO,
+      to: validation.mail.to,
+      subject: validation.mail.subject,
+      message: validation.mail.message,
+      inReplyTo: null,
+      references: [],
+    }, requestId, "admin-mail");
 
     return NextResponse.json({ delivered: true }, { headers: NO_STORE_HEADERS });
   } catch (error) {
-    const errorName = error instanceof Error ? error.name : "UnknownError";
+    const errorName = error instanceof OutboundDeliveryError ? error.name : "UnknownError";
     console.error(`Admin mail delivery request failed: ${errorName}.`);
     return response("Email could not be sent. Please try again.", 502);
   }

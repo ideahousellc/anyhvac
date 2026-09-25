@@ -21,6 +21,8 @@ describe("Control Room mail inbox", () => {
     }} />);
     expect(markup).toContain("unit-photo.jpg");
     expect(markup).toContain("image/jpeg · 2.0 KB");
+    expect(markup).toContain("Reply");
+    expect(markup).toContain("Mark read");
     expect(markup).not.toContain("download");
   });
 

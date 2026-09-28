@@ -5,6 +5,7 @@ const mocks = vi.hoisted(() => ({
   pathname: "/admin",
   footer: vi.fn(() => null),
   modalProvider: vi.fn(({ children }: { children: React.ReactNode }) => children),
+  script: vi.fn<(props: { id: string; src: string; strategy: string }) => null>(() => null),
 }));
 
 vi.mock("next/navigation", () => ({
@@ -14,6 +15,7 @@ vi.mock("@/components/Footer", () => ({ Footer: mocks.footer }));
 vi.mock("@/components/ModalProvider", () => ({
   ModalProvider: mocks.modalProvider,
 }));
+vi.mock("next/script", () => ({ default: mocks.script }));
 
 import {
   isAdminPath,
@@ -23,6 +25,7 @@ import {
 beforeEach(() => {
   mocks.footer.mockClear();
   mocks.modalProvider.mockClear();
+  mocks.script.mockClear();
 });
 
 describe("PublicSiteBoundary", () => {
@@ -35,6 +38,7 @@ describe("PublicSiteBoundary", () => {
       )).toContain("Admin content");
       expect(mocks.modalProvider).not.toHaveBeenCalled();
       expect(mocks.footer).not.toHaveBeenCalled();
+      expect(mocks.script).not.toHaveBeenCalled();
     },
   );
 
@@ -45,6 +49,22 @@ describe("PublicSiteBoundary", () => {
     );
     expect(mocks.modalProvider).toHaveBeenCalledOnce();
     expect(mocks.footer).toHaveBeenCalledOnce();
+    expect(mocks.script).toHaveBeenCalledOnce();
+    expect(mocks.script.mock.calls[0][0]).toMatchObject({
+      id: "cloudflare-web-analytics",
+      src: "https://static.cloudflareinsights.com/beacon.min.js",
+      strategy: "afterInteractive",
+    });
+  });
+
+  it("preserves analytics on the standalone non-admin route", () => {
+    mocks.pathname = "/dev/social";
+    renderToStaticMarkup(
+      <PublicSiteBoundary><p>Standalone content</p></PublicSiteBoundary>,
+    );
+    expect(mocks.modalProvider).not.toHaveBeenCalled();
+    expect(mocks.footer).not.toHaveBeenCalled();
+    expect(mocks.script).toHaveBeenCalledOnce();
   });
 
   it("does not exclude similarly named public paths", () => {

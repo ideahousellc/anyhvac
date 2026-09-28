@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Script from "next/script";
 
 import { PublicSiteBoundary } from "@/components/PublicSiteBoundary";
 import {
@@ -57,13 +56,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           }}
         />
         <PublicSiteBoundary>{children}</PublicSiteBoundary>
-        <Script
-          id="cloudflare-web-analytics"
-          type="module"
-          src="https://static.cloudflareinsights.com/beacon.min.js"
-          data-cf-beacon='{"token": "4a02b1c1a4c44c62a82304f2a96c7da2"}'
-          strategy="afterInteractive"
-        />
       </body>
     </html>
   );

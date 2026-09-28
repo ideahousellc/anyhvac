@@ -1,3 +1,6 @@
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
+
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it, vi } from "vitest";
 
@@ -79,5 +82,23 @@ describe("Control Room mail inbox", () => {
     expect(markup).toContain("Restore");
     expect(markup).not.toContain(">Reply<");
     expect(markup).not.toMatch(/<button[^>]*>Trash<\/button>/);
+  });
+
+  it("keeps reply thread-derived while presenting older messages as history controls", () => {
+    const markup = renderToStaticMarkup(<MailInbox filter="support" threads={[]} threadRequested selectedThread={{
+      id: "reply-thread", mailbox: "support@anyhvac.net", subject: "Reply thread", messages: [{
+        id: "newest", direction: "inbound", senderAddress: "customer@example.com", senderName: "Customer", toAddresses: ["support@anyhvac.net"], ccAddresses: [], subject: "Reply thread", displayTextBody: "Newest response", quotedTextHidden: false, hasHiddenHtmlBody: false, timestamp: "2026-09-28T16:00:00.000Z", isRead: true, attachments: [],
+      }, {
+        id: "older", direction: "outbound", senderAddress: "support@anyhvac.net", senderName: "AnyHVAC", toAddresses: ["customer@example.com"], ccAddresses: [], subject: "Reply thread", displayTextBody: "Earlier response", quotedTextHidden: false, hasHiddenHtmlBody: false, timestamp: "2026-09-28T15:00:00.000Z", isRead: true, attachments: [],
+      }],
+    }} />);
+
+    expect(markup).toContain("Newest response");
+    expect(markup).not.toContain("Earlier response");
+    expect(markup).toContain('data-history-message-id="older"');
+    expect(markup).toContain("Reply");
+    const source = readFileSync(resolve(process.cwd(), "components/admin/MailInbox.tsx"), "utf8");
+    expect(source).toContain("threadId={selectedThread.id}");
+    expect(source).toContain("<ConversationHistory thread={selectedThread}");
   });
 });

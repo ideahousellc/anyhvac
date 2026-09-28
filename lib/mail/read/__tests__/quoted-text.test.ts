@@ -7,6 +7,23 @@ describe("quoted reply presentation", () => {
     expect(displayTextBody(raw)).toEqual({ text: "Thanks, that works.", quotedTextHidden: true });
   });
 
+  it("hides a real Gmail quote marker when wrote is wrapped onto the next line", () => {
+    const raw = `And once again to try it.
+
+On Mon, Sep 28, 2026 at 2:30 PM Cesar Pepper | AnyHVAC [mailtest@anyhvac.net](mailto:mailtest@anyhvac.net)
+wrote:
+
+> Sending a reply here
+> [image: AnyHVAC]
+> *Cesar Pepper*
+> AnyHVAC
+> Free HVAC Calculators & Tools
+> [www.anyhvac.net](http://www.anyhvac.net)
+> [mailtest@anyhvac.net](mailto:mailtest@anyhvac.net)`;
+
+    expect(displayTextBody(raw)).toEqual({ text: "And once again to try it.", quotedTextHidden: true });
+  });
+
   it("hides a trailing block of quoted lines including nested replies", () => {
     const raw = "My new reply\n\n> Previous reply\n>> Nested older reply\n> More history";
     expect(displayTextBody(raw)).toEqual({ text: "My new reply", quotedTextHidden: true });
@@ -25,6 +42,16 @@ describe("quoted reply presentation", () => {
   it("preserves ordinary text, ambiguous wording, and signatures", () => {
     const raw = "On Tuesday I wrote the estimate.\nPlease review it.\n\nCesar Suarez Pepper\nLodi, Ohio 44256";
     expect(displayTextBody(raw)).toEqual({ text: raw, quotedTextHidden: false });
+  });
+
+  it("preserves prose that resembles only part of a wrapped Gmail marker", () => {
+    const withoutAddress = "On Monday, Cesar reviewed the proposal\nwrote:\nThis line is part of my notes.";
+    const nonBoundaryContinuation = "On Mon, Sep 28, 2026 I emailed mailtest@anyhvac.net\nwrote: this reminder for myself.";
+    const ordinaryWroteSentence = "On Monday I emailed mailtest@anyhvac.net.\nThey wrote: the appointment is confirmed.";
+
+    expect(displayTextBody(withoutAddress)).toEqual({ text: withoutAddress, quotedTextHidden: false });
+    expect(displayTextBody(nonBoundaryContinuation)).toEqual({ text: nonBoundaryContinuation, quotedTextHidden: false });
+    expect(displayTextBody(ordinaryWroteSentence)).toEqual({ text: ordinaryWroteSentence, quotedTextHidden: false });
   });
 
   it("preserves an isolated greater-than line when later authored text follows", () => {

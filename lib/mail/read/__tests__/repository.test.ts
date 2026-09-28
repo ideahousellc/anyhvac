@@ -117,6 +117,27 @@ describe("mail read mapping", () => {
     expect(result.messages[0]).toMatchObject({ displayTextBody: "Fresh reply", quotedTextHidden: true });
     expect(messages[0].text_body).toBe(raw);
   });
+
+  it("uses wrapped Gmail quote cleanup for previews and every displayed thread message", () => {
+    const quoted = (reply: string) => `${reply}\n\nOn Mon, Sep 28, 2026 at 2:30 PM Cesar Pepper | AnyHVAC [mailtest@anyhvac.net](mailto:mailtest@anyhvac.net)\nwrote:\n\n> Sending a reply here\n> Prior signature`;
+    const newestRaw = quoted("And once again to try it.");
+    const historicalRaw = quoted("Earlier individual reply.");
+    const messages = [
+      { ...baseMessage, id: "newest", thread_id: "thread-a", received_at: "2026-09-28T15:00:00.000Z", text_body: newestRaw },
+      { ...baseMessage, id: "historical", thread_id: "thread-a", received_at: "2026-09-28T14:00:00.000Z", text_body: historicalRaw },
+    ];
+
+    const [summary] = buildThreadSummaries([threadA], messages, []);
+    const detail = buildThreadDetail(threadA, messages, []);
+
+    expect(summary.preview).toBe("And once again to try it.");
+    expect(detail.messages.map((message) => message.displayTextBody)).toEqual([
+      "And once again to try it.",
+      "Earlier individual reply.",
+    ]);
+    expect(detail.messages.every((message) => message.quotedTextHidden)).toBe(true);
+    expect(messages.map((message) => message.text_body)).toEqual([newestRaw, historicalRaw]);
+  });
 });
 
 describe("mail read query isolation", () => {

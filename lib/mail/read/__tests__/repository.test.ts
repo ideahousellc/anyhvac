@@ -36,6 +36,7 @@ describe("mail read mapping", () => {
   it("normalizes mailbox filters and defaults unknown values to All Mail", () => {
     expect(parseMailboxFilter("support")).toBe("support");
     expect(parseMailboxFilter("sent")).toBe("sent");
+    expect(parseMailboxFilter("trash")).toBe("trash");
     expect(parseMailboxFilter(["social", "contact"])).toBe("social");
     expect(parseMailboxFilter("unknown")).toBe("all");
   });
@@ -55,7 +56,7 @@ describe("mail read mapping", () => {
       { ...baseMessage, id: "message-1", thread_id: "thread-a", received_at: "2026-09-24T09:00:00.000Z" },
       { ...baseMessage, id: "message-2", thread_id: "thread-a", received_at: "2026-09-24T10:00:00.000Z", text_body: "Latest reply", is_read: true },
     ];
-    const [result] = buildThreadSummaries([threadA], messages, [{ message_id: "message-1", filename: "quote.pdf", content_type: "application/pdf", size_bytes: 2048 }]);
+    const [result] = buildThreadSummaries([threadA], messages, [{ id: "attachment-1", message_id: "message-1", filename: "quote.pdf", content_type: "application/pdf", size_bytes: 2048 }]);
     expect(result).toMatchObject({ preview: "Latest reply", unread: true, hasAttachments: true, messageCount: 2 });
   });
 
@@ -64,7 +65,7 @@ describe("mail read mapping", () => {
       { ...baseMessage, id: "message-2", thread_id: "thread-a", received_at: "2026-09-24T10:00:00.000Z", text_body: null, html_body: "<script>alert(1)</script>" },
       { ...baseMessage, id: "message-1", thread_id: "thread-a", received_at: "2026-09-24T09:00:00.000Z" },
     ];
-    const result = buildThreadDetail(threadA, messages, [{ message_id: "message-2", filename: "photo.jpg", content_type: "image/jpeg", size_bytes: 1200 }]);
+    const result = buildThreadDetail(threadA, messages, [{ id: "attachment-2", message_id: "message-2", filename: "photo.jpg", content_type: "image/jpeg", size_bytes: 1200 }]);
     expect(result.messages.map((message) => message.id)).toEqual(["message-2", "message-1"]);
     expect(result.messages[0]).toMatchObject({ displayTextBody: null, hasHiddenHtmlBody: true, attachments: [{ filename: "photo.jpg", contentType: "image/jpeg", sizeBytes: 1200 }] });
     expect(JSON.stringify(result)).not.toContain("<script>");
@@ -119,58 +120,85 @@ describe("mail read mapping", () => {
 });
 
 describe("mail read query isolation", () => {
-  function listClient() {
-    const threadBuilder = { select: vi.fn(), eq: vi.fn(), in: vi.fn(), order: vi.fn().mockResolvedValue({ data: [], error: null }) };
-    threadBuilder.select.mockReturnValue(threadBuilder); threadBuilder.eq.mockReturnValue(threadBuilder); threadBuilder.in.mockReturnValue(threadBuilder);
-    return { client: { from: vi.fn().mockReturnValue(threadBuilder) } as unknown as SupabaseClient<Database>, threadBuilder };
-  }
+  const allMailboxes = ["contact@anyhvac.net", "support@anyhvac.net", "social@anyhvac.net", "mailtest@anyhvac.net"];
+  const inboundMessage = { ...baseMessage, id: "inbound", thread_id: "thread-a", received_at: "2026-09-25T12:00:00.000Z" };
+  const outboundMessage = { ...baseMessage, id: "outbound", thread_id: "thread-a", direction: "outbound" as const, from_address: "contact@anyhvac.net", to_addresses: ["customer@example.com"], received_at: null, sent_at: "2026-09-25T11:00:00.000Z" };
 
-  it("filters a mailbox-specific list at the database boundary", async () => {
-    const { client, threadBuilder } = listClient();
-    await new SupabaseMailReadRepository(client).listThreads("contact");
-    expect(threadBuilder.eq).toHaveBeenCalledWith("mailbox", "contact@anyhvac.net");
-  });
-
-  it("intentionally scopes All Mail to the four supported mailboxes", async () => {
-    const { client, threadBuilder } = listClient();
-    await new SupabaseMailReadRepository(client).listThreads("all");
-    expect(threadBuilder.in).toHaveBeenCalledWith("mailbox", ["contact@anyhvac.net", "support@anyhvac.net", "social@anyhvac.net", "mailtest@anyhvac.net"]);
-  });
-
-  it("builds Sent from outbound direction across all supported mailboxes", async () => {
-    const outbound = { select: vi.fn(), eq: vi.fn(), in: vi.fn() };
-    outbound.select.mockReturnValue(outbound); outbound.eq.mockReturnValue(outbound);
-    outbound.in.mockResolvedValue({ data: [{ thread_id: "thread-a" }], error: null });
-    const threads = { select: vi.fn(), in: vi.fn(), order: vi.fn() };
-    threads.select.mockReturnValue(threads); threads.in.mockReturnValue(threads);
-    threads.order.mockResolvedValue({ data: [threadA], error: null });
-    const sentMessage = { ...baseMessage, id: "sent", thread_id: "thread-a", direction: "outbound" as const, from_address: "contact@anyhvac.net", received_at: null, sent_at: "2026-09-25T10:00:00.000Z" };
-    const messages = { select: vi.fn(), in: vi.fn() };
-    messages.select.mockReturnValue(messages);
-    messages.in.mockReturnValueOnce(messages).mockResolvedValueOnce({ data: [sentMessage], error: null });
+  function listClient(qualifyingIds: string[], messages = [outboundMessage, inboundMessage], trashed = false) {
+    const qualifying = { select: vi.fn(), eq: vi.fn(), in: vi.fn() };
+    qualifying.select.mockReturnValue(qualifying); qualifying.eq.mockReturnValue(qualifying);
+    qualifying.in.mockResolvedValue({ data: qualifyingIds.map((thread_id) => ({ thread_id })), error: null });
+    const threads = { select: vi.fn(), in: vi.fn(), is: vi.fn(), not: vi.fn(), order: vi.fn() };
+    threads.select.mockReturnValue(threads); threads.in.mockReturnValue(threads); threads.is.mockReturnValue(threads); threads.not.mockReturnValue(threads);
+    threads.order.mockResolvedValue({ data: qualifyingIds.length || trashed ? [threadA] : [], error: null });
+    const messageBuilder = { select: vi.fn(), in: vi.fn() };
+    messageBuilder.select.mockReturnValue(messageBuilder);
+    messageBuilder.in.mockReturnValueOnce(messageBuilder).mockResolvedValueOnce({ data: messages, error: null });
     const attachments = { select: vi.fn(), in: vi.fn().mockResolvedValue({ data: [], error: null }) };
     attachments.select.mockReturnValue(attachments);
-    const client = { from: vi.fn()
-      .mockReturnValueOnce(outbound)
-      .mockReturnValueOnce(threads)
-      .mockReturnValueOnce(messages)
-      .mockReturnValueOnce(attachments) } as unknown as SupabaseClient<Database>;
+    const builders = trashed ? [threads, messageBuilder, attachments] : [qualifying, threads, messageBuilder, attachments];
+    const client = { from: vi.fn() };
+    for (const builder of builders) client.from.mockReturnValueOnce(builder);
+    return { client: client as unknown as SupabaseClient<Database>, qualifying, threads };
+  }
 
-    const result = await new SupabaseMailReadRepository(client).listThreads("sent");
+  it("keeps an outbound-only compose in Sent and out of mailbox and All Mail", async () => {
+    const inbox = listClient([]);
+    expect(await new SupabaseMailReadRepository(inbox.client).listThreads("contact")).toEqual([]);
+    expect(inbox.qualifying.eq).toHaveBeenCalledWith("direction", "inbound");
+    expect(inbox.qualifying.in).toHaveBeenCalledWith("mailbox", ["contact@anyhvac.net"]);
 
-    expect(outbound.eq).toHaveBeenCalledWith("direction", "outbound");
-    expect(outbound.in).toHaveBeenCalledWith("mailbox", ["contact@anyhvac.net", "support@anyhvac.net", "social@anyhvac.net", "mailtest@anyhvac.net"]);
-    expect(threads.in).toHaveBeenCalledWith("mailbox", ["contact@anyhvac.net", "support@anyhvac.net", "social@anyhvac.net", "mailtest@anyhvac.net"]);
+    const all = listClient([]);
+    expect(await new SupabaseMailReadRepository(all.client).listThreads("all")).toEqual([]);
+    expect(all.qualifying.in).toHaveBeenCalledWith("mailbox", allMailboxes);
+
+    const sent = listClient(["thread-a"], [outboundMessage]);
+    const result = await new SupabaseMailReadRepository(sent.client).listThreads("sent");
+    expect(sent.qualifying.eq).toHaveBeenCalledWith("direction", "outbound");
     expect(result[0]).toMatchObject({ id: "thread-a", mailbox: "contact@anyhvac.net", senderAddress: "contact@anyhvac.net" });
   });
 
+  it("shows a replied conversation in its mailbox, All Mail, and Sent", async () => {
+    for (const filter of ["contact", "all", "sent"] as const) {
+      const fake = listClient(["thread-a"]);
+      const result = await new SupabaseMailReadRepository(fake.client).listThreads(filter);
+      expect(result).toHaveLength(1);
+      expect(result[0]).toMatchObject({ id: "thread-a", messageCount: 2 });
+    }
+  });
+
+  it.each([
+    ["contact", "contact@anyhvac.net"],
+    ["support", "support@anyhvac.net"],
+    ["social", "social@anyhvac.net"],
+    ["mailtest", "mailtest@anyhvac.net"],
+  ] as const)("preserves %s mailbox isolation for qualification and thread loading", async (filter, mailbox) => {
+    const fake = listClient(["thread-a"]);
+    await new SupabaseMailReadRepository(fake.client).listThreads(filter);
+    expect(fake.qualifying.in).toHaveBeenCalledWith("mailbox", [mailbox]);
+    expect(fake.threads.in).toHaveBeenCalledWith("mailbox", [mailbox]);
+  });
+
+  it("excludes trashed threads from normal views and includes them in Trash", async () => {
+    const normal = listClient(["thread-a"]);
+    await new SupabaseMailReadRepository(normal.client).listThreads("sent");
+    expect(normal.threads.is).toHaveBeenCalledWith("trashed_at", null);
+
+    const trash = listClient([], [outboundMessage, inboundMessage], true);
+    const result = await new SupabaseMailReadRepository(trash.client).listThreads("trash");
+    expect(trash.threads.not).toHaveBeenCalledWith("trashed_at", "is", null);
+    expect(result).toHaveLength(1);
+  });
+
   it("keeps a selected thread and its messages inside the requested mailbox", async () => {
-    const threadBuilder = { select: vi.fn(), eq: vi.fn(), in: vi.fn(), maybeSingle: vi.fn().mockResolvedValue({ data: threadA, error: null }) };
-    threadBuilder.select.mockReturnValue(threadBuilder); threadBuilder.eq.mockReturnValue(threadBuilder); threadBuilder.in.mockReturnValue(threadBuilder);
+    const threadBuilder = { select: vi.fn(), eq: vi.fn(), in: vi.fn(), is: vi.fn(), not: vi.fn(), maybeSingle: vi.fn().mockResolvedValue({ data: threadA, error: null }) };
+    threadBuilder.select.mockReturnValue(threadBuilder); threadBuilder.eq.mockReturnValue(threadBuilder); threadBuilder.in.mockReturnValue(threadBuilder); threadBuilder.is.mockReturnValue(threadBuilder); threadBuilder.not.mockReturnValue(threadBuilder);
     const messageBuilder = { select: vi.fn(), eq: vi.fn() };
     messageBuilder.select.mockReturnValue(messageBuilder);
-    messageBuilder.eq.mockReturnValueOnce(messageBuilder).mockResolvedValueOnce({ data: [], error: null });
-    const client = { from: vi.fn().mockReturnValueOnce(threadBuilder).mockReturnValueOnce(messageBuilder) } as unknown as SupabaseClient<Database>;
+    messageBuilder.eq.mockReturnValueOnce(messageBuilder).mockResolvedValueOnce({ data: [inboundMessage], error: null });
+    const attachments = { select: vi.fn(), in: vi.fn().mockResolvedValue({ data: [], error: null }) };
+    attachments.select.mockReturnValue(attachments);
+    const client = { from: vi.fn().mockReturnValueOnce(threadBuilder).mockReturnValueOnce(messageBuilder).mockReturnValueOnce(attachments) } as unknown as SupabaseClient<Database>;
 
     await new SupabaseMailReadRepository(client).getThread("thread-a", "contact");
 

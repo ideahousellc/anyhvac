@@ -24,7 +24,7 @@ type MessageRow = Pick<Tables<"mail_messages">,
   | "is_read" | "received_at" | "sent_at" | "created_at"
 >;
 type AttachmentRow = Pick<Tables<"mail_attachments">,
-  "message_id" | "filename" | "content_type" | "size_bytes"
+  "id" | "message_id" | "filename" | "content_type" | "size_bytes"
 >;
 
 export class MailReadError extends Error {
@@ -53,6 +53,8 @@ function attachmentsFor(messageId: string, rows: AttachmentRow[]): MailAttachmen
   return rows
     .filter((attachment) => attachment.message_id === messageId)
     .map((attachment) => ({
+      id: attachment.id,
+      messageId: attachment.message_id,
       filename: attachment.filename,
       contentType: attachment.content_type,
       sizeBytes: attachment.size_bytes,
@@ -154,25 +156,27 @@ export class SupabaseMailReadRepository {
 
   async listThreads(filter: MailboxFilter): Promise<MailThreadSummary[]> {
     const scope = mailboxScope(filter);
-    let sentThreadIds: string[] | null = null;
-    if (filter === "sent") {
-      const outboundResult = await safeQuery(() => this.client
+    let qualifyingThreadIds: string[] | null = null;
+    if (filter !== "trash") {
+      const direction = filter === "sent" ? "outbound" : "inbound";
+      const qualifyingResult = await safeQuery(() => this.client
         .from("mail_messages")
         .select("thread_id")
-        .eq("direction", "outbound")
+        .eq("direction", direction)
         .in("mailbox", scope));
-      if (outboundResult.error) throw new MailReadError();
-      sentThreadIds = [...new Set(outboundResult.data.map((message) => message.thread_id))];
-      if (!sentThreadIds.length) return [];
+      if (qualifyingResult.error) throw new MailReadError();
+      qualifyingThreadIds = [...new Set(qualifyingResult.data.map((message) => message.thread_id))];
+      if (!qualifyingThreadIds.length) return [];
     }
     let threadQuery = this.client
       .from("mail_threads")
-      .select("id, mailbox, subject, latest_message_at");
-    threadQuery = sentThreadIds
-      ? threadQuery.in("id", sentThreadIds).in("mailbox", scope)
-      : scope.length === 1
-      ? threadQuery.eq("mailbox", scope[0])
+      .select("id, mailbox, subject, latest_message_at, trashed_at");
+    threadQuery = qualifyingThreadIds
+      ? threadQuery.in("id", qualifyingThreadIds).in("mailbox", scope)
       : threadQuery.in("mailbox", scope);
+    threadQuery = filter === "trash"
+      ? threadQuery.not("trashed_at", "is", null)
+      : threadQuery.is("trashed_at", null);
     const threadResult = await safeQuery(() =>
       threadQuery.order("latest_message_at", { ascending: false }));
     if (threadResult.error) throw new MailReadError();
@@ -191,7 +195,7 @@ export class SupabaseMailReadRepository {
     if (messageIds.length) {
       const attachmentResult = await safeQuery(() => this.client
         .from("mail_attachments")
-        .select("message_id, filename, content_type, size_bytes")
+        .select("id, message_id, filename, content_type, size_bytes")
         .in("message_id", messageIds));
       if (attachmentResult.error) throw new MailReadError();
       attachmentRows = attachmentResult.data;
@@ -204,11 +208,14 @@ export class SupabaseMailReadRepository {
     const scope = mailboxScope(filter);
     let threadQuery = this.client
       .from("mail_threads")
-      .select("id, mailbox, subject, latest_message_at")
+      .select("id, mailbox, subject, latest_message_at, trashed_at")
       .eq("id", threadId);
     threadQuery = scope.length === 1
       ? threadQuery.eq("mailbox", scope[0])
       : threadQuery.in("mailbox", scope);
+    threadQuery = filter === "trash"
+      ? threadQuery.not("trashed_at", "is", null)
+      : threadQuery.is("trashed_at", null);
     const threadResult = await safeQuery(() => threadQuery.maybeSingle());
     if (threadResult.error) throw new MailReadError();
     if (!threadResult.data) return null;
@@ -221,13 +228,14 @@ export class SupabaseMailReadRepository {
       .eq("mailbox", thread.mailbox));
     if (messageResult.error) throw new MailReadError();
     if (filter === "sent" && !messageResult.data.some((message) => message.direction === "outbound")) return null;
+    if (filter !== "sent" && filter !== "trash" && !messageResult.data.some((message) => message.direction === "inbound")) return null;
 
     const messageIds = messageResult.data.map((message) => message.id);
     let attachmentRows: AttachmentRow[] = [];
     if (messageIds.length) {
       const attachmentResult = await safeQuery(() => this.client
         .from("mail_attachments")
-        .select("message_id, filename, content_type, size_bytes")
+        .select("id, message_id, filename, content_type, size_bytes")
         .in("message_id", messageIds));
       if (attachmentResult.error) throw new MailReadError();
       attachmentRows = attachmentResult.data;

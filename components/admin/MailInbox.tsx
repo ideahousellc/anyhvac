@@ -74,13 +74,13 @@ export function MailInbox({ filter, threads, selectedThread, threadRequested, fa
                   <span className={styles.srOnly}>{thread.unread ? "Unread" : "Read"}</span>
                   <div className={styles.threadTopline}><strong>{sender(thread.senderName, thread.senderAddress)}</strong><time dateTime={thread.latestMessageAt}>{formatDate(thread.latestMessageAt, true)}</time></div>
                   <p className={styles.threadSubject}>{thread.subject}</p><p className={styles.preview}>{thread.preview}</p>
-                  <div className={styles.threadMeta}>{filter === "all" || filter === "sent" ? <span>{thread.mailbox}</span> : null}{thread.hasAttachments ? <span aria-label="Has attachments">Attachment</span> : null}{thread.messageCount > 1 ? <span>{thread.messageCount} messages</span> : null}</div>
+                  <div className={styles.threadMeta}>{filter === "all" || filter === "sent" || filter === "trash" ? <span>{thread.mailbox}</span> : null}{thread.hasAttachments ? <span aria-label="Has attachments">Attachment</span> : null}{thread.messageCount > 1 ? <span>{thread.messageCount} messages</span> : null}</div>
                 </Link>
               ))}</div>}
         </section>
         <section className={styles.conversation} aria-label="Conversation">
           {failed ? <div className={styles.conversationState}><strong>Conversation unavailable</strong><p>No database or provider details were exposed.</p></div>
-            : selectedThread ? <><div className={styles.conversationHeading}><div><p>{selectedThread.mailbox}</p><h2>{selectedThread.subject}</h2><span>{selectedThread.messages.length} {selectedThread.messages.length === 1 ? "message" : "messages"}</span></div><ThreadActions threadId={selectedThread.id} mailbox={selectedThread.mailbox} unread={selectedThread.messages.some((message) => message.direction === "inbound" && !message.isRead)} /></div>
+            : selectedThread ? <><div className={styles.conversationHeading}><div><p>{selectedThread.mailbox}</p><h2>{selectedThread.subject}</h2><span>{selectedThread.messages.length} {selectedThread.messages.length === 1 ? "message" : "messages"}</span></div><ThreadActions filter={filter} threadId={selectedThread.id} mailbox={selectedThread.mailbox} unread={selectedThread.messages.some((message) => message.direction === "inbound" && !message.isRead)} /></div>
               <div className={styles.messages}>{selectedThread.messages.map((message) => (
                 <article className={styles.message} key={message.id}>
                   <header className={styles.messageHeader}><div><strong>{sender(message.senderName, message.senderAddress)}</strong>{message.senderName ? <span>{message.senderAddress}</span> : null}</div><time dateTime={message.timestamp}>{formatDate(message.timestamp)}</time></header>
@@ -89,7 +89,8 @@ export function MailInbox({ filter, threads, selectedThread, threadRequested, fa
                   {message.quotedTextHidden ? <p className={styles.quotedNotice}>Quoted history hidden</p> : null}
                   {message.attachments.length ? <div className={styles.attachments}><p>Attachments</p>{message.attachments.map((attachment, index) => {
                     const size = formatBytes(attachment.sizeBytes);
-                    return <div className={styles.attachment} key={`${attachment.filename}-${index}`}><strong>{attachment.filename}</strong><span>{attachment.contentType || "Unknown MIME type"}{size ? ` · ${size}` : ""}</span></div>;
+                    const query = new URLSearchParams({ thread: selectedThread.id, mailbox: selectedThread.mailbox, message: attachment.messageId });
+                    return <a className={styles.attachment} href={`/api/admin/email/attachments/${encodeURIComponent(attachment.id)}?${query}`} key={`${attachment.id}-${index}`} target="_blank" rel="noreferrer"><strong>{attachment.filename}</strong><span>{attachment.contentType || "Unknown MIME type"}{size ? ` · ${size}` : ""}</span></a>;
                   })}</div> : null}
                 </article>
               ))}</div></>

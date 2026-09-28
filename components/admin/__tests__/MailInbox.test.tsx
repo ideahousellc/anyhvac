@@ -3,7 +3,7 @@ import { describe, expect, it, vi } from "vitest";
 
 import { MailInbox } from "../MailInbox";
 
-vi.mock("next/navigation", () => ({ useRouter: () => ({ replace: vi.fn(), refresh: vi.fn() }) }));
+vi.mock("next/navigation", () => ({ useRouter: () => ({ push: vi.fn(), replace: vi.fn(), refresh: vi.fn() }) }));
 
 describe("Control Room mail inbox", () => {
   it("renders the empty mailbox and unselected-thread states", () => {
@@ -11,19 +11,20 @@ describe("Control Room mail inbox", () => {
     expect(markup).toContain("No mail here");
     expect(markup).toContain("Select a thread");
     expect(markup).toContain("mailtest@anyhvac.net");
+    expect(markup).toContain("Trash");
   });
 
   it("renders attachment metadata but no attachment action", () => {
     const markup = renderToStaticMarkup(<MailInbox filter="contact" threads={[]} threadRequested selectedThread={{
       id: "thread", mailbox: "contact@anyhvac.net", subject: "Service request", messages: [{
-        id: "message", direction: "inbound", senderAddress: "customer@example.com", senderName: "Customer", toAddresses: ["contact@anyhvac.net"], ccAddresses: [], subject: "Service request", displayTextBody: "Please see the file.", quotedTextHidden: false, hasHiddenHtmlBody: false, timestamp: "2026-09-25T12:00:00.000Z", isRead: false, attachments: [{ filename: "unit-photo.jpg", contentType: "image/jpeg", sizeBytes: 2048 }],
+        id: "message", direction: "inbound", senderAddress: "customer@example.com", senderName: "Customer", toAddresses: ["contact@anyhvac.net"], ccAddresses: [], subject: "Service request", displayTextBody: "Please see the file.", quotedTextHidden: false, hasHiddenHtmlBody: false, timestamp: "2026-09-25T12:00:00.000Z", isRead: false, attachments: [{ id: "attachment", messageId: "message", filename: "unit-photo.jpg", contentType: "image/jpeg", sizeBytes: 2048 }],
       }],
     }} />);
     expect(markup).toContain("unit-photo.jpg");
     expect(markup).toContain("image/jpeg · 2.0 KB");
     expect(markup).toContain("Reply");
     expect(markup).toContain("Mark read");
-    expect(markup).not.toContain("download");
+    expect(markup).toContain("/api/admin/email/attachments/attachment?");
   });
 
   it("never renders stored HTML for an HTML-only message", () => {
@@ -69,5 +70,14 @@ describe("Control Room mail inbox", () => {
     expect(markup).toContain("social@anyhvac.net");
     expect(markup).toContain("Quoted history hidden");
     expect(markup).not.toContain("Old quoted content");
+  });
+
+  it("shows Restore instead of reply and delete actions for a Trash conversation", () => {
+    const markup = renderToStaticMarkup(<MailInbox filter="trash" threads={[]} threadRequested selectedThread={{
+      id: "trash-thread", mailbox: "support@anyhvac.net", subject: "Trashed", messages: [],
+    }} />);
+    expect(markup).toContain("Restore");
+    expect(markup).not.toContain(">Reply<");
+    expect(markup).not.toMatch(/<button[^>]*>Trash<\/button>/);
   });
 });

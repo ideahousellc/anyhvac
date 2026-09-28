@@ -6,9 +6,9 @@ import { SupabaseMailActionRepository } from "../repository";
 vi.mock("server-only", () => ({}));
 
 function client(threadExists = true) {
-  const thread = { select: vi.fn(), eq: vi.fn(), maybeSingle: vi.fn() };
-  thread.select.mockReturnValue(thread); thread.eq.mockReturnValue(thread);
-  thread.maybeSingle.mockResolvedValue({ data: threadExists ? { id: "thread" } : null, error: null });
+  const thread = { select: vi.fn(), update: vi.fn(), eq: vi.fn(), maybeSingle: vi.fn(), error: null };
+  thread.select.mockReturnValue(thread); thread.update.mockReturnValue(thread); thread.eq.mockReturnValue(thread);
+  thread.maybeSingle.mockResolvedValue({ data: threadExists ? { id: "thread", trashed_at: null } : null, error: null });
   const message = { update: vi.fn(), eq: vi.fn(), neq: vi.fn() };
   message.update.mockReturnValue(message); message.eq.mockReturnValue(message);
   message.neq.mockResolvedValue({ error: null });
@@ -33,5 +33,29 @@ describe("mail read-state repository", () => {
     const fake = client(false);
     expect(await new SupabaseMailActionRepository(fake.supabase).setThreadReadState("thread", "support@anyhvac.net", true)).toBe(false);
     expect(fake.message.update).not.toHaveBeenCalled();
+  });
+
+  it("soft-deletes and restores only the exact thread/mailbox pair", async () => {
+    const trashed = client();
+    expect(await new SupabaseMailActionRepository(trashed.supabase).setThreadTrashState("thread", "social@anyhvac.net", true)).toBe(true);
+    expect(trashed.thread.update).toHaveBeenCalledWith({ trashed_at: expect.any(String) });
+    expect(trashed.thread.eq).toHaveBeenCalledWith("id", "thread");
+    expect(trashed.thread.eq).toHaveBeenCalledWith("mailbox", "social@anyhvac.net");
+
+    const restored = client();
+    restored.thread.maybeSingle.mockResolvedValue({ data: { id: "thread", trashed_at: "2026-09-28T12:00:00.000Z" }, error: null });
+    expect(await new SupabaseMailActionRepository(restored.supabase).setThreadTrashState("thread", "social@anyhvac.net", false)).toBe(true);
+    expect(restored.thread.update).toHaveBeenCalledWith({ trashed_at: null });
+  });
+
+  it("makes repeated trash and restore operations harmless", async () => {
+    const alreadyTrashed = client();
+    alreadyTrashed.thread.maybeSingle.mockResolvedValue({ data: { id: "thread", trashed_at: "2026-09-28T12:00:00.000Z" }, error: null });
+    expect(await new SupabaseMailActionRepository(alreadyTrashed.supabase).setThreadTrashState("thread", "contact@anyhvac.net", true)).toBe(true);
+    expect(alreadyTrashed.thread.update).not.toHaveBeenCalled();
+
+    const alreadyRestored = client();
+    expect(await new SupabaseMailActionRepository(alreadyRestored.supabase).setThreadTrashState("thread", "contact@anyhvac.net", false)).toBe(true);
+    expect(alreadyRestored.thread.update).not.toHaveBeenCalled();
   });
 });

@@ -173,6 +173,7 @@ export type Database = {
           mailbox: Database["public"]["Enums"]["mailbox_address"]
           normalized_subject: string | null
           subject: string
+          trashed_at: string | null
           updated_at: string
         }
         Insert: {
@@ -182,6 +183,7 @@ export type Database = {
           mailbox: Database["public"]["Enums"]["mailbox_address"]
           normalized_subject?: string | null
           subject?: string
+          trashed_at?: string | null
           updated_at?: string
         }
         Update: {
@@ -191,6 +193,7 @@ export type Database = {
           mailbox?: Database["public"]["Enums"]["mailbox_address"]
           normalized_subject?: string | null
           subject?: string
+          trashed_at?: string | null
           updated_at?: string
         }
         Relationships: []

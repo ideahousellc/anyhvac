@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { handleAdminUnauthorized } from "@/components/admin/session-expiration";
 import { MAIL_LIMITS } from "@/lib/admin/mail";
 import { SUPPORTED_MAILBOXES, type Mailbox } from "@/lib/mail/inbound/types";
+import type { MailboxFilter } from "@/lib/mail/read/types";
 import styles from "./MailActions.module.css";
 
 type SendResult = { delivered?: boolean; persisted?: boolean; threadId?: string; error?: string };
@@ -40,7 +41,7 @@ export function ComposeAction({ defaultMailbox }: { defaultMailbox: Mailbox }) {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
     const result = await request.send({ mode: "compose", mailbox: form.get("mailbox"), to: form.get("to"), subject: form.get("subject"), message: form.get("message") });
-    if (result?.threadId) { setOpen(false); router.push(`/admin/email?mailbox=${String(form.get("mailbox")).split("@")[0]}&thread=${result.threadId}`); router.refresh(); }
+    if (result?.threadId) { setOpen(false); router.push(`/admin/email?mailbox=sent&thread=${result.threadId}`); router.refresh(); }
   }
   return <>
     <button className={styles.actionButton} type="button" onClick={() => setOpen(true)}>Compose</button>
@@ -58,10 +59,20 @@ export function ComposeAction({ defaultMailbox }: { defaultMailbox: Mailbox }) {
   </>;
 }
 
-export function ThreadActions({ threadId, mailbox, unread }: { threadId: string; mailbox: Mailbox; unread: boolean }) {
+function listHref(filter: MailboxFilter) {
+  return filter === "all" ? "/admin/email" : `/admin/email?mailbox=${filter}`;
+}
+
+export function ThreadActions({ threadId, mailbox, unread, filter }: {
+  threadId: string;
+  mailbox: Mailbox;
+  unread: boolean;
+  filter: MailboxFilter;
+}) {
   const router = useRouter();
   const [replying, setReplying] = useState(false);
   const [readPending, setReadPending] = useState(false);
+  const [trashPending, setTrashPending] = useState(false);
   const suppressAutoRead = useRef(false);
   const request = useSendRequest();
   async function setRead(isRead: boolean) {
@@ -76,6 +87,7 @@ export function ThreadActions({ threadId, mailbox, unread }: { threadId: string;
     } finally { setReadPending(false); }
   }
   useEffect(() => {
+    if (filter === "trash") return;
     if (!unread) return;
     if (suppressAutoRead.current) { suppressAutoRead.current = false; return; }
     const controller = new AbortController();
@@ -89,16 +101,36 @@ export function ThreadActions({ threadId, mailbox, unread }: { threadId: string;
       else handleAdminUnauthorized(response.status, () => { router.replace("/admin"); router.refresh(); });
     }).catch(() => undefined);
     return () => controller.abort();
-  }, [mailbox, router, threadId, unread]);
+  }, [filter, mailbox, router, threadId, unread]);
+  async function setTrashed(isTrashed: boolean) {
+    if (trashPending) return;
+    setTrashPending(true);
+    try {
+      const response = await fetch("/api/admin/email/trash-state", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ threadId, mailbox, isTrashed }),
+      });
+      if (handleAdminUnauthorized(response.status, () => { router.replace("/admin"); router.refresh(); })) return;
+      if (response.ok) {
+        router.push(listHref(filter));
+        router.refresh();
+      }
+    } finally { setTrashPending(false); }
+  }
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
     const result = await request.send({ mode: "reply", threadId, mailbox, message: form.get("message") });
     if (result) { setReplying(false); router.refresh(); }
   }
+  if (filter === "trash") return <div className={styles.threadActions}>
+    <button className={styles.actionButton} type="button" disabled={trashPending} onClick={() => void setTrashed(false)}>{trashPending ? "Restoring…" : "Restore"}</button>
+  </div>;
   return <div className={styles.threadActions}>
     <button type="button" disabled={readPending} onClick={() => void setRead(unread)}>{unread ? "Mark read" : "Mark unread"}</button>
     <button className={styles.actionButton} type="button" onClick={() => setReplying(true)}>Reply</button>
+    <button type="button" disabled={trashPending} onClick={() => void setTrashed(true)}>{trashPending ? "Moving…" : "Trash"}</button>
     {replying ? <div className={styles.backdrop}><section className={styles.panel} role="dialog" aria-modal="true" aria-labelledby="reply-title">
       <div className={styles.panelHeading}><div><h2 id="reply-title">Reply</h2><p>From {mailbox}</p></div><button type="button" onClick={() => setReplying(false)} aria-label="Close reply">×</button></div>
       <form onSubmit={submit} onChange={request.edited}><label><span>Message</span><textarea name="message" rows={10} maxLength={MAIL_LIMITS.message} required autoFocus /></label>

@@ -2,6 +2,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import { NextRequest } from "next/server";
 
 import { PATCH as readState } from "@/app/api/admin/email/read-state/route";
+import { PATCH as trashState } from "@/app/api/admin/email/trash-state/route";
 import { POST as send } from "@/app/api/admin/email/send/route";
 import { ADMIN_SESSION_COOKIE, createAdminSession } from "@/lib/admin/session";
 import { sendOutboundMail } from "@/lib/mail/outbound/service";
@@ -12,10 +13,10 @@ vi.mock("@/lib/mail/outbound/service", async (original) => {
   return { ...actual, sendOutboundMail: vi.fn() };
 });
 vi.mock("@/lib/mail/outbound/repository", () => ({ SupabaseOutboundMailRepository: class {} }));
-const { setThreadReadState } = vi.hoisted(() => ({ setThreadReadState: vi.fn() }));
+const { setThreadReadState, setThreadTrashState } = vi.hoisted(() => ({ setThreadReadState: vi.fn(), setThreadTrashState: vi.fn() }));
 vi.mock("@/lib/mail/actions/repository", () => ({
   MailActionError: class MailActionError extends Error {},
-  SupabaseMailActionRepository: class { setThreadReadState = setThreadReadState; },
+  SupabaseMailActionRepository: class { setThreadReadState = setThreadReadState; setThreadTrashState = setThreadTrashState; },
 }));
 
 const origin = "http://localhost";
@@ -32,6 +33,7 @@ beforeEach(() => {
   process.env.ADMIN_SESSION_SECRET = secret;
   vi.mocked(sendOutboundMail).mockReset().mockResolvedValue({ threadId: id, messageId: "message" });
   setThreadReadState.mockReset().mockResolvedValue(true);
+  setThreadTrashState.mockReset().mockResolvedValue(true);
 });
 
 describe("Control Room email action routes", () => {
@@ -55,5 +57,21 @@ describe("Control Room email action routes", () => {
     expect(response.status).toBe(200);
     expect(setThreadReadState).toHaveBeenCalledWith(id, "contact@anyhvac.net", false);
     expect((await readState(request("/api/admin/email/read-state", "PATCH", { threadId: id, mailbox: "contact@anyhvac.net", isRead: true }, false))).status).toBe(401);
+  });
+
+  it("protects trash mutations and validates the exact mailbox relationship", async () => {
+    const body = { threadId: id, mailbox: "support@anyhvac.net", isTrashed: true };
+    expect((await trashState(request("/api/admin/email/trash-state", "PATCH", body, false))).status).toBe(401);
+    expect((await trashState(request("/api/admin/email/trash-state", "PATCH", body, true, "https://attacker.example"))).status).toBe(403);
+    const response = await trashState(request("/api/admin/email/trash-state", "PATCH", body));
+    expect(response.status).toBe(200);
+    expect(setThreadTrashState).toHaveBeenCalledWith(id, "support@anyhvac.net", true);
+    expect((await trashState(request("/api/admin/email/trash-state", "PATCH", { ...body, mailbox: "attacker@example.com" }))).status).toBe(400);
+  });
+
+  it("returns not found when the thread/mailbox pair does not exist", async () => {
+    setThreadTrashState.mockResolvedValue(false);
+    const response = await trashState(request("/api/admin/email/trash-state", "PATCH", { threadId: id, mailbox: "mailtest@anyhvac.net", isTrashed: false }));
+    expect(response.status).toBe(404);
   });
 });

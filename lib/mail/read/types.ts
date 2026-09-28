@@ -1,8 +1,10 @@
 import type { Mailbox } from "@/lib/mail/inbound/types";
 
-export type MailboxFilter = "all" | "sent" | "contact" | "support" | "social" | "mailtest";
+export type MailboxFilter = "all" | "sent" | "trash" | "contact" | "support" | "social" | "mailtest";
 
 export type MailAttachmentSummary = {
+  id: string;
+  messageId: string;
   filename: string;
   contentType: string | null;
   sizeBytes: number | null;

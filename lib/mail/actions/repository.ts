@@ -22,4 +22,22 @@ export class SupabaseMailActionRepository {
     if (result.error) throw new MailActionError();
     return true;
   }
+
+  async setThreadTrashState(threadId: string, mailbox: Mailbox, isTrashed: boolean) {
+    const thread = await this.client.from("mail_threads")
+      .select("id, trashed_at")
+      .eq("id", threadId)
+      .eq("mailbox", mailbox)
+      .maybeSingle();
+    if (thread.error) throw new MailActionError();
+    if (!thread.data) return false;
+    const alreadyInState = isTrashed ? thread.data.trashed_at !== null : thread.data.trashed_at === null;
+    if (alreadyInState) return true;
+    const result = await this.client.from("mail_threads")
+      .update({ trashed_at: isTrashed ? new Date().toISOString() : null })
+      .eq("id", threadId)
+      .eq("mailbox", mailbox);
+    if (result.error) throw new MailActionError();
+    return true;
+  }
 }

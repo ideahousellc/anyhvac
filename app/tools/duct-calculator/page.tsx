@@ -63,9 +63,7 @@ export default function DuctCalculatorPage() {
 
       <EngineeringNotice />
 
-      <div className={styles.adWrap}>
-        <AdPlaceholder />
-      </div>
+      <AdPlaceholder />
 
       <section className={`page-shell ${styles.content}`} aria-label="Calculator guide">
         <div className={styles.contentBlock}>

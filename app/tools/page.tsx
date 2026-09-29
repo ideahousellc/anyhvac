@@ -45,9 +45,7 @@ export default function ToolsPage() {
 
       <ToolsDirectory />
 
-      <div className={styles.adWrap}>
-        <AdPlaceholder />
-      </div>
+      <AdPlaceholder />
 
       <section className={`page-shell ${styles.support}`}>
         <div className={styles.supportHeading}>

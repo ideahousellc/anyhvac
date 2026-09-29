@@ -1,0 +1,26 @@
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+}
+
+.links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  color: var(--primary);
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.links a:hover {
+  background: var(--surface-soft);
+}
+
+.links a:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}

@@ -67,6 +67,16 @@ export default function DuctDesignQuickReferencePage() {
         </Link>
       </ContentSection>
 
+      <ContentSection title="Measure airflow and pressure">
+        <p>
+          Learn how field velocity, duct area, TESP, and available static pressure
+          connect to responsible HVAC calculations.
+        </p>
+        <Link className={styles.textLink} href="/resources/airflow-static-pressure-measurement">
+          Open Airflow &amp; Static Pressure Measurement Reference <span aria-hidden="true">↗</span>
+        </Link>
+      </ContentSection>
+
       <ContentSection title="Engineering Notice">
         <p className={styles.notice}>
           AnyHVAC reference materials are provided as informational and

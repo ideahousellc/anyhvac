@@ -17,14 +17,15 @@ const render = (page: React.ReactNode) =>
   renderToStaticMarkup(<ModalProvider>{page}</ModalProvider>);
 
 describe("public resource pages", () => {
-  it("lists one available reference and three unlinked future references", () => {
+  it("lists two available references and two unlinked future references", () => {
     const markup = render(<ResourcesPage />);
     expect(markup).toContain("HVAC Design Resources");
     expect(markup).toContain("Duct Design Quick Reference");
     expect(markup).toContain("PDF · 2 pages");
     expect(markup).toContain('href="/resources/duct-design-quick-reference"');
     expect(markup).not.toContain("anyhvac-duct-design-quick-reference.pdf");
-    expect((markup.match(/Coming Soon/g) ?? []).length).toBe(3);
+    expect(markup).toContain('href="/resources/airflow-static-pressure-measurement"');
+    expect((markup.match(/Coming Soon/g) ?? []).length).toBe(2);
     expect((markup.match(/Design Reference #0[1-4]/g) ?? []).length).toBe(4);
     expect((markup.match(/<h1(?:\s|>)/g) ?? []).length).toBe(1);
   });

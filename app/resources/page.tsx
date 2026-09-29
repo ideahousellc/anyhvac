@@ -15,11 +15,6 @@ export const metadata: Metadata = createPageMetadata({
 
 const upcomingResources = [
   {
-    number: "#02",
-    title: "Air Distribution Quick Reference",
-    description: "Airflow, velocity, area, ACH, and practical air-distribution relationships.",
-  },
-  {
     number: "#03",
     title: "Psychrometrics Quick Reference",
     description:
@@ -60,6 +55,25 @@ export default function ResourcesPage() {
           <div className={styles.cardBottom}>
             <span className={styles.descriptor}>PDF · 2 pages</span>
             <Link className={styles.cardLink} href="/resources/duct-design-quick-reference">
+              View Reference <span aria-hidden="true">↗</span>
+            </Link>
+          </div>
+        </article>
+
+        <article className={`${styles.card} ${styles.available}`}>
+          <div className={styles.cardTop}>
+            <p className={styles.eyebrow}>Design Reference #02</p>
+            <span className={styles.badge}>Free</span>
+          </div>
+          <h2>HVAC Airflow &amp; Static Pressure Measurement Quick Reference</h2>
+          <p>
+            A two-page field and design reference covering pressure terminology,
+            TESP, airflow measurement, traverses, capture hoods, formulas, and
+            responsible calculator connections.
+          </p>
+          <div className={styles.cardBottom}>
+            <span className={styles.descriptor}>PDF · 2 pages</span>
+            <Link className={styles.cardLink} href="/resources/airflow-static-pressure-measurement">
               View Reference <span aria-hidden="true">↗</span>
             </Link>
           </div>

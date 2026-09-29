@@ -12,6 +12,7 @@ const PUBLIC_ROUTES = [
   "/tools/mixed-air-calculator",
   "/resources",
   "/resources/duct-design-quick-reference",
+  "/resources/airflow-static-pressure-measurement",
   "/about",
   "/contact",
   "/engineering-disclaimer",

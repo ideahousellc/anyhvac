@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import { ToolGuide, type ToolGuideSection } from "../ToolGuide";
 
 import styles from "./DuctSizingGuide.module.css";
@@ -281,8 +283,15 @@ const guideSections: readonly ToolGuideSection[] = [
           <p>
             The appropriate friction rate depends on the HVAC system, available
             static pressure, duct configuration, acoustical requirements, design
-            method, applicable standards, and project conditions.
-          </p>
+          method, applicable standards, and project conditions.
+        </p>
+        <p>
+          Need help keeping measured TESP separate from design available static
+          pressure? Read the{" "}
+          <Link href="/resources/airflow-static-pressure-measurement">
+            Airflow &amp; Static Pressure Measurement Quick Reference
+          </Link>.
+        </p>
         </div>
       </div>
     ),

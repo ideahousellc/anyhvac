@@ -112,6 +112,17 @@ export default function AirDistributionToolsPage() {
         <AirDistributionTools />
       </section>
 
+      <aside className={`page-shell ${styles.resourceLink}`} aria-label="Related measurement reference">
+        <div>
+          <p>Design Reference #02</p>
+          <h2>Measure before you calculate</h2>
+          <span>Learn how pressure and airflow measurements connect to these tools—and what the results do not prove.</span>
+        </div>
+        <Link href="/resources/airflow-static-pressure-measurement">
+          Open Measurement Reference <span aria-hidden="true">→</span>
+        </Link>
+      </aside>
+
       <EngineeringNotice />
 
       <div className={`page-shell ${styles.termsSection}`}>

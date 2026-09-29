@@ -79,6 +79,26 @@
   padding-bottom: 30px;
 }
 
+.resourceLink {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: center;
+  margin-bottom: 28px;
+  padding: 22px 26px;
+  border: 1px solid rgba(102, 176, 255, 0.25);
+  border-radius: 18px;
+  background: var(--surface);
+}
+
+.resourceLink p { margin: 0 0 5px; color: var(--primary); font-size: 10px; font-weight: 780; letter-spacing: 0.1em; text-transform: uppercase; }
+.resourceLink h2 { margin: 0; font-size: 20px; }
+.resourceLink span { color: var(--muted); font-size: 13px; line-height: 1.55; }
+.resourceLink div > span { display: block; margin-top: 7px; }
+.resourceLink > a { display: inline-flex; min-height: 44px; align-items: center; gap: 7px; color: var(--primary); font-size: 13px; font-weight: 740; }
+.resourceLink > a:hover,
+.resourceLink > a:focus-visible { text-decoration: underline; }
+
 .termsSection {
   padding-bottom: 96px;
 }
@@ -100,6 +120,8 @@
   .workspaceSection {
     padding-bottom: 24px;
   }
+
+  .resourceLink { grid-template-columns: 1fr; gap: 12px; }
 
   .termsSection {
     padding-bottom: 76px;

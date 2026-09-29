@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AnyHVAC Airflow and Static Pressure Measurement Quick Reference</title>
+  <style>
+    @page { size: Letter; margin: 0; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: #dfe5ec; color: #182536; font-family: Arial, Helvetica, sans-serif; }
+    body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    .sheet { position: relative; width: 8.5in; height: 11in; margin: 0 auto 18px; padding: .38in .42in .33in; overflow: hidden; background: #f3f6f9; break-after: page; }
+    .sheet:last-child { margin-bottom: 0; break-after: auto; }
+    .header { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding-bottom: 12px; border-bottom: 2px solid #66b0ff; }
+    .brand { color: #0b64b9; font-size: 11px; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
+    h1 { max-width: 5.9in; margin: 6px 0 0; font-size: 23px; line-height: 1.05; letter-spacing: -.025em; }
+    .page-tag { min-width: 1.05in; padding: 8px 10px; border: 1px solid #9bcfff; border-radius: 10px; color: #0b64b9; font-size: 9px; font-weight: 800; line-height: 1.4; text-align: center; text-transform: uppercase; }
+    .intro { margin: 10px 0 0; color: #526274; font-size: 9.5px; line-height: 1.45; }
+    .grid { display: grid; gap: 10px; margin-top: 11px; }
+    .two { grid-template-columns: 1fr 1fr; }
+    .wide-narrow { grid-template-columns: 1.2fr .8fr; }
+    .card { padding: 11px 12px; border: 1px solid #d2dde8; border-radius: 12px; background: #fff; box-shadow: 2px 3px 8px rgba(65, 86, 108, .08); }
+    h2 { margin: 0 0 7px; color: #0b64b9; font-size: 10px; letter-spacing: .09em; text-transform: uppercase; }
+    h3 { margin: 0 0 4px; font-size: 10px; }
+    p { margin: 0; color: #526274; font-size: 8.2px; line-height: 1.42; }
+    p + p { margin-top: 5px; }
+    b, strong { color: #182536; }
+    .terms { display: grid; grid-template-columns: 1fr 1fr; gap: 7px 12px; }
+    .term p { font-size: 7.7px; line-height: 1.34; }
+    .formula { display: flex; min-height: 39px; align-items: center; justify-content: center; padding: 6px; border-radius: 9px; background: #edf6ff; color: #0b64b9; font-size: 13px; font-weight: 800; text-align: center; }
+    .tesp { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 7px; align-items: center; margin-top: 8px; }
+    .tesp div { padding: 7px; border-radius: 8px; background: #f1f4f7; text-align: center; }
+    .tesp span { display: block; color: #526274; font-size: 7px; text-transform: uppercase; }
+    .tesp strong { display: block; margin-top: 3px; font-size: 11px; }
+    .tesp b { color: #0b64b9; }
+    .warning { margin-top: 8px; padding: 7px 9px; border-left: 3px solid #efb24c; border-radius: 4px 8px 8px 4px; background: #fff8e8; color: #5b4b2a; font-size: 7.5px; line-height: 1.35; }
+    .diagram { display: block; width: 100%; height: auto; margin-top: 3px; }
+    .mini-table { width: 100%; border-collapse: collapse; font-size: 7.2px; line-height: 1.3; }
+    .mini-table th, .mini-table td { padding: 5px 6px; border-bottom: 1px solid #dce4ec; text-align: left; vertical-align: top; }
+    .mini-table th { color: #182536; font-size: 6.8px; letter-spacing: .06em; text-transform: uppercase; }
+    .mini-table tr:last-child td { border-bottom: 0; }
+    ul, ol { margin: 0; padding-left: 16px; color: #526274; font-size: 7.8px; line-height: 1.4; }
+    li + li { margin-top: 3px; }
+    .checks { display: grid; grid-template-columns: 1fr 1fr; gap: 3px 12px; padding-left: 16px; }
+    .tools { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+    .tool { padding: 8px; border-radius: 9px; background: #f1f4f7; }
+    .tool strong { display: block; font-size: 8px; }
+    .tool span { display: block; margin-top: 3px; color: #526274; font-size: 7px; line-height: 1.32; }
+    .footer { position: absolute; right: .42in; bottom: .18in; left: .42in; display: flex; justify-content: space-between; gap: 16px; color: #68788a; font-size: 6.8px; }
+    .footer a { color: #0b64b9; text-decoration: none; }
+    .pill { display: inline-block; margin-right: 5px; padding: 3px 7px; border: 1px solid #9bcfff; border-radius: 999px; color: #0b64b9; font-size: 6.8px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; }
+    .safety { padding: 9px 11px; border: 1px solid #ffd894; border-radius: 10px; background: #fff8e8; }
+    .safety p { color: #5b4b2a; font-size: 7.2px; }
+    .record-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px 11px; margin: 0; padding-left: 15px; }
+    .boundary-row { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 7px; align-items: stretch; }
+    .boundary-row div { display: flex; min-height: 46px; align-items: center; justify-content: center; padding: 6px; border-radius: 8px; background: #edf6ff; color: #182536; font-size: 7.5px; font-weight: 700; line-height: 1.3; text-align: center; }
+    .boundary-row b { display: flex; align-items: center; color: #0b64b9; }
+    @media screen {
+      body:has(#page-2:target) #page-1 { display: none; }
+      body:has(#page-2:target) #page-2 { margin-top: 0; }
+      html.preview-page-2 #page-1 { display: none; }
+      html.preview-page-2 #page-2 { margin-top: 0; }
+    }
+    @media print {
+      html, body { background: #fff; }
+      .sheet { margin: 0; }
+    }
+  </style>
+</head>
+<body>
+  <section class="sheet" id="page-1">
+    <header class="header">
+      <div>
+        <div class="brand">AnyHVAC Design Reference #02</div>
+        <h1>HVAC Airflow &amp; Static Pressure Measurement</h1>
+        <p class="intro">Pressure quick reference. Use current equipment and instrument procedures; measurement boundaries vary by manufacturer and configuration.</p>
+      </div>
+      <div class="page-tag">Free<br>2 pages<br>No signup</div>
+    </header>
+
+    <div class="grid two">
+      <article class="card">
+        <h2>Pressure terms</h2>
+        <div class="terms">
+          <div class="term"><h3>Static pressure</h3><p>Pressure in the air system apart from the kinetic contribution represented by velocity pressure.</p></div>
+          <div class="term"><h3>Velocity pressure</h3><p>Pressure associated with air motion; pitot velocity pressure is total minus static pressure.</p></div>
+          <div class="term"><h3>Total pressure</h3><p>Static pressure plus velocity pressure at the same point.</p></div>
+          <div class="term"><h3>Pressure drop</h3><p>Pressure difference across a component or section at a stated operating condition.</p></div>
+          <div class="term"><h3>TESP</h3><p>Total external static pressure across the equipment's defined external boundary.</p></div>
+          <div class="term"><h3>Available static</h3><p>Design pressure budget left for distribution losses after applicable external component losses.</p></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>Conceptual TESP relationship</h2>
+        <svg class="diagram" viewBox="0 0 390 145" role="img" aria-label="Conceptual return and supply pressure relationship">
+          <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0l8 4-8 4z" fill="#0b64b9"/></marker></defs>
+          <path d="M20 72h105M265 72h105" fill="none" stroke="#0b64b9" stroke-width="4" marker-end="url(#arrow)"/>
+          <rect x="130" y="31" width="130" height="82" rx="14" fill="#edf6ff" stroke="#0b64b9" stroke-width="2"/>
+          <circle cx="195" cy="72" r="24" fill="none" stroke="#0b64b9" stroke-width="2"/>
+          <path d="M195 49c13 7 15 15 8 24-7 9-17 7-21-1M218 72c-7 13-15 15-24 8-9-7-7-17 1-21M195 95c-13-7-15-15-8-24 7-9 17-7 21 1" fill="none" stroke="#0b64b9" stroke-width="3" stroke-linecap="round"/>
+          <text x="62" y="47" fill="#182536" font-size="10" font-weight="700" text-anchor="middle">RETURN</text>
+          <text x="62" y="98" fill="#b34d5a" font-size="9" font-weight="700" text-anchor="middle">negative static</text>
+          <text x="325" y="47" fill="#182536" font-size="10" font-weight="700" text-anchor="middle">SUPPLY</text>
+          <text x="325" y="98" fill="#18866b" font-size="9" font-weight="700" text-anchor="middle">positive static</text>
+          <text x="195" y="133" fill="#526274" font-size="8" font-weight="700" text-anchor="middle">EQUIPMENT / FAN</text>
+        </svg>
+        <p><b>Conceptual only.</b> Approved probe locations and the rated boundary differ among furnaces, fan coils, air handlers, packaged equipment, filters, coils, and accessories.</p>
+      </article>
+    </div>
+
+    <div class="grid wide-narrow">
+      <article class="card">
+        <h2>Illustrative TESP arithmetic</h2>
+        <div class="tesp">
+          <div><span>Return</span><strong>-0.20 in. w.c.</strong></div><b>+</b>
+          <div><span>Supply</span><strong>+0.35 in. w.c.</strong></div><b>=</b>
+          <div><span>Magnitude</span><strong>0.55 in. w.c.</strong></div>
+        </div>
+        <div class="warning">Add magnitudes for this conventional negative-return/positive-supply example. The values demonstrate arithmetic only - they are not normal, recommended, acceptable, code-compliant, or a design target.</div>
+      </article>
+      <article class="card">
+        <h2>Pressure conversion</h2>
+        <div class="formula">1 in. w.c. = 249.0889 Pa</div>
+        <p style="margin-top:6px"><b>in. w.c.</b> and <b>in. w.g.</b> are equivalent water-column/water-gauge usage in this reference and the existing AnyHVAC tools.</p>
+      </article>
+    </div>
+
+    <div class="grid two">
+      <article class="card">
+        <h2>Manometer and probe mini reference</h2>
+        <table class="mini-table">
+          <tr><th>Instrument</th><th>Useful for</th><th>Watch</th></tr>
+          <tr><td><b>Digital manometer</b></td><td>Static, differential, component drop, TESP</td><td>Range, zero, tubing, stability, calibration</td></tr>
+          <tr><td><b>Static probe</b></td><td>Static pressure at an approved test port</td><td>Orientation, turbulence, location, leaks</td></tr>
+          <tr><td><b>Pitot-static tube</b></td><td>Total/static pressure and duct traverses</td><td>Alignment, density, low pressure, point coverage</td></tr>
+        </table>
+      </article>
+      <article class="safety">
+        <h2>Safe and responsible use</h2>
+        <p>Follow current manufacturer procedures. De-energize equipment before creating test ports. Confirm locations are clear of coils, wiring, tubing, controls, and rotating components. Restore ports after use. Document operating mode, fan setting, filter, coil, damper, and accessory condition.</p>
+        <p><b>TESP is not airflow.</b> Use the correct manufacturer fan data and known operating conditions.</p>
+        <p><b>Measured TESP is not design available static pressure.</b> Do not enter it directly as Fan External Static Pressure without a valid design workflow.</p>
+      </article>
+    </div>
+
+    <div class="grid two">
+      <article class="card">
+        <h2>TESP measurement workflow</h2>
+        <ol>
+          <li>Identify exact equipment and obtain current manufacturer instructions.</li>
+          <li>Define which components are inside or outside the rated boundary.</li>
+          <li>Choose only procedure-approved return and supply test locations.</li>
+          <li>Zero the manometer and connect the static probe correctly.</li>
+          <li>Run the required stable mode and airflow setting.</li>
+          <li>Record both readings and material operating conditions.</li>
+          <li>Compare the magnitude with the correct manufacturer data.</li>
+        </ol>
+      </article>
+      <article class="card">
+        <h2>Record with every reading</h2>
+        <ul class="record-grid">
+          <li>Equipment model</li><li>Operating mode</li>
+          <li>Fan or airflow setting</li><li>Probe locations</li>
+          <li>Filter condition</li><li>Coil condition</li>
+          <li>Damper positions</li><li>Installed accessories</li>
+          <li>Instrument and range</li><li>Calibration status</li>
+          <li>Observed instability</li><li>Date and technician</li>
+        </ul>
+      </article>
+    </div>
+
+    <article class="card" style="margin-top:10px">
+      <h2>Keep the field reading and design pressure budget separate</h2>
+      <div class="boundary-row">
+        <div>Measured return and supply static at approved locations</div><b>→</b><div>TESP operating-point diagnostic</div><b>≠</b><div>Design ESP allowance - component losses = available static pressure</div>
+      </div>
+    </article>
+
+    <footer class="footer"><span><span class="pill">Pressure</span>Page 1 of 2</span><a href="https://www.anyhvac.net/resources/airflow-static-pressure-measurement">anyhvac.net/resources/airflow-static-pressure-measurement</a></footer>
+  </section>
+
+  <section class="sheet" id="page-2">
+    <header class="header">
+      <div>
+        <div class="brand">AnyHVAC Design Reference #02</div>
+        <h1>Airflow Measurement &amp; Calculator Connections</h1>
+        <p class="intro">Airflow estimates are only as reliable as the representative velocity, actual free area, instrument, location, and method used.</p>
+      </div>
+      <div class="page-tag">Airflow<br>Page 2</div>
+    </header>
+
+    <div class="grid two">
+      <article class="card">
+        <h2>Core relationships</h2>
+        <div class="terms">
+          <div><h3>Airflow</h3><div class="formula">CFM = FPM x ft2</div></div>
+          <div><h3>Velocity</h3><div class="formula">FPM = CFM / ft2</div></div>
+          <div><h3>Rectangular area</h3><div class="formula">A = W x H</div></div>
+          <div><h3>Round area</h3><div class="formula">A = pi x D2 / 4</div></div>
+        </div>
+        <p style="margin-top:7px">Use actual internal dimensions. Internal liner reduces free area. Convert inches to feet before calculating ft2.</p>
+      </article>
+      <article class="card">
+        <h2>Illustrative airflow arithmetic</h2>
+        <table class="mini-table">
+          <tr><td>Internal duct</td><td><b>18 in. x 12 in.</b></td></tr>
+          <tr><td>Actual area</td><td><b>1.5 ft2</b></td></tr>
+          <tr><td>Average velocity</td><td><b>800 FPM</b></td></tr>
+          <tr><td>Estimated airflow</td><td><b>800 x 1.5 = 1,200 CFM</b></td></tr>
+        </table>
+        <div class="warning">Illustrative only. The values are not a recommendation, acceptance criterion, code requirement, or design target.</div>
+      </article>
+    </div>
+
+    <div class="grid wide-narrow">
+      <article class="card">
+        <h2>Conceptual multi-point traverse</h2>
+        <svg class="diagram" viewBox="0 0 450 170" role="img" aria-label="Conceptual multi-point duct traverse">
+          <rect x="45" y="25" width="360" height="120" rx="7" fill="#edf6ff" stroke="#0b64b9" stroke-width="2"/>
+          <g stroke="#aebdcc" stroke-width="1" stroke-dasharray="4 4"><path d="M117 25v120M189 25v120M261 25v120M333 25v120M45 65h360M45 105h360"/></g>
+          <g fill="#0b64b9" stroke="#fff" stroke-width="2">
+            <circle cx="81" cy="45" r="5"/><circle cx="153" cy="45" r="5"/><circle cx="225" cy="45" r="5"/><circle cx="297" cy="45" r="5"/><circle cx="369" cy="45" r="5"/>
+            <circle cx="81" cy="85" r="5"/><circle cx="153" cy="85" r="5"/><circle cx="225" cy="85" r="5"/><circle cx="297" cy="85" r="5"/><circle cx="369" cy="85" r="5"/>
+            <circle cx="81" cy="125" r="5"/><circle cx="153" cy="125" r="5"/><circle cx="225" cy="125" r="5"/><circle cx="297" cy="125" r="5"/><circle cx="369" cy="125" r="5"/>
+          </g>
+          <text x="225" y="163" fill="#526274" font-size="8" font-weight="700" text-anchor="middle">CONCEPT ONLY - NOT A STANDARDS POINT LAYOUT</text>
+        </svg>
+        <p>Use the governing traverse method and point locations. Record each point. For pitot work, convert each velocity-pressure reading to velocity before averaging velocities. Then multiply average velocity by actual area.</p>
+      </article>
+      <article class="card">
+        <h2>Capture hood checklist</h2>
+        <ol>
+          <li>Confirm hood size, range, and flow direction.</li>
+          <li>Cover the complete outlet and establish a consistent seal.</li>
+          <li>Allow readings to stabilize.</li>
+          <li>Repeat as required by the procedure.</li>
+          <li>Use only validated corrections or K-factors.</li>
+          <li>Document terminal and test conditions.</li>
+        </ol>
+        <p style="margin-top:7px">A hood adds resistance and may alter flow. One terminal reading does not establish total system airflow.</p>
+      </article>
+    </div>
+
+    <div class="grid two">
+      <article class="card">
+        <h2>Common measurement errors</h2>
+        <ul class="checks">
+          <li>Wrong TESP boundary</li><li>Instrument not zeroed</li>
+          <li>TESP called airflow</li><li>Damaged or leaking tubing</li>
+          <li>External duct dimensions</li><li>Internal liner ignored</li>
+          <li>One center reading</li><li>Poor traverse plane</li>
+          <li>Misaligned velocity probe</li><li>Pressure averaged before velocity</li>
+          <li>Generic grille free area</li><li>Generic hood correction</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>Instrument context</h2>
+        <table class="mini-table">
+          <tr><td><b>Hot wire</b></td><td>Local/low velocity; sensitive to direction, contamination, and turbulence.</td></tr>
+          <tr><td><b>Vane</b></td><td>Face or larger-opening velocity; watch angle, coverage, and grille effects.</td></tr>
+          <tr><td><b>Capture hood</b></td><td>Terminal CFM; watch seal, resistance, range, geometry, and corrections.</td></tr>
+          <tr><td><b>Psychrometer</b></td><td>Temperature/humidity for separate moist-air analysis, not airflow or pressure.</td></tr>
+        </table>
+      </article>
+    </div>
+
+    <article class="card" style="margin-top:10px">
+      <h2>From measurement to AnyHVAC</h2>
+      <div class="tools">
+        <div class="tool"><strong>Airflow &amp; Velocity</strong><span>Enter representative FPM and actual ft2 to estimate CFM. It does not validate the measurement method.</span></div>
+        <div class="tool"><strong>Friction Rate</strong><span>Enter a valid design ESP allowance, component losses, and TEL. Measured TESP is not automatically the ESP input.</span></div>
+        <div class="tool"><strong>System Pressure Loss</strong><span>Straight loss uses entered friction rate and length. CFM and geometry do not derive friction rate.</span></div>
+        <div class="tool"><strong>HVAC Duct Calculator</strong><span>Enter design CFM and friction rate for sizing relationships. Results do not prove field compliance.</span></div>
+      </div>
+    </article>
+
+    <footer class="footer"><span><span class="pill">Airflow</span>Page 2 of 2</span><span><a href="https://www.anyhvac.net/tools/air-distribution">Air Distribution Tools</a> | <a href="https://www.anyhvac.net/tools/duct-calculator">Duct Calculator</a> | <a href="https://www.anyhvac.net/engineering-disclaimer">Engineering Disclaimer</a></span></footer>
+  </section>
+</body>
+<script>
+  if (new URLSearchParams(window.location.search).get("page") === "2") {
+    document.documentElement.classList.add("preview-page-2");
+  }
+</script>
+</html>

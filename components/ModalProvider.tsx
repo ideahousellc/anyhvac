@@ -15,9 +15,8 @@ import { NewsletterModal } from "@/components/NewsletterModal";
 import { SupportModal } from "@/components/SupportModal";
 import { SupportPrompt } from "@/components/SupportPrompt";
 import {
-  localDateKey,
-  NEWSLETTER_LAST_PROMPT_KEY,
-  NEWSLETTER_SUBSCRIBED_KEY,
+  shouldAutoPromptNewsletter,
+  suppressNewsletterAutoPrompt,
 } from "@/lib/newsletter";
 import {
   SUCCESSFUL_TOOL_USE_EVENT,
@@ -48,10 +47,17 @@ export function ModalProvider({ children }: { children: ReactNode }) {
 
   const closeModal = useCallback(() => setModal(null), [setModal]);
   const openSupport = useCallback(() => setModal("support"), [setModal]);
-  const openNewsletter = useCallback(
-    () => setModal("newsletter"),
-    [setModal],
-  );
+  const suppressAutomaticNewsletterPrompt = useCallback(() => {
+    try {
+      suppressNewsletterAutoPrompt(window.localStorage);
+    } catch {
+      // Explicit signup remains available when storage is unavailable.
+    }
+  }, []);
+  const openNewsletter = useCallback(() => {
+    suppressAutomaticNewsletterPrompt();
+    setModal("newsletter");
+  }, [setModal, suppressAutomaticNewsletterPrompt]);
   const openContact = useCallback(() => setModal("contact"), [setModal]);
 
   useEffect(() => {
@@ -81,15 +87,9 @@ export function ModalProvider({ children }: { children: ReactNode }) {
     const timer = window.setTimeout(() => {
       if (activeModalRef.current) return;
 
-      const today = localDateKey();
       try {
-        if (
-          window.localStorage.getItem(NEWSLETTER_SUBSCRIBED_KEY) === "true" ||
-          window.localStorage.getItem(NEWSLETTER_LAST_PROMPT_KEY) === today
-        ) {
-          return;
-        }
-        window.localStorage.setItem(NEWSLETTER_LAST_PROMPT_KEY, today);
+        if (!shouldAutoPromptNewsletter(window.localStorage)) return;
+        suppressAutomaticNewsletterPrompt();
       } catch {
         // If storage is unavailable, show at most once during this mounted visit.
       }
@@ -98,7 +98,7 @@ export function ModalProvider({ children }: { children: ReactNode }) {
     }, 8000);
 
     return () => window.clearTimeout(timer);
-  }, [setModal]);
+  }, [setModal, suppressAutomaticNewsletterPrompt]);
 
   return (
     <ModalContext.Provider

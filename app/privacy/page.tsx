@@ -74,10 +74,14 @@ export default function PrivacyPage() {
           AnyHVAC uses or may use browser-local storage, cookies, and similar technologies
           to remember settings and support site features. Current local-storage keys may
           include <code>anyhvac-support-prompt-seen</code>, which remembers that a support
-          prompt has been shown, and <code>anyhvac-newsletter-last-prompt-date</code>, which
-          helps manage newsletter-prompt timing. <code>anyhvac-newsletter-subscribed</code>
-          may be used when a reliable subscription signal becomes available. Theme or
-          interface preferences may also be stored where applicable.
+          prompt has been shown, and <code>anyhvac-newsletter-auto-prompt-suppressed</code>,
+          which prevents repeat automatic newsletter prompts after one has been shown.
+          The legacy <code>anyhvac-newsletter-last-prompt-date</code> key is also honored as
+          an automatic-prompt suppression marker. <code>anyhvac-newsletter-subscribed</code>
+          is separate and may be used when a reliable subscription signal becomes
+          available. These keys store only simple state, not newsletter form contents or
+          email addresses. Theme or interface preferences may also be stored where
+          applicable.
         </p>
         <p>
           Browser controls may allow you to remove or block cookies and local storage,

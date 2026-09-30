@@ -43,6 +43,18 @@ Possible visual language includes:
 
 These are inspiration, not a finite menu. New concepts are encouraged.
 
+## Promotional-video pacing and audio
+
+Build promotional video around music and continuously evolving visual beats. The
+opening second must contain meaningful activity and the hook should be understood
+within two to three seconds. Avoid long holds, isolated text stages, repeated
+centered cards, and ambient noise presented as a soundtrack. Transitions, geometry,
+camera, typography, and supporting SFX should respond to the musical rhythm.
+
+Music needs verified commercial rights and provenance. Original local music,
+public-domain music, or properly licensed royalty-free music may qualify. Unknown
+rights block review. SFX support the soundtrack; they do not replace it.
+
 ## Technical visual safety
 
 Never trade technical credibility for spectacle. Do not casually depict unsafe

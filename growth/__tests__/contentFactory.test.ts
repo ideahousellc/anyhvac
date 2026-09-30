@@ -6,6 +6,8 @@ import { describe, expect, it } from "vitest";
 
 import campaign from "../campaigns/002-airflow-static-pressure/campaign.json";
 import video from "../campaigns/002-airflow-static-pressure/video.json";
+import campaign003 from "../campaigns/003-why-duct-size-matters/campaign.json";
+import video003 from "../campaigns/003-why-duct-size-matters/video.json";
 import {
   campaignStatuses,
   campaignFormats,
@@ -52,7 +54,7 @@ describe("George Content Factory", () => {
     );
   });
 
-  it("defines a silent 1080x1920 Short with internally consistent timing", () => {
+  it("defines an original-audio 1080x1920 Short with internally consistent timing", () => {
     const input = video as VideoInput;
     expect(input.width).toBe(1080);
     expect(input.height).toBe(1920);
@@ -60,8 +62,9 @@ describe("George Content Factory", () => {
     expect(input.durationSeconds).toBeGreaterThanOrEqual(30);
     expect(input.durationSeconds).toBeLessThanOrEqual(60);
     expect(getVideoDuration(input)).toBe(input.durationSeconds);
-    expect(input.audio.mode).toBe("deliberately-silent");
-    expect(getAudioTracks(input.audio)).toHaveLength(0);
+    expect(input.audio.mode).toBe("ambient-text");
+    expect(getAudioTracks(input.audio)).toHaveLength(1);
+    expect(getAudioTracks(input.audio)[0]?.provenance.commercialUse).toBe(true);
   });
 
   it("traces all campaign claims to the canonical resource source", () => {
@@ -78,8 +81,8 @@ describe("George Content Factory", () => {
     expect(campaignFormats).toContain(campaign.primaryFormat);
     expect(campaignFormats).toContain(campaign.secondaryFormat);
     expect(campaign.formatRationale.length).toBeGreaterThan(40);
-    expect(campaign.visualConcept).toContain("prototype");
-    expect(campaign.audioStrategy).toContain("silent");
+    expect(campaign.visualConcept).toContain("Selected Option B");
+    expect(campaign.audioStrategy).toContain("original deterministic");
     expect(campaign.mediaRequirements.length).toBeGreaterThan(0);
     expect(campaign.generationRequirements.length).toBeGreaterThan(0);
     expect(mediaLifecycleStates).toContain(campaign.retentionState);
@@ -169,5 +172,19 @@ describe("George Content Factory", () => {
     expect(source).not.toMatch(/\baxios\b/);
     expect(source).not.toMatch(/api[_-]?key|access[_-]?token|client[_-]?secret/i);
     expect(source).not.toMatch(/publish(?:Post|Campaign)\s*\(/);
+  });
+
+  it("prepares the flagship Duct Calculator campaign without changing its formulas", () => {
+    expect(campaign.status).toBe("REJECTED");
+    expect(campaign003.status).toBe("DRAFT");
+    expect(campaign003.destinationUrl).toBe("https://www.anyhvac.net/tools/duct-calculator");
+    expect(campaign003.distributionChannels).toEqual(["linkedin", "instagram", "youtube-short"]);
+    expect(video003.width).toBe(1080);
+    expect(video003.height).toBe(1920);
+    expect(video003.fps).toBe(30);
+    expect(video003.durationSeconds).toBeGreaterThanOrEqual(20);
+    expect(video003.durationSeconds).toBeLessThanOrEqual(35);
+    expect(video003.music.license).toBe("AnyHVAC original/internal asset");
+    expect(video003.calculatorImage).toContain("duct-calculator-page.png");
   });
 });

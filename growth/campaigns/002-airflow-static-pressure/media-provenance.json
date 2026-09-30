@@ -11,9 +11,39 @@
       "publication_approved": false,
       "provider": null,
       "brief_or_prompt_reference": "creative-directions.md#current-prototype",
-      "ownership_notes": "Prototype assembled locally from source-controlled campaign content and AnyHVAC identity assets.",
-      "retention_privacy_notes": "Generated binary is disposable and stored under the ignored growth/.generated boundary.",
-      "technical_review_notes": "Wording, units, arithmetic, dimensions, readability, and lack of audio were checked; richer final direction remains undecided."
+      "ownership_notes": "Retained prototype; not the selected publication asset.",
+      "retention_privacy_notes": "Ignored generated binary.",
+      "technical_review_notes": "Superseded by video-002-final."
+    },
+    {
+      "asset_id": "audio-002-original",
+      "source": "Deterministically synthesized by growth/media/generate-audio.ts",
+      "license": "AnyHVAC original/internal asset",
+      "commercial_use": true,
+      "attribution_required": false,
+      "attribution_text": null,
+      "date_acquired": "2026-09-30",
+      "publication_approved": true,
+      "provider": null,
+      "brief_or_prompt_reference": "campaign-brief.md#audio-strategy",
+      "ownership_notes": "Original generated hum, filtered noise, and transition tones; no sample or third-party model output.",
+      "retention_privacy_notes": "Generated WAV is ignored and reproducible.",
+      "technical_review_notes": "Non-diagnostic ambience only; no narration."
+    },
+    {
+      "asset_id": "video-002-final",
+      "source": "Locally rendered from repository-owned Remotion composition, structured campaign input, original audio, and AnyHVAC logo",
+      "license": "AnyHVAC original/internal asset",
+      "commercial_use": true,
+      "attribution_required": false,
+      "attribution_text": null,
+      "date_acquired": "2026-09-30",
+      "publication_approved": false,
+      "provider": null,
+      "brief_or_prompt_reference": "campaign-brief.md#format-decision",
+      "ownership_notes": "Selected final creative; owner publication decision remains pending.",
+      "retention_privacy_notes": "Final binary is ignored and retained for owner review.",
+      "technical_review_notes": "Conceptual label, engineering limitations, dimensions, audio, and sampled frames passed final-render-qa.md."
     }
   ]
 }

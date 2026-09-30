@@ -10,8 +10,12 @@
     "test": "vitest run",
     "growth:validate": "node --experimental-strip-types growth/validate.mts",
     "growth:cleanup": "node --no-warnings --experimental-strip-types growth/cleanup.ts",
-    "video:studio": "remotion studio growth/video/index.ts --public-dir=public",
-    "video:render:002": "remotion render growth/video/index.ts AnyHVAC-Technical-Short growth/.generated/campaigns/002-airflow-static-pressure/video/001-tesp-is-not-airflow.mp4 --props=growth/campaigns/002-airflow-static-pressure/video.json --public-dir=public --codec=h264 --pixel-format=yuv420p --crf=18 --concurrency=50%"
+    "growth:media:prepare:002": "node --no-warnings --experimental-strip-types growth/media/generate-audio.ts",
+    "growth:media:prepare": "node --no-warnings --experimental-strip-types growth/media/generate-audio.ts",
+    "growth:media:capture:003": "powershell -NoProfile -ExecutionPolicy Bypass -File growth/media/capture-calculator-003.ps1",
+    "video:studio": "npm run growth:media:prepare && remotion studio growth/video/index.ts --public-dir=growth/.generated/remotion-public",
+    "video:render:002": "npm run growth:media:prepare && remotion render growth/video/index.ts AnyHVAC-Pressure-Field growth/.generated/campaigns/002-airflow-static-pressure/video/002-pressure-field-airflow-stream.mp4 --props=growth/campaigns/002-airflow-static-pressure/video.json --public-dir=growth/.generated/remotion-public --codec=h264 --pixel-format=yuv420p --crf=18 --concurrency=50%",
+    "video:render:003": "npm run growth:media:prepare && remotion render growth/video/index.ts AnyHVAC-Duct-Size-Matters growth/.generated/campaigns/003-why-duct-size-matters/video/001-why-duct-size-matters.mp4 --props=growth/campaigns/003-why-duct-size-matters/video.json --public-dir=growth/.generated/remotion-public --codec=h264 --pixel-format=yuv420p --crf=18 --concurrency=50%"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.117.1",

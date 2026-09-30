@@ -1,19 +1,15 @@
 {
   "campaign_id": "002-airflow-static-pressure",
-  "asset_id": "video-001-prototype",
+  "asset_id": "video-002-pressure-field-airflow-stream",
   "format": "short-video",
-  "platform": ["youtube-short", "instagram"],
+  "platform": ["linkedin", "instagram", "youtube-short"],
   "publication_status": "DRAFT",
   "approved_at": null,
   "published_at": null,
   "platform_post_url": null,
   "canonical_destination_url": "https://www.anyhvac.net/resources/airflow-static-pressure-measurement",
   "source_campaign": "growth/campaigns/002-airflow-static-pressure/campaign.json",
-  "technical_source": [
-    "app/resources/airflow-static-pressure-measurement/page.tsx"
-  ],
-  "media_provenance": [
-    "growth/campaigns/002-airflow-static-pressure/media-provenance.json#video-001-prototype"
-  ],
-  "notes": "Prototype only. No publication approval, scheduling, or external post exists."
+  "technical_source": ["app/resources/airflow-static-pressure-measurement/page.tsx"],
+  "media_provenance": ["growth/campaigns/002-airflow-static-pressure/media-provenance.json#video-002-final", "growth/campaigns/002-airflow-static-pressure/media-provenance.json#audio-002-original"],
+  "notes": "REJECTED AS FIRST PUBLICATION and preserved for future reuse. Technically useful, but the flagship Duct Calculator is a stronger business-first introduction; pacing, audio treatment, and scene progression did not meet the desired modern social-video standard. No upload, schedule, or external post exists."
 }

@@ -1,0 +1,12 @@
+{
+  "campaignId":"002-airflow-static-pressure","videoId":"001-tesp-is-not-airflow","title":"TESP is not airflow","hook":"TESP is NOT airflow.","fps":30,"width":1080,"height":1920,"durationSeconds":45,"logoPath":"Compact AH logo.png",
+  "audio":{"mode":"deliberately-silent","rationale":"Prototype render validates layout and motion only; it is not the final publication asset.","narration":null,"music":null,"ambient":[]},
+  "destinationUrl":"https://www.anyhvac.net/resources/airflow-static-pressure-measurement","cta":"Open the free measurement quick reference","sourceNote":"AnyHVAC Design Reference #02 — illustrative arithmetic only",
+  "scenes":[
+    {"id":"hook","kind":"hook","durationSeconds":3,"eyebrow":"Measurement reminder","title":"TESP is NOT airflow."},
+    {"id":"concept","kind":"concept","durationSeconds":10,"eyebrow":"What it tells you","title":"Pressure and airflow are different measurements.","body":"Static pressure helps describe the resistance the fan is working against at a particular operating condition. It does not directly tell you CFM.","sourceNote":"Use the correct equipment data and operating conditions."},
+    {"id":"example","kind":"example","durationSeconds":16,"eyebrow":"Illustrative arithmetic","title":"Add the pressure magnitudes","formula":"|-0.20| + |+0.35| = 0.55 in. w.c.","values":[{"label":"Return static","value":"-0.20 in. w.c."},{"label":"Supply static","value":"+0.35 in. w.c."},{"label":"TESP magnitude","value":"0.55 in. w.c."}],"sourceNote":"Values demonstrate arithmetic only; they are not a design target."},
+    {"id":"warning","kind":"warning","durationSeconds":12,"eyebrow":"Keep the limit","title":"0.55 in. w.c. does not independently establish airflow.","body":"Equipment boundaries and approved probe locations vary. Use the current manufacturer procedure.","sourceNote":"One universal pair of probe locations does not apply to every system."},
+    {"id":"cta","kind":"cta","durationSeconds":4,"eyebrow":"Free AnyHVAC resource","title":"HVAC Airflow & Static Pressure Measurement Quick Reference","body":"AnyHVAC.net/resources/airflow-static-pressure-measurement"}
+  ]
+}

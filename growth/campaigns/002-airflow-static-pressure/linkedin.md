@@ -1,44 +1,26 @@
-# LinkedIn — 002-airflow-static-pressure
+# LinkedIn — final draft
 
 ## Hook
 
-TESP is not airflow.
-
-## Value / problem
-
-A static-pressure reading helps describe the resistance a fan is working against
-at a particular operating condition. It does not directly tell you CFM.
+Static pressure is not airflow.
 
 ## Technical insight
 
-Consider the reference's illustrative arithmetic:
+A static-pressure reading helps describe the condition a fan is working against at a particular operating point. It does not directly tell you CFM.
 
-- Return static: **-0.20 in. w.c.**
-- Supply static: **+0.35 in. w.c.**
-- TESP magnitude: **0.55 in. w.c.**
+Illustrative arithmetic:
 
-That result is a pressure relationship—not a specific airflow. A pressure reading
-can support airflow evaluation only with the correct equipment data and operating
-conditions. The example values demonstrate arithmetic only; they are not a normal,
-recommended, acceptable, code-compliant, or design target.
+- Return static: −0.20 in. w.c.
+- Supply static: +0.35 in. w.c.
+- TESP magnitude: |−0.20| + |+0.35| = 0.55 in. w.c.
 
-## Resource connection
-
-AnyHVAC Design Reference #02 connects static pressure, velocity, duct area,
-traverses, capture-hood measurements, and responsible use of HVAC calculators.
-
-## CTA
+That 0.55 in. w.c. result is a pressure relationship—not an airflow value or design target. Interpreting it requires the correct equipment data, operating condition, and manufacturer-defined test boundary. A field check is not a substitute for certified TAB, and measured TESP is not design available static pressure.
 
 Open the free HVAC Airflow & Static Pressure Measurement Quick Reference:
 https://www.anyhvac.net/resources/airflow-static-pressure-measurement
-
-## Optional hashtags
 
 #HVAC #StaticPressure #AirflowMeasurement
 
 ## Source notes
 
-Claims and wording come from the canonical resource sections **What airflow and
-static pressure tell you**, **Conceptual pressure relationship**, and **Workflow A
-— Measure total external static pressure** in
-`app/resources/airflow-static-pressure-measurement/page.tsx`.
+Claims trace to the canonical resource sections “What airflow and static pressure tell you,” “Conceptual pressure relationship,” and “Workflow A — Measure total external static pressure.”

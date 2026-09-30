@@ -1,46 +1,29 @@
-# YouTube Short — 002-airflow-static-pressure
+# YouTube Short — final draft
 
-## Hook — 0–3 seconds
+## Title
 
-On screen: **TESP is NOT airflow.**
+Static Pressure Is Not Airflow: What TESP Actually Tells You
 
-## Problem / question — 3–10 seconds
+## Hook
 
-On screen: What does a static-pressure reading actually tell you?
+Static pressure ≠ airflow. They are related, not interchangeable.
 
-A static-pressure measurement helps describe pressure relationships and the
-resistance the fan is working against at a particular operating condition. It does
-not directly tell you CFM.
+## Explanation
 
-## Explanation — 10–22 seconds
+The 42-second conceptual animation separates a pressure field from an airflow stream, then shows an illustrative −0.20 / +0.35 / 0.55 in. w.c. TESP calculation. It never assigns CFM to that result.
 
-Show a simple return / equipment / supply path. Label the return side negative and
-the supply side positive. Note that equipment boundaries and approved probe
-locations vary; use the current manufacturer procedure.
+## Description
 
-## Formula / diagram / example — 22–35 seconds
+TESP helps describe a pressure relationship at an operating condition; it does not independently establish airflow. The values shown are illustrative arithmetic, not a design target. Equipment boundaries and approved measurement locations vary—use current manufacturer guidance.
 
-Illustrative arithmetic:
+Free reference: https://www.anyhvac.net/resources/airflow-static-pressure-measurement
 
-- Return: -0.20 in. w.c.
-- Supply: +0.35 in. w.c.
-- TESP magnitude: |-0.20| + |+0.35| = 0.55 in. w.c.
+#HVAC #StaticPressure #Airflow
 
-## Takeaway — 35–41 seconds
+## CTA
 
-On screen: **0.55 in. w.c. does not independently establish airflow.**
-
-The values demonstrate arithmetic only; they are not a design target.
-
-## CTA — 41–45 seconds
-
-Learn more in the free **HVAC Airflow & Static Pressure Measurement Quick
-Reference** at **AnyHVAC.net**.
+Open the free HVAC Airflow & Static Pressure Measurement Quick Reference.
 
 ## Source notes
 
-All technical wording and example values trace to **What airflow and static
-pressure tell you**, **Conceptual pressure relationship**, and **Workflow A —
-Measure total external static pressure** in the canonical resource. This draft is
-designed to work without narration; a manually supplied audio file can be added to
-the structured video input later.
+All claims and example values trace to the canonical AnyHVAC reference. Video: 1080 × 1920, 30 fps, 42 seconds, H.264/AAC-compatible MP4 delivery.

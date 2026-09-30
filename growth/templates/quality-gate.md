@@ -26,6 +26,19 @@
 - [ ] Links and destination verified
 - [ ] Audio strategy is deliberate and narration supports rather than duplicates visuals
 
+## Creative QA for video
+
+- [ ] Meaningful visual activity begins in the first second
+- [ ] Hook is understandable within two to three seconds
+- [ ] No informational beat remains static longer than necessary
+- [ ] Composition feels like a social video rather than slides
+- [ ] Music drives the edit; SFX remain supporting elements
+- [ ] Transitions are visually connected and there is no dead time
+- [ ] Normal scene text is readable without pausing
+- [ ] Actual product UI is used accurately when the tool appears
+- [ ] Tool reveal functions as the story payoff
+- [ ] Video communicates when muted and improves with audio
+
 ## Commercial
 
 - [ ] Affiliate disclosure included if required

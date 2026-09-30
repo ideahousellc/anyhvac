@@ -17,6 +17,7 @@ const campaignStatuses = [
   "PUBLISHED",
   "MEASURING",
   "COMPLETE",
+  "REJECTED",
 ] as const;
 
 const campaignFormats = [
@@ -269,6 +270,20 @@ for (const key of forbiddenKeys) {
   assert(!serialized.includes(key), `Forbidden publishing or credential field: ${key}`);
 }
 
+const campaign003Directory = resolve(root, "growth/campaigns/003-why-duct-size-matters");
+const campaign003 = readJson<CampaignSpec>(resolve(campaign003Directory, "campaign.json"));
+const video003 = readJson<{width:number;height:number;fps:number;durationSeconds:number;calculatorImage:string;music:{license:string};sfx:{license:string}}>(resolve(campaign003Directory, "video.json"));
+assert(campaign003.status === "DRAFT", "Campaign #003 must remain a revision-required draft");
+assert(campaign003.destinationUrl === "https://www.anyhvac.net/tools/duct-calculator", "Campaign #003 destination is not canonical");
+assert(campaign003.distributionChannels.length === 3, "Campaign #003 must target the three connected social channels");
+assert(campaign003.technicalClaimsSource.every((source) => existsSync(resolve(root, source.repositoryPath))), "Campaign #003 claim source is missing");
+assert(video003.width === 1080 && video003.height === 1920 && video003.fps === 30, "Campaign #003 video spec is invalid");
+assert(video003.durationSeconds >= 20 && video003.durationSeconds <= 35, "Campaign #003 duration must be 20–35 seconds");
+assert(video003.music.license === "AnyHVAC original/internal asset" && video003.sfx.license === "AnyHVAC original/internal asset", "Campaign #003 audio rights are incomplete");
+for (const file of ["campaign-brief.md","storyboard.md","linkedin.md","instagram.md","youtube-short.md","media-provenance.json","generated-assets.json","publication-record.json","quality-gate.md","daily-owner-review.md","render-qa.md"]) {
+  assert(existsSync(resolve(campaign003Directory, file)), `Campaign #003 is missing ${file}`);
+}
+
 console.log(
-  `Validated ${campaign.campaignId}: ${campaign.distributionChannels.length} channels, ${video.durationSeconds}s vertical prototype, format/audio/provenance/lifecycle controls, no publishing behavior.`,
+  `Validated Campaign #002 rejection preservation and Campaign #003: ${campaign003.distributionChannels.length} channels, ${video003.durationSeconds}s flagship revision draft, rights/provenance controls, no publishing behavior.`,
 );

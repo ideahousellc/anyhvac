@@ -62,6 +62,8 @@ reviewed and labeled illustrative where appropriate.
 
 ## Option B — Pressure field versus airflow stream
 
+**SELECTED FOR CAMPAIGN #002 FINAL OWNER REVIEW.** The implemented version is a technically controlled 2D interpretation with original local sound design and complete on-screen explanation.
+
 ### Visual concept
 
 A stylized cutaway duct becomes a cinematic but explicitly **CONCEPTUAL** visual.
@@ -165,9 +167,8 @@ Current tools can animate supplied layers, labels, and boundary highlights. A
 credible exploded model or cutaway requires owner-supplied technical artwork or a
 future approved provider followed by detailed technical review.
 
-## Recommendation for owner review
+## Selection record
 
-Option B offers the clearest concept-to-visual match with the lowest dependence on
-realistic people or equipment accuracy. Start with a technically controlled 2D
-concept test before considering provider-generated 3D media. This is a creative
-recommendation, not publication approval.
+Option B was selected because it offers the clearest concept-to-visual match with
+the lowest dependence on realistic people or equipment accuracy. The controlled
+2D final is ready for owner campaign review. Selection is not publication approval.

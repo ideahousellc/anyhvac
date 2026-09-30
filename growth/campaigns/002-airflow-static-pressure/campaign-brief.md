@@ -1,77 +1,37 @@
-# CAMPAIGN BRIEF — 002-airflow-static-pressure
+# Campaign brief — 002-airflow-static-pressure
 
 ## Canonical asset
 
-AnyHVAC Design Reference #02 — [HVAC Airflow & Static Pressure Measurement Quick Reference](https://www.anyhvac.net/resources/airflow-static-pressure-measurement)
-
-Repository source: `app/resources/airflow-static-pressure-measurement/page.tsx`
+[HVAC Airflow & Static Pressure Measurement Quick Reference](https://www.anyhvac.net/resources/airflow-static-pressure-measurement), sourced from `app/resources/airflow-static-pressure-measurement/page.tsx`.
 
 ## Objective
 
-Help HVAC practitioners avoid treating total external static pressure as a direct
-airflow measurement, while introducing the complete free AnyHVAC reference.
+Prevent practitioners from treating TESP as a direct airflow measurement and lead qualified viewers to the free reference.
 
-## Target audience
+## Audience and message
 
-HVAC service technicians, TAB practitioners and trainees, HVAC and MEP designers,
-and HVAC students.
-
-## Core user problem
-
-A static-pressure result is easy to misread as though it directly establishes CFM.
-
-## Primary message
-
-TESP is not airflow. A pressure reading can support airflow evaluation only with
-the correct equipment data and operating conditions.
+HVAC technicians, TAB practitioners and trainees, designers, engineers, and students. Static pressure and airflow are related, but a TESP reading does not independently establish CFM.
 
 ## Technical claims source
 
-- **What airflow and static pressure tell you:** the primary distinction and the
-  condition on using pressure to support airflow evaluation.
-- **Conceptual pressure relationship:** the -0.20 / +0.35 / 0.55 in. w.c.
-  illustrative arithmetic and its explicit non-design-target limitation.
-- **Workflow A — Measure total external static pressure:** TESP does not
-  independently establish airflow; probe locations are not universal.
+- “What airflow and static pressure tell you” supports the pressure/airflow distinction.
+- “Conceptual pressure relationship” supports the −0.20 / +0.35 / 0.55 in. w.c. illustrative arithmetic.
+- “Workflow A — Measure total external static pressure” supports the equipment-boundary and manufacturer-procedure limitations.
 
-All are in `app/resources/airflow-static-pressure-measurement/page.tsx`. No new
-engineering claim is introduced by this campaign.
-
-## Destination and CTA
-
-- Destination: https://www.anyhvac.net/resources/airflow-static-pressure-measurement
-- CTA: Open the free HVAC Airflow & Static Pressure Measurement Quick Reference.
-
-## Distribution plan
-
-LinkedIn is the canonical social draft. Instagram reuses its message and vertical
-video with a shorter caption and platform-appropriate link wording. The Short uses
-the same narrow example. The newsletter excerpt points to the same canonical page.
+No campaign claim extends beyond the canonical resource.
 
 ## Format decision
 
-- Primary format: short video, because the pressure/airflow distinction benefits
-  from a visual separation of concepts over time.
-- Secondary format: image carousel, providing a saveable visual explanation and
-  deliberate feed variety.
-- Current prototype: silent code-driven technical motion graphic.
-- Preferred final direction: choose a richer visual concept from
-  `creative-directions.md`; the prototype is not automatically publication-ready.
-- Audio: the prototype is deliberately silent for pipeline validation. A final
-  video should normally use concise narration with a documented secondary audio
-  treatment unless the selected concept justifies silence.
+The final primary format is a 42-second 1080 × 1920 video. Motion materially separates the conceptual pressure field from the moving airflow stream; a static carousel would make that distinction less immediate. The source-controlled 2D treatment avoids unverified field footage and is labeled **CONCEPTUAL** throughout. The carousel remains a future secondary option, not part of this approval.
 
-## Revenue connection
+## Audio strategy
 
-No direct revenue claim. The free-first campaign is intended to improve qualified
-discovery and repeat use. Any later revenue effect must be measured, not assumed.
+Complete text carries the explanation. An original, locally synthesized mechanical/air texture supports pacing without narration, third-party licensing, or implying a calibrated measurement. Future owner narration may replace it only through a separately reviewed revision.
+
+## Distribution and CTA
+
+The same safe-zone-aware vertical master is prepared for Instagram Reels, YouTube Shorts, and LinkedIn. LinkedIn copy is more technical; Instagram uses link-in-bio wording; YouTube has a title and description. CTA: open the free reference.
 
 ## Status and approval
 
-- Status: `DRAFT`
-- Prepared locally: LinkedIn, Instagram, YouTube Short, newsletter excerpt, silent
-  prototype, three richer directions, carousel alternative, source notes,
-  provenance, and quality gate
-- Current owner decision: select/revise/reject a creative direction—not publication
-
-Nothing has been published, scheduled, sent, or connected to an external service.
+Status: `OWNER REVIEW`. One owner decision covers the exact final video and three copy drafts. Nothing has been uploaded, scheduled, published, or connected.

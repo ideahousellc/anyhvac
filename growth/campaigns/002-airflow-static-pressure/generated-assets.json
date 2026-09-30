@@ -1,16 +1,8 @@
 {
   "campaign_id": "002-airflow-static-pressure",
   "assets": [
-    {
-      "asset_id": "video-001-prototype",
-      "relative_path": "campaigns/002-airflow-static-pressure/video/001-tesp-is-not-airflow.mp4",
-      "lifecycle_state": "READY_FOR_REVIEW",
-      "created_at": "2026-09-30T14:36:59Z",
-      "retention_days": 7,
-      "temporary": true,
-      "abandoned_or_rejected": false,
-      "publication_confirmed": false,
-      "publishing_system_requires_local_file": true
-    }
+    {"asset_id":"video-001-prototype","relative_path":"campaigns/002-airflow-static-pressure/video/001-tesp-is-not-airflow.mp4","lifecycle_state":"READY_FOR_REVIEW","created_at":"2026-09-30T14:36:59Z","retention_days":7,"temporary":true,"abandoned_or_rejected":false,"publication_confirmed":false,"publishing_system_requires_local_file":true},
+    {"asset_id":"audio-002-original","relative_path":"remotion-public/audio/002-pressure-field-soundscape.wav","lifecycle_state":"READY_FOR_REVIEW","created_at":"2026-09-30T00:00:00Z","retention_days":7,"temporary":true,"abandoned_or_rejected":false,"publication_confirmed":false,"publishing_system_requires_local_file":true},
+    {"asset_id":"video-002-final","relative_path":"campaigns/002-airflow-static-pressure/video/002-pressure-field-airflow-stream.mp4","lifecycle_state":"READY_FOR_REVIEW","created_at":"2026-09-30T00:00:00Z","retention_days":7,"temporary":false,"abandoned_or_rejected":true,"publication_confirmed":false,"publishing_system_requires_local_file":true}
   ]
 }

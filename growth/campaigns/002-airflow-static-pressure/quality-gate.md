@@ -3,44 +3,28 @@
 ## Technical
 
 - [x] Claims trace to canonical AnyHVAC content
-- [x] Units and arithmetic verified against the canonical example
-- [x] No new unsupported engineering claim
-- [x] Limitations preserved where necessary
+- [x] Units and illustrative arithmetic verified
+- [x] TESP is never represented as CFM or a design target
+- [x] Manufacturer-boundary, design-ASP, and certified-TAB limitations preserved
 
-## Brand
+## Brand and channel
 
-- [x] AnyHVAC identity is consistent
-- [x] No misleading commercial language
-- [x] No fake urgency
-- [x] CTA is clear
+- [x] Final creative direction and 1080 × 1920 asset selected
+- [x] LinkedIn, Instagram, and YouTube copy complete
+- [x] Visual is labeled conceptual and remains legible in vertical safe zones
+- [x] Original audio is implemented and documented
+- [x] Destination and CTA match the canonical resource
 
-## Channel
+## Commercial, security, and privacy
 
-- [x] LinkedIn format ready
-- [x] Instagram adaptation ready
-- [x] Video dimensions correct (1080 × 1920, 9:16)
-- [x] Links and destination match the canonical resource
-- [ ] Final creative direction and publication asset selected
-- [ ] Final audio strategy implemented or silence specifically justified
-
-## Commercial
-
-- [x] Affiliate disclosure not required; there is no affiliate relationship
-- [x] Sponsor disclosure not required; there is no sponsor
-- [x] No undisclosed commercial influence
-- [ ] All final visual/audio asset provenance complete and publication-approved
-
-## Security / privacy
-
-- [x] No secrets
-- [x] No private analytics
-- [x] No personal information
+- [x] Provenance complete; commercial use allowed; no attribution required
+- [x] No sponsor, affiliate, or unsupported commercial claim
+- [x] No secrets, private analytics, production data, or personal information
+- [x] No network, account connection, scheduling, or publishing behavior
 
 ## Approval
 
-- [ ] Campaign ready for ONE owner publication approval
+- [x] Campaign ready for ONE owner publication approval
+- [x] Owner selected **REJECT** as first publication; source remains preserved
 
-Technical/content check completed locally against
-`app/resources/airflow-static-pressure-measurement/page.tsx`. This checklist does
-not constitute publication approval. The current prototype passed technical QA but
-is awaiting a creative-direction decision and final provenance/audio review.
+Local readiness is not publication approval.

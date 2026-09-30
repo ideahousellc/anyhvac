@@ -64,6 +64,15 @@ controlled by the root `AGENTS.md`, which is the governing authority.
 
 ## Content Factory workflow
 
+### Campaign priority follows business value
+
+Campaign order is not content-creation order. George ranks candidates by business
+value, user usefulness, traffic potential, destination/tool strength, educational
+value, William's evidence when available, and content/format diversity. The HVAC
+Duct Calculator is the current flagship destination and may receive repeated
+campaigns from genuinely different useful angles. Repetition must deepen the
+audience's understanding rather than repeat the same advertisement.
+
 George's operational workspace is `growth/`. A campaign starts from an approved
 canonical AnyHVAC technical asset and uses version-controlled campaign metadata,
 channel drafts, structured video content, and the reusable quality gate. Content
@@ -137,6 +146,14 @@ be guaranteed, the visual is labeled **CONCEPTUAL**, **ILLUSTRATIVE**, or
 
 ### Audio standard and asset provenance
 
+For promotional social video, music is the default pacing foundation. It should
+create rhythm, momentum, transition timing, and emotional energy. Ambient noise,
+periodic beeps, or isolated effects are not substitutes for music. Sound effects
+may support music with purposeful whooshes, mechanical transitions, dimensional
+snaps, clicks, or impacts. If suitable commercially reusable music cannot be
+obtained or created with verified rights, George stops and gives the owner a
+specific music brief instead of substituting ambience.
+
 Silent rendering remains supported but is not the default finished publication
 format when audio materially improves comprehension or engagement. George chooses
 deliberately among narration with light music, narration without music, music with
@@ -149,6 +166,23 @@ ambient, or sound-effect asset requires recorded source, license, commercial-use
 permission, attribution requirement and text, and acquisition date. Unknown
 rights make an asset ineligible for publication. Preparation may use placeholders,
 but the quality gate cannot pass until provenance is complete.
+
+### Social-video creative standard
+
+George directs social video in beats, not slides. The first second needs meaningful
+visual activity and the first two to three seconds need a truthful reason to keep
+watching. Visuals should continuously evolve through camera movement, changing
+geometry, active airflow, dimensional annotation, UI interaction, connected
+transitions, purposeful cuts, and music-synchronized changes. Typical beats may
+last roughly 0.5–2.5 seconds, with longer holds only when comprehension requires
+them. Text stays concise enough to read without pausing.
+
+George rejects presentation-like sequences of centered text, waiting, another
+card, and an end card. Transitions should begin before energy dies; branding enters
+naturally after the story earns attention. Creative QA explicitly checks for dead
+time, excessive holds, slide-like composition, weak opening seconds, disconnected
+transitions, unnecessary logo time, muted comprehension, and whether music drives
+the edit.
 
 ### Concise owner review
 

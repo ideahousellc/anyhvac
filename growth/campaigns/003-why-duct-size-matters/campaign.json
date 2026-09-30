@@ -1,0 +1,26 @@
+{
+  "campaignId": "003-why-duct-size-matters",
+  "canonicalAsset": "/tools/duct-calculator",
+  "objective": "Show HVAC practitioners a clear consequence of duct sizing and naturally introduce the free AnyHVAC HVAC Duct Calculator.",
+  "targetAudience": ["HVAC and MEP designers", "HVAC technicians", "HVAC students", "air-distribution practitioners"],
+  "coreUserProblem": "Duct dimensions are sometimes treated as a space-fit choice without seeing how area connects to velocity and friction.",
+  "primaryMessage": "For the same airflow, a smaller duct has less cross-sectional area and higher velocity; duct sizing also affects friction and must be evaluated in system context.",
+  "technicalClaimsSource": [
+    {"repositoryPath":"components/duct-calculator/DuctSizingGuide.tsx","section":"Frequently asked questions","supports":["For the same airflow, increasing duct cross-sectional area reduces air velocity.","For the same airflow and comparable duct conditions, increasing duct size generally reduces velocity and friction loss.","No one friction rate is universally correct."]},
+    {"repositoryPath":"components/duct-calculator/DuctCalculator.tsx","section":"Calculator inputs and outputs","supports":["The calculator accepts airflow, friction rate, and a preferred fixed side.","It provides calculated and nominal round results plus rectangular options."]},
+    {"repositoryPath":"app/tools/duct-calculator/page.tsx","section":"Metadata and calculator guide","supports":["The canonical route is /tools/duct-calculator.","The tool covers airflow, friction rate, velocity, round duct, and rectangular duct design."]}
+  ],
+  "destinationUrl": "https://www.anyhvac.net/tools/duct-calculator",
+  "distributionChannels": ["linkedin", "instagram", "youtube-short"],
+  "callToAction": "Size it faster with the free AnyHVAC HVAC Duct Calculator.",
+  "revenueConnection": "Hypothesis only: useful visual education followed by the flagship free tool may produce qualified visits and repeat use; William will measure actual outcomes.",
+  "status": "DRAFT",
+  "primaryFormat": "short-video",
+  "secondaryFormat": "tool-demonstration",
+  "formatRationale": "A 28-second music-driven video can make the same-airflow geometry change visible, maintain attention through connected motion, and turn the authentic calculator reveal into the payoff.",
+  "visualConcept": "Begin inside a continuously moving conceptual duct, narrow the geometry while airflow motion accelerates, connect velocity and friction implications, then travel through the duct opening into the real AnyHVAC calculator UI.",
+  "audioStrategy": "Original 120 BPM electronic-mechanical music drives the edit; a separate original transition track adds restrained whooshes and impacts. Complete meaning remains on screen.",
+  "mediaRequirements": ["1080 × 1920 master", "Authentic hydrated calculator capture", "Conceptual labels", "Original music and supporting SFX", "AnyHVAC end identity"],
+  "generationRequirements": ["Render locally with Remotion", "Capture the real local calculator route after hydration", "Keep all binaries under growth/.generated"],
+  "retentionState": "DRAFT"
+}

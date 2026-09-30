@@ -8,6 +8,8 @@ publishing API is included.
 ## Workflow
 
 1. Select an approved canonical asset using supplied evidence or an approved brief.
+   Rank candidates by business value and destination strength rather than creation
+   order; the HVAC Duct Calculator is the current flagship destination.
 2. Create one folder under `campaigns/<campaign-id>/` from the templates.
 3. Record claims and their exact canonical source locations in `campaign.json`.
 4. Draft LinkedIn as the canonical social copy.
@@ -54,7 +56,11 @@ Allowed statuses are `RESEARCH`, `DRAFT`, `TECHNICAL REVIEW`, `OWNER REVIEW`,
 Run `npm run growth:validate` to check campaign structure, required draft sections,
 source references, media lifecycle, audio/provenance fields, video timing, and the
 absence of publishing or credential behavior. Run `npm run video:studio` for local
-preview and `npm run video:render:002` for the first campaign render.
+preview and the campaign-specific render script for an owner-review render.
+
+Promotional video is edited in evolving, music-driven beats rather than static
+slides. The first second must move, the hook must land within three seconds, and
+creative QA must inspect pacing as well as sampled frames.
 
 ## Creative-media principle
 

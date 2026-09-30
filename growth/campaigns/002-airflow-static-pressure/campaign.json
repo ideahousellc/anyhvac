@@ -43,26 +43,25 @@
   "distributionChannels": [
     "linkedin",
     "instagram",
-    "youtube-short",
-    "newsletter"
+    "youtube-short"
   ],
   "callToAction": "Open the free HVAC Airflow & Static Pressure Measurement Quick Reference.",
   "revenueConnection": "No direct revenue claim. This free-first campaign is intended to improve qualified discovery and repeat use; any later revenue effect must be measured rather than assumed.",
-  "status": "DRAFT",
+  "status": "REJECTED",
   "primaryFormat": "short-video",
   "secondaryFormat": "image-carousel",
-  "formatRationale": "The misconception benefits from seeing pressure relationships rather than reading a static summary, while a carousel provides a quieter saveable alternative. The current motion graphic proves the pipeline but a richer visual story should be selected before publication.",
-  "visualConcept": "Current prototype: code-driven technical motion graphic. Preferred final direction: a visually richer HVAC-specific story selected from the documented field, conceptual-flow, or exploded-equipment directions.",
-  "audioStrategy": "The prototype is deliberately silent for pipeline validation. A final video should normally use concise narration with subtle licensed music or relevant ambience unless the selected concept justifies another documented strategy.",
+  "formatRationale": "A short video is selected because motion can separate a conceptual pressure field from an airflow stream over time; that distinction is less immediate in a static carousel. One vertical master serves all three connected channels without a large asset batch.",
+  "visualConcept": "Selected Option B: a source-controlled conceptual duct view uses distinct color fields and moving stream particles, an explicit CONCEPTUAL label, illustrative arithmetic, and an AnyHVAC end card.",
+  "audioStrategy": "The final video uses original deterministic ambient sound design with complete on-screen explanation. It contains no narration or third-party media and does not mimic a calibrated measurement.",
   "mediaRequirements": [
-    "One technically reviewed primary visual treatment",
+    "One technically reviewed 1080 × 1920 primary visual treatment",
     "AnyHVAC identity and end card",
     "Source and limitation labels",
-    "Commercial-rights provenance for every external visual and audio asset"
+    "Commercial-rights provenance for every visual and audio asset"
   ],
   "generationRequirements": [
-    "Current tools can render titles, diagrams, values, captions, and final assembly",
-    "Realistic field footage, cinematic duct visualization, or detailed exploded equipment would require owner-supplied licensed media or a future approved provider"
+    "Current tools render the final titles, conceptual diagram, values, audio, and assembly locally",
+    "No external media provider, field footage, paid voice, or stock asset is required"
   ],
   "retentionState": "READY_FOR_REVIEW"
 }

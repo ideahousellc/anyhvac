@@ -8,6 +8,7 @@ export const campaignStatuses = [
   "PUBLISHED",
   "MEASURING",
   "COMPLETE",
+  "REJECTED",
 ] as const;
 
 export type CampaignStatus = (typeof campaignStatuses)[number];

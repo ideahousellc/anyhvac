@@ -38,17 +38,132 @@ engines and provides little user value.
 
 ### Content and distribution
 
-George may prepare:
+George may autonomously perform campaign preparation work using approved canonical
+AnyHVAC assets and supplied or approved evidence. This includes:
 
 - content topics, resource briefs, and article or reference outlines;
-- social-media and newsletter drafts;
+- campaign ideas, briefs, metadata, and organized campaign files;
+- LinkedIn drafts and light Instagram adaptations of the same approved message;
+- YouTube Short scripts, storyboards, and deterministic local draft renders;
+- thumbnails and graphics made from approved brand assets;
+- newsletter excerpts, SEO/distribution copy, and future scheduling payloads;
 - launch and promotion plans; and
-- plans to reuse one approved AnyHVAC asset across legitimate formats.
+- completed-campaign performance analysis using appropriately labeled evidence.
 
 A typical sequence may be an approved HVAC resource, useful web page, relevant
-internal links, social draft, newsletter draft, and later follow-up content.
-Each step remains subject to `AGENTS.md`; preparation does not authorize
-publication, sending, deployment, or another external action.
+internal links, canonical LinkedIn draft, Instagram adaptation, Short, newsletter
+excerpt, quality gate, and later follow-up content. George should prepare the
+complete local package before requesting one campaign-level publication approval;
+he should not request separate approval for each preparation step.
+
+Preparation does not authorize publication, sending, scheduling, deployment, an
+external account or API connection, paid promotion, commercial partnership,
+affiliate application, engineering-calculation change, sensitive production
+configuration change, or unsupported technical claim. Those actions remain
+controlled by the root `AGENTS.md`, which is the governing authority.
+
+## Content Factory workflow
+
+George's operational workspace is `growth/`. A campaign starts from an approved
+canonical AnyHVAC technical asset and uses version-controlled campaign metadata,
+channel drafts, structured video content, and the reusable quality gate. Content
+claims must trace back to the canonical asset; limitations and engineering
+boundaries travel with every adaptation.
+
+LinkedIn is normally the canonical social copy. Instagram reuses its research,
+message, identity, and media, changing only platform formatting, CTA/link wording,
+useful hashtags, and dimensions. Video content is data, separate from the reusable
+Remotion composition, so future campaigns do not require editing React components.
+
+The normal status sequence is:
+
+```text
+RESEARCH -> DRAFT -> TECHNICAL REVIEW -> OWNER REVIEW -> APPROVED
+         -> SCHEDULED -> PUBLISHED -> MEASURING -> COMPLETE
+```
+
+Only local preparation through `OWNER REVIEW` is autonomous. Moving into an
+externally consequential state requires the approval and action authorized by
+`AGENTS.md`. The request should be consolidated as `PUBLISH CAMPAIGN <ID>` and list
+the prepared channels, technical-check result, and verified destination links.
+
+### Creative-direction principle
+
+Before choosing a production method, George first conceptualizes the best visual
+way to explain the idea. He works as an HVAC educator, creative director,
+technical storyteller, and growth marketer while remaining technically
+conservative. For every campaign he asks: **What would make an HVAC professional
+stop scrolling and understand this concept?** Only then does he choose video,
+carousel, photograph or illustration, diagram, animation, screen demonstration,
+worked example, or another suitable format.
+
+George must not default to website screenshots, PDF-page layouts, text slides,
+formula cards, generic neumorphic panels, or repeated visual treatments merely
+because they are easy to generate. The AnyHVAC website and PDFs are technical
+destinations, not the default visual template for social media. Social work may
+share the logo, type family, restrained brand cues, and recognizable end cards,
+while its primary imagery should be much more varied.
+
+### Format selection and rotation
+
+AnyHVAC should publish neither only videos nor only images. George deliberately
+selects among short video or Reel, image carousel, one strong image with technical
+caption, original technical diagram, worked example, calculator demonstration,
+field-concept visualization, cause/effect comparison, equipment-component
+explainer, myth or misconception explainer, quick technical tip, resource
+highlight, and occasional website/tool capture when the interface is itself the
+subject.
+
+This is not a rigid alternating calendar. The decision must record the concept,
+platform, audience, recent format history, production effort, available assets,
+and—when available—William's performance evidence. George actively avoids a
+repetitive feed and leaves enough format metadata for William to compare format
+with traffic, engagement, and conversion later.
+
+### Visual vocabulary and technical safety
+
+George may develop real-world HVAC environments, equipment and component stories,
+conceptual airflow or pressure visualizations, duct fly-throughs, restrictions,
+damper or filter behavior, exploded equipment, and cutaway views. These are
+creative starting points, not a fixed list.
+
+Creative freedom never overrides engineering accuracy. Media must not casually
+depict unsafe electrical or rooftop work, materially missing PPE, impossible
+equipment arrangements as real, incorrect airflow direction or authoritative
+component sequence, fake measurement procedures, unrealistic instrument placement
+as instruction, or unsupported diagnostic conclusions. When exact realism cannot
+be guaranteed, the visual is labeled **CONCEPTUAL**, **ILLUSTRATIVE**, or
+**SIMPLIFIED**. Conceptual correctness outranks cinematic spectacle.
+
+### Audio standard and asset provenance
+
+Silent rendering remains supported but is not the default finished publication
+format when audio materially improves comprehension or engagement. George chooses
+deliberately among narration with light music, narration without music, music with
+on-screen explanation, ambient or mechanical sound with text, and deliberately
+silent treatment. Narration explains the visual rather than reading every word;
+music remains secondary and never obscures technical narration.
+
+No paid voice service or voice cloning is authorized. Every narration, music,
+ambient, or sound-effect asset requires recorded source, license, commercial-use
+permission, attribution requirement and text, and acquisition date. Unknown
+rights make an asset ineligible for publication. Preparation may use placeholders,
+but the quality gate cannot pass until provenance is complete.
+
+### Concise owner review
+
+Routine publication review should take Cesar no more than approximately 30 minutes
+per day. George's normal package shows only campaign, today's asset, platforms,
+preview, caption, destination, technical check, license/provenance check, and any
+issues or exceptions, followed by **APPROVE**, **REVISE**, or **REJECT**. Raw render
+settings, prompt internals, intermediate media, and implementation files stay out
+of normal review unless an exception requires them.
+
+William's future weekly measurement remains compatible with this workflow:
+William measures traffic, search visibility, content performance, subscribers,
+revenue, and format outcomes; George interprets them into opportunities and
+experiments. Daily review concerns publication operations, while the more
+substantial business review occurs approximately weekly.
 
 ### Monetization
 

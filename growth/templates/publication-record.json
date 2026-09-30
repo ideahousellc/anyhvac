@@ -1,0 +1,15 @@
+{
+  "campaign_id": "{{CAMPAIGN_ID}}",
+  "asset_id": "{{ASSET_ID}}",
+  "format": "{{FORMAT}}",
+  "platform": [],
+  "publication_status": "DRAFT",
+  "approved_at": null,
+  "published_at": null,
+  "platform_post_url": null,
+  "canonical_destination_url": "{{DESTINATION_URL}}",
+  "source_campaign": "{{CAMPAIGN_PATH}}",
+  "technical_source": [],
+  "media_provenance": [],
+  "notes": ""
+}

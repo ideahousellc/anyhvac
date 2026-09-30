@@ -7,7 +7,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "vitest run"
+    "test": "vitest run",
+    "growth:validate": "node --experimental-strip-types growth/validate.mts",
+    "growth:cleanup": "node --no-warnings --experimental-strip-types growth/cleanup.ts",
+    "video:studio": "remotion studio growth/video/index.ts --public-dir=public",
+    "video:render:002": "remotion render growth/video/index.ts AnyHVAC-Technical-Short growth/.generated/campaigns/002-airflow-static-pressure/video/001-tesp-is-not-airflow.mp4 --props=growth/campaigns/002-airflow-static-pressure/video.json --public-dir=public --codec=h264 --pixel-format=yuv420p --crf=18 --concurrency=50%"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.117.1",
@@ -22,12 +26,15 @@
     "resend": "^6.28.1"
   },
   "devDependencies": {
+    "@remotion/cli": "4.0.530",
+    "@remotion/media": "4.0.530",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.3.4",
+    "remotion": "4.0.530",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vitest": "4.1.11"

@@ -1,0 +1,19 @@
+{
+  "assets": [
+    {
+      "asset_id": "video-001-prototype",
+      "source": "Locally rendered from repository-owned Remotion composition and existing AnyHVAC brand asset",
+      "license": "AnyHVAC original/internal asset",
+      "commercial_use": true,
+      "attribution_required": false,
+      "attribution_text": null,
+      "date_acquired": "2026-09-30",
+      "publication_approved": false,
+      "provider": null,
+      "brief_or_prompt_reference": "creative-directions.md#current-prototype",
+      "ownership_notes": "Prototype assembled locally from source-controlled campaign content and AnyHVAC identity assets.",
+      "retention_privacy_notes": "Generated binary is disposable and stored under the ignored growth/.generated boundary.",
+      "technical_review_notes": "Wording, units, arithmetic, dimensions, readability, and lack of audio were checked; richer final direction remains undecided."
+    }
+  ]
+}

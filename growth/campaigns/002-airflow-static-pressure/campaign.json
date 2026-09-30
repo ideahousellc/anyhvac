@@ -1,0 +1,68 @@
+{
+  "campaignId": "002-airflow-static-pressure",
+  "canonicalAsset": "/resources/airflow-static-pressure-measurement",
+  "objective": "Help HVAC practitioners avoid treating total external static pressure as a direct airflow measurement and lead them to the complete free measurement reference.",
+  "targetAudience": [
+    "HVAC service technicians",
+    "TAB practitioners and trainees",
+    "HVAC and MEP designers",
+    "HVAC students"
+  ],
+  "coreUserProblem": "A static-pressure result is easy to misread as though it directly establishes system CFM.",
+  "primaryMessage": "TESP is not airflow. A pressure reading can support airflow evaluation only with the correct equipment data and operating conditions.",
+  "technicalClaimsSource": [
+    {
+      "repositoryPath": "app/resources/airflow-static-pressure-measurement/page.tsx",
+      "section": "What airflow and static pressure tell you",
+      "supports": [
+        "Static pressure helps describe the resistance the fan is working against at a particular operating condition.",
+        "TESP is not airflow.",
+        "A pressure reading can support airflow evaluation only with the correct equipment data and operating conditions."
+      ]
+    },
+    {
+      "repositoryPath": "app/resources/airflow-static-pressure-measurement/page.tsx",
+      "section": "Conceptual pressure relationship — illustrative TESP magnitude example",
+      "supports": [
+        "Return static: -0.20 in. w.c.",
+        "Supply static: +0.35 in. w.c.",
+        "TESP magnitude: |-0.20| + |+0.35| = 0.55 in. w.c.",
+        "Example values demonstrate arithmetic only and are not a design target."
+      ]
+    },
+    {
+      "repositoryPath": "app/resources/airflow-static-pressure-measurement/page.tsx",
+      "section": "Workflow A — Measure total external static pressure",
+      "supports": [
+        "TESP does not independently establish airflow.",
+        "One universal pair of probe locations does not apply to every system."
+      ]
+    }
+  ],
+  "destinationUrl": "https://www.anyhvac.net/resources/airflow-static-pressure-measurement",
+  "distributionChannels": [
+    "linkedin",
+    "instagram",
+    "youtube-short",
+    "newsletter"
+  ],
+  "callToAction": "Open the free HVAC Airflow & Static Pressure Measurement Quick Reference.",
+  "revenueConnection": "No direct revenue claim. This free-first campaign is intended to improve qualified discovery and repeat use; any later revenue effect must be measured rather than assumed.",
+  "status": "DRAFT",
+  "primaryFormat": "short-video",
+  "secondaryFormat": "image-carousel",
+  "formatRationale": "The misconception benefits from seeing pressure relationships rather than reading a static summary, while a carousel provides a quieter saveable alternative. The current motion graphic proves the pipeline but a richer visual story should be selected before publication.",
+  "visualConcept": "Current prototype: code-driven technical motion graphic. Preferred final direction: a visually richer HVAC-specific story selected from the documented field, conceptual-flow, or exploded-equipment directions.",
+  "audioStrategy": "The prototype is deliberately silent for pipeline validation. A final video should normally use concise narration with subtle licensed music or relevant ambience unless the selected concept justifies another documented strategy.",
+  "mediaRequirements": [
+    "One technically reviewed primary visual treatment",
+    "AnyHVAC identity and end card",
+    "Source and limitation labels",
+    "Commercial-rights provenance for every external visual and audio asset"
+  ],
+  "generationRequirements": [
+    "Current tools can render titles, diagrams, values, captions, and final assembly",
+    "Realistic field footage, cinematic duct visualization, or detailed exploded equipment would require owner-supplied licensed media or a future approved provider"
+  ],
+  "retentionState": "READY_FOR_REVIEW"
+}

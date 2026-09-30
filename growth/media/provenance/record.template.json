@@ -1,0 +1,15 @@
+{
+  "asset_id": "{{ASSET_ID}}",
+  "source": "{{SOURCE}}",
+  "license": "{{LICENSE}}",
+  "commercial_use": null,
+  "attribution_required": false,
+  "attribution_text": null,
+  "date_acquired": null,
+  "publication_approved": false,
+  "provider": null,
+  "brief_or_prompt_reference": null,
+  "ownership_notes": "",
+  "retention_privacy_notes": "",
+  "technical_review_notes": ""
+}

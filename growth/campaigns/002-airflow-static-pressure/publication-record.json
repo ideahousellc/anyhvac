@@ -1,0 +1,19 @@
+{
+  "campaign_id": "002-airflow-static-pressure",
+  "asset_id": "video-001-prototype",
+  "format": "short-video",
+  "platform": ["youtube-short", "instagram"],
+  "publication_status": "DRAFT",
+  "approved_at": null,
+  "published_at": null,
+  "platform_post_url": null,
+  "canonical_destination_url": "https://www.anyhvac.net/resources/airflow-static-pressure-measurement",
+  "source_campaign": "growth/campaigns/002-airflow-static-pressure/campaign.json",
+  "technical_source": [
+    "app/resources/airflow-static-pressure-measurement/page.tsx"
+  ],
+  "media_provenance": [
+    "growth/campaigns/002-airflow-static-pressure/media-provenance.json#video-001-prototype"
+  ],
+  "notes": "Prototype only. No publication approval, scheduling, or external post exists."
+}

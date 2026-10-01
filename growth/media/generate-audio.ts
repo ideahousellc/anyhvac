@@ -70,7 +70,7 @@ function writeStereoWav(path: string, duration: number, sample: (time: number, c
   writeFileSync(path, Buffer.concat([wav, pcm]));
 }
 
-const campaign003Seconds = 28;
+const campaign003Seconds = 26;
 const beat = 0.5; // 120 BPM
 const notes = [55, 65.41, 49, 73.42];
 writeStereoWav(resolve(audioDirectory, "003-duct-drive-music.wav"), campaign003Seconds, (time, channel) => {
@@ -79,31 +79,63 @@ writeStereoWav(resolve(audioDirectory, "003-duct-drive-music.wav"), campaign003S
   const eighthPhase = time % (beat / 2);
   const bar = Math.floor(beatIndex / 4);
   const rootNote = notes[bar % notes.length];
-  const fade = Math.min(1, time / 0.15, (campaign003Seconds - time) / 0.45);
-  const kick = Math.sin(2 * Math.PI * (52 + 55 * Math.exp(-beatPhase * 18)) * time) * Math.exp(-beatPhase * 10) * 0.34;
+  const fade = Math.min(1, time / 0.06, (campaign003Seconds - time) / 0.34);
+  const productDrop = time >= 13.72 && time < 14.12 ? 0.24 : 1;
+  const ctaResolve = time > 22 ? 1 - Math.max(0, time - 25.5) / 0.5 : 1;
+  const kick = Math.sin(2 * Math.PI * (48 + 72 * Math.exp(-beatPhase * 22)) * time) * Math.exp(-beatPhase * 11) * 0.34;
   const snareGate = beatIndex % 4 === 1 || beatIndex % 4 === 3;
-  const snare = snareGate ? (random() * 2 - 1) * Math.exp(-beatPhase * 18) * 0.16 : 0;
-  const hat = (random() * 2 - 1) * Math.exp(-eighthPhase * 46) * (time > 3 ? 0.065 : 0.035);
-  const bass = Math.sin(2 * Math.PI * rootNote * time) * Math.exp(-beatPhase * 2.7) * 0.14;
+  const snareNoise = (random() * 2 - 1) * 0.72 + Math.sin(2 * Math.PI * 185 * time) * 0.28;
+  const snare = snareGate ? snareNoise * Math.exp(-beatPhase * 20) * 0.16 : 0;
+  const hat = (random() * 2 - 1) * Math.exp(-eighthPhase * 52) * (time > 3 ? 0.058 : 0.03);
+  const bassWave = Math.sin(2 * Math.PI * rootNote * time) + Math.sin(2 * Math.PI * rootNote * 2 * time) * 0.24;
+  const bass = bassWave * Math.exp(-beatPhase * 3.2) * 0.13;
   const arpFrequency = rootNote * [2, 2.5, 3, 4][beatIndex % 4];
-  const arp = Math.sin(2 * Math.PI * arpFrequency * time + channel * 0.22) * Math.exp(-eighthPhase * 7) * (time > 7 ? 0.085 : 0.055);
-  const lift = time > 15 ? Math.sin(2 * Math.PI * rootNote * 4 * time + channel * 0.35) * 0.035 : 0;
-  return (kick + snare + hat + bass + arp + lift) * fade * 0.72;
+  const arp = Math.sin(2 * Math.PI * arpFrequency * time + channel * 0.24) * Math.exp(-eighthPhase * 8) * (time > 7 ? 0.078 : 0.05);
+  const chordGate = Math.exp(-(time % 2) * 0.72);
+  const chord = [1, 1.25, 1.5].reduce(
+    (sum, ratio, index) => sum + Math.sin(2 * Math.PI * rootNote * ratio * 2 * time + channel * 0.14 * index),
+    0,
+  ) * chordGate * (time > 13.9 ? 0.024 : 0.014);
+  const mechanicalTick = Math.sin(2 * Math.PI * 1220 * time) * Math.exp(-eighthPhase * 70) * 0.018;
+  const productLift = time > 14 ? Math.sin(2 * Math.PI * rootNote * 4 * time + channel * 0.38) * 0.028 : 0;
+  return (kick + snare + hat + bass + arp + chord + mechanicalTick + productLift) * fade * productDrop * Math.max(0, ctaResolve) * 0.72;
 });
 
 writeStereoWav(resolve(audioDirectory, "003-duct-transitions-sfx.wav"), campaign003Seconds, (time, channel) => {
-  const moments = [0, 3, 7, 11, 15, 20, 25];
+  const moments = [0, 3, 4.5, 7, 11, 14, 15.5, 17.5, 20, 22, 25.5];
   const whoosh = moments.reduce((sum, moment) => {
     const delta = time - moment;
-    if (delta < 0 || delta > 0.55) return sum;
-    const envelope = Math.sin(Math.PI * delta / 0.55);
-    return sum + ((random() * 2 - 1) * 0.08 + Math.sin(2 * Math.PI * (180 + delta * 520) * time) * 0.055) * envelope;
+    if (delta < 0 || delta > 0.42) return sum;
+    const envelope = Math.sin(Math.PI * delta / 0.42);
+    return sum + ((random() * 2 - 1) * 0.062 + Math.sin(2 * Math.PI * (145 + delta * 680) * time) * 0.048) * envelope;
   }, 0);
-  return whoosh * (channel === 0 ? 0.9 : 1);
+  const clicks = [15.5, 17.5, 20].reduce((sum, moment) => {
+    const delta = time - moment;
+    if (delta < 0 || delta > 0.12) return sum;
+    return sum + Math.sin(2 * Math.PI * 940 * time) * Math.exp(-delta * 42) * 0.09;
+  }, 0);
+  return (whoosh + clicks) * (channel === 0 ? 0.9 : 1);
 });
 
-const calculatorCapture = resolve(root, "growth/.generated/campaigns/003-why-duct-size-matters/images/duct-calculator-page.png");
 const imageDirectory = resolve(publicRoot, "images");
 mkdirSync(imageDirectory, { recursive: true });
-copyFileSync(calculatorCapture, resolve(imageDirectory, "003-duct-calculator-page.png"));
-console.log("Prepared original Campaign #003 music, SFX, and authentic calculator capture.");
+const calculatorStateDirectory = resolve(root, "growth/.generated/campaigns/003-why-duct-size-matters/calculator-states");
+for (const filename of [
+  "01-airflow-3000-friction-008.png",
+  "02-airflow-5000-friction-008.png",
+  "03-airflow-5000-friction-010.png",
+]) {
+  copyFileSync(resolve(calculatorStateDirectory, filename), resolve(imageDirectory, `003-${filename}`));
+}
+
+const campaign003Directory = resolve(publicRoot, "campaign-003");
+mkdirSync(campaign003Directory, { recursive: true });
+copyFileSync(
+  resolve(root, "growth/.generated/campaigns/003-why-duct-size-matters/blender/opening/focused-revision/final/review/duct-opening-blender-0-3s-1080x1920.mp4"),
+  resolve(campaign003Directory, "approved-opening-0-3s.mp4"),
+);
+copyFileSync(
+  resolve(root, "growth/.generated/campaigns/003-why-duct-size-matters/blender/opening/focused-revision/final/review/representative-frames/3.0s-frame-0089.png"),
+  resolve(campaign003Directory, "approved-opening-end.png"),
+);
+console.log("Prepared Campaign #003 final music, SFX, approved opening, and authentic calculator states.");

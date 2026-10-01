@@ -20,7 +20,11 @@ publishing API is included.
    asset, then draft structured inputs such as `video.json` where applicable.
 8. Render disposable previews into `growth/.generated/`, never into the campaign
    source folder, then complete `quality-gate.md`.
-9. Present a concise owner package and request one campaign decision.
+9. Present the complete weekly batch for one explicit Cesar decision, targeting a
+   20–30-minute review: two 5–6-slide carousels, two promotional graphics and one
+   main video, adapted into five LinkedIn, five Instagram and three YouTube Shorts.
+   Use `templates/educational-carousel.md`, `templates/promotional-graphic.md` and
+   `templates/owner-review.md` with final media, captions, hashtags, links and slots.
 
 Preparation is not publication. No file or command here sends, schedules, uploads,
 deploys, or connects to an external service.
@@ -58,12 +62,21 @@ source references, media lifecycle, audio/provenance fields, video timing, and t
 absence of publishing or credential behavior. Run `npm run video:studio` for local
 preview and the campaign-specific render script for an owner-review render.
 
-Promotional video is edited in evolving, music-driven beats rather than static
+The main weekly video is edited in evolving, music-driven beats rather than static
 slides. The first second must move, the hook must land within three seconds, and
 creative QA must inspect pacing as well as sampled frames.
+The two promotional Shorts reuse the approved promotional artwork as static vertical
+images with comfortable instrumental music; they require no elaborate animation.
+All final music must be pleasant and balanced, without piercing tones or repetitive beeps.
 
 ## Creative-media principle
 
+Default to real-world HVAC imagery: recognizable environments, real equipment and
+authentic work, with cinematic framing, depth, natural lighting and consistent branding.
+Avoid generic repetitive stock, unrealistic arrangements, fabricated users and implied
+endorsements. Occasional white/beige reference slides are welcome, not dominant.
+Prioritize existing or licensed free commercial-use assets with complete provenance.
+Obtain explicit owner authorization before AI-image generation or asset/service spending.
 The website and PDFs are technical destinations, not default social templates.
 George first asks what visual treatment will stop an HVAC professional and make the
 concept understandable, then selects a format. The format-rotation strategy,
@@ -87,7 +100,15 @@ phase and never acts outside `growth/.generated/`.
 ## Approval boundary
 
 George may research, draft, adapt, render, validate, and package locally without
-separate owner prompts. Publication, newsletter sending, community submission,
+separate owner prompts, except AI-image generation and expenses require explicit
+prior authorization. George may inspect Buffer's queue and prepare weekly batches.
+After Cesar explicitly approves an exact batch, its Buffer scheduling is authorized
+without separate approval per upload, subject to channel/content/time/queue verification.
+Record provider post IDs/times; keep SCHEDULED until successful publication is
+confirmed and save live public URLs for William. Report missing credentials,
+approved hosting or permissions as blockers, never success. Saving standing instructions
+is not batch approval and starts no external action. See `distribution/buffer/README.md`.
+Other publication, newsletter sending, community submission,
 affiliate applications, sponsorship communication, paid promotion, deployment,
 and production configuration remain approval-gated under the root `AGENTS.md`.
 

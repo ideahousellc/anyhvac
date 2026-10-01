@@ -1,6 +1,9 @@
 {
-  "campaignId":"003-why-duct-size-matters","videoId":"001-why-duct-size-matters","width":1080,"height":1920,"fps":30,"durationSeconds":28,
-  "calculatorImage":"images/003-duct-calculator-page.png","logoPath":"Compact AH logo.png",
+  "campaignId":"003-why-duct-size-matters","videoId":"001-why-duct-size-matters","width":1080,"height":1920,"fps":30,"durationSeconds":26,
+  "openingVideo":"campaign-003/approved-opening-0-3s.mp4","openingEndFrame":"campaign-003/approved-opening-end.png",
+  "calculatorStates":["images/003-01-airflow-3000-friction-008.png","images/003-02-airflow-5000-friction-008.png","images/003-03-airflow-5000-friction-010.png"],
+  "calculatorImage":"images/003-03-airflow-5000-friction-010.png",
+  "logoPath":"Compact AH logo.png",
   "music":{"path":"audio/003-duct-drive-music.wav","volume":0.78,"source":"Deterministically synthesized by growth/media/generate-audio.ts","license":"AnyHVAC original/internal asset"},
   "sfx":{"path":"audio/003-duct-transitions-sfx.wav","volume":0.6,"source":"Deterministically synthesized by growth/media/generate-audio.ts","license":"AnyHVAC original/internal asset"},
   "destinationUrl":"https://www.anyhvac.net/tools/duct-calculator"

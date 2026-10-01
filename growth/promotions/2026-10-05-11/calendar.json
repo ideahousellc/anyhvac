@@ -1,0 +1,174 @@
+{
+  "week_start": "2026-10-05",
+  "week_end": "2026-10-11",
+  "timezone": "America/New_York",
+  "status": "OWNER REVIEW",
+  "calendar_source": "George proposal; no owner-supplied 13-post calendar found",
+  "queue_verified": false,
+  "posts": [
+    {
+      "package_id": "01-duct-sizing",
+      "platform": "linkedin",
+      "proposed_at": "2026-10-05T15:00:00-04:00",
+      "media": [
+        "social-01.png"
+      ],
+      "status": "OWNER REVIEW",
+      "approved_at": null,
+      "scheduled_at": null,
+      "published_at": null
+    },
+    {
+      "package_id": "01-duct-sizing",
+      "platform": "instagram",
+      "proposed_at": "2026-10-05T18:00:00-04:00",
+      "media": [
+        "social-01.png"
+      ],
+      "status": "OWNER REVIEW",
+      "approved_at": null,
+      "scheduled_at": null,
+      "published_at": null
+    },
+    {
+      "package_id": "02-air-distribution",
+      "platform": "linkedin",
+      "proposed_at": "2026-10-06T15:00:00-04:00",
+      "media": [
+        "social-01.png",
+        "social-02.png",
+        "social-03.png"
+      ],
+      "status": "OWNER REVIEW",
+      "approved_at": null,
+      "scheduled_at": null,
+      "published_at": null
+    },
+    {
+      "package_id": "02-air-distribution",
+      "platform": "instagram",
+      "proposed_at": "2026-10-06T18:00:00-04:00",
+      "media": [
+        "social-01.png",
+        "social-02.png",
+        "social-03.png"
+      ],
+      "status": "OWNER REVIEW",
+      "approved_at": null,
+      "scheduled_at": null,
+      "published_at": null
+    },
+    {
+      "package_id": "03-psychrometrics",
+      "platform": "youtube-short",
+      "proposed_at": "2026-10-06T19:00:00-04:00",
+      "media": [
+        "youtube-short.mp4"
+      ],
+      "status": "OWNER REVIEW",
+      "approved_at": null,
+      "scheduled_at": null,
+      "published_at": null
+    },
+    {
+      "package_id": "03-psychrometrics",
+      "platform": "linkedin",
+      "proposed_at": "2026-10-07T15:00:00-04:00",
+      "media": [
+        "social-01.png"
+      ],
+      "status": "OWNER REVIEW",
+      "approved_at": null,
+      "scheduled_at": null,
+      "published_at": null
+    },
+    {
+      "package_id": "03-psychrometrics",
+      "platform": "instagram",
+      "proposed_at": "2026-10-07T18:00:00-04:00",
+      "media": [
+        "social-01.png"
+      ],
+      "status": "OWNER REVIEW",
+      "approved_at": null,
+      "scheduled_at": null,
+      "published_at": null
+    },
+    {
+      "package_id": "04-mixed-air",
+      "platform": "linkedin",
+      "proposed_at": "2026-10-08T15:00:00-04:00",
+      "media": [
+        "social-01.png"
+      ],
+      "status": "OWNER REVIEW",
+      "approved_at": null,
+      "scheduled_at": null,
+      "published_at": null
+    },
+    {
+      "package_id": "04-mixed-air",
+      "platform": "instagram",
+      "proposed_at": "2026-10-08T18:00:00-04:00",
+      "media": [
+        "social-01.png"
+      ],
+      "status": "OWNER REVIEW",
+      "approved_at": null,
+      "scheduled_at": null,
+      "published_at": null
+    },
+    {
+      "package_id": "04-mixed-air",
+      "platform": "youtube-short",
+      "proposed_at": "2026-10-08T19:00:00-04:00",
+      "media": [
+        "youtube-short.mp4"
+      ],
+      "status": "OWNER REVIEW",
+      "approved_at": null,
+      "scheduled_at": null,
+      "published_at": null
+    },
+    {
+      "package_id": "05-measurement-reference",
+      "platform": "linkedin",
+      "proposed_at": "2026-10-09T15:00:00-04:00",
+      "media": [
+        "social-01.png",
+        "social-02.png",
+        "social-03.png"
+      ],
+      "status": "OWNER REVIEW",
+      "approved_at": null,
+      "scheduled_at": null,
+      "published_at": null
+    },
+    {
+      "package_id": "05-measurement-reference",
+      "platform": "instagram",
+      "proposed_at": "2026-10-09T18:00:00-04:00",
+      "media": [
+        "social-01.png",
+        "social-02.png",
+        "social-03.png"
+      ],
+      "status": "OWNER REVIEW",
+      "approved_at": null,
+      "scheduled_at": null,
+      "published_at": null
+    },
+    {
+      "package_id": "05-measurement-reference",
+      "platform": "youtube-short",
+      "proposed_at": "2026-10-10T19:00:00-04:00",
+      "media": [
+        "youtube-short.mp4"
+      ],
+      "status": "OWNER REVIEW",
+      "approved_at": null,
+      "scheduled_at": null,
+      "published_at": null
+    }
+  ]
+}

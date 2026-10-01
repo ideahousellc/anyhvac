@@ -14,13 +14,13 @@
   "distributionChannels": ["linkedin", "instagram", "youtube-short"],
   "callToAction": "Size it faster with the free AnyHVAC HVAC Duct Calculator.",
   "revenueConnection": "Hypothesis only: useful visual education followed by the flagship free tool may produce qualified visits and repeat use; William will measure actual outcomes.",
-  "status": "DRAFT",
+  "status": "PUBLISHED",
   "primaryFormat": "short-video",
   "secondaryFormat": "tool-demonstration",
-  "formatRationale": "A 28-second music-driven video can make the same-airflow geometry change visible, maintain attention through connected motion, and turn the authentic calculator reveal into the payoff.",
-  "visualConcept": "Begin inside a continuously moving conceptual duct, narrow the geometry while airflow motion accelerates, connect velocity and friction implications, then travel through the duct opening into the real AnyHVAC calculator UI.",
+  "formatRationale": "A 26-second music-driven video makes the same-airflow geometry change visible, maintains attention through connected motion, and turns the authentic calculator reveal into the payoff.",
+  "visualConcept": "Begin outside a recognizable HVAC duct, move through its opening toward a smaller transition, connect velocity, friction, and space implications, then reveal authentic states of the real AnyHVAC calculator UI.",
   "audioStrategy": "Original 120 BPM electronic-mechanical music drives the edit; a separate original transition track adds restrained whooshes and impacts. Complete meaning remains on screen.",
   "mediaRequirements": ["1080 × 1920 master", "Authentic hydrated calculator capture", "Conceptual labels", "Original music and supporting SFX", "AnyHVAC end identity"],
   "generationRequirements": ["Render locally with Remotion", "Capture the real local calculator route after hydration", "Keep all binaries under growth/.generated"],
-  "retentionState": "DRAFT"
+  "retentionState": "PUBLISHED_CONFIRMED"
 }

@@ -18,7 +18,7 @@ Earn attention with a useful duct-sizing relationship, then reveal the flagship 
 
 ## Format and story
 
-28-second vertical video, edited as evolving musical beats rather than slides. Hook: **“Same airflow. Smaller duct. What changes?”** A conceptual camera moves through narrowing duct geometry; particles accelerate to communicate higher velocity for the same airflow; wall-energy cues introduce friction implications with proper nuance. The opening transforms into an authentic capture of the actual calculator at its supported 5,000 CFM / 0.10 in. w.g. per 100 ft / 12-inch preferred-side state.
+26-second vertical video, edited as evolving musical beats rather than slides. Hook: **“Same airflow. Smaller duct. What changes?”** The approved Blender camera moves from outside a recognizable HVAC duct through its opening and toward a smaller transition. Remotion continues the same-airflow relationship, then reveals three authentic calculator states: 3,000 CFM at 0.08 in. w.g./100 ft, 5,000 CFM at 0.08, and 5,000 CFM at 0.10 with a 12-inch preferred side.
 
 ## Technical boundaries
 

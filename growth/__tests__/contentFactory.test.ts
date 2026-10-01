@@ -176,7 +176,7 @@ describe("George Content Factory", () => {
 
   it("prepares the flagship Duct Calculator campaign without changing its formulas", () => {
     expect(campaign.status).toBe("REJECTED");
-    expect(campaign003.status).toBe("DRAFT");
+    expect(campaign003.status).toBe("PUBLISHED");
     expect(campaign003.destinationUrl).toBe("https://www.anyhvac.net/tools/duct-calculator");
     expect(campaign003.distributionChannels).toEqual(["linkedin", "instagram", "youtube-short"]);
     expect(video003.width).toBe(1080);
@@ -185,6 +185,6 @@ describe("George Content Factory", () => {
     expect(video003.durationSeconds).toBeGreaterThanOrEqual(20);
     expect(video003.durationSeconds).toBeLessThanOrEqual(35);
     expect(video003.music.license).toBe("AnyHVAC original/internal asset");
-    expect(video003.calculatorImage).toContain("duct-calculator-page.png");
+    expect(video003.calculatorImage).toContain("003-03-airflow-5000-friction-010.png");
   });
 });

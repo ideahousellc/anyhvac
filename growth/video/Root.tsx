@@ -7,6 +7,8 @@ import type { VideoInput } from "../schema";
 import { AnyHVACTechnicalShort } from "./compositions/AnyHVACTechnicalShort";
 import { PressureFieldAirflowStream } from "./compositions/PressureFieldAirflowStream";
 import { DuctSizeMatters, type DuctSizeVideoInput } from "./compositions/DuctSizeMatters";
+import { DuctOpeningPrevisualization } from "./compositions/DuctOpeningPrevisualization";
+import { DuctHeroFrame } from "./compositions/DuctHeroFrame";
 
 const input = defaultVideo as VideoInput;
 const prototype = prototypeVideo as VideoInput;
@@ -15,6 +17,22 @@ const duct = ductVideo as DuctSizeVideoInput;
 export function RemotionRoot() {
   return (
     <>
+    <Composition
+      id="AnyHVAC-Duct-Hero-Frame"
+      component={DuctHeroFrame}
+      width={1080}
+      height={1920}
+      fps={30}
+      durationInFrames={1}
+    />
+    <Composition
+      id="AnyHVAC-Duct-Opening-Previsualization"
+      component={DuctOpeningPrevisualization}
+      width={1080}
+      height={1920}
+      fps={30}
+      durationInFrames={90}
+    />
     <Composition
       id="AnyHVAC-Pressure-Field"
       component={PressureFieldAirflowStream}

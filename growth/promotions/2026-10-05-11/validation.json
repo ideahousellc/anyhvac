@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-01",
+  "passed": true,
+  "packages": 5,
+  "proposed_posts": 13,
+  "platform_counts": {
+    "linkedin": 5,
+    "instagram": 5,
+    "youtube-short": 3
+  },
+  "image_exports": 9,
+  "source_files_exist": true,
+  "destinations_http_200": true,
+  "approved_october_2_3_captions_and_media_hashes_unchanged": true,
+  "campaign003_media_hashes_unchanged": true,
+  "publication_statuses_correct": true,
+  "visual_review": "Social and video contact sheets inspected for clipping, legibility, conceptual labels and safe placement. Owner must review full sound and final Buffer crop.",
+  "video_checks": [
+    {
+      "package_id": "03-psychrometrics",
+      "codec": "h264",
+      "width": 1080,
+      "height": 1920,
+      "frames": 288,
+      "duration_seconds": 12,
+      "fps": "24/1",
+      "decoded_audio_peak_dbfs": -14.711299435341477,
+      "decoded_audio_rms_dbfs": -26.89589876059534,
+      "clipped_samples": 0,
+      "decoded_frame": "C:\\Projects\\anyhvac\\growth\\.generated\\promotions\\2026-10-05-11\\03-psychrometrics\\qa-decoded-frame.png"
+    },
+    {
+      "package_id": "04-mixed-air",
+      "codec": "h264",
+      "width": 1080,
+      "height": 1920,
+      "frames": 288,
+      "duration_seconds": 12,
+      "fps": "24/1",
+      "decoded_audio_peak_dbfs": -14.711299435341477,
+      "decoded_audio_rms_dbfs": -26.89589876059534,
+      "clipped_samples": 0,
+      "decoded_frame": "C:\\Projects\\anyhvac\\growth\\.generated\\promotions\\2026-10-05-11\\04-mixed-air\\qa-decoded-frame.png"
+    },
+    {
+      "package_id": "05-measurement-reference",
+      "codec": "h264",
+      "width": 1080,
+      "height": 1920,
+      "frames": 288,
+      "duration_seconds": 12,
+      "fps": "24/1",
+      "decoded_audio_peak_dbfs": -14.711299435341477,
+      "decoded_audio_rms_dbfs": -26.89589876059534,
+      "clipped_samples": 0,
+      "decoded_frame": "C:\\Projects\\anyhvac\\growth\\.generated\\promotions\\2026-10-05-11\\05-measurement-reference\\qa-decoded-frame.png"
+    }
+  ]
+}

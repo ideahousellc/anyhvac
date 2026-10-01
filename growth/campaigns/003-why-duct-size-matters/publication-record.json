@@ -1,1 +1,46 @@
-{"campaign_id":"003-why-duct-size-matters","asset_id":"video-003-final","format":"short-video","platform":["linkedin","instagram","youtube-short"],"publication_status":"DRAFT","approved_at":null,"published_at":null,"platform_post_url":null,"canonical_destination_url":"https://www.anyhvac.net/tools/duct-calculator","source_campaign":"growth/campaigns/003-why-duct-size-matters/campaign.json","technical_source":["components/duct-calculator/DuctSizingGuide.tsx","components/duct-calculator/DuctCalculator.tsx","app/tools/duct-calculator/page.tsx"],"media_provenance":["growth/campaigns/003-why-duct-size-matters/media-provenance.json"],"notes":"WORK IN PROGRESS / REVISION REQUIRED. No approval, upload, schedule, or publication exists."}
+{
+  "campaign_id": "003-why-duct-size-matters",
+  "asset_id": "video-003-final",
+  "format": "short-video",
+  "platform": ["linkedin", "instagram", "youtube-short"],
+  "publication_status": "PUBLISHED_CONFIRMED",
+  "owner_approval": {
+    "decision": "APPROVE CAMPAIGN",
+    "confirmed": true,
+    "confirmed_at": "2026-10-01"
+  },
+  "approved_at": "2026-10-01",
+  "published_at": "2026-10-01",
+  "platform_post_url": null,
+  "platform_publications": [
+    {
+      "platform": "instagram",
+      "publication_status": "PUBLISHED_CONFIRMED",
+      "published_at": "2026-10-01",
+      "post_url": "https://www.instagram.com/reel/Dd9gTfYCJaM/"
+    },
+    {
+      "platform": "youtube-short",
+      "publication_status": "PUBLISHED_CONFIRMED",
+      "published_at": "2026-10-01",
+      "post_url": "https://www.youtube.com/shorts/mEw-4dxaQcA"
+    },
+    {
+      "platform": "linkedin",
+      "publication_status": "PUBLISHED_CONFIRMED",
+      "published_at": "2026-10-01",
+      "post_url": "https://lnkd.in/p/e2sf-sxV"
+    }
+  ],
+  "canonical_destination_url": "https://www.anyhvac.net/tools/duct-calculator",
+  "source_campaign": "growth/campaigns/003-why-duct-size-matters/campaign.json",
+  "technical_source": [
+    "components/duct-calculator/DuctSizingGuide.tsx",
+    "components/duct-calculator/DuctCalculator.tsx",
+    "app/tools/duct-calculator/page.tsx"
+  ],
+  "media_provenance": [
+    "growth/campaigns/003-why-duct-size-matters/media-provenance.json"
+  ],
+  "notes": "Owner confirmed Campaign #003 approved and published on Instagram, YouTube Shorts, and LinkedIn on 2026-10-01. Platform URLs were supplied by the owner. No republishing, deployment, commit, or push was performed during this administrative update."
+}

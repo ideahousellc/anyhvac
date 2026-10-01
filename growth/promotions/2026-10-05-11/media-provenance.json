@@ -1,0 +1,175 @@
+{
+  "date_prepared": "2026-10-01",
+  "publication_approved": false,
+  "graphics": {
+    "source": "Original deterministic SVG layouts in prepare.mjs; existing public/Horizontal Logo.png and site palette",
+    "license": "AnyHVAC original/internal asset",
+    "commercial_use": true,
+    "attribution_required": false,
+    "attribution_text": null
+  },
+  "audio": {
+    "source": "growth/.generated/promotions/2026-10-02-03/saturday-original-instrumental.wav",
+    "source_sha256": "140fe70480b71e2014069ffb4e1c43c1857b4b097236444b8b606952e775c0d0",
+    "license": "AnyHVAC original/internal composition from October 2–3 approved package",
+    "commercial_use": true,
+    "attribution_required": false,
+    "attribution_text": null,
+    "adaptation": "12-second excerpt with closing fade; new video adaptations await owner approval"
+  },
+  "assets": [
+    {
+      "path": "C:\\Projects\\anyhvac\\growth\\.generated\\promotions\\2026-10-05-11\\01-duct-sizing/social-01.png",
+      "package_id": "01-duct-sizing",
+      "platforms": [
+        "linkedin",
+        "instagram"
+      ],
+      "sha256": "aaa23391c2daaa95e6453dcde7fb381fee74f6833269d1dfa57c183ebb59d91e",
+      "lifecycle_state": "READY_FOR_REVIEW",
+      "temporary": false,
+      "publication_confirmed": false,
+      "publishing_system_requires_local_file": true
+    },
+    {
+      "path": "C:\\Projects\\anyhvac\\growth\\.generated\\promotions\\2026-10-05-11\\02-air-distribution/social-01.png",
+      "package_id": "02-air-distribution",
+      "platforms": [
+        "linkedin",
+        "instagram"
+      ],
+      "sha256": "53fc2c1397eef22f1e877aa932cffa5eed59a580333adb5a6e5067fe717bc37f",
+      "lifecycle_state": "READY_FOR_REVIEW",
+      "temporary": false,
+      "publication_confirmed": false,
+      "publishing_system_requires_local_file": true
+    },
+    {
+      "path": "C:\\Projects\\anyhvac\\growth\\.generated\\promotions\\2026-10-05-11\\02-air-distribution/social-02.png",
+      "package_id": "02-air-distribution",
+      "platforms": [
+        "linkedin",
+        "instagram"
+      ],
+      "sha256": "40052e8af1a9f12c0bc5b3d63635e7743db2b265596e22fd37e22d405690aabe",
+      "lifecycle_state": "READY_FOR_REVIEW",
+      "temporary": false,
+      "publication_confirmed": false,
+      "publishing_system_requires_local_file": true
+    },
+    {
+      "path": "C:\\Projects\\anyhvac\\growth\\.generated\\promotions\\2026-10-05-11\\02-air-distribution/social-03.png",
+      "package_id": "02-air-distribution",
+      "platforms": [
+        "linkedin",
+        "instagram"
+      ],
+      "sha256": "97056388031e191e86702245e0eb55b521423b6cfcf4946ee1fa7a6e06d04bb6",
+      "lifecycle_state": "READY_FOR_REVIEW",
+      "temporary": false,
+      "publication_confirmed": false,
+      "publishing_system_requires_local_file": true
+    },
+    {
+      "path": "C:\\Projects\\anyhvac\\growth\\.generated\\promotions\\2026-10-05-11\\03-psychrometrics/social-01.png",
+      "package_id": "03-psychrometrics",
+      "platforms": [
+        "linkedin",
+        "instagram"
+      ],
+      "sha256": "e39422f2f0cb1c8a3de4022abf1b724f2145a86834cfa2ec7ec68fb32d078c01",
+      "lifecycle_state": "READY_FOR_REVIEW",
+      "temporary": false,
+      "publication_confirmed": false,
+      "publishing_system_requires_local_file": true
+    },
+    {
+      "path": "C:\\Projects\\anyhvac\\growth\\.generated\\promotions\\2026-10-05-11\\03-psychrometrics\\youtube-short.mp4",
+      "package_id": "03-psychrometrics",
+      "platforms": [
+        "youtube-short"
+      ],
+      "sha256": "63bb9135be11a9aae92fc6a54f624516e9884157b5818513e3694c9109edf821",
+      "lifecycle_state": "READY_FOR_REVIEW",
+      "temporary": false,
+      "publication_confirmed": false,
+      "publishing_system_requires_local_file": true
+    },
+    {
+      "path": "C:\\Projects\\anyhvac\\growth\\.generated\\promotions\\2026-10-05-11\\04-mixed-air/social-01.png",
+      "package_id": "04-mixed-air",
+      "platforms": [
+        "linkedin",
+        "instagram"
+      ],
+      "sha256": "f76189098adafe9877639bfbc8d4c3db64d005727ca632527edf99af024154c6",
+      "lifecycle_state": "READY_FOR_REVIEW",
+      "temporary": false,
+      "publication_confirmed": false,
+      "publishing_system_requires_local_file": true
+    },
+    {
+      "path": "C:\\Projects\\anyhvac\\growth\\.generated\\promotions\\2026-10-05-11\\04-mixed-air\\youtube-short.mp4",
+      "package_id": "04-mixed-air",
+      "platforms": [
+        "youtube-short"
+      ],
+      "sha256": "1e749393f4b539bcf50384e4071037380f2bb0d626cfcf6f37dfeda61d2c0e29",
+      "lifecycle_state": "READY_FOR_REVIEW",
+      "temporary": false,
+      "publication_confirmed": false,
+      "publishing_system_requires_local_file": true
+    },
+    {
+      "path": "C:\\Projects\\anyhvac\\growth\\.generated\\promotions\\2026-10-05-11\\05-measurement-reference/social-01.png",
+      "package_id": "05-measurement-reference",
+      "platforms": [
+        "linkedin",
+        "instagram"
+      ],
+      "sha256": "2bc5f2c9aee4a8e0dbf02725a324cfe1e290bb3c338e863d46c8f3ba104fae64",
+      "lifecycle_state": "READY_FOR_REVIEW",
+      "temporary": false,
+      "publication_confirmed": false,
+      "publishing_system_requires_local_file": true
+    },
+    {
+      "path": "C:\\Projects\\anyhvac\\growth\\.generated\\promotions\\2026-10-05-11\\05-measurement-reference/social-02.png",
+      "package_id": "05-measurement-reference",
+      "platforms": [
+        "linkedin",
+        "instagram"
+      ],
+      "sha256": "7e498d1399e501f4af3a33c65699832c563ff1ba4f39a02eabe9e5e160fc1524",
+      "lifecycle_state": "READY_FOR_REVIEW",
+      "temporary": false,
+      "publication_confirmed": false,
+      "publishing_system_requires_local_file": true
+    },
+    {
+      "path": "C:\\Projects\\anyhvac\\growth\\.generated\\promotions\\2026-10-05-11\\05-measurement-reference/social-03.png",
+      "package_id": "05-measurement-reference",
+      "platforms": [
+        "linkedin",
+        "instagram"
+      ],
+      "sha256": "2a796f2c13387f885584dc91cbf5d0cf279922856fee12e3adc1cb44935fe545",
+      "lifecycle_state": "READY_FOR_REVIEW",
+      "temporary": false,
+      "publication_confirmed": false,
+      "publishing_system_requires_local_file": true
+    },
+    {
+      "path": "C:\\Projects\\anyhvac\\growth\\.generated\\promotions\\2026-10-05-11\\05-measurement-reference\\youtube-short.mp4",
+      "package_id": "05-measurement-reference",
+      "platforms": [
+        "youtube-short"
+      ],
+      "sha256": "e112006317550175e0dd3cd71b0b080808c74055f494caee65f2333a15da49b3",
+      "lifecycle_state": "READY_FOR_REVIEW",
+      "temporary": false,
+      "publication_confirmed": false,
+      "publishing_system_requires_local_file": true
+    }
+  ]
+}

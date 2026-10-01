@@ -1,59 +1,487 @@
 import { Audio } from "@remotion/media";
 import type { CSSProperties, ReactNode } from "react";
-import { AbsoluteFill, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
+import {
+  AbsoluteFill,
+  Img,
+  OffthreadVideo,
+  interpolate,
+  spring,
+  staticFile,
+  useCurrentFrame,
+  useVideoConfig,
+} from "remotion";
 
 export type DuctSizeVideoInput = {
-  campaignId: string; videoId: string; width: number; height: number; fps: number; durationSeconds: number;
-  calculatorImage: string; logoPath: string; destinationUrl: string;
-  music: { path: string; volume: number }; sfx: { path: string; volume: number };
+  campaignId: string;
+  videoId: string;
+  width: number;
+  height: number;
+  fps: number;
+  durationSeconds: number;
+  openingVideo: string;
+  openingEndFrame: string;
+  calculatorStates: string[];
+  logoPath: string;
+  destinationUrl: string;
+  music: { path: string; volume: number };
+  sfx: { path: string; volume: number };
 };
 
-const ink="#f7fbff", navy="#050d18", cyan="#4fd5ff", orange="#ff8c42", blue="#0878d1";
-const base:CSSProperties={fontFamily:"Arial,Helvetica,sans-serif",color:ink};
-const clamp=(v:number)=>Math.max(0,Math.min(1,v));
-const range=(frame:number,start:number,end:number)=>clamp((frame-start)/(end-start));
+const colors = {
+  ink: "#f4f8fb",
+  navy: "#07111b",
+  deep: "#03080d",
+  cyan: "#61d9ff",
+  blue: "#0878d1",
+  orange: "#ff8450",
+  steel: "#9caab1",
+};
 
-function BeatText({children,frame,start,style}:{children:ReactNode;frame:number;start:number;style?:CSSProperties}) {
-  const {fps}=useVideoConfig(); const p=spring({frame:frame-start,fps,config:{damping:18,stiffness:180,mass:.55}});
-  return <div style={{opacity:p,transform:`translateY(${interpolate(p,[0,1],[42,0])}px) scale(${interpolate(p,[0,1],[.92,1])})`,...style}}>{children}</div>;
+const base: CSSProperties = {
+  fontFamily: "Arial, Helvetica, sans-serif",
+  color: colors.ink,
+  overflow: "hidden",
+};
+
+const clamp = (value: number) => Math.max(0, Math.min(1, value));
+const progress = (frame: number, start: number, end: number) =>
+  clamp((frame - start) / (end - start));
+const eased = (frame: number, start: number, end: number) => {
+  const value = progress(frame, start, end);
+  return value * value * (3 - 2 * value);
+};
+
+function Enter({
+  children,
+  frame,
+  start,
+  style,
+}: {
+  children: ReactNode;
+  frame: number;
+  start: number;
+  style?: CSSProperties;
+}) {
+  const { fps } = useVideoConfig();
+  const value = spring({
+    frame: frame - start,
+    fps,
+    config: { damping: 20, stiffness: 190, mass: 0.55 },
+  });
+  return (
+    <div
+      style={{
+        opacity: value,
+        transform: `translateY(${interpolate(value, [0, 1], [36, 0])}px)`,
+        ...style,
+      }}
+    >
+      {children}
+    </div>
+  );
 }
 
-function AirStream({frame,speed=1,spread=1}:{frame:number;speed?:number;spread?:number}) {
-  return <>{Array.from({length:34},(_,i)=>{const depth=((frame*speed*5+i*43)%1150)-80;const y=960+Math.sin(i*2.7)*330*spread;const scale=.25+(depth+80)/1150;return <div key={i} style={{position:"absolute",zIndex:4,left:540+Math.sin(i*1.9)*380*scale,top:y+(i%3-1)*90,width:18+75*scale,height:3+5*scale,borderRadius:20,background:i%4===0?ink:cyan,opacity:.18+.72*scale,transform:`translateX(${depth-520}px)`,boxShadow:`0 0 ${8+18*scale}px ${cyan}`}}/>})}</>;
+function SafeVignette() {
+  return (
+    <AbsoluteFill
+      style={{
+        pointerEvents: "none",
+        boxShadow: "inset 0 0 120px rgba(0,0,0,.48)",
+        border: "1px solid rgba(255,255,255,.035)",
+      }}
+    />
+  );
 }
 
-function Tunnel({frame,narrow=0,hot=0}:{frame:number;narrow?:number;hot?:number}) {
-  const inset=70+narrow*220; const drift=Math.sin(frame/25)*12;
-  return <AbsoluteFill style={{overflow:"hidden",background:`radial-gradient(circle at 50% 50%,#17304a 0%,${navy} 66%)`}}>
-    <div style={{position:"absolute",inset:`${180+narrow*120}px ${inset}px ${180+narrow*120}px`,border:`${8+hot*6}px solid rgba(${hot?"255,140,66":"79,213,255"},${.38+hot*.25})`,borderRadius:80-narrow*30,transform:`perspective(850px) rotate(${drift/18}deg) scale(${1+Math.sin(frame/18)*.012})`,boxShadow:`inset 0 0 180px rgba(8,120,209,.25),0 0 ${50+hot*80}px rgba(255,140,66,${hot*.22})`,backgroundImage:"linear-gradient(rgba(79,213,255,.08) 2px,transparent 2px),linear-gradient(90deg,rgba(79,213,255,.08) 2px,transparent 2px)",backgroundSize:"92px 92px"}}/>
-    <AirStream frame={frame} speed={1+narrow*1.35} spread={1-narrow*.38}/>
-    <div style={{position:"absolute",top:52,right:52,padding:"10px 16px",border:"1px solid rgba(79,213,255,.5)",borderRadius:999,color:cyan,fontSize:18,fontWeight:850,letterSpacing:3}}>CONCEPTUAL</div>
-  </AbsoluteFill>;
+function Opening({ frame, input }: { frame: number; input: DuctSizeVideoInput }) {
+  const textIn = eased(frame, 24, 38);
+  const textOut = 1 - eased(frame, 72, 87);
+  return (
+    <AbsoluteFill style={{ background: colors.deep }}>
+      <OffthreadVideo
+        src={staticFile(input.openingVideo)}
+        muted
+        style={{ width: "100%", height: "100%", objectFit: "cover" }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          left: 58,
+          top: 210,
+          opacity: textIn * textOut,
+          transform: `translateX(${interpolate(textIn, [0, 1], [-30, 0])}px)`,
+          fontSize: 34,
+          fontWeight: 900,
+          letterSpacing: 7,
+          textShadow: "0 4px 20px rgba(0,0,0,.85)",
+        }}
+      >
+        SAME AIRFLOW
+        <div style={{ marginTop: 12, width: 168, height: 3, background: colors.cyan }} />
+      </div>
+      <SafeVignette />
+    </AbsoluteFill>
+  );
 }
 
-function Intro({frame}:{frame:number}) {
-  const narrow=range(frame,30,84);
-  return <AbsoluteFill><Tunnel frame={frame} narrow={narrow}/><div style={{position:"absolute",zIndex:10,left:64,right:64,top:250}}>
-    <BeatText frame={frame} start={0} style={{fontSize:96,fontWeight:900,letterSpacing:-5}}>Same airflow.</BeatText>
-    {frame>=30&&<BeatText frame={frame} start={30} style={{fontSize:96,fontWeight:900,letterSpacing:-5,color:orange,marginTop:14}}>Smaller duct.</BeatText>}
-    {frame>=58&&<BeatText frame={frame} start={58} style={{fontSize:42,fontWeight:800,marginTop:34}}>What changes?</BeatText>}
-  </div></AbsoluteFill>;
+function FlowStreaks({ frame, speed = 1 }: { frame: number; speed?: number }) {
+  return (
+    <>
+      {Array.from({ length: 14 }, (_, index) => {
+        const lane = (index - 6.5) / 6.5;
+        const travel = ((frame * speed * 18 + index * 121) % 1200) - 200;
+        return (
+          <div
+            key={index}
+            style={{
+              position: "absolute",
+              left: 540 + lane * 310,
+              top: 960 + lane * 520,
+              width: 5,
+              height: 90 + (index % 4) * 25,
+              borderRadius: 10,
+              background: index % 3 ? colors.cyan : colors.ink,
+              opacity: 0.18 + (index % 4) * 0.08,
+              transform: `translateY(${travel}px) rotate(${lane * -4}deg)`,
+              boxShadow: `0 0 18px ${colors.cyan}`,
+            }}
+          />
+        );
+      })}
+    </>
+  );
 }
 
-function Compare({frame}:{frame:number}) {
-  const local=frame-90; return <AbsoluteFill style={{background:navy}}><div style={{position:"absolute",inset:0,display:"grid",gridTemplateColumns:"1fr 1fr",gap:12,padding:"280px 34px 250px"}}>
-    {[0,1].map(side=><div key={side} style={{position:"relative",overflow:"hidden",border:`3px solid ${side?orange:cyan}`,borderRadius:44,transform:`scale(${side?0.82:1})`,background:"radial-gradient(circle,#17304a,#07101c)"}}><AirStream frame={local} speed={side?2.25:1} spread={side?.55:.9}/><div style={{position:"absolute",bottom:30,left:0,right:0,textAlign:"center",fontSize:28,fontWeight:900}}>{side?"SMALLER AREA":"LARGER AREA"}</div></div>)}
-  </div><div style={{position:"absolute",zIndex:9,left:55,right:55,top:120,textAlign:"center"}}><BeatText frame={frame} start={90} style={{fontSize:76,fontWeight:900}}>Less area.</BeatText><BeatText frame={frame} start={126} style={{fontSize:76,fontWeight:900,color:orange}}>Higher velocity.</BeatText></div><div style={{position:"absolute",bottom:110,left:80,right:80,textAlign:"center",fontSize:24,color:"#a8bed0",fontWeight:700}}>Same airflow • qualitative comparison</div></AbsoluteFill>;
+function Consequence({ frame, input }: { frame: number; input: DuctSizeVideoInput }) {
+  const lastFrameFade = 1 - eased(frame, 0, 22);
+  const contraction = eased(frame, 8, 86);
+  const innerWidth = interpolate(contraction, [0, 1], [690, 450]);
+  const innerHeight = interpolate(contraction, [0, 1], [930, 610]);
+  const left = (1080 - innerWidth) / 2;
+  const top = (1920 - innerHeight) / 2;
+  return (
+    <AbsoluteFill
+      style={{
+        background: "radial-gradient(circle at 50% 48%, #203743 0%, #0a1721 48%, #03080d 100%)",
+      }}
+    >
+      <Img
+        src={staticFile(input.openingEndFrame)}
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          opacity: lastFrameFade,
+          transform: `scale(${1 + progress(frame, 0, 22) * 0.05})`,
+        }}
+      />
+      <svg width="1080" height="1920" style={{ position: "absolute", inset: 0, opacity: 1 - lastFrameFade * 0.45 }}>
+        <defs>
+          <linearGradient id="steelTop" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor="#788990" />
+            <stop offset="1" stopColor="#172630" />
+          </linearGradient>
+          <linearGradient id="steelSide" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stopColor="#12202a" />
+            <stop offset=".55" stopColor="#65777e" />
+            <stop offset="1" stopColor="#101b23" />
+          </linearGradient>
+        </defs>
+        <polygon points={`0,0 1080,0 ${left + innerWidth},${top} ${left},${top}`} fill="url(#steelTop)" />
+        <polygon points={`0,1920 1080,1920 ${left + innerWidth},${top + innerHeight} ${left},${top + innerHeight}`} fill="url(#steelTop)" />
+        <polygon points={`0,0 ${left},${top} ${left},${top + innerHeight} 0,1920`} fill="url(#steelSide)" />
+        <polygon points={`1080,0 ${left + innerWidth},${top} ${left + innerWidth},${top + innerHeight} 1080,1920`} fill="url(#steelSide)" />
+        <rect x={left} y={top} width={innerWidth} height={innerHeight} fill="#010407" stroke="#d5e0e4" strokeOpacity=".56" strokeWidth="5" />
+      </svg>
+      <FlowStreaks frame={frame} speed={1 + contraction * 1.35} />
+      <div style={{ position: "absolute", left: 58, right: 58, top: 205 }}>
+        <Enter frame={frame} start={10} style={{ fontSize: 31, fontWeight: 800, letterSpacing: 6, color: "#c9d6dc" }}>
+          SAME AIRFLOW
+        </Enter>
+        <Enter frame={frame} start={32} style={{ marginTop: 16, fontSize: 87, lineHeight: 0.94, fontWeight: 950, letterSpacing: -4 }}>
+          SMALLER DUCT
+        </Enter>
+        <Enter frame={frame} start={68} style={{ marginTop: 20, fontSize: 68, lineHeight: 1, fontWeight: 950, color: colors.orange }}>
+          HIGHER VELOCITY
+        </Enter>
+      </div>
+      <div style={{ position: "absolute", bottom: 74, right: 54, fontSize: 16, fontWeight: 800, letterSpacing: 3, opacity: 0.62 }}>
+        CONCEPTUAL • AVERAGE VELOCITY
+      </div>
+      <SafeVignette />
+    </AbsoluteFill>
+  );
 }
 
-function Friction({frame}:{frame:number}) {const local=frame-210;const pulse=.45+.55*Math.abs(Math.sin(local/7));return <AbsoluteFill><Tunnel frame={local} narrow={.72} hot={pulse}/><div style={{position:"absolute",zIndex:10,left:64,right:64,top:230}}><BeatText frame={frame} start={210} style={{fontSize:82,fontWeight:900}}>Friction changes too.</BeatText><BeatText frame={frame} start={258} style={{fontSize:34,lineHeight:1.3,fontWeight:750,color:"#c4d3df",maxWidth:820}}>Same airflow. Comparable duct conditions.</BeatText></div><div style={{position:"absolute",zIndex:10,left:64,right:64,bottom:180,display:"flex",justifyContent:"space-between",fontSize:30,fontWeight:900}}><span>AREA</span><span style={{color:cyan}}>VELOCITY</span><span style={{color:orange}}>FRICTION</span></div></AbsoluteFill>}
+function Implications({ frame }: { frame: number }) {
+  const sweep = eased(frame, 0, 105);
+  const words = [
+    { label: "VELOCITY", start: 5, color: colors.cyan },
+    { label: "FRICTION", start: 35, color: colors.orange },
+    { label: "SPACE", start: 65, color: colors.ink },
+  ];
+  return (
+    <AbsoluteFill style={{ background: `linear-gradient(150deg, ${colors.deep}, #102634 58%, #06101a)` }}>
+      <div
+        style={{
+          position: "absolute",
+          width: 1240,
+          height: 10,
+          left: -80,
+          top: 960,
+          transform: "rotate(-58deg)",
+          transformOrigin: "center",
+          background: `linear-gradient(90deg, ${colors.cyan}, ${colors.orange})`,
+          boxShadow: `0 0 44px ${colors.cyan}`,
+          clipPath: `inset(0 ${100 - sweep * 100}% 0 0)`,
+        }}
+      />
+      <div style={{ position: "absolute", left: 60, right: 60, top: 260 }}>
+        {words.map((word, index) => (
+          <Enter
+            key={word.label}
+            frame={frame}
+            start={word.start}
+            style={{
+              marginTop: index === 0 ? 0 : 56,
+              fontSize: 116,
+              lineHeight: 0.84,
+              fontWeight: 950,
+              letterSpacing: -6,
+              color: word.color,
+              textAlign: index === 1 ? "right" : "left",
+            }}
+          >
+            {word.label}.
+          </Enter>
+        ))}
+      </div>
+      <Enter
+        frame={frame}
+        start={86}
+        style={{ position: "absolute", left: 60, right: 60, bottom: 245, fontSize: 38, fontWeight: 850, letterSpacing: 2 }}
+      >
+        DUCT SIZE IS A DESIGN DECISION.
+      </Enter>
+      <SafeVignette />
+    </AbsoluteFill>
+  );
+}
 
-function Connect({frame}:{frame:number}) {const local=frame-330;const morph=.5+.45*Math.sin(local/12);return <AbsoluteFill><Tunnel frame={local} narrow={morph}/><div style={{position:"absolute",zIndex:10,left:60,right:60,top:190}}><BeatText frame={frame} start={330} style={{fontSize:72,fontWeight:900}}>Space.</BeatText><BeatText frame={frame} start={360} style={{fontSize:72,fontWeight:900,color:cyan}}>Velocity.</BeatText><BeatText frame={frame} start={390} style={{fontSize:72,fontWeight:900,color:orange}}>Friction.</BeatText><BeatText frame={frame} start={414} style={{marginTop:36,fontSize:42,fontWeight:850}}>Sizing connects them.</BeatText></div></AbsoluteFill>}
+function Question({ frame, input }: { frame: number; input: DuctSizeVideoInput }) {
+  const rotate = frame * 0.7;
+  const reveal = eased(frame, 48, 88);
+  const circle = interpolate(reveal, [0, 1], [0, 1450]);
+  return (
+    <AbsoluteFill style={{ background: colors.deep }}>
+      <div
+        style={{
+          position: "absolute",
+          left: 90,
+          top: 455,
+          width: 900,
+          height: 900,
+          borderRadius: "50%",
+          border: `28px solid ${colors.steel}`,
+          boxShadow: `inset 0 0 100px rgba(97,217,255,.22), 0 0 80px rgba(97,217,255,.16)`,
+          transform: `rotate(${rotate}deg) scale(${interpolate(eased(frame, 0, 24), [0, 1], [0.72, 1])})`,
+          background: "repeating-conic-gradient(from 0deg, rgba(255,255,255,.48) 0 1deg, transparent 1deg 8deg)",
+        }}
+      />
+      <div style={{ position: "absolute", left: 80, right: 80, top: 760, textAlign: "center" }}>
+        <Enter frame={frame} start={8} style={{ fontSize: 98, lineHeight: 0.92, fontWeight: 950, letterSpacing: -5 }}>
+          SO WHAT SIZE?
+        </Enter>
+      </div>
+      <Img
+        src={staticFile(input.calculatorStates[0])}
+        style={{
+          position: "absolute",
+          width: 1728,
+          height: 1920,
+          left: -350,
+          top: 0,
+          objectFit: "cover",
+          clipPath: `circle(${circle}px at 540px 960px)`,
+        }}
+      />
+      <SafeVignette />
+    </AbsoluteFill>
+  );
+}
 
-function CalculatorReveal({frame,input}:{frame:number;input:DuctSizeVideoInput}) {const local=frame-450;const open=range(local,0,95);const settle=range(local,95,150);return <AbsoluteFill style={{background:navy,overflow:"hidden"}}><div style={{position:"absolute",inset:0,transform:`scale(${1.7-open*.7})`,opacity:open}}><Img src={staticFile(input.calculatorImage)} style={{width:"100%",height:"100%",objectFit:"cover",objectPosition:"54% top",filter:"saturate(.95) contrast(1.03)"}}/></div><div style={{position:"absolute",zIndex:5,inset:0,background:`radial-gradient(circle at 50% 48%,transparent ${open*70}%,${navy} ${open*70+8}%)`}}/><div style={{position:"absolute",zIndex:8,left:55,right:55,bottom:170,opacity:settle,padding:"24px 28px",borderRadius:24,background:"rgba(5,13,24,.88)",fontSize:35,fontWeight:850}}>The design point needs context.</div></AbsoluteFill>}
+function Calculator({ frame, input }: { frame: number; input: DuctSizeVideoInput }) {
+  const toAirflow = eased(frame, 32, 50);
+  const toFriction = eased(frame, 92, 112);
+  const toResults = eased(frame, 148, 190);
+  const imageScale = interpolate(toResults, [0, 1], [1, 1.35]);
+  const width = 1728 * imageScale;
+  const height = 1920 * imageScale;
+  const left = interpolate(toResults, [0, 1], [-360, -950]);
+  const top = interpolate(toResults, [0, 1], [-55, -630]);
+  const stateOpacity = [1 - toAirflow, toAirflow * (1 - toFriction), toFriction];
+  const focusPulse = 0.65 + Math.sin(frame / 5) * 0.12;
+  return (
+    <AbsoluteFill style={{ background: "#e8edf1" }}>
+      {input.calculatorStates.map((source, index) => (
+        <Img
+          key={source}
+          src={staticFile(source)}
+          style={{
+            position: "absolute",
+            width,
+            height,
+            left,
+            top,
+            objectFit: "fill",
+            opacity: stateOpacity[index],
+            filter: "saturate(.98) contrast(1.02)",
+          }}
+        />
+      ))}
+      <div style={{ position: "absolute", inset: 0, boxShadow: "inset 0 0 130px rgba(7,17,27,.44)" }} />
+      <div
+        style={{
+          position: "absolute",
+          left: 40,
+          top: 68,
+          padding: "16px 22px",
+          background: "rgba(7,17,27,.91)",
+          borderLeft: `6px solid ${colors.cyan}`,
+          fontSize: 24,
+          fontWeight: 900,
+          letterSpacing: 3,
+        }}
+      >
+        REAL ANYHVAC CALCULATOR
+      </div>
+      {frame < 88 ? (
+        <>
+          <div
+            style={{
+              position: "absolute",
+              right: 42,
+              top: 575,
+              width: 300,
+              height: 88,
+              border: `6px solid rgba(97,217,255,${focusPulse})`,
+              borderRadius: 22,
+              boxShadow: `0 0 28px rgba(97,217,255,${focusPulse * 0.65})`,
+            }}
+          />
+          <Enter frame={frame} start={8} style={{ position: "absolute", left: 48, right: 48, bottom: 120, fontSize: 46, fontWeight: 950 }}>
+            AIRFLOW: {frame < 43 ? "3,000" : "5,000"} CFM
+          </Enter>
+        </>
+      ) : null}
+      {frame >= 88 && frame < 158 ? (
+        <>
+          <div
+            style={{
+              position: "absolute",
+              right: 38,
+              top: 700,
+              width: 332,
+              height: 88,
+              border: `6px solid rgba(255,132,80,${focusPulse})`,
+              borderRadius: 22,
+              boxShadow: `0 0 28px rgba(255,132,80,${focusPulse * 0.65})`,
+            }}
+          />
+          <Enter frame={frame} start={92} style={{ position: "absolute", left: 48, right: 48, bottom: 120, fontSize: 43, fontWeight: 950 }}>
+            FRICTION EXAMPLE: 0.10
+          </Enter>
+        </>
+      ) : null}
+      {frame >= 158 ? (
+        <div style={{ position: "absolute", left: 42, right: 42, top: 160 }}>
+          <Enter frame={frame} start={158} style={{ fontSize: 30, fontWeight: 900, letterSpacing: 4, color: "#15324a" }}>
+            AUTHENTIC RESULTS
+          </Enter>
+          <Enter frame={frame} start={170} style={{ marginTop: 12, fontSize: 64, lineHeight: 0.95, fontWeight: 950, color: "#8f2d20" }}>
+            25.6 IN → 26 IN
+          </Enter>
+          <Enter frame={frame} start={187} style={{ marginTop: 18, fontSize: 54, fontWeight: 950, color: "#166637" }}>
+            24&quot; × 23&quot;
+          </Enter>
+        </div>
+      ) : null}
+      <SafeVignette />
+    </AbsoluteFill>
+  );
+}
 
-function Calculator({frame,input}:{frame:number;input:DuctSizeVideoInput}) {const local=frame-600;const left=interpolate(local,[0,150],[-10,-360],{extrapolateLeft:"clamp",extrapolateRight:"clamp"});const top=interpolate(local,[0,150],[330,210],{extrapolateLeft:"clamp",extrapolateRight:"clamp"});return <AbsoluteFill style={{background:"#eef1f5",overflow:"hidden"}}><Img src={staticFile(input.calculatorImage)} style={{position:"absolute",width:1450,height:"auto",left,top,filter:"saturate(.96) contrast(1.02)",boxShadow:"0 28px 80px rgba(18,35,51,.28)"}}/><div style={{position:"absolute",inset:0,boxShadow:"inset 0 0 150px rgba(5,13,24,.42)"}}/><div style={{position:"absolute",left:48,right:48,top:95,padding:"22px 28px",borderRadius:24,background:"rgba(5,13,24,.9)",fontSize:40,fontWeight:900}}>Real calculator. Real design inputs.</div><div style={{position:"absolute",left:48,right:48,bottom:105,padding:"20px 26px",borderLeft:`7px solid ${blue}`,background:"rgba(255,255,255,.94)",color:"#172433",fontSize:29,fontWeight:800}}>Airflow • friction rate • round + rectangular options</div></AbsoluteFill>}
+function Cta({ frame, input }: { frame: number; input: DuctSizeVideoInput }) {
+  const drift = interpolate(frame, [0, 120], [1.03, 1.08], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  return (
+    <AbsoluteFill style={{ background: colors.blue }}>
+      <Img
+        src={staticFile(input.calculatorStates[2])}
+        style={{
+          position: "absolute",
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          transform: `scale(${drift})`,
+          filter: "blur(8px) saturate(.75)",
+          opacity: 0.28,
+        }}
+      />
+      <AbsoluteFill style={{ background: "linear-gradient(145deg, rgba(8,120,209,.95), rgba(3,38,70,.97) 62%, rgba(7,17,27,.98))" }} />
+      <div style={{ position: "absolute", left: 60, right: 60, top: 330 }}>
+        <Enter frame={frame} start={0}>
+          <div style={{ width: 122, height: 122, padding: 12, borderRadius: 26, background: "white", boxShadow: "0 18px 50px rgba(0,0,0,.3)" }}>
+            <Img src={staticFile(input.logoPath)} style={{ width: "100%", height: "100%", objectFit: "contain" }} />
+          </div>
+        </Enter>
+        <Enter frame={frame} start={8} style={{ marginTop: 50, fontSize: 104, lineHeight: 0.9, fontWeight: 950, letterSpacing: -6 }}>
+          SIZE IT FASTER.
+        </Enter>
+        <Enter frame={frame} start={22} style={{ marginTop: 34, fontSize: 38, fontWeight: 900, letterSpacing: 2, color: "#d7efff" }}>
+          ANYHVAC DUCT CALCULATOR
+        </Enter>
+        <Enter frame={frame} start={34} style={{ marginTop: 18, fontSize: 34, fontWeight: 850 }}>
+          FREE • NO SIGNUP
+        </Enter>
+        <Enter
+          frame={frame}
+          start={48}
+          style={{
+            marginTop: 54,
+            padding: "24px 24px",
+            borderRadius: 18,
+            background: "white",
+            color: colors.blue,
+            fontSize: 34,
+            fontWeight: 950,
+            overflowWrap: "anywhere",
+          }}
+        >
+          anyhvac.net/tools/duct-calculator
+        </Enter>
+      </div>
+      <SafeVignette />
+    </AbsoluteFill>
+  );
+}
 
-function End({frame,input}:{frame:number;input:DuctSizeVideoInput}) {return <AbsoluteFill style={{...base,background:`linear-gradient(145deg,${blue},#043c70 58%,${navy})`,padding:"260px 64px",justifyContent:"center"}}><BeatText frame={frame} start={750}><div style={{width:130,height:130,padding:14,borderRadius:28,background:"white"}}><Img src={staticFile(input.logoPath)} style={{width:"100%",height:"100%",objectFit:"contain"}}/></div></BeatText><BeatText frame={frame} start={758} style={{fontSize:90,fontWeight:900,letterSpacing:-5,marginTop:48}}>Size it faster.</BeatText><BeatText frame={frame} start={770} style={{fontSize:40,fontWeight:800,color:"#d5edff",marginTop:22}}>Free. No signup.</BeatText><BeatText frame={frame} start={782} style={{marginTop:52,padding:"26px 28px",borderRadius:22,background:"white",color:blue,fontSize:28,fontWeight:900,overflowWrap:"anywhere"}}>AnyHVAC.net/tools/duct-calculator</BeatText></AbsoluteFill>}
+export function DuctSizeMatters(input: DuctSizeVideoInput) {
+  const frame = useCurrentFrame();
+  let scene: ReactNode;
+  if (frame < 90) scene = <Opening frame={frame} input={input} />;
+  else if (frame < 210) scene = <Consequence frame={frame - 90} input={input} />;
+  else if (frame < 330) scene = <Implications frame={frame - 210} />;
+  else if (frame < 420) scene = <Question frame={frame - 330} input={input} />;
+  else if (frame < 660) scene = <Calculator frame={frame - 420} input={input} />;
+  else scene = <Cta frame={frame - 660} input={input} />;
 
-export function DuctSizeMatters(input:DuctSizeVideoInput) {const frame=useCurrentFrame();let scene:ReactNode;if(frame<90)scene=<Intro frame={frame}/>;else if(frame<210)scene=<Compare frame={frame}/>;else if(frame<330)scene=<Friction frame={frame}/>;else if(frame<450)scene=<Connect frame={frame}/>;else if(frame<600)scene=<CalculatorReveal frame={frame} input={input}/>;else if(frame<750)scene=<Calculator frame={frame} input={input}/>;else scene=<End frame={frame} input={input}/>;return <AbsoluteFill style={base}>{scene}<Audio src={staticFile(input.music.path)} volume={input.music.volume}/><Audio src={staticFile(input.sfx.path)} volume={input.sfx.volume}/></AbsoluteFill>}
+  return (
+    <AbsoluteFill style={base}>
+      {scene}
+      <Audio src={staticFile(input.music.path)} volume={input.music.volume} />
+      <Audio src={staticFile(input.sfx.path)} volume={input.sfx.volume} />
+    </AbsoluteFill>
+  );
+}

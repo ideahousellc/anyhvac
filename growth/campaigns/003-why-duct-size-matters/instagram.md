@@ -1,4 +1,4 @@
-# Instagram — final caption
+# Instagram — publication-candidate caption
 
 ## Source LinkedIn draft
 
@@ -6,11 +6,11 @@
 
 ## Caption
 
-Same airflow. Smaller duct. **Higher velocity.**
+Same airflow. Smaller duct. **Higher average velocity.**
 
 Duct size also affects friction loss and physical space—but no single size, velocity, or friction rate is right for every system.
 
-Evaluate the design point with the free AnyHVAC HVAC Duct Calculator. Link in bio.
+Evaluate a design point with the free AnyHVAC HVAC Duct Calculator. Link in bio.
 
 #HVAC #DuctDesign #Airflow #HVACTools
 

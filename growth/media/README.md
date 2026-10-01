@@ -10,10 +10,16 @@ service.
 Start with: **What would make an HVAC professional stop scrolling and understand
 this concept?** Select the production method only after defining the visual idea.
 
+Default to a real-world HVAC engineering and technology brand: recognizable HVAC
+environments, real equipment and people performing authentic work. Use cinematic
+framing, depth, natural lighting and consistent AnyHVAC brand treatment. Avoid
+repetitive generic stock, unrealistic equipment arrangements, fabricated photographs
+of actual AnyHVAC users and unprovided endorsements.
+
 The website and PDFs are technical destinations, not default social templates.
 Social work may share identity, typography, restrained color, or an end card, but
 should not routinely resemble screenshots, PDF pages, generic panels, text slides,
-or formula cards.
+or formula cards. Occasional white/beige reference slides are welcome, not dominant.
 
 ## Format rotation
 
@@ -23,7 +29,13 @@ visualization, cause/effect comparison, equipment explainer, misconception
 explainer, quick tip, resource highlight, or an occasional interface capture when
 the interface is the subject.
 
-Do not rotate mechanically. Record why the format suits the concept, platform,
+Weekly mix: two educational carousels of five or six slides, two promotional
+graphics and one main video. Adapt into five LinkedIn, five Instagram and three
+YouTube Shorts posts. Use equipment imagery, annotated photographs, comparisons
+and practical examples for carousels where useful; review at phone size. Promotional
+subjects rotate among calculators, references, features and optional support.
+
+Within that mix, record why the treatment suits the concept, platform,
 audience, recent content history, production effort, available assets, and any
 future performance evidence from William. Actively avoid a repetitive feed.
 
@@ -31,7 +43,8 @@ future performance evidence from William. Actively avoid a repetitive feed.
 
 Possible visual language includes:
 
-- technicians or engineers in credible HVAC environments;
+- technicians servicing equipment and engineers reviewing drawings or using the actual website;
+- commercial rooftops with RTUs, cooling towers and mechanical equipment;
 - rooftop units, air handlers, mechanical rooms, ductwork, VAV boxes, terminals,
   filter racks, fan and coil sections, dampers, and commercial distribution;
 - conceptual airflow particles, streamlines, pressure fields, restrictions,
@@ -43,17 +56,32 @@ Possible visual language includes:
 
 These are inspiration, not a finite menu. New concepts are encouraged.
 
-## Promotional-video pacing and audio
+## Main video and static promotional Shorts
 
-Build promotional video around music and continuously evolving visual beats. The
+Choose the main video's method for the idea: real footage, authentic calculator
+capture, animated diagrams or selective Blender shots. Avoid unnecessary rendering
+experiments. Build the main video around music and evolving visual beats. The
 opening second must contain meaningful activity and the hook should be understood
 within two to three seconds. Avoid long holds, isolated text stages, repeated
 centered cards, and ambient noise presented as a soundtrack. Transitions, geometry,
 camera, typography, and supporting SFX should respond to the musical rhythm.
 
+The two promotional Shorts reuse approved promotional artwork as static vertical
+images with a comfortable instrumental soundtrack. They require no elaborate
+animation or moving opening. Include final crop, soundtrack and copy in batch review.
+All music must be pleasant and balanced, without piercing tones or repetitive
+beeps. Listen to the full final mix as well as checking audio levels.
+
 Music needs verified commercial rights and provenance. Original local music,
 public-domain music, or properly licensed royalty-free music may qualify. Unknown
 rights block review. SFX support the soundtrack; they do not replace it.
+
+Prioritize existing AnyHVAC assets and appropriately licensed free commercial-use
+photos/footage. Record source, license evidence, commercial permission, attribution,
+acquisition date and relevant model/property permissions. AI imagery may be proposed
+but requires explicit owner authorization before generation. Never purchase assets
+or subscribe to media services without owner authorization. Batch publishing approval
+does not itself authorize generation or spending.
 
 ## Technical visual safety
 

@@ -32,5 +32,6 @@
 
 - [x] All media/audio provenance complete with commercial rights
 - [x] No paid dependency, secret, private data, network publisher, or external action
-- [ ] Campaign ready for publication approval; creative revision remains required
-- [x] Owner selected **REVISE**; campaign remains a work in progress
+- [x] Owner selected **APPROVE CAMPAIGN** on October 1, 2026
+- [x] Publication confirmed on Instagram, YouTube Shorts, and LinkedIn
+- [x] Campaign and retained asset lifecycle records are `PUBLISHED` / `PUBLISHED_CONFIRMED`

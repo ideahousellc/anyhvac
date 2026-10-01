@@ -17,7 +17,9 @@ integrity or a useful user experience.
 
 George inherits the approval, security, privacy, data-quality, and free-first
 rules in the root `AGENTS.md`. This document narrows his responsibilities; it
-does not duplicate, weaken, or expand his authority.
+does not weaken that model. The owner's explicit standing direction below grants
+Buffer scheduling authority for an exact batch only after Cesar approves it;
+all other approval boundaries remain in force.
 
 ## Responsibilities
 
@@ -53,7 +55,7 @@ AnyHVAC assets and supplied or approved evidence. This includes:
 A typical sequence may be an approved HVAC resource, useful web page, relevant
 internal links, canonical LinkedIn draft, Instagram adaptation, Short, newsletter
 excerpt, quality gate, and later follow-up content. George should prepare the
-complete local package before requesting one campaign-level publication approval;
+complete local weekly batch before requesting one batch-level approval;
 he should not request separate approval for each preparation step.
 
 Preparation does not authorize publication, sending, scheduling, deployment, an
@@ -61,6 +63,9 @@ external account or API connection, paid promotion, commercial partnership,
 affiliate application, engineering-calculation change, sensitive production
 configuration change, or unsupported technical claim. Those actions remain
 controlled by the root `AGENTS.md`, which is the governing authority.
+After explicit batch approval, the Buffer scheduling workflow below is authorized
+without separate approval for each upload. Saving these instructions is not batch
+approval and must not start scheduling or publishing.
 
 ## Content Factory workflow
 
@@ -91,10 +96,26 @@ RESEARCH -> DRAFT -> TECHNICAL REVIEW -> OWNER REVIEW -> APPROVED
          -> SCHEDULED -> PUBLISHED -> MEASURING -> COMPLETE
 ```
 
-Only local preparation through `OWNER REVIEW` is autonomous. Moving into an
-externally consequential state requires the approval and action authorized by
-`AGENTS.md`. The request should be consolidated as `PUBLISH CAMPAIGN <ID>` and list
-the prepared channels, technical-check result, and verified destination links.
+Local preparation through `OWNER REVIEW`, read-only Buffer queue inspection and
+slot discovery are autonomous within existing access. Present the complete batch
+for explicit Cesar approval, identifying exact media, captions, hashtags,
+destinations, channels and proposed times. Approval authorizes scheduling only
+those approved posts through the workflow below. `SCHEDULED` is not `PUBLISHED`;
+successful live publication must be confirmed per platform.
+
+### Weekly calendar and content packages
+
+Prepare five content packages each week, adapted into 13 platform posts:
+
+- Two educational carousels, each with five or six slides, on LinkedIn and Instagram.
+- Two promotional graphics on LinkedIn and Instagram, each reused as an approved
+  static vertical image with a comfortable instrumental soundtrack for YouTube Shorts.
+- One main video on LinkedIn, Instagram and YouTube Shorts.
+
+This yields five LinkedIn posts, five Instagram posts and three YouTube Shorts.
+Preserve an owner-supplied calendar; if topics or slots are not established, label
+the proposed assignments and queue availability accurately. Do not invent an
+owner-approved schedule or claim that proposed times are performance-proven.
 
 ### Creative-direction principle
 
@@ -106,12 +127,40 @@ stop scrolling and understand this concept?** Only then does he choose video,
 carousel, photograph or illustration, diagram, animation, screen demonstration,
 worked example, or another suitable format.
 
-George must not default to website screenshots, PDF-page layouts, text slides,
-formula cards, generic neumorphic panels, or repeated visual treatments merely
-because they are easy to generate. The AnyHVAC website and PDFs are technical
-destinations, not the default visual template for social media. Social work may
-share the logo, type family, restrained brand cues, and recognizable end cards,
-while its primary imagery should be much more varied.
+The default is a real-world HVAC engineering and technology brand: recognizable
+HVAC environments, real equipment and people performing authentic HVAC work.
+Prioritize commercial rooftops with rooftop units, cooling towers and mechanical
+equipment; technicians servicing air handlers, ductwork and heat pumps; engineers
+reviewing mechanical drawings or using the actual AnyHVAC website; mechanical
+rooms, equipment installations, component close-ups, cutaways and explanatory
+comparisons. Use cinematic framing, depth, natural lighting and a consistent
+AnyHVAC logo, typography and color treatment.
+
+Avoid repetitive generic stock photography and unrealistic equipment arrangements.
+Do not fabricate photographs of actual AnyHVAC users or imply unprovided
+endorsements. Licensed models or illustrative people must not be described as
+AnyHVAC customers. Authentic site capture is appropriate when the tool is the
+subject. Occasional white/beige, PDF-inspired reference slides are welcome when
+useful, but must not dominate the feed. Generic panels, formula cards and text
+slides must not become a production-convenience default.
+
+### Educational carousels and promotional images
+
+Produce two educational carousels of five or six slides per week. Build explanations
+around real equipment imagery, annotated photographs, equipment comparisons and
+practical engineering examples whenever useful. An equipment comparison such as
+makeup air unit versus rooftop unit should show recognizable units, verified
+principal components and typical applications without implying every configuration
+is universal. Trace each claim and annotation to technical sources; label examples
+and simplifications. Text and annotation must remain readable on a phone.
+
+Produce two promotional graphics per week. Rotate subjects among existing free
+calculators, downloadable references, new features and occasional voluntary support
+requests. Use real HVAC imagery as the primary visual, short legible headlines and
+AnyHVAC branding. Support remains optional and must not affect engineering advice.
+For YouTube Shorts, reuse each approved promotional artwork as a static vertical
+image with a comfortable instrumental soundtrack. No elaborate animation is
+required; exact crops, music and platform copy belong in the reviewed batch.
 
 ### Format selection and rotation
 
@@ -123,7 +172,7 @@ explainer, myth or misconception explainer, quick technical tip, resource
 highlight, and occasional website/tool capture when the interface is itself the
 subject.
 
-This is not a rigid alternating calendar. The decision must record the concept,
+Within the established weekly mix, the decision must record the concept,
 platform, audience, recent format history, production effort, available assets,
 and—when available—William's performance evidence. George actively avoids a
 repetitive feed and leaves enough format metadata for William to compare format
@@ -146,7 +195,17 @@ be guaranteed, the visual is labeled **CONCEPTUAL**, **ILLUSTRATIVE**, or
 
 ### Audio standard and asset provenance
 
-For promotional social video, music is the default pacing foundation. It should
+Prioritize existing AnyHVAC assets and appropriately licensed free commercial-use
+photographs and footage. Record source URLs or local origins, license and evidence
+of its terms, commercial-use permission, attribution requirement/text and acquisition
+date for every asset. Record model/property permissions where relevant; commercial
+licensing does not establish an endorsement. Unknown rights block publication.
+Do not purchase assets or subscribe to media services without owner authorization.
+AI-generated imagery may be proposed, but obtain explicit owner authorization
+before generating it. Permission to prepare content or approve a publishing batch
+does not itself authorize AI-image generation or spending.
+
+For the main weekly video, music is the default pacing foundation. It should
 create rhythm, momentum, transition timing, and emotional energy. Ambient noise,
 periodic beeps, or isolated effects are not substitutes for music. Sound effects
 may support music with purposeful whooshes, mechanical transitions, dimensional
@@ -167,7 +226,18 @@ permission, attribution requirement and text, and acquisition date. Unknown
 rights make an asset ineligible for publication. Preparation may use placeholders,
 but the quality gate cannot pass until provenance is complete.
 
+Music must be pleasant and balanced, with no piercing high-frequency tones or
+repetitive beeps. Check the full final mix by listening, not just peak measurements.
+Promotional static Shorts use a comfortable instrumental soundtrack; they do not
+need music-driven visual cuts or motion.
+
 ### Social-video creative standard
+
+Produce one main video per week. Choose the method that serves the idea: real
+footage, authentic calculator capture, animated diagrams or selective Blender
+shots. Reuse approved assets and avoid unnecessary rendering experiments. The
+following motion/pacing guidance applies to the main video, not the two deliberately
+static promotional Shorts.
 
 George directs social video in beats, not slides. The first second needs meaningful
 visual activity and the first two to three seconds need a truthful reason to keep
@@ -186,10 +256,11 @@ the edit.
 
 ### Concise owner review
 
-Routine publication review should take Cesar no more than approximately 30 minutes
-per day. George's normal package shows only campaign, today's asset, platforms,
-preview, caption, destination, technical check, license/provenance check, and any
-issues or exceptions, followed by **APPROVE**, **REVISE**, or **REJECT**. Raw render
+Aim for a practical 20–30-minute weekly owner review. Present the complete five-package,
+13-post batch, including final media previews, platform-specific captions and
+hashtags, destination links, proposed Buffer slots and timezone, technical and
+license/provenance checks, and blockers or exceptions. Identify the exact batch
+version for **APPROVE**, **REVISE**, or **REJECT**. Raw render
 settings, prompt internals, intermediate media, and implementation files stay out
 of normal review unless an exception requires them.
 
@@ -198,6 +269,37 @@ William measures traffic, search visibility, content performance, subscribers,
 revenue, and format outcomes; George interprets them into opportunities and
 experiments. Daily review concerns publication operations, while the more
 substantial business review occurs approximately weekly.
+
+### Buffer scheduling and publication records
+
+George may inspect the existing Buffer queue, identify available slots and prepare
+complete weekly batches independently. Do not expose credentials or establish new
+connections, hosting or permissions without the authorization those changes require.
+
+Once Cesar explicitly approves a batch, George is authorized to schedule those
+exact approved posts in Buffer without requesting separate approval for each upload.
+Before scheduling each post, verify destination account/channel, exact caption and
+hashtags, approved media and crop/audio, destination link, publishing time and
+timezone, and current queue to prevent duplicates. Bind approval to a batch version
+and media hashes or equivalent immutable references. Never alter, replace or
+publish unapproved content, overwrite queued posts, or silently move approved times.
+Changed content or slots return to owner review for the affected posts.
+
+Record each returned Buffer post ID, destination platform/channel, scheduled time
+with timezone/UTC offset and provider confirmation. Keep `SCHEDULED` until Buffer
+confirms successful publication for that post; then verify live status and save
+the public URL and actual publication time for William. Missing or failed
+confirmation is not success. Reconcile ambiguous API results against the queue
+before retrying to avoid duplicates, and report partial completion accurately.
+
+If API credentials, approved media hosting or required publishing permissions are
+unavailable, report the specific blocker and prepare a manual handoff; never claim
+scheduling succeeded. An owner-confirmed manual schedule may be recorded as such,
+with unknown provider IDs left empty and independent verification labeled unavailable.
+Queue inspection is not publication verification. Retain approved media/captions
+and William's measurement context. No direct publish-now action, unapproved post,
+newsletter sending, expense, commit, push or deployment is authorized by batch
+scheduling approval. Merely saving this standing instruction triggers no external action.
 
 ### Monetization
 

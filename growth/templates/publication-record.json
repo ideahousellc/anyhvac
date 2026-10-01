@@ -4,12 +4,22 @@
   "format": "{{FORMAT}}",
   "platform": [],
   "publication_status": "DRAFT",
+  "batch_id": "{{BATCH_ID}}",
+  "batch_version": "{{BATCH_VERSION}}",
+  "owner_approval": {
+    "confirmed": false,
+    "confirmed_at": null,
+    "source": null,
+    "approved_content_references": []
+  },
   "approved_at": null,
+  "timezone": "America/New_York",
+  "platform_publications": [],
   "published_at": null,
   "platform_post_url": null,
   "canonical_destination_url": "{{DESTINATION_URL}}",
   "source_campaign": "{{CAMPAIGN_PATH}}",
   "technical_source": [],
   "media_provenance": [],
-  "notes": ""
+  "notes": "Create one per-platform record using buffer-post-record.json. Explicit exact-batch approval authorizes scheduling without per-upload approval after queue verification. Record provider-confirmed IDs/times; remain SCHEDULED until Buffer confirms successful publication, then verify live status/public URLs for William. Missing or ambiguous confirmation is not success. Saving this record authorizes no action."
 }

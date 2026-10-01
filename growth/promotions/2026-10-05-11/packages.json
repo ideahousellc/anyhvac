@@ -1,0 +1,68 @@
+[
+  {
+    "id": "01-duct-sizing", "title": "Duct sizing starts with inputs", "date": "2026-10-05", "format": "single-image",
+    "destination": "https://www.anyhvac.net/tools/duct-calculator", "navigation": "Tools → HVAC Duct Calculator",
+    "source": ["data/tools.ts", "components/duct-calculator/DuctSizingGuide.tsx", "components/duct-calculator/DuctCalculator.tsx"],
+    "headline": ["DUCT SIZING", "STARTS WITH", "YOUR INPUTS"], "support": ["Airflow. Design friction rate.", "Round and rectangular options."], "visual": "duct",
+    "technicalLimit": "Duct-sizing results are a starting point; check fittings, noise, space and project requirements. No universal friction rate or performance guarantee.",
+    "linkedin": "A duct size is a design starting point.\n\nUse the free AnyHVAC HVAC Duct Calculator to explore round and rectangular sizing from your airflow and design friction rate. Check the result against fittings, noise, available space and project requirements before final design.\n\nOpen the calculator:\nhttps://www.anyhvac.net/tools/duct-calculator\n\nSave the tool for your next duct-design check.",
+    "instagram": "Start your duct-design check with the right inputs.\n\nExplore round and rectangular options with the free AnyHVAC HVAC Duct Calculator. Bring your airflow and design friction rate, then check fittings, noise, space and project requirements.\n\nVisit anyhvac.net → Tools → HVAC Duct Calculator.\n\nSave this post for your next design check.",
+    "hashtags": ["#HVAC", "#DuctDesign", "#HVACDesign", "#MEPEngineering"], "short": null,
+    "alt": "AnyHVAC duct-sizing input reminder with simplified round and rectangular outlines, without dimensions or calculated results."
+  },
+  {
+    "id": "02-air-distribution", "title": "Choose the air-distribution check", "date": "2026-10-06", "format": "image-carousel",
+    "destination": "https://www.anyhvac.net/tools/air-distribution", "navigation": "Tools → Air Distribution Tools",
+    "source": ["data/tools.ts", "app/resources/airflow-static-pressure-measurement/page.tsx", "app/tools/air-distribution/page.tsx"],
+    "headline": ["WHICH AIR", "DISTRIBUTION", "CHECK NEXT?"], "support": ["Choose the question first.", "Then choose the tool."], "visual": "checks",
+    "slides": [
+      {"headline": ["CHECK AIRFLOW", "AND VELOCITY"], "support": ["Use airflow and actual duct area.", "Input quality matters."], "visual": "checks"},
+      {"headline": ["CHECK ROOM", "AIR CHANGES"], "support": ["Use airflow and room volume.", "ACH alone does not prove compliance."], "visual": "checks"}
+    ],
+    "technicalLimit": "Representative average velocity and actual area are required for airflow estimation; ACH does not prove outdoor-air delivery or code compliance.",
+    "linkedin": "Start with the question you need to answer.\n\nAirflow and velocity checks use airflow and actual duct area. Air-change checks use airflow and room volume. Input quality and system context matter.\n\nAnyHVAC's free Air Distribution Tools bring these practical checks into one place. ACH alone does not establish ventilation compliance or outdoor-air delivery.\n\nExplore the tools:\nhttps://www.anyhvac.net/tools/air-distribution\n\nSave this carousel as a reminder to choose the check before the calculator.",
+    "instagram": "Which air-distribution check do you need?\n\nSwipe for airflow/velocity and room air-change reminders. Use representative inputs and keep the system context in view. ACH alone does not establish ventilation compliance or outdoor-air delivery.\n\nVisit anyhvac.net → Tools → Air Distribution Tools.\n\nSave this carousel for your next HVAC check.",
+    "hashtags": ["#HVAC", "#AirDistribution", "#HVACTools", "#MEPEngineering"], "short": null,
+    "alt": "Three-slide AnyHVAC carousel: choose the question; airflow and velocity use actual duct area; room air changes use airflow and volume and do not establish compliance."
+  },
+  {
+    "id": "03-psychrometrics", "title": "Explore the complete air state", "date": "2026-10-07", "format": "single-image",
+    "destination": "https://www.anyhvac.net/tools/psychrometric-calculator", "navigation": "Tools → Air Properties → Psychrometric Calculator",
+    "source": ["app/tools/psychrometric-calculator/page.tsx", "data/tools.ts"],
+    "headline": ["EXPLORE THE", "COMPLETE", "AIR STATE"], "support": ["Temperature. Moisture. Enthalpy.", "Free psychrometric calculator."], "visual": "properties",
+    "technicalLimit": "Property illustration is conceptual, not a psychrometric chart or a measured operating condition. Set elevation or atmospheric pressure for the project.",
+    "linkedin": "Dry-bulb temperature is one part of the air state.\n\nThe free AnyHVAC Psychrometric Calculator accepts dry bulb with relative humidity, wet bulb or dew point, with elevation or atmospheric pressure settings. Explore humidity ratio, enthalpy and the synchronized chart marker.\n\nSet project pressure and verify your inputs before using results in design.\n\nOpen the calculator:\nhttps://www.anyhvac.net/tools/psychrometric-calculator\n\nSave it for your next air-properties check.",
+    "instagram": "Temperature is only part of the air-state picture.\n\nExplore moisture and enthalpy with the free AnyHVAC Psychrometric Calculator. Enter a supported pair of air-state inputs and set project elevation or pressure.\n\nVisit anyhvac.net → Tools → Air Properties → Psychrometric Calculator.\n\nSave this post for your next air-properties check.",
+    "hashtags": ["#HVAC", "#Psychrometrics", "#HVACDesign", "#MEPEngineering"],
+    "short": {"date": "2026-10-06", "title": "Explore Air Properties | Free AnyHVAC Psychrometric Calculator", "description": "Explore temperature, moisture and enthalpy with the free AnyHVAC Psychrometric Calculator. Enter a supported air-state input pair and set project elevation or atmospheric pressure.\n\nVisit anyhvac.net → Tools → Air Properties → Psychrometric Calculator.\n\nConceptual property illustration; no measured or calculated operating point is shown.\n\n#HVAC #Psychrometrics #HVACTools #Shorts"},
+    "alt": "AnyHVAC air-state concept showing linked temperature, moisture and enthalpy labels; not a psychrometric chart."
+  },
+  {
+    "id": "04-mixed-air", "title": "Bring both air streams into view", "date": "2026-10-08", "format": "single-image",
+    "destination": "https://www.anyhvac.net/tools/mixed-air-calculator", "navigation": "Tools → Mixed Air Calculator",
+    "source": ["app/tools/mixed-air-calculator/page.tsx", "components/mixed-air/MixedAirGuide.tsx", "data/tools.ts"],
+    "headline": ["OUTDOOR AIR.", "RETURN AIR.", "ONE MIXED STATE."], "support": ["Bring both streams into view.", "Free Mixed Air Calculator."], "visual": "mixing",
+    "technicalLimit": "Conceptual two-stream mixing, not equipment geometry. The tool calculates an adiabatic state on a dry-air mass basis at common pressure. No simple temperature-average claim.",
+    "linkedin": "A mixed-air check starts with both streams.\n\nDefine outdoor and return air, set the common project pressure and use the free AnyHVAC Mixed Air Calculator to explore the adiabatic mixed-air condition on a dry-air mass basis.\n\nVerify stream inputs and tool assumptions against your project.\n\nOpen the calculator:\nhttps://www.anyhvac.net/tools/mixed-air-calculator\n\nSave the tool for your next air-mixing check.",
+    "instagram": "Outdoor air + return air: bring both streams into your check.\n\nThe free AnyHVAC Mixed Air Calculator uses a dry-air mass basis to calculate the adiabatic mixed state. Define both streams and set their common project pressure.\n\nVisit anyhvac.net → Tools → Mixed Air Calculator.\n\nVerify inputs and assumptions before design use. Save this post for later.",
+    "hashtags": ["#HVAC", "#MixedAir", "#Psychrometrics", "#MEPEngineering"],
+    "short": {"date": "2026-10-08", "title": "Two Air Streams, One Mixed State | Free AnyHVAC Tool", "description": "Define outdoor air and return air, set common project pressure and explore the adiabatic mixed state with AnyHVAC's free Mixed Air Calculator. Mixing uses a dry-air mass basis; verify inputs and assumptions before design use.\n\nVisit anyhvac.net → Tools → Mixed Air Calculator.\n\nConceptual two-stream illustration, not an equipment layout.\n\n#HVAC #MixedAir #Psychrometrics #Shorts"},
+    "alt": "AnyHVAC conceptual mixing graphic: outdoor-air and return-air labels connect to one mixed-state label, without numerical values."
+  },
+  {
+    "id": "05-measurement-reference", "title": "Pressure is not an airflow reading", "date": "2026-10-09", "format": "image-carousel",
+    "destination": "https://www.anyhvac.net/resources/airflow-static-pressure-measurement", "navigation": "Resources → Airflow & Static Pressure Measurement",
+    "source": ["app/resources/airflow-static-pressure-measurement/page.tsx"],
+    "headline": ["PRESSURE IS", "NOT AN", "AIRFLOW READING"], "support": ["Keep the measurement context.", "Explore the existing free guide."], "visual": "reference",
+    "slides": [
+      {"headline": ["TESP ALONE", "DOES NOT", "ESTABLISH AIRFLOW"], "support": ["Use correct equipment data", "and operating conditions."], "visual": "reference"},
+      {"headline": ["KEEP DESIGN", "AND FIELD", "PRESSURE DISTINCT"], "support": ["Measured TESP is not design ASP.", "Read the free measurement guide."], "visual": "reference"}
+    ],
+    "technicalLimit": "TESP alone does not establish airflow; manufacturer-defined measurement boundary and operating condition matter. Measured TESP is not design ASP. No diagnostic or test-location prescription.",
+    "linkedin": "A pressure reading needs context.\n\nTotal external static pressure (TESP) does not independently establish airflow. Airflow evaluation needs the correct equipment data and operating conditions. Measured TESP is also distinct from design available static pressure (ASP).\n\nThe existing free AnyHVAC Airflow & Static Pressure Measurement guide explains these boundaries and connects measurements to practical tool inputs.\n\nRead the guide:\nhttps://www.anyhvac.net/resources/airflow-static-pressure-measurement\n\nSave this carousel for your next measurement review.",
+    "instagram": "Pressure is not an airflow reading.\n\nSwipe for two reminders: TESP alone does not establish airflow, and measured TESP is not design available static pressure. Use correct equipment data, measurement boundary and operating conditions.\n\nVisit anyhvac.net → Resources → Airflow & Static Pressure Measurement.\n\nSave this carousel and explore the existing free guide.",
+    "hashtags": ["#HVAC", "#StaticPressure", "#Airflow", "#HVACTools"],
+    "short": {"date": "2026-10-10", "title": "Static Pressure Is Not Airflow | Free AnyHVAC Guide", "description": "TESP alone does not establish airflow. Use the correct equipment data, measurement boundary and operating conditions. Measured TESP is not design available static pressure.\n\nExplore the existing free guide at anyhvac.net → Resources → Airflow & Static Pressure Measurement.\n\nNo instrument procedure or diagnostic conclusion is shown.\n\n#HVAC #StaticPressure #Airflow #Shorts"},
+    "alt": "Three-slide AnyHVAC measurement reminder: pressure is not an airflow reading; TESP alone does not establish airflow; measured TESP is not design available static pressure."
+  }
+]

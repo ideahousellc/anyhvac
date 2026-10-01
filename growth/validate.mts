@@ -273,7 +273,7 @@ for (const key of forbiddenKeys) {
 const campaign003Directory = resolve(root, "growth/campaigns/003-why-duct-size-matters");
 const campaign003 = readJson<CampaignSpec>(resolve(campaign003Directory, "campaign.json"));
 const video003 = readJson<{width:number;height:number;fps:number;durationSeconds:number;calculatorImage:string;music:{license:string};sfx:{license:string}}>(resolve(campaign003Directory, "video.json"));
-assert(campaign003.status === "DRAFT", "Campaign #003 must remain a revision-required draft");
+assert(campaign003.status === "PUBLISHED", "Campaign #003 must record its confirmed published status");
 assert(campaign003.destinationUrl === "https://www.anyhvac.net/tools/duct-calculator", "Campaign #003 destination is not canonical");
 assert(campaign003.distributionChannels.length === 3, "Campaign #003 must target the three connected social channels");
 assert(campaign003.technicalClaimsSource.every((source) => existsSync(resolve(root, source.repositoryPath))), "Campaign #003 claim source is missing");
@@ -285,5 +285,5 @@ for (const file of ["campaign-brief.md","storyboard.md","linkedin.md","instagram
 }
 
 console.log(
-  `Validated Campaign #002 rejection preservation and Campaign #003: ${campaign003.distributionChannels.length} channels, ${video003.durationSeconds}s flagship revision draft, rights/provenance controls, no publishing behavior.`,
+  `Validated Campaign #002 rejection preservation and Campaign #003: ${campaign003.distributionChannels.length} published channels, ${video003.durationSeconds}s final asset, rights/provenance controls, no publishing behavior.`,
 );

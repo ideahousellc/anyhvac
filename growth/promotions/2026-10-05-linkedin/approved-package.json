@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "batch_id": "buffer-first-test-proposal",
+  "batch_version": "v2",
+  "kind": "single-test",
+  "timezone": "America/New_York",
+  "approval": {
+    "decision": "APPROVED",
+    "owner": "Cesar",
+    "approved_at": "2026-10-02T18:49:19.842Z",
+    "evidence": "Final owner authorization in this conversation: You are also authorized to schedule exactly one approved LinkedIn post for Monday, October 5, 2026, at 5:00 PM EDT, using the approved graphic and unchanged caption, provided the slot is still available.",
+    "package_sha256": "fbf230ae9ec03445a00c38c98349c657c370b4d44fb7aeebadddb5915009b154"
+  },
+  "posts": [
+    {
+      "post_id": "buffer-first-test-linkedin-v2",
+      "package_id": "duct-sizing-test",
+      "platform": "linkedin",
+      "channel_id": "6abd5811ea19ca0bde3709e4",
+      "caption": "A duct size is a design starting point.\n\nExplore round and rectangular sizing with the free AnyHVAC HVAC Duct Calculator. Check fittings, noise, available space and project requirements before final design.\n\nhttps://www.anyhvac.net/tools/duct-calculator\n\n#HVAC #DuctDesign #MEPEngineering",
+      "destination_url": "https://www.anyhvac.net/tools/duct-calculator",
+      "link_wording": "https://www.anyhvac.net/tools/duct-calculator",
+      "scheduled_at": "2026-10-05T17:00:00-04:00",
+      "technical_review": "PASS",
+      "rights_review": "PASS",
+      "ai_assisted": true,
+      "media": [
+        {
+          "kind": "image",
+          "path": "public/social/duct-calculator-linkedin-ceea97e30f5c731e.png",
+          "url": "https://www.anyhvac.net/social/duct-calculator-linkedin-ceea97e30f5c731e.png",
+          "sha256": "ceea97e30f5c731ebd517c51ed8adc7b3f6181c3e929bac10068e8fb6b8c603a",
+          "alt_text": "AnyHVAC HVAC Duct Calculator promotion showing real mechanical-room ductwork, with the headline Start your next duct design here and CTA Try the free calculator.",
+          "preview_review": "Owner visually approved duct-calculator-linkedin-v2.png and unchanged caption in this conversation; final owner authorization grants exactly one LinkedIn schedule for October 5, 2026 at 5 PM EDT."
+        }
+      ]
+    }
+  ]
+}

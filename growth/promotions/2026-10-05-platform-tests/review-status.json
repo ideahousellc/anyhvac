@@ -1,0 +1,36 @@
+{
+  "checked_at": "2026-10-02T19:40:20.246Z",
+  "instagram": {
+    "status": "SCHEDULED",
+    "buffer_post_id": "6ac0087d4d76cf8285c7d95c",
+    "scheduled_at": "2026-10-05T19:00:00-04:00",
+    "scheduling_type": "automatic",
+    "feed_post": true,
+    "create_attempts": 1,
+    "queue_verified": true,
+    "record": "instagram-publication-record.json"
+  },
+  "youtube": {
+    "status": "SCHEDULED",
+    "approval": {
+      "decision": "APPROVED",
+      "owner": "Cesar",
+      "approved_at": "2026-10-02T20:04:01.134Z",
+      "evidence": "FINAL OWNER APPROVAL in this conversation: owner watched and approved revised 15-second Mixed Air MP4 with Sleepy Cat by Alejandro Magaña, existing visuals and unchanged caption; authorizes only that MP4 at public/social/mixed-air-short-86098e26c422d213.mp4, one single-file commit/push/deployment, and exactly one YouTube Short scheduling test for October 8, 2026, 7 PM EDT with previously reviewed title and settings, after successful verification and duplicate/slot checks.",
+      "package_sha256": "d2dcd57425cc8ea04ed4a7c0ebff7e0565b26be3f51899b0761aae1f5cf01cdf"
+    },
+    "uploaded": true,
+    "deployed": true,
+    "scheduled": true,
+    "buffer_post_id": "6ac00e3b9df0308ea07d372f",
+    "scheduled_at": "2026-10-08T19:00:00-04:00",
+    "queue_verified": true,
+    "create_attempts": 1,
+    "publication_record": "youtube-publication-record.json"
+  },
+  "future_weekly_media": {
+    "workflow": "hosting-plan.md",
+    "status": "PREPARED; additional uploads/deployments/scheduling require authorization",
+    "method": "One approved manifest, one media-only commit, one Vercel deployment per batch; reuse existing assets; verify every URL/hash before scheduling"
+  }
+}

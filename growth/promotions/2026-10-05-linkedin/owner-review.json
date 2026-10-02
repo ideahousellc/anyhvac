@@ -1,0 +1,32 @@
+{
+  "status": "SCHEDULED ? LIVE QUEUE VERIFIED",
+  "supersedes": "buffer-first-test-proposal/v1; Ductwork.png expressly NOT APPROVED; no scheduling performed",
+  "batch_id": "buffer-first-test-proposal",
+  "batch_version": "v2",
+  "channel_id": "6abd5811ea19ca0bde3709e4",
+  "platform": "linkedin",
+  "scheduled_at": "2026-10-05T17:00:00-04:00",
+  "timezone": "America/New_York",
+  "caption": "A duct size is a design starting point.\n\nExplore round and rectangular sizing with the free AnyHVAC HVAC Duct Calculator. Check fittings, noise, available space and project requirements before final design.\n\nhttps://www.anyhvac.net/tools/duct-calculator\n\n#HVAC #DuctDesign #MEPEngineering",
+  "destination_url": "https://www.anyhvac.net/tools/duct-calculator",
+  "media_path": "growth/promotions/2026-10-05-linkedin/duct-calculator-linkedin-v2.png",
+  "media_sha256": "ceea97e30f5c731ebd517c51ed8adc7b3f6181c3e929bac10068e8fb6b8c603a",
+  "public_media_url": "https://www.anyhvac.net/social/duct-calculator-linkedin-ceea97e30f5c731e.png",
+  "proposed_public_media_url": "https://www.anyhvac.net/social/duct-calculator-linkedin-ceea97e30f5c731e.png",
+  "proposed_url_http_status": 404,
+  "hosting_checked_at": "2026-10-02T17:42:53.877Z",
+  "approval": {
+    "decision": "APPROVED",
+    "owner": "Cesar",
+    "approved_at": "2026-10-02T18:49:19.842Z",
+    "evidence": "Final owner authorization in this conversation: You are also authorized to schedule exactly one approved LinkedIn post for Monday, October 5, 2026, at 5:00 PM EDT, using the approved graphic and unchanged caption, provided the slot is still available.",
+    "package_sha256": "fbf230ae9ec03445a00c38c98349c657c370b4d44fb7aeebadddb5915009b154"
+  },
+  "approval_sha256": "fbf230ae9ec03445a00c38c98349c657c370b4d44fb7aeebadddb5915009b154",
+  "technical_review": "PASS: promotion contains no numeric engineering claims; final-design caveat retained.",
+  "rights_review": "PASS: CC BY 2.0 photograph with title, author, source, license URL and changes credited in artwork; original brand logo.",
+  "visual_review": "Local 1080x1350 PNG rendered and inspected; owner approval pending.",
+  "execution": "Exactly one Buffer createPost performed; live queue verified. SCHEDULED is not PUBLISHED.",
+  "buffer_post_id": "6abffcdaa82b64098f40fcc6",
+  "provider_checked_at": "2026-10-02T18:50:03.003Z"
+}

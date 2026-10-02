@@ -1,0 +1,38 @@
+{
+  "mode": "APPROVED DRY RUN",
+  "endpoint": "https://api.buffer.com",
+  "package_sha256": "fbf230ae9ec03445a00c38c98349c657c370b4d44fb7aeebadddb5915009b154",
+  "plans": [
+    {
+      "post_id": "buffer-first-test-linkedin-v2",
+      "scheduled_at": "2026-10-05T17:00:00-04:00",
+      "queue_checked_at": "2026-10-02T18:49:20.535Z",
+      "queue_count": 1,
+      "operation": {
+        "query": "mutation ScheduleApprovedPost($input: CreatePostInput!) {\n  createPost(input: $input) {\n    __typename\n    ... on PostActionSuccess { post { id channelId text dueAt status assets { source } } }\n    ... on MutationError { message }\n  }\n}",
+        "variables": {
+          "input": {
+            "channelId": "6abd5811ea19ca0bde3709e4",
+            "text": "A duct size is a design starting point.\n\nExplore round and rectangular sizing with the free AnyHVAC HVAC Duct Calculator. Check fittings, noise, available space and project requirements before final design.\n\nhttps://www.anyhvac.net/tools/duct-calculator\n\n#HVAC #DuctDesign #MEPEngineering",
+            "schedulingType": "automatic",
+            "mode": "customScheduled",
+            "dueAt": "2026-10-05T21:00:00.000Z",
+            "needsApproval": false,
+            "saveToDraft": false,
+            "aiAssisted": true,
+            "assets": [
+              {
+                "image": {
+                  "url": "https://www.anyhvac.net/social/duct-calculator-linkedin-ceea97e30f5c731e.png",
+                  "metadata": {
+                    "altText": "AnyHVAC HVAC Duct Calculator promotion showing real mechanical-room ductwork, with the headline Start your next duct design here and CTA Try the free calculator."
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "track": "Sleepy Cat",
+  "artist": "Alejandro Magaña (A. M.)",
+  "provider": "Mixkit",
+  "catalog_url": "https://mixkit.co/free-stock-music/chillout/",
+  "download_url": "https://assets.mixkit.co/music/135/135.mp3",
+  "license_name": "Mixkit Stock Music Free License",
+  "license_url": "https://mixkit.co/license/modal/musicFree/",
+  "terms_url": "https://mixkit.co/terms/",
+  "attribution_faq_url": "https://mixkit.co/free-stock-music/",
+  "rights": "Free commercial and non-commercial use in promotional web/social videos including YouTube. Editing permitted for synchronized video. Attribution not required.",
+  "restrictions": "No standalone music redistribution, music-only remix, ownership claim or rights-management registration. No TV/radio, video games or CDs/DVDs.",
+  "attribution_required": false,
+  "optional_credit": "Music: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit.",
+  "local_source": "growth/promotions/2026-10-05-platform-tests/audio-revision-v2/sleepy-cat-source.mp3",
+  "source_sha256": "fc15a57f37b711f746e523bc89ee7311e2081cd4b25a6a89db0da33c3c42f64c",
+  "license_evidence": [
+    "mixkit-track-evidence.html",
+    "mixkit-license-evidence.html",
+    "mixkit-music-faq-evidence.html",
+    "mixkit-terms-evidence.html"
+  ],
+  "selection_basis": "Provider labels this existing full-length recording Downtempo, Atmospheric, Bass and Drums. Subjective warmth, arrangement and suitability remain subject to owner listening review.",
+  "edit": "16–31 second excerpt; 0.25 second smooth entry, 2.2 second smooth exit; two-pass loudness normalization; synchronized with unchanged approved visual stream.",
+  "checked_at": "2026-10-02T19:55:14.579Z"
+}

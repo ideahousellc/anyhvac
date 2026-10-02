@@ -44,3 +44,7 @@ next-env.d.ts
 
 # Disposable George Content Factory media (source/config stays trackable)
 /growth/.generated/
+
+# Durable local Buffer scheduling journal and interruption lock (never disposable media)
+/growth/distribution/buffer/records.jsonl
+/growth/distribution/buffer/records.jsonl.lock

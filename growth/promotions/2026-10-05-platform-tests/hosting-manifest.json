@@ -1,0 +1,18 @@
+{
+  "status": "Approved YouTube MP4 deployed and verified; no additional files authorized",
+  "existing_public_assets": [
+    {
+      "path": "public/social/duct-calculator-linkedin-ceea97e30f5c731e.png",
+      "url": "https://www.anyhvac.net/social/duct-calculator-linkedin-ceea97e30f5c731e.png",
+      "sha256": "ceea97e30f5c731ebd517c51ed8adc7b3f6181c3e929bac10068e8fb6b8c603a"
+    },
+    {
+      "path": "public/social/mixed-air-short-86098e26c422d213.mp4",
+      "url": "https://www.anyhvac.net/social/mixed-air-short-86098e26c422d213.mp4",
+      "sha256": "2b1c637250de4b38bd690e64385eeee2a7980a920938eef2dbf4f9c5dd3976e6",
+      "bytes": 787111
+    }
+  ],
+  "new_files_for_later_batch": [],
+  "estimated_new_media_bytes": 0
+}

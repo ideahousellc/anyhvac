@@ -83,7 +83,7 @@ export function Footer() {
                 <SupportLink />
               </li>
               <li>
-                <NewsletterTrigger>
+                <NewsletterTrigger source="footer">
                   Newsletter
                 </NewsletterTrigger>
               </li>

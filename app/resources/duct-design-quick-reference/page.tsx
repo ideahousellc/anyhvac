@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { ContentPage, ContentSection, StatusPanel } from "@/components/ContentPage";
 import { createPageMetadata } from "@/lib/seo";
+import { ResourceGrowthMeasurement } from "@/components/ResourceGrowthMeasurement";
 
 import styles from "../resources.module.css";
 
@@ -32,6 +33,7 @@ export default function DuctDesignQuickReferencePage() {
       title="Duct Design Quick Reference"
       intro="A practical two-page reference for HVAC designers and engineers."
     >
+      <ResourceGrowthMeasurement />
       <div className={styles.downloadPanel}>
         <StatusPanel>
           <div className={styles.downloadMeta}>
@@ -47,7 +49,7 @@ export default function DuctDesignQuickReferencePage() {
             >
               Download Free PDF
             </a>
-            <Link className={styles.secondaryAction} href="/tools/duct-calculator">
+            <Link className={styles.secondaryAction} href="/tools/duct-calculator" data-growth-calculator="duct-reference-top">
               Open Duct Calculator
             </Link>
           </div>
@@ -62,7 +64,7 @@ export default function DuctDesignQuickReferencePage() {
 
       <ContentSection title="Explore the calculator">
         <p>Need an exact duct size instead of a quick reference?</p>
-        <Link className={styles.textLink} href="/tools/duct-calculator">
+        <Link className={styles.textLink} href="/tools/duct-calculator" data-growth-calculator="duct-reference-contextual">
           Open HVAC Duct Calculator <span aria-hidden="true">↗</span>
         </Link>
       </ContentSection>

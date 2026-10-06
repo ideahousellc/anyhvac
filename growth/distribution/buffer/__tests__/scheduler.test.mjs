@@ -52,6 +52,23 @@ describe("controlled Buffer scheduling", () => {
       expect(duplicateReasons(p, [], [{ platform: p.platform, ...item }])).toHaveLength(1);
     }
   });
+  it("reads only injected fixture roots while preserving their publication duplicate checks", () => {
+    const dir = mkdtempSync(resolve(tmpdir(), "anyhvac-buffer-test-")), ledger = resolve(dir, "records.jsonl");
+    try {
+      const post = fixture().posts[0];
+      const record = { platform: post.platform, post_id: post.post_id, scheduled_at: post.scheduled_at };
+      writeFileSync(resolve(dir, "publication-record.json"), JSON.stringify(record));
+      const records = readRecords(ledger, [dir]);
+      expect(records).toEqual([record]);
+      expect(duplicateReasons(post, [], records)).toHaveLength(1);
+    } finally { rmSync(dir, { recursive: true, force: true }); }
+  });
+  it("refuses publication-root overrides outside offline tests", () => {
+    vi.stubEnv("NODE_ENV", "production");
+    try {
+      expect(() => readRecords(undefined, [])).toThrow("restricted to offline tests");
+    } finally { vi.unstubAllEnvs(); }
+  });
   it("reads queue before media and makes no dry-run mutation", async () => {
     const b = fixture(), client = mockClient(b), order = [];
     client.posts.mockImplementation(async () => { order.push("queue"); return []; });
@@ -128,7 +145,7 @@ describe("controlled Buffer scheduling", () => {
     try {
       const b = fixture(), client = mockClient(b), p = b.posts[0];
       client.request.mockResolvedValue({ createPost: { __typename: "PostActionSuccess", post: { id: "mock-draft", channelId: p.channel_id, text: p.caption, dueAt: p.scheduled_at, status: "draft" } } });
-      await expect(scheduleApprovedBatch(b, { authorization: auth(b), client, fetcher: hosted, ledger })).rejects.toThrow("not confirmed");
+      await expect(scheduleApprovedBatch(b, { authorization: auth(b), client, fetcher: hosted, ledger, publicationRoots: [dir] })).rejects.toThrow("not confirmed");
       const rows = readFileSync(ledger, "utf8").trim().split("\n").map(JSON.parse);
       expect(rows.at(-1)).toMatchObject({ publication_status: "RECONCILIATION REQUIRED", buffer_post_id: "mock-draft", provider_status: "draft" });
     } finally { rmSync(dir, { recursive: true, force: true }); }
@@ -141,10 +158,10 @@ describe("controlled Buffer scheduling", () => {
         expect(JSON.parse(readFileSync(ledger, "utf8").trim()).publication_status).toBe("ATTEMPTING");
         return { createPost: { __typename: "PostActionSuccess", post: { id: "mock-provider-id", channelId: p.channel_id, text: p.caption, dueAt: new Date(p.scheduled_at).toISOString(), status: "scheduled" } } };
       });
-      const records = await scheduleApprovedBatch(b, { authorization: auth(b), client, fetcher: hosted, ledger });
+      const records = await scheduleApprovedBatch(b, { authorization: auth(b), client, fetcher: hosted, ledger, publicationRoots: [dir] });
       expect(records[0]).toMatchObject({ buffer_post_id: "mock-provider-id", scheduled_at: p.scheduled_at, publication_status: "SCHEDULED", published_at: null });
       expect(client.posts).toHaveBeenCalledTimes(2);
-      await expect(scheduleApprovedBatch(b, { authorization: auth(b), client, fetcher: hosted, ledger })).rejects.toThrow("duplicate");
+      await expect(scheduleApprovedBatch(b, { authorization: auth(b), client, fetcher: hosted, ledger, publicationRoots: [dir] })).rejects.toThrow("duplicate");
       expect(client.request).toHaveBeenCalledTimes(1); expect(existsSync(`${ledger}.lock`)).toBe(false);
     } finally { rmSync(dir, { recursive: true, force: true }); }
   });
@@ -152,10 +169,10 @@ describe("controlled Buffer scheduling", () => {
     const dir = mkdtempSync(resolve(tmpdir(), "anyhvac-buffer-test-")), ledger = resolve(dir, "records.jsonl");
     try {
       const b = fixture(), client = mockClient(b); client.request.mockRejectedValue(new Error("timeout"));
-      await expect(scheduleApprovedBatch(b, { authorization: auth(b), client, fetcher: hosted, ledger })).rejects.toThrow("Unconfirmed");
-      await expect(scheduleApprovedBatch(b, { authorization: auth(b), client, fetcher: hosted, ledger })).rejects.toThrow("duplicate");
+      await expect(scheduleApprovedBatch(b, { authorization: auth(b), client, fetcher: hosted, ledger, publicationRoots: [dir] })).rejects.toThrow("Unconfirmed");
+      await expect(scheduleApprovedBatch(b, { authorization: auth(b), client, fetcher: hosted, ledger, publicationRoots: [dir] })).rejects.toThrow("duplicate");
       expect(client.request).toHaveBeenCalledTimes(1);
-      writeFileSync(ledger, "broken"); expect(() => readRecords(ledger)).toThrow("ledger unreadable");
+      writeFileSync(ledger, "broken"); expect(() => readRecords(ledger, [dir])).toThrow("ledger unreadable");
     } finally { rmSync(dir, { recursive: true, force: true }); }
   });
 });

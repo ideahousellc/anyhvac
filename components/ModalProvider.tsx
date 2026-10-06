@@ -14,6 +14,7 @@ import { ContactModal } from "@/components/ContactModal";
 import { NewsletterModal } from "@/components/NewsletterModal";
 import { SupportModal } from "@/components/SupportModal";
 import { SupportPrompt } from "@/components/SupportPrompt";
+import { notifyNewsletterOpen, type NewsletterSource } from "@/lib/growth/browser";
 import {
   shouldAutoPromptNewsletter,
   suppressNewsletterAutoPrompt,
@@ -27,7 +28,7 @@ type ModalName = "support" | "support-prompt" | "newsletter" | "contact";
 
 type ModalContextValue = {
   openSupport: () => void;
-  openNewsletter: () => void;
+  openNewsletter: (source?: NewsletterSource) => void;
   openContact: () => void;
 };
 
@@ -36,6 +37,7 @@ const ModalContext = createContext<ModalContextValue | null>(null);
 export function ModalProvider({ children }: { children: ReactNode }) {
   const [activeModal, setActiveModal] = useState<ModalName | null>(null);
   const [newsletterMounted, setNewsletterMounted] = useState(false);
+  const [newsletterSource, setNewsletterSource] = useState<NewsletterSource>("other");
   const activeModalRef = useRef<ModalName | null>(null);
   const supportPromptShownRef = useRef(false);
 
@@ -54,9 +56,11 @@ export function ModalProvider({ children }: { children: ReactNode }) {
       // Explicit signup remains available when storage is unavailable.
     }
   }, []);
-  const openNewsletter = useCallback(() => {
+  const openNewsletter = useCallback((source: NewsletterSource = "other") => {
+    setNewsletterSource(source);
     suppressAutomaticNewsletterPrompt();
     setModal("newsletter");
+    notifyNewsletterOpen(source);
   }, [setModal, suppressAutomaticNewsletterPrompt]);
   const openContact = useCallback(() => setModal("contact"), [setModal]);
 
@@ -95,6 +99,8 @@ export function ModalProvider({ children }: { children: ReactNode }) {
       }
 
       setModal("newsletter");
+      setNewsletterSource("automatic");
+      notifyNewsletterOpen("automatic");
     }, 8000);
 
     return () => window.clearTimeout(timer);
@@ -107,6 +113,7 @@ export function ModalProvider({ children }: { children: ReactNode }) {
       {children}
       {newsletterMounted ? (
         <NewsletterModal
+          source={newsletterSource}
           open={activeModal === "newsletter"}
           onClose={closeModal}
         />

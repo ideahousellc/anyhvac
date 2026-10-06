@@ -2,14 +2,19 @@
 
 import { BeehiivSubscribeEmbed } from "@/components/BeehiivSubscribeEmbed";
 import { Modal } from "@/components/Modal";
+import type { NewsletterSource } from "@/lib/growth/browser";
+import { newsletterFormForSource } from "@/lib/growth/newsletter-source";
 
 export function NewsletterModal({
   open,
   onClose,
+  source = "other",
 }: {
   open: boolean;
   onClose: () => void;
+  source?: NewsletterSource;
 }) {
+  const form = newsletterFormForSource(source, process.env.NEXT_PUBLIC_BEEHIIV_DUCT_REFERENCE_FORM_ID);
   return (
     <Modal
       open={open}
@@ -24,7 +29,7 @@ export function NewsletterModal({
         New calculators, practical HVAC references, and AnyHVAC updates. No
         spam.
       </p>
-      <BeehiivSubscribeEmbed />
+      <BeehiivSubscribeEmbed key={form.formId} formId={form.formId} dedicatedFormConfigured={form.dedicatedFormConfigured} />
     </Modal>
   );
 }

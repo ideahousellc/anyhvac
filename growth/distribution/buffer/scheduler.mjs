@@ -131,7 +131,11 @@ export function duplicateReasons(post, queue, records) {
   }
   return matches;
 }
-export function readRecords(ledger = LEDGER) {
+export function readRecords(ledger = LEDGER, publicationRoots) {
+  // Production defaults retain all real publication records; tests supply only
+  // temporary roots so unrelated owner schedules cannot contaminate fixtures.
+  assert(publicationRoots === undefined || process.env.NODE_ENV === "test", "Publication-root injection is restricted to offline tests.");
+  publicationRoots ??= [resolve(ROOT, "growth/promotions"), resolve(ROOT, "growth/campaigns")];
   const records = [];
   // Import existing manual/provider records; never modify them or invent missing provider IDs.
   function walk(dir) {
@@ -150,7 +154,7 @@ export function readRecords(ledger = LEDGER) {
       }
     }
   }
-  walk(resolve(ROOT, "growth/promotions")); walk(resolve(ROOT, "growth/campaigns"));
+  for (const publicationRoot of publicationRoots) walk(publicationRoot);
   try {
     for (const line of readFileSync(ledger, "utf8").split(/\r?\n/).filter(Boolean)) records.push(JSON.parse(line));
   } catch (error) { if (error.code !== "ENOENT") throw new Error("Scheduling ledger unreadable; reconcile before retry."); }
@@ -195,7 +199,7 @@ export async function prepare(batch, { client, records = readRecords(), fetcher 
 
 // Future owner-authorized use only. No CLI execution switch is provided in this stage.
 // A durable intent is written before the single create call; an ambiguous result blocks retries.
-export async function scheduleApprovedBatch(batch, { authorization, client, fetcher = fetch, ledger = LEDGER } = {}) {
+export async function scheduleApprovedBatch(batch, { authorization, client, fetcher = fetch, ledger = LEDGER, publicationRoots } = {}) {
   const snapshot = structuredClone(batch);
   validatePackage(snapshot);
   assert(authorization?.decision === "AUTHORIZE LIVE SCHEDULING" && authorization.owner === "Cesar" && authorization.package_sha256 === packageDigest(snapshot) && typeof authorization.evidence === "string" && authorization.evidence.trim() && Number.isFinite(Date.parse(authorization.authorized_at)) && Date.parse(authorization.authorized_at) <= Date.now(), "Separate exact live scheduling authorization required.");
@@ -211,12 +215,12 @@ export async function scheduleApprovedBatch(batch, { authorization, client, fetc
   };
   try {
     // All posts must pass before the first external write; recheck each one immediately before creating.
-    await prepare(snapshot, { client, fetcher, records: readRecords(ledger) });
+    await prepare(snapshot, { client, fetcher, records: readRecords(ledger, publicationRoots) });
     for (const post of snapshot.posts) {
       validatePackage(snapshot);
       const single = { ...snapshot, kind: "single-test", posts: [post] };
       // Approval was verified against the full immutable snapshot; subsetting does not create a new approval.
-      const { plans } = await prepare(single, { client, fetcher, requireApproval: false, records: readRecords(ledger) });
+      const { plans } = await prepare(single, { client, fetcher, requireApproval: false, records: readRecords(ledger, publicationRoots) });
       const plan = plans[0];
       assert(Date.now() - Date.parse(plan.queue_checked_at) < 120_000 && Date.parse(post.scheduled_at) > Date.now() + 300_000, "Queue check stale or publication time too close; recheck.");
       const record = {

@@ -3,8 +3,8 @@
 import { useEffect, useRef } from "react";
 
 import styles from "./BeehiivSubscribeEmbed.module.css";
+import { DEFAULT_BEEHIIV_FORM_ID } from "@/lib/growth/newsletter-source";
 
-const BEEHIIV_FORM_ID = "e6094995-c70e-4323-9cb8-69c189648725";
 const BEEHIIV_LOADER_URL = "https://subscribe-forms.beehiiv.com/v3/loader.js";
 
 type BeehiivEmbedController = {
@@ -15,7 +15,7 @@ type BeehiivWindow = Window & {
   __bhv_embeds?: Record<string, BeehiivEmbedController>;
 };
 
-export function BeehiivSubscribeEmbed() {
+export function BeehiivSubscribeEmbed({ formId = DEFAULT_BEEHIIV_FORM_ID, dedicatedFormConfigured = false }: { formId?: string; dedicatedFormConfigured?: boolean } = {}) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -40,22 +40,24 @@ export function BeehiivSubscribeEmbed() {
     const script = document.createElement("script");
     script.async = true;
     script.src = BEEHIIV_LOADER_URL;
-    script.dataset.beehiivForm = BEEHIIV_FORM_ID;
+    script.dataset.beehiivForm = formId;
     container.appendChild(script);
 
     return () => {
       observer.disconnect();
       const beehiivWindow = window as BeehiivWindow;
-      beehiivWindow.__bhv_embeds?.[BEEHIIV_FORM_ID]?.destroy?.();
+      beehiivWindow.__bhv_embeds?.[formId]?.destroy?.();
       script.remove();
+      container.replaceChildren();
     };
-  }, []);
+  }, [formId]);
 
   return (
     <div
       ref={containerRef}
       className={styles.embed}
       aria-label="AnyHVAC newsletter signup form"
+      data-dedicated-form-configured={dedicatedFormConfigured ? "true" : "false"}
     />
   );
 }

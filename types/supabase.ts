@@ -203,7 +203,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      record_resource_growth_event: {
+        Args: { p_view_id: string; p_view_started_at: string; p_event: string; p_placement: string }
+        Returns: boolean
+      }
     }
     Enums: {
       mail_direction: "inbound" | "outbound"

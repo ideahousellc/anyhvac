@@ -14,7 +14,7 @@ export function NewsletterCTA({ compact = false }: { compact?: boolean }) {
           spam.
         </p>
       </div>
-      <NewsletterTrigger>
+      <NewsletterTrigger source="footer">
         Join the AnyHVAC Newsletter
       </NewsletterTrigger>
     </aside>

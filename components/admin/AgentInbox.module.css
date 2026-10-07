@@ -1,0 +1,29 @@
+.inbox { width: min(1240px, 100%); margin: 0 auto; color: #20344a; }
+.header { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 20px; }
+.header a { color: #397086; font-size: .9rem; }
+.header h1 { font-size: 2rem; margin: 8px 0; }
+.intro { color: #52677d; line-height: 1.6; margin-bottom: 24px; }
+.layout { display: grid; grid-template-columns: 290px minmax(0, 1fr); gap: 24px; align-items: start; }
+.team { display: grid; gap: 14px; }
+.agent { text-align: left; width: 100%; padding: 20px; border: 1px solid #d3dee8; border-radius: 14px; background: #fff; color: inherit; cursor: pointer; }
+.agent strong { display: block; font-size: 1.2rem; margin-bottom: 6px; }
+.agent span, .agent small { display: block; color: #52677d; }
+.agent p { font-size: .9rem; line-height: 1.5; }
+.selected { border-color: #4082a0; box-shadow: 0 0 0 2px #4082a020; }
+.conversation { background: white; border: 1px solid #d3dee8; border-radius: 16px; padding: 24px; min-width: 0; }
+.conversation h2 { margin-top: 0; }
+.conversation header p, .hint { color: #60758a; font-size: .85rem; }
+.notice { background: #fff4dc; color: #70500f; padding: 12px; border-radius: 8px; }
+.history { max-height: 580px; overflow-y: auto; padding-right: 8px; margin: 20px 0; }
+.task { margin: 18px 0; }
+.owner, .reply { padding: 14px 16px; border-radius: 10px; margin: 8px 0; background: #f1f6fa; }
+.reply { background: #f6f9f7; }
+.task p { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.55; }
+.task small, .task time { display: block; font-size: .78rem; color: #60758a; margin: 6px 0; }
+.error { color: #a13232; }
+.conversation label { display: block; font-weight: 600; margin-bottom: 8px; }
+.conversation textarea { width: 100%; box-sizing: border-box; border: 1px solid #bbcad7; border-radius: 9px; padding: 12px; font: inherit; color: inherit; resize: vertical; }
+.conversation button { border: 0; border-radius: 8px; background: #285d77; color: white; padding: 11px 16px; cursor: pointer; }
+.conversation button:disabled { opacity: .5; cursor: default; }
+@media (max-width: 760px) { .layout { grid-template-columns: 1fr; } .team { grid-template-columns: 1fr 1fr; } .agent { padding: 14px; } .conversation { padding: 16px; } }
+@media (max-width: 440px) { .team { grid-template-columns: 1fr; } }

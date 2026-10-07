@@ -33,8 +33,10 @@ function formatRate(value: number) {
 
 export function ControlRoomDashboard({
   integrations = DEFAULT_INTEGRATIONS,
+  agentsEnabled = false,
 }: {
   integrations?: ControlRoomIntegrations;
+  agentsEnabled?: boolean;
 }) {
   const emailSnapshot = integrations.resend;
   const newsletterSnapshot = integrations.beehiiv;
@@ -67,6 +69,7 @@ export function ControlRoomDashboard({
           </div>
         </div>
         <div className={styles.headerActions}>
+          {agentsEnabled && <Link className={styles.mailButton} href="/admin/agents">Agents / Team</Link>}
           <Link className={styles.mailButton} href="/admin/email">Email</Link>
           <AdminLogoutButton />
         </div>

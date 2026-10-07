@@ -23,7 +23,7 @@ export default async function AdminLoginPage() {
         expiresAt={sessionMetadata.expiresAt}
         serverNow={sessionMetadata.serverNow}
       >
-        <ControlRoomDashboard integrations={integrations} />
+        <ControlRoomDashboard integrations={integrations} agentsEnabled={process.env.AGENT_INBOX_ENABLED === "true"} />
       </AdminSessionGuard>
     );
   }

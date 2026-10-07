@@ -1,0 +1,190 @@
+[
+  {
+    "id": "carousel-supply-outdoor",
+    "title": "Supply air is not outdoor air",
+    "destination": "https://www.anyhvac.net/tools/air-distribution",
+    "purpose": "Build trust around room-air-change inputs and send appropriate design questions to the existing Air Distribution Tools.",
+    "primaryMetric": "Instagram saves per reached account from native Insights; report absolute saves and reach too. LinkedIn engagement and destination referrals are secondary, where available.",
+    "photo": "rooftop-tokyo",
+    "source": [
+      "app/resources/airflow-static-pressure-measurement/page.tsx",
+      "components/air-distribution/AirDistributionTools.tsx:293",
+      "https://www.epa.gov/iaq-schools/reference-guide-indoor-air-quality-schools"
+    ],
+    "technicalBoundary": "Illustrative inputs, not a prescribed ventilation rate or measured building. Outdoor and supply example flows use the same reference basis. Nominal ACH does not establish outdoor-air delivery, mixing effectiveness or code compliance. Diagram is a simplified mixing concept, not a specific unit layout.",
+    "linkedin": "Supply airflow and outdoor airflow answer different questions.\n\nA room receiving 500 CFM in 5,000 ft³ has a nominal supply-air rate of 6 ACH. If only 100 CFM of that flow is verified outdoor air on the same reference basis, its nominal outdoor-air rate is 1.2 ACH.\n\nThese are illustrative calculations, not ventilation recommendations. ACH alone does not establish outdoor-air delivery, mixing effectiveness or code compliance.\n\nSwipe through the six-slide check, then use the free Air Distribution Tools for the arithmetic:\nhttps://www.anyhvac.net/tools/air-distribution\n\nSave it for your next airflow review.\n\nPhoto: Marek Ślusarczyk (Tupungato), Wikimedia Commons, CC BY 3.0. Cropped; original explanatory graphics added.\nhttps://commons.wikimedia.org/wiki/File:012_Rooftop_HVAC_systems_and_roof_ventilation_ducts_in_Tokyo,_Japan.jpg\nhttps://creativecommons.org/licenses/by/3.0/\n\n#HVAC #Ventilation #AirDistribution #MEPEngineering",
+    "instagram": "Supply air ≠ outdoor air.\n\nSwipe for the distinction that belongs beside every ACH calculation. Our illustrated room-flow example gives 6 nominal supply ACH, but only 1.2 nominal outdoor ACH when verified outdoor flow is 100 CFM on the same basis.\n\nExample only—not a required ventilation rate. ACH alone does not prove compliance or mixing effectiveness.\n\nVisit anyhvac.net → Tools → Air Distribution Tools. Save this check for your next design review.\n\nPhoto: Marek Ślusarczyk (Tupungato), Wikimedia Commons, CC BY 3.0. Cropped; explanatory graphics added. Source: Wikimedia Commons file “012 Rooftop HVAC systems and roof ventilation ducts in Tokyo, Japan.jpg”; license: https://creativecommons.org/licenses/by/3.0/\n\n#HVAC #Ventilation #AirDistribution #HVACDesign #MEPEngineering",
+    "slides": [
+      {
+        "headline": [
+          "SUPPLY AIR",
+          "ISN’T OUTDOOR AIR."
+        ],
+        "body": [
+          "A room-flow reading doesn’t tell you",
+          "the outdoor-air share."
+        ],
+        "visual": "photo",
+        "alt": "Real rooftop ventilation ducts with the headline Supply air isn't outdoor air; equipment is illustrative, not a measured flow diagram."
+      },
+      {
+        "headline": [
+          "TWO SOURCES.",
+          "ONE SUPPLY STREAM."
+        ],
+        "body": [
+          "Many air handlers mix outdoor air",
+          "with recirculated return air."
+        ],
+        "visual": "mix",
+        "alt": "Simplified conceptual diagram: outdoor air and recirculated return air combine into a supply stream; configurations vary."
+      },
+      {
+        "headline": [
+          "FIRST, NAME",
+          "THE FLOW BASIS."
+        ],
+        "body": [
+          "500 CFM supply • 5,000 ft³ room",
+          "500 × 60 ÷ 5,000 = 6 nominal ACH"
+        ],
+        "visual": "ach",
+        "alt": "Illustrative nominal supply ACH calculation: 500 CFM times 60 divided by 5,000 cubic feet equals 6 ACH; not a prescribed rate."
+      },
+      {
+        "headline": [
+          "6 SUPPLY ACH ≠",
+          "6 OUTDOOR ACH."
+        ],
+        "body": [
+          "If verified outdoor flow is 100 CFM:",
+          "100 × 60 ÷ 5,000 = 1.2 outdoor ACH"
+        ],
+        "visual": "split",
+        "alt": "Illustrative same-reference-basis supply flow of 500 CFM includes 100 CFM outdoor and 400 CFM recirculated; nominal outdoor ACH is 1.2."
+      },
+      {
+        "headline": [
+          "MEASURE THE",
+          "QUESTION YOU NEED."
+        ],
+        "body": [
+          "Room flow → circulation check",
+          "Verified outdoor flow → outdoor rate",
+          "Compliance → governing requirements"
+        ],
+        "visual": "check",
+        "alt": "Three checks distinguish room circulation, verified outdoor airflow and governing ventilation requirements; ACH is not compliance evidence."
+      },
+      {
+        "headline": [
+          "CHECK THE MATH.",
+          "KEEP THE CONTEXT."
+        ],
+        "body": [
+          "Free Air Distribution Tools",
+          "anyhvac.net → Tools → Air Distribution",
+          "ACH alone does not prove compliance."
+        ],
+        "visual": "cta",
+        "alt": "AnyHVAC Air Distribution Tools invitation with the reminder that nominal ACH alone does not establish code compliance."
+      }
+    ]
+  },
+  {
+    "id": "carousel-dewpoint-wetbulb",
+    "title": "Dew point and wet bulb answer different questions",
+    "destination": "https://www.anyhvac.net/tools/psychrometric-calculator",
+    "purpose": "Teach a practical air-property distinction, demonstrate engineering care and lead qualified users to the existing psychrometric calculator.",
+    "primaryMetric": "Instagram saves per reached account from native Insights; report absolute saves and reach. LinkedIn engagement and qualified psychrometric page referrals are secondary where available.",
+    "photo": "sling-psychrometer",
+    "source": [
+      "components/psychrometrics/PsychrometricGuide.tsx",
+      "app/tools/psychrometric-calculator/page.tsx",
+      "https://forecast.weather.gov/glossary.php?word=dew+point",
+      "https://www.weather.gov/source/zhu/ZHU_Training_Page/definitions/dry_wet_bulb_definition/dry_wet_bulb.html",
+      "https://handbook.ashrae.org/Handbooks/F25/IP/F25_Ch01/F25_Ch01_ip.aspx"
+    ],
+    "technicalBoundary": "Conceptual explanations, not a field measurement procedure or measured air state. Condensation depends on surface conditions; no diagnostic conclusion follows from an illustrative pipe. The normal unsaturated-state ordering is dew point ≤ wet bulb ≤ dry bulb; values coincide at saturation. Use the correct input mode and project pressure.",
+    "linkedin": "Dew point and wet bulb are related, but they are not interchangeable inputs.\n\nDew point describes the saturation temperature reached by cooling without changing moisture content at fixed pressure. Wet bulb describes evaporative cooling and depends on temperature, moisture and pressure.\n\nFor normal unsaturated conditions: dew point ≤ wet bulb ≤ dry bulb. At saturation, the three coincide.\n\nThe six-slide explainer shows which question each property answers. In the free AnyHVAC Psychrometric Calculator, choose the matching moisture-input mode and set project elevation or atmospheric pressure.\nhttps://www.anyhvac.net/tools/psychrometric-calculator\n\nSave it for your next air-state check. Follow AnyHVAC for practical HVAC explanations.\n\nInstrument photo: CambridgeBayWeather, Wikimedia Commons, public-domain release. Cropped; conceptual graphics added.\n\n#HVAC #Psychrometrics #Humidity #MEPEngineering",
+    "instagram": "Dew point. Wet bulb. Different questions.\n\nSwipe to separate condensation context from evaporative-cooling context, then choose the correct calculator input. For normal unsaturated air: dew point ≤ wet bulb ≤ dry bulb; at saturation they coincide.\n\nConcepts only—not a measurement procedure or an equipment diagnosis. Set project pressure or elevation.\n\nVisit anyhvac.net → Tools → Air Properties → Psychrometric Calculator. Save this explainer and follow @AnyHVAC for practical HVAC checks.\n\nInstrument photo: CambridgeBayWeather, Wikimedia Commons, public domain. Cropped; conceptual graphics added.\n\n#HVAC #Psychrometrics #Humidity #HVACTools #MEPEngineering",
+    "slides": [
+      {
+        "headline": [
+          "DEW POINT.",
+          "WET BULB.",
+          "DIFFERENT QUESTIONS."
+        ],
+        "body": [
+          "Related air properties.",
+          "Not interchangeable inputs."
+        ],
+        "visual": "photo",
+        "alt": "Real sling psychrometer photograph introduces dew point and wet bulb as related properties answering different questions."
+      },
+      {
+        "headline": [
+          "DEW POINT:",
+          "SATURATION BY COOLING."
+        ],
+        "body": [
+          "Cool at fixed pressure without",
+          "changing moisture content."
+        ],
+        "visual": "dew",
+        "alt": "Conceptual cool surface and droplet diagram explaining dew point as saturation by cooling at fixed pressure and moisture content; not a diagnosis."
+      },
+      {
+        "headline": [
+          "WET BULB:",
+          "EVAPORATIVE COOLING."
+        ],
+        "body": [
+          "Depends on air temperature,",
+          "moisture and pressure."
+        ],
+        "visual": "wet",
+        "alt": "Real sling psychrometer photograph illustrates the instrument context for wet-bulb evaporative cooling; no field measurement procedure is prescribed."
+      },
+      {
+        "headline": [
+          "SAME STATE.",
+          "THREE TEMPERATURES."
+        ],
+        "body": [
+          "Normal unsaturated conditions:",
+          "dew point ≤ wet bulb ≤ dry bulb",
+          "At saturation, all three coincide."
+        ],
+        "visual": "order",
+        "alt": "Conceptual ordering of dew point, wet bulb and dry bulb for normal unsaturated air, with equality at saturation; no numerical state values."
+      },
+      {
+        "headline": [
+          "DON’T SWAP",
+          "THE INPUT MODES."
+        ],
+        "body": [
+          "Dry bulb + RH, wet bulb or dew point",
+          "Choose the matching moisture input.",
+          "Set project pressure or elevation."
+        ],
+        "visual": "modes",
+        "alt": "Original graphic lists the calculator's supported moisture inputs and reminds users to match the mode and set project pressure or elevation."
+      },
+      {
+        "headline": [
+          "COMPARE THE",
+          "COMPLETE AIR STATE."
+        ],
+        "body": [
+          "Free Psychrometric Calculator",
+          "anyhvac.net → Tools → Air Properties",
+          "Verify the inputs before design use."
+        ],
+        "visual": "cta",
+        "alt": "AnyHVAC Psychrometric Calculator invitation to compare air properties using supported inputs and project pressure; no measured result is shown."
+      }
+    ]
+  }
+]

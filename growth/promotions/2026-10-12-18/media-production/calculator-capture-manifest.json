@@ -1,0 +1,102 @@
+{
+  "status": "LOCAL ILLUSTRATIVE DERIVED CALCULATOR OUTPUTS",
+  "capture_date": "2026-10-06",
+  "route": "http://localhost:3108/tools/duct-calculator",
+  "external_requests_blocked": true,
+  "outputs": [
+    {
+      "illustrative": true,
+      "input_basis": "Existing local UI with 0.08 in.w.g./100 ft design friction rate. Not a recommended universal rate or measured system.",
+      "airflow_cfm": 3000,
+      "values": {
+        "cfmInput": "3000",
+        "frictionInput": "0.08",
+        "exactDiameter": "22.0 in",
+        "nominalDiameter": "24 in",
+        "exactVelocity": "1,134 FPM",
+        "nominalVelocity": "955 FPM",
+        "nominalFriction": "0.052 in.w.g./100 ft",
+        "roundArea": "2.65 ft²"
+      },
+      "captures": [
+        {
+          "path": "C:\\Projects\\anyhvac\\growth\\.generated\\weekly\\2026-10-12-18\\inputs\\calculator-3000-inputs.png",
+          "clip": {
+            "x": 931.4375,
+            "y": 429.53125,
+            "width": 388.0625,
+            "height": 286.6875,
+            "scale": 1
+          }
+        },
+        {
+          "path": "C:\\Projects\\anyhvac\\growth\\.generated\\weekly\\2026-10-12-18\\inputs\\calculator-3000-results.png",
+          "clip": {
+            "x": 938.9375,
+            "y": 977.84375,
+            "width": 388.0625,
+            "height": 247.484375,
+            "scale": 1
+          }
+        },
+        {
+          "path": "C:\\Projects\\anyhvac\\growth\\.generated\\weekly\\2026-10-12-18\\inputs\\calculator-3000-wheel.png",
+          "clip": {
+            "x": 125,
+            "y": 437.53125,
+            "width": 781.9375,
+            "height": 740.78125,
+            "scale": 1
+          }
+        }
+      ]
+    },
+    {
+      "illustrative": true,
+      "input_basis": "Existing local UI with 0.08 in.w.g./100 ft design friction rate. Not a recommended universal rate or measured system.",
+      "airflow_cfm": 5000,
+      "values": {
+        "cfmInput": "5000",
+        "frictionInput": "0.08",
+        "exactDiameter": "26.7 in",
+        "nominalDiameter": "28 in",
+        "exactVelocity": "1,284 FPM",
+        "nominalVelocity": "1,169 FPM",
+        "nominalFriction": "0.063 in.w.g./100 ft",
+        "roundArea": "3.89 ft²"
+      },
+      "captures": [
+        {
+          "path": "C:\\Projects\\anyhvac\\growth\\.generated\\weekly\\2026-10-12-18\\inputs\\calculator-5000-inputs.png",
+          "clip": {
+            "x": 931.4375,
+            "y": 429.53125,
+            "width": 388.0625,
+            "height": 286.6875,
+            "scale": 1
+          }
+        },
+        {
+          "path": "C:\\Projects\\anyhvac\\growth\\.generated\\weekly\\2026-10-12-18\\inputs\\calculator-5000-results.png",
+          "clip": {
+            "x": 938.9375,
+            "y": 977.84375,
+            "width": 388.0625,
+            "height": 247.484375,
+            "scale": 1
+          }
+        },
+        {
+          "path": "C:\\Projects\\anyhvac\\growth\\.generated\\weekly\\2026-10-12-18\\inputs\\calculator-5000-wheel.png",
+          "clip": {
+            "x": 125,
+            "y": 437.53125,
+            "width": 781.9375,
+            "height": 740.78125,
+            "scale": 1
+          }
+        }
+      ]
+    }
+  ]
+}

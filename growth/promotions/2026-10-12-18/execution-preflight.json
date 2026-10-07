@@ -1,0 +1,30 @@
+{
+  "checkedAt": "2026-10-07T13:47:05.433Z",
+  "mode": "hosted",
+  "result": [
+    {
+      "platform": "linkedin",
+      "queued": 0,
+      "approvedToAdd": 5,
+      "after": 5,
+      "limit": 10
+    },
+    {
+      "platform": "instagram",
+      "queued": 0,
+      "approvedToAdd": 5,
+      "after": 5,
+      "limit": 10
+    },
+    {
+      "platform": "youtube",
+      "queued": 1,
+      "approvedToAdd": 3,
+      "after": 4,
+      "limit": 10
+    }
+  ],
+  "duplicates": "PASS",
+  "slots": "PASS",
+  "hostedVerified": true
+}

@@ -6,7 +6,7 @@ import { AdminLogoutButton } from "./AdminLogoutButton";
 import type { InboxSnapshot } from "@/lib/agents/types";
 import styles from "./AgentInbox.module.css";
 
-export function AgentInbox() {
+export function AgentInbox({ weeklyEnabled = false }: { weeklyEnabled?: boolean }) {
   const router = useRouter();
   const [snapshot, setSnapshot] = useState<InboxSnapshot | null>(null);
   const [selected, setSelected] = useState("anyhvac.george");
@@ -58,6 +58,7 @@ export function AgentInbox() {
   return <div className={styles.inbox}>
     <header className={styles.header}><div><Link href="/admin">AnyHVAC · Control Room</Link><h1>Agent Inbox</h1></div><AdminLogoutButton /></header>
     <p className={styles.intro}>Talk with your team. Agents can discuss their responsibilities and read curated repository context. Production actions are unavailable.</p>
+    {weeklyEnabled && selected === "anyhvac.george" && <Link href="/admin/agents/george/weekly">Weekly Content · private review</Link>}
     {error && <p role="alert" className={styles.error}>{error}</p>}
     <div className={styles.layout}>
       <nav className={styles.team} aria-label="Select an agent">{snapshot?.agents.map(a => {

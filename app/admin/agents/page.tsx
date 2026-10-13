@@ -5,10 +5,11 @@ import { AdminSessionGuard } from "@/components/admin/AdminSessionGuard";
 import { AgentInbox } from "@/components/admin/AgentInbox";
 import { ADMIN_SESSION_COOKIE, getAdminSessionMetadata } from "@/lib/admin/session";
 import { inboxEnabled } from "@/lib/agents/storage";
+import { enabled as weeklyEnabled } from "@/lib/weekly/storage";
 export default async function AgentsPage() {
   const session = getAdminSessionMetadata((await cookies()).get(ADMIN_SESSION_COOKIE)?.value);
   if (!session) redirect("/admin");
   return <AdminSessionGuard expiresAt={session.expiresAt} serverNow={session.serverNow}>
-    {inboxEnabled() ? <AgentInbox /> : <section><h1>Agent Inbox</h1><p>The inbox is not enabled.</p><Link href="/admin">Control Room</Link></section>}
+    {inboxEnabled() ? <AgentInbox weeklyEnabled={weeklyEnabled()} /> : <section><h1>Agent Inbox</h1><p>The inbox is not enabled.</p><Link href="/admin">Control Room</Link></section>}
   </AdminSessionGuard>;
 }

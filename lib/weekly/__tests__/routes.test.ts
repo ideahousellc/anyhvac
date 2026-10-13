@@ -2,12 +2,12 @@ import { afterEach, expect, it, vi } from "vitest";
 import { NextRequest } from "next/server";
 import { randomUUID } from "node:crypto";
 vi.mock("server-only", () => ({}));
-const mock = vi.hoisted(() => ({ mutate: vi.fn(), read: vi.fn(), bytes: vi.fn(), ingest: vi.fn() }));
-vi.mock("../storage", () => ({ enabled: () => process.env.WEEKLY_CONTENT_ENABLED === "true", readState: mock.read, mutate: mock.mutate, mediaBytes: mock.bytes }));
+const mock = vi.hoisted(() => ({ mutate: vi.fn(), read: vi.fn(), bytes: vi.fn(), ingest: vi.fn(), status: vi.fn() }));
+vi.mock("../storage", () => ({ enabled: () => process.env.WEEKLY_CONTENT_ENABLED === "true", readState: mock.read, mutate: mock.mutate, mediaBytes: mock.bytes, importStatus: mock.status }));
 vi.mock("../ingest", () => ({ importHistoricalFixture: mock.ingest }));
 import { GET, POST } from "@/app/api/admin/weekly/route";
 import { GET as media } from "@/app/api/admin/weekly/media/[id]/route";
-import { POST as ingest } from "@/app/api/admin/weekly/import/route";
+import { POST as ingest, GET as importStatus } from "@/app/api/admin/weekly/import/route";
 import { createAdminSession } from "@/lib/admin/session";
 const secret = "test-owner-secret-at-least-32-characters";
 function request(body?: object, owner = true, origin = "http://localhost") {
@@ -27,6 +27,11 @@ it("requires owner authentication, dedicated import enablement and same-origin f
   expect((await ingest(request({ content: {}, ownerId: "spoof" }))).status).toBe(400);
   expect(mock.ingest).not.toHaveBeenCalled();
   mock.ingest.mockResolvedValue({ versions: [], actions: [] }); const r = await ingest(request({ content: {} })); expect(r.status).toBe(200); expect((await r.json()).executionEnabled).toBe(false);
+});
+it("protects import status and hides it when temporary import is disabled", async () => {
+  expect((await importStatus(request(undefined, false))).status).toBe(401); expect((await importStatus(request())).status).toBe(503);
+  vi.stubEnv("WEEKLY_CONTENT_STORAGE", "supabase"); vi.stubEnv("WEEKLY_CONTENT_IMPORT_ENABLED", "true"); mock.status.mockResolvedValue({ alreadyImported: true, counts: { packages: 5, posts: 13, media: 20 } });
+  const r = await importStatus(request()); expect(r.status).toBe(200); expect((await r.json()).counts).toEqual({ packages: 5, posts: 13, media: 20 }); expect(r.headers.get("cache-control")).toContain("no-store");
 });
 it("serves private video ranges and rejects traversal, missing media and invalid ranges", async () => {
   const id = "a".repeat(64); mock.read.mockResolvedValue({ versions: [{ content: { media: [{ id, type: "video/mp4" }] } }] }); mock.bytes.mockResolvedValue(Buffer.from("0123456789"));

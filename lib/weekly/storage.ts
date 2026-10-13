@@ -13,6 +13,7 @@ function hosted() {
   if (!/^anyhvac-week-[0-9-]+$/.test(batch)) throw new ReviewError("Invalid configured batch.", 503);
   return new HostedReviewStore(ownerId(), batch);
 }
+export async function importStatus() { const store = hosted(); if (!await store.exists()) return { alreadyImported: false }; const content = current((await store.read()).state).content; return { alreadyImported: true, counts: { packages: content.packages.length, posts: content.posts.length, media: content.media.length } }; }
 export function directory() {
   if (!enabled() || process.env.NODE_ENV === "production") throw new ReviewError("Local review storage is not permitted in production.", 503);
   const owner = ownerId();

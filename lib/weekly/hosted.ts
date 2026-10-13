@@ -20,6 +20,11 @@ export class HostedReviewStore {
     if (state.versions.some(v => v.content.batchId !== this.batch || v.content.agentId !== "anyhvac.george")) throw new ReviewError("Review identity mismatch.", 503);
     return { revision: data.revision, state };
   }
+  async exists() {
+    const { data, error } = await this.client.from("weekly_content_reviews").select("revision,payload").eq("owner_id", this.owner).eq("batch_id", this.batch).maybeSingle();
+    if (error) throw new ReviewError("Import status unavailable. Do not retry the import.", 503);
+    return data !== null;
+  }
   async compareSwap(revision: number, state: ReviewState) {
     const { data, error } = await this.client.rpc("weekly_content_compare_swap", { p_owner: this.owner, p_batch: this.batch, p_revision: revision, p_payload: state });
     if (error) throw new ReviewError("Hosted save unconfirmed. Retry only the same request ID after checking history.", 503);

@@ -4,12 +4,13 @@ import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { ReviewState } from "@/lib/weekly/types";
 import styles from "./WeeklyReview.module.css";
-export function WeeklyReview() {
+import { WeeklyFixtureImport } from "./WeeklyFixtureImport";
+export function WeeklyReview({ importEnabled = false }: { importEnabled?: boolean }) {
   const [state, setState] = useState<ReviewState | null>(null), [versionNumber, setVersionNumber] = useState<number | null>(null);
   const [error, setError] = useState(""), [busy, setBusy] = useState(false), [target, setTarget] = useState(""), [text, setText] = useState(""), [caption, setCaption] = useState(""), [confirm, setConfirm] = useState(false);
   const pending = useRef<{ value: Record<string, unknown>; requestId: string } | null>(null);
   const [needsRetry, setNeedsRetry] = useState(false);
-  const load = useCallback(async () => { try { const r = await fetch("/api/admin/weekly", { cache: "no-store" }); if (!r.ok) throw Error("Review unavailable. Sign in again if your session expired."); const data = await r.json(); setState(data.state); } catch (e) { setError(String(e)); } }, []);
+  const load = useCallback(async () => { try { const r = await fetch("/api/admin/weekly", { cache: "no-store" }); if (!r.ok) { if (importEnabled && r.status === 503) { const check = await fetch("/api/admin/weekly/import", { cache: "no-store" }); if (check.ok && (await check.json()).alreadyImported === false) { setError(""); return; } } throw Error("Review unavailable. Sign in again if your session expired."); } const data = await r.json(); setState(data.state); } catch (e) { setError(String(e)); } }, [importEnabled]);
   useEffect(() => { const timer = setTimeout(() => { void load(); try { const saved = JSON.parse(sessionStorage.getItem("anyhvac.weekly.pending") ?? "null"); if (saved?.value && typeof saved.requestId === "string") { pending.current = saved; setNeedsRetry(true); } } catch { sessionStorage.removeItem("anyhvac.weekly.pending"); } }, 0); return () => clearTimeout(timer); }, [load]);
   const version = state?.versions.find(v => v.number === versionNumber) ?? state?.versions.at(-1);
   const current = version?.number === state?.versions.at(-1)?.number;
@@ -26,8 +27,9 @@ export function WeeklyReview() {
     <Link href="/admin/agents">George · Agent Inbox</Link><h1>Weekly Content</h1>
     <p className={styles.notice}>Private owner review · anyhvac.george · Historical October 12–17 fixture. Execution is disabled. Review approval never authorizes scheduling or publishing.</p>
     {error && <p role="alert" className={styles.error}>{error}</p>}
+    {importEnabled && <WeeklyFixtureImport onImported={saved => { setError(""); if (saved) setState(saved); else void load(); }} />}
     {needsRetry && <p className={styles.notice}>An earlier save is unconfirmed. <button disabled={busy} onClick={() => void send("", true)}>Retry the same save safely</button></p>}
-    {!version ? <p>Loading the completed batch…</p> : <>
+    {!version ? <p>{importEnabled ? "No batch loaded yet. Use the temporary import above." : "Loading the completed batch…"}</p> : <>
       <div className={styles.toolbar}><h2>{version.content.theme}</h2><label>Version <select value={version.number} onChange={e => { setVersionNumber(Number(e.target.value)); setConfirm(false); }}>{state?.versions.map(v => <option key={v.number} value={v.number}>v{v.number}</option>)}</select></label><strong>{approved ? "Approved for review only" : "Awaiting review"}</strong></div>
       <p>5 packages · 13 adaptations · America/New_York · Allow 20–30 minutes. Play all three videos with sound.</p><p className={styles.digest}>v{version.number} · {version.digest}</p>
       {version.content.packages.map(pkg => <article key={pkg.id} className={styles.card}>

@@ -29,6 +29,8 @@ async function state() { const r = await GET(request()); expect(r.status).toBe(2
 async function action(kind: string, extra: object = {}, requestId = randomUUID()) { const s = await state(), v = s.versions.at(-1)!; return POST(request({ action: kind, version: v.number, digest: v.digest, requestId, ...extra })); }
 beforeAll(async () => {
   if (!binary) return;
+  // Fail before the HTTP adapter can mask an unavailable isolated database as 503.
+  await query("select 1;");
   const directories = await readdir(".local/agent-inbox/weekly");
   content = JSON.parse(await readFile(".local/agent-inbox/weekly/" + directories[0] + "/state.json", "utf8")).versions[0].content;
   const username = "weekly-isolated-owner-" + randomUUID(); owner = createHash("sha256").update("anyhvac-agent-owner:" + username).digest("hex");
@@ -67,6 +69,7 @@ afterAll(async () => { if (server) await new Promise<void>((resolve, reject) => 
 it.skipIf(!binary)("persists owner-only immutable reviews and protected media through Supabase SDK into isolated PostgreSQL", async () => {
   expect((await ingest(request({ content }, false))).status).toBe(401);
   expect((await ingest(request({ content }, true, "https://evil.test"))).status).toBe(403);
+  const changed = structuredClone(content); changed.posts[0].caption += "Changed"; expect((await ingest(request({ content: changed }))).status).toBe(422); expect(objects.size).toBe(0);
   expect((await ingest(request({ content }))).status).toBe(200);
   expect((await ingest(request({ content }))).status).toBe(409); // existing version never replaced
   const first = await state(); expect(first.versions[0].content).toEqual(content); expect(first.actions).toEqual([]);

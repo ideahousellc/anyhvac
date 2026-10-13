@@ -10,5 +10,6 @@
 .review details { border-top: 1px solid #e4ebf1; padding: 14px 0; }.review summary { cursor: pointer; font-weight: 600; }
 .review label { display: block; margin: 12px 0; }.review textarea { display: block; width: 100%; box-sizing: border-box; padding: 12px; border: 1px solid #bbcad7; border-radius: 9px; font: inherit; }.review select { max-width: 100%; padding: 8px; margin: 8px; }
 .review button { padding: 12px 18px; border: 0; border-radius: 8px; background: #397086; color: white; cursor: pointer; }.review button:disabled { opacity: .5; cursor: default; }
+.review input[type=file] { display: block; max-width: 100%; margin-top: 8px; padding: 8px 0; }.review button + button { margin-left: 8px; }
 .scroll { overflow-x: auto; }.review table { border-collapse: collapse; width: 100%; }.review td,.review th { padding: 12px; text-align: left; border-bottom: 1px solid #e4ebf1; }.review pre { white-space: pre-wrap; }.error { color: #a13232; }
 @media(max-width:600px) { .review { padding: 12px; }.card { padding: 16px; }.media figure { flex-basis: 230px; }.media img,.media video { width: 230px; } }

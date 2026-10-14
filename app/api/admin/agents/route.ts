@@ -4,7 +4,7 @@ import { ADMIN_SESSION_COOKIE, verifyAdminSession } from "@/lib/admin/session";
 import { isSameOrigin } from "@/lib/admin/request-security";
 import { AGENTS, findAgent } from "@/lib/agents/registry";
 import { body, failure, response, UUID } from "@/lib/agents/http";
-import { enqueue, expire, InboxError, online, resolve } from "@/lib/agents/state";
+import { disposePending, enqueue, expire, InboxError, online, resolve } from "@/lib/agents/state";
 import { inboxEnabled, transaction } from "@/lib/agents/storage";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -17,7 +17,7 @@ export async function GET(request: NextRequest) {
   try {
     return response(await transaction(state => {
       expire(state, Date.now());
-      return { agents: AGENTS, runnerOnline: online(state, Date.now()), tasks: state.tasks.map(({ runnerId: _r, leaseId: _l, leaseUntil: _u, ...task }) => { void _r; void _l; void _u; return task; }) };
+      return { agents: AGENTS, runnerOnline: online(state, Date.now()), runnerLastSeen: state.runner?.seenAt, serverNow: Date.now(), tasks: state.tasks.map(({ runnerId: _r, leaseId: _l, leaseUntil: _u, ...task }) => { void _r; void _l; void _u; return task; }) };
     }));
   } catch (error) { return failure(error); }
 }
@@ -39,9 +39,16 @@ export async function PATCH(request: NextRequest) {
   const denied = guard(request); if (denied) return denied;
   if (!isSameOrigin(request)) return response({ error: "Request not allowed." }, 403);
   try {
-    const value = await body(request, ["taskId"], 1000);
+    const value = await body(request, ["taskId", "action", "requestId", "reason", "replacementTaskId"], 2000);
     if (typeof value.taskId !== "string" || !UUID.test(value.taskId)) throw new InboxError("Invalid task.", 400);
-    await transaction(state => resolve(state, value.taskId as string));
+    if (value.action === "cancel" || value.action === "supersede") {
+      if (typeof value.requestId !== "string" || !UUID.test(value.requestId) || typeof value.reason !== "string" || !value.reason.trim() || value.reason.length > 500 || (value.action === "supersede" ? typeof value.replacementTaskId !== "string" || !UUID.test(value.replacementTaskId) : value.replacementTaskId !== undefined)) throw new InboxError("Provide an action request ID, reason and valid replacement for supersession.", 400);
+      const disposition = { action: value.action as "cancel" | "supersede", requestId: value.requestId, reason: value.reason.trim(), replacementTaskId: value.replacementTaskId as string | undefined, actor: "owner" as const, at: Date.now() };
+      await transaction(state => disposePending(state, value.taskId as string, disposition));
+    } else {
+      if (value.action !== undefined || value.requestId !== undefined || value.reason !== undefined || value.replacementTaskId !== undefined) throw new InboxError("Invalid close action.", 400);
+      await transaction(state => resolve(state, value.taskId as string));
+    }
     return response({ closed: true });
   } catch (error) { return failure(error); }
 }

@@ -1,5 +1,6 @@
 export function executionArgs(workspace, threadId) {
-  const args = ['--ask-for-approval','never','exec','--ignore-user-config','--strict-config','--json'];
+  // Curated conversation workspaces are deliberately empty; no repository tools.
+  const args = ['--ask-for-approval','never','exec','--ignore-user-config','--strict-config','--skip-git-repo-check','--json'];
   for (const feature of ['shell_tool','unified_exec','apps','plugins','hooks','browser_use','computer_use','image_generation','code_mode_host','multi_agent','skill_mcp_dependency_install','view_image']) args.push('--disable',feature);
   args.push('-c','web_search="disabled"','-c','shell_environment_policy.inherit="none"');
   if (threadId) args.push('-c','sandbox_mode="read-only"','resume',threadId,'-');

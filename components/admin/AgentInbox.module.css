@@ -21,6 +21,8 @@
 .task p { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.55; }
 .task small, .task time { display: block; font-size: .78rem; color: #60758a; margin: 6px 0; }
 .error { color: #a13232; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.conversation select { width: 100%; padding: 10px; margin-bottom: 12px; }
 .conversation label { display: block; font-weight: 600; margin-bottom: 8px; }
 .conversation textarea { width: 100%; box-sizing: border-box; border: 1px solid #bbcad7; border-radius: 9px; padding: 12px; font: inherit; color: inherit; resize: vertical; }
 .conversation button { border: 0; border-radius: 8px; background: #285d77; color: white; padding: 11px 16px; cursor: pointer; }

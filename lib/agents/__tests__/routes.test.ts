@@ -4,7 +4,7 @@ import { randomUUID } from "node:crypto";
 import { EMPTY_STATE } from "../types";
 vi.mock("server-only", () => ({}));
 const local = vi.hoisted(() => ({ state: { tasks: [] } as import("../types").InboxState }));
-vi.mock("../storage", () => ({ inboxEnabled: () => process.env.AGENT_INBOX_ENABLED === "true", transaction: async (change: (state: import("../types").InboxState) => unknown) => change(local.state) }));
+vi.mock("../storage", () => ({ inboxEnabled: () => process.env.AGENT_INBOX_ENABLED === "true", getStore: () => ({ read: async () => ({ payload: local.state }) }), transaction: async (change: (state: import("../types").InboxState) => unknown) => change(local.state) }));
 import { GET, POST, PATCH } from "@/app/api/admin/agents/route";
 import { POST as runner } from "@/app/api/agent-runner/route";
 import { createAdminSession } from "@/lib/admin/session";
@@ -39,6 +39,28 @@ describe("private agent endpoints", () => {
   it("requires runner authentication and rejects browser calls", async () => {
     expect((await runner(worker({ action: "claim", runnerId: "test" }, "wrong"))).status).toBe(401);
     expect((await runner(worker({ action: "claim", runnerId: "test" }, secret, "http://localhost"))).status).toBe(403);
+  });
+  it("requires explicit owner disposition and preserves audit records on repeated delivery", async () => {
+    await POST(owner({ agentId: "anyhvac.george", requestId: randomUUID(), prompt: "original" }));
+    const taskId = local.state.tasks[0].id;
+    const action = { taskId, action: "cancel", requestId: randomUUID(), reason: "Duplicate request" };
+    expect((await PATCH(owner(action, true, "https://evil.test"))).status).toBe(403);
+    expect((await PATCH(owner({ ...action, reason: "" }))).status).toBe(400);
+    expect((await PATCH(owner(action))).status).toBe(200);
+    expect((await PATCH(owner(action))).status).toBe(200);
+    const snapshot = await (await GET(owner())).json();
+    expect(snapshot.tasks[0]).toMatchObject({ prompt: "original", status: "cancelled", disposition: { reason: "Duplicate request", actor: "owner", requestId: action.requestId } });
+    expect((await (await runner(worker({ action: "claim", runnerId: "test" }))).json()).task).toBeNull();
+  });
+  it("exposes read-only protocol status without heartbeat mutation and excludes guarded requests", async () => {
+    await POST(owner({ agentId: "anyhvac.george", requestId: randomUUID(), prompt: "hello" }));
+    const status = await (await runner(worker({ action: "status", runnerId: "test" }))).json();
+    expect(status).toMatchObject({ protocol: 2, runnerMatches: true, runnerOnline: false });
+    expect(local.state.runner).toBeUndefined();
+    const response = await runner(worker({ action: "claim", runnerId: "test", excludedTaskIds: [local.state.tasks[0].id] }));
+    expect((await response.json()).task).toBeNull();
+    expect(local.state.tasks[0].status).toBe("pending");
+    expect((await runner(worker({ action: "claim", runnerId: "test", excludedTaskIds: ["bad"] }))).status).toBe(400);
   });
   it("round-trips tasks through fenced runner APIs without exposing owner actions", async () => {
     await POST(owner({ agentId: "anyhvac.william", requestId: randomUUID(), prompt: "hello" }));

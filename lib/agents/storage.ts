@@ -54,7 +54,9 @@ export function getStore(): DocumentStore {
   if (!inboxEnabled()) throw new Error("Agent inbox is disabled.");
   if (process.env.AGENT_INBOX_STORAGE === "local") {
     if (process.env.NODE_ENV === "production") throw new Error("Local inbox storage is not permitted in production.");
-    return new LocalDocumentStore(path.join(process.cwd(), ".local/agent-inbox"));
+    const namespace = process.env.AGENT_INBOX_REVIEW_NAMESPACE;
+    if (namespace && namespace !== "conversation-pilot") throw new Error("Invalid local review namespace.");
+    return new LocalDocumentStore(namespace ? path.join(process.cwd(), ".local/agent-inbox/reviews/conversation-pilot") : path.join(process.cwd(), ".local/agent-inbox"));
   }
   return new SupabaseDocumentStore();
 }

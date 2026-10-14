@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Private runner credentials, journals and local review data are never assets
+  // of the hosted application, even when building from the owner's workspace.
+  outputFileTracingExcludes: { "/*": [".local/**/*"] },
   async headers() {
     return [
       {

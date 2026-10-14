@@ -19,11 +19,11 @@ export function enqueue(state: InboxState, task: AgentTask) {
   if (state.tasks.length >= MAX_TASKS) throw new InboxError("Inbox history limit reached. Export and review before increasing capacity.");
   state.tasks.push(task); return task;
 }
-export function claim(state: InboxState, runnerId: string, leaseId: string, now: number) {
+export function claim(state: InboxState, runnerId: string, leaseId: string, now: number, excludedTaskIds: string[] = []) {
   expire(state, now);
   if (state.runner && state.runner.id !== runnerId) throw new InboxError("Runner identity differs from the registered Phase 1 runner.");
   state.runner = { id: runnerId, seenAt: now };
-  const task = state.tasks.find(t => t.status === "pending" && !state.tasks.some(other => other.agentId === t.agentId && (other.status === "working" || other.reviewRequired)));
+  const task = state.tasks.find(t => t.status === "pending" && !excludedTaskIds.includes(t.id) && !state.tasks.some(other => other.agentId === t.agentId && (other.status === "working" || other.reviewRequired)));
   if (!task) return null;
   task.status = "working"; task.runnerId = runnerId; task.leaseId = leaseId; task.leaseUntil = now + LEASE_MS;
   return task;
@@ -35,6 +35,7 @@ export function start(state: InboxState, id: string, runnerId: string, leaseId: 
   task.startedAt = now; task.leaseUntil = now + LEASE_MS; return task;
 }
 export function heartbeat(state: InboxState, runnerId: string, now: number, taskId?: string, leaseId?: string) {
+  expire(state, now);
   if (state.runner && state.runner.id !== runnerId) throw new InboxError("Runner identity differs.");
   state.runner = { id: runnerId, seenAt: now };
   if (taskId) {
@@ -62,3 +63,23 @@ export function resolve(state: InboxState, id: string) {
   task.reviewRequired = false; task.error = "Attempt closed by owner without retry. The original message was not executed again.";
 }
 export function online(state: InboxState, now: number) { return Boolean(state.runner && now - state.runner.seenAt < ONLINE_MS); }
+
+// CAS serializes this with claim/start. Only an unstarted claim can be revoked.
+export function disposePending(state: InboxState, id: string, disposition: NonNullable<AgentTask["disposition"]>) {
+  const task = state.tasks.find(t => t.id === id);
+  if (!task) throw new InboxError("Message not found.", 404);
+  const prior = state.tasks.find(t => t.disposition?.requestId === disposition.requestId);
+  if (prior) {
+    const d = prior.disposition!;
+    if (prior.id !== id || d.action !== disposition.action || d.reason !== disposition.reason || d.replacementTaskId !== disposition.replacementTaskId) throw new InboxError("Action request ID already used.");
+    return task;
+  }
+  if (task.disposition || task.startedAt !== undefined || !["pending", "working"].includes(task.status)) throw new InboxError("Execution may have started or this message is closed. Refresh and review; no cancellation was applied.");
+  if (disposition.action === "supersede") {
+    const replacement = state.tasks.find(t => t.id === disposition.replacementTaskId);
+    if (!replacement || replacement.id === id || replacement.agentId !== task.agentId || replacement.status !== "pending" || replacement.disposition) throw new InboxError("Choose another pending message for the same agent.");
+  }
+  task.disposition = { ...disposition };
+  task.status = disposition.action === "cancel" ? "cancelled" : "superseded";
+  return task;
+}

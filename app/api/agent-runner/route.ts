@@ -2,7 +2,7 @@ import { createHash, randomUUID, timingSafeEqual } from "node:crypto";
 import type { NextRequest } from "next/server";
 import { body, failure, response, UUID } from "@/lib/agents/http";
 import { claim, finish, heartbeat, InboxError, start } from "@/lib/agents/state";
-import { inboxEnabled, transaction } from "@/lib/agents/storage";
+import { getStore, inboxEnabled, transaction } from "@/lib/agents/storage";
 import { findAgent } from "@/lib/agents/registry";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -12,13 +12,18 @@ export async function POST(request: NextRequest) {
   if (!inboxEnabled() || !secret || secret.length < 32 || supplied.length > 256 || !timingSafeEqual(createHash("sha256").update(secret).digest(), createHash("sha256").update(supplied).digest())) return response({ error: "Runner authentication required." }, 401);
   if (request.headers.has("origin")) return response({ error: "Browser access is not allowed." }, 403);
   try {
-    const value = await body(request, ["action", "runnerId", "taskId", "leaseId", "reply", "execution"], 80_000);
+    const value = await body(request, ["action", "runnerId", "taskId", "leaseId", "reply", "execution", "excludedTaskIds"], 80_000);
     if (typeof value.runnerId !== "string" || !/^[a-zA-Z0-9_.-]{1,64}$/.test(value.runnerId)) throw new InboxError("Invalid runner ID.", 400);
     const runnerId = value.runnerId;
+    if (value.action === "status") {
+      const { payload } = await getStore().read();
+      return response({ protocol: 2, runnerOnline: Boolean(payload.runner && Date.now() - payload.runner.seenAt < 35_000), runnerLastSeen: payload.runner?.seenAt, runnerMatches: !payload.runner || payload.runner.id === runnerId });
+    }
     if (value.action === "claim") {
+      if (value.excludedTaskIds !== undefined && (!Array.isArray(value.excludedTaskIds) || value.excludedTaskIds.length > 20 || value.excludedTaskIds.some(id => typeof id !== "string" || !UUID.test(id)))) throw new InboxError("Invalid excluded task IDs.", 400);
       const lease = randomUUID();
       return response(await transaction(state => {
-        const task = claim(state, runnerId, lease, Date.now());
+        const task = claim(state, runnerId, lease, Date.now(), value.excludedTaskIds as string[] | undefined);
         return { task: task ? { ...task, definition: findAgent(task.agentId), history: state.tasks.filter(t => t.agentId === task.agentId && t.status === "completed").slice(-8).map(t => ({ prompt: t.prompt, reply: t.reply })), previous: state.tasks.filter(t => t.agentId === task.agentId && t.status === "completed" && t.runnerId === runnerId).at(-1)?.execution } : null };
       }));
     }

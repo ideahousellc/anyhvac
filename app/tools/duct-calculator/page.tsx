@@ -14,7 +14,7 @@ import styles from "./page.module.css";
 export const metadata: Metadata = createPageMetadata({
   title: "HVAC Duct Calculator | AnyHVAC",
   description:
-    "Interactive duct sizing tool for airflow, friction rate, velocity, round duct, and rectangular duct design.",
+    "Free HVAC duct sizing Ductulator for round and rectangular ducts. Compare duct size, air velocity and friction rate from airflow.",
   path: "/tools/duct-calculator",
 });
 
@@ -48,7 +48,7 @@ export default function DuctCalculatorPage() {
       <ToolPageIntro
         eyebrow="HVAC Design Tool"
         title="HVAC Duct Calculator"
-        description="Interactive duct sizing tool for airflow, friction rate, velocity, round duct, and rectangular duct design."
+        description="Use this free online ductulator to size round and rectangular HVAC ducts from airflow and friction rate, then compare nominal sizes and air velocity."
         status="Equal Friction Method"
       />
 

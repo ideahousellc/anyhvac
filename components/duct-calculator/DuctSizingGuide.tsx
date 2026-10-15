@@ -217,6 +217,24 @@ const guideSections: readonly ToolGuideSection[] = [
     content: (
       <div className={styles.faqList}>
         <div>
+          <h4>What does an online ductulator calculate?</h4>
+          <p>
+            A ductulator relates airflow, duct size, air velocity and friction
+            rate. This HVAC duct calculator uses airflow and a selected friction
+            rate to calculate a round duct diameter, then shows nominal sizes
+            and equivalent rectangular options for comparison.
+          </p>
+        </div>
+        <div>
+          <h4>Does this ductulator calculate total system pressure loss?</h4>
+          <p>
+            No. The displayed friction rate is duct friction loss per unit
+            length, not total system pressure loss. Fittings, equipment and
+            other system components require separate pressure-loss checks before
+            final duct selection.
+          </p>
+        </div>
+        <div>
           <h4>What size duct do I need for a certain CFM?</h4>
           <p>
             Duct size cannot be determined from CFM alone. The required size also

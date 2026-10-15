@@ -26,6 +26,9 @@ export function createPageMetadata({
   return {
     title,
     description,
+    other: {
+      "google-adsense-account": "ca-pub-3022664343010238",
+    },
     alternates: {
       canonical: canonicalUrl,
     },

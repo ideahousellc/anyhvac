@@ -1,11 +1,13 @@
 # Preparation only: writes reviewable XML, never registers or starts a task.
 $ErrorActionPreference = 'Stop'
 $taskRoot = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '../..'))
-$outputDirectory = Join-Path $taskRoot '.local/agent-inbox/reliability-review'
-New-Item -ItemType Directory -Path $outputDirectory -Force | Out-Null
-$identity = [Security.Principal.WindowsIdentity]::GetCurrent().Name
+. (Join-Path $PSScriptRoot 'private-directory.ps1')
+$context = Get-AgentPrivateContext
+Assert-AgentPrivateTree $context
+$outputDirectory = Join-Path $context.Root 'startup'
+$identity = $context.Sid.Value
 $powershellPath = Join-Path $env:SystemRoot 'System32/WindowsPowerShell/v1.0/powershell.exe'
-$action = New-ScheduledTaskAction -Execute $powershellPath -Argument ('-NoProfile -NonInteractive -ExecutionPolicy Bypass -WindowStyle Hidden -File "' + (Join-Path $PSScriptRoot 'start-runner.ps1') + '"') -WorkingDirectory $taskRoot
+$action = New-ScheduledTaskAction -Execute $powershellPath -Argument ('-NoProfile -NonInteractive -WindowStyle Hidden -File "' + (Join-Path $PSScriptRoot 'start-runner.ps1') + '"') -WorkingDirectory $taskRoot
 $trigger = New-ScheduledTaskTrigger -AtLogOn -User $identity
 $trigger.Delay = 'PT30S'
 $principal = New-ScheduledTaskPrincipal -UserId $identity -LogonType Interactive -RunLevel Limited
@@ -14,4 +16,5 @@ $task = New-ScheduledTask -Action $action -Trigger $trigger -Principal $principa
 $task.Settings.Hidden = $true
 $outputPath = Join-Path $outputDirectory 'AnyHVAC-Agent-Conversations.xml'
 $task | Export-ScheduledTask | Set-Content -LiteralPath $outputPath -Encoding Unicode
-Write-Output ('Prepared only: ' + $outputPath)
+Assert-AgentPrivateTree $context
+Write-Output 'Startup XML prepared privately; no task registered or started.'

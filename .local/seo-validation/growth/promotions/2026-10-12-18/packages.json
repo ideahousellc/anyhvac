@@ -1,0 +1,426 @@
+{
+  "version": "anyhvac-week-2026-10-12-v1",
+  "status": "OWNER REVIEW / LOCAL ONLY",
+  "theme": "Inputs before conclusions",
+  "packages": [
+    {
+      "id": "promo-pressure-reference",
+      "title": "A pressure reading needs context",
+      "destination": "https://www.anyhvac.net/resources/airflow-static-pressure-measurement",
+      "purpose": "Send field-minded visitors to the existing ungated airflow/static-pressure resource and PDF. Build engineering trust through measurement boundaries.",
+      "primaryMetric": "LinkedIn post link clicks when separately available; otherwise report native total clicks as a proxy, with destination referral traffic as a separate aggregate. YouTube engaged views and Instagram saves are secondary.",
+      "technicalBoundary": "A photograph is equipment context, not a tap-location diagram or a measured operating condition. Follow manufacturer-specific boundaries and project requirements; no universal TESP limit.",
+      "linkedin": "A pressure reading needs context.\n\nStatic, velocity and total pressure are different quantities. A pressure drop alone does not establish airflow, and external-static boundaries depend on the equipment and test configuration.\n\nOur free Airflow & Static Pressure Measurement resource includes a field-reference PDF covering methods, boundaries and common interpretation traps. No email gate.\nhttps://www.anyhvac.net/resources/airflow-static-pressure-measurement\n\nKeep it beside the equipment-specific instructions on your next review.\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; no endorsement implied.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\n#HVAC #Airflow #StaticPressure #MEPEngineering",
+      "instagram": "A pressure reading needs context.\n\nPressure drop is not automatically airflow. Check what was measured, where it was measured and which equipment boundary applies.\n\nOur free Airflow & Static Pressure Measurement resource includes a downloadable field-reference PDF. Visit anyhvac.net → Resources → Airflow & Static Pressure Measurement. No email gate.\n\nSave this reminder for your next review. Follow the equipment-specific instructions.\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; no endorsement implied.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\n#HVAC #StaticPressure #Airflow #HVACTools #MEPEngineering",
+      "youtubeTitle": "A pressure reading needs context | Free HVAC field reference",
+      "youtube": "Keep pressure quantities and equipment boundaries in view. Explore the free AnyHVAC Airflow & Static Pressure Measurement resource and ungated PDF:\nhttps://www.anyhvac.net/resources/airflow-static-pressure-measurement\n\nFollow manufacturer-specific instructions and project requirements. Equipment photo is illustrative; it does not identify test locations.\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; no endorsement implied.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\nMusic: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit. Licensed synchronized use; source and terms recorded in the package.\n\n#HVAC #StaticPressure #Shorts",
+      "alt": "Real mechanical-room ductwork with the headline A pressure reading needs context and invitation to download the free field reference.",
+      "photoProvenance": {
+        "asset_id": "pressure-mechanical-room-photo",
+        "source_title": "Layout and installation of ducts for motor fans in a ventilation-facility mechanical room in Queens (CS179, 02-13-2019)",
+        "author": "MTA Capital Construction Mega Projects",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg",
+        "original_source": "https://www.flickr.com/photos/mtacc-esa/33228414918/",
+        "download_url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._%28CS179%2C_02-13-2019%29_%2833228414918%29.jpg",
+        "local_source": "growth/.generated/weekly/2026-10-12-18/inputs/pressure-mechanical-room.jpg",
+        "source_sha256": "67f50572169a4a4f4d8156eb2cec45ee67e20f9accc21affdaf2bf2605dd061e",
+        "license": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "commercial_use": true,
+        "attribution_required": true,
+        "attribution_text": "Photo: MTA Capital Construction Mega Projects / Wikimedia Commons, CC BY 2.0. Cropped and overlaid; no endorsement implied.",
+        "license_evidence": [
+          "growth/promotions/2026-10-12-18/provenance/pressure-photo-commons.html",
+          "growth/promotions/2026-10-12-18/provenance/cc-by-2.0.html"
+        ],
+        "date_acquired": "2026-10-06",
+        "publication_approved": false,
+        "model_property_permission_notes": "Equipment and infrastructure illustration only; finished crop must contain no recognizable person. No operational condition, test procedure, endorsement or customer relationship asserted.",
+        "technical_review_notes": "Real ventilation-facility equipment photograph; not a pressure-tap-location diagram or a measured operating condition."
+      },
+      "media": [
+        "promo-pressure-reference-social.png"
+      ],
+      "youtubeMedia": "promo-pressure-reference-short.mp4",
+      "musicProvenance": {
+        "track": "Sleepy Cat",
+        "artist": "Alejandro Magaña (A. M.)",
+        "provider": "Mixkit",
+        "catalog_url": "https://mixkit.co/free-stock-music/chillout/",
+        "download_url": "https://assets.mixkit.co/music/135/135.mp3",
+        "license_name": "Mixkit Stock Music Free License",
+        "license_url": "https://mixkit.co/license/modal/musicFree/",
+        "terms_url": "https://mixkit.co/terms/",
+        "attribution_faq_url": "https://mixkit.co/free-stock-music/",
+        "rights": "Free commercial and non-commercial use in promotional web/social videos including YouTube. Editing permitted for synchronized video. Attribution not required.",
+        "restrictions": "No standalone music redistribution, music-only remix, ownership claim or rights-management registration. No TV/radio, video games or CDs/DVDs.",
+        "attribution_required": false,
+        "optional_credit": "Music: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit.",
+        "local_source": "growth/promotions/2026-10-05-platform-tests/audio-revision-v2/sleepy-cat-source.mp3",
+        "source_sha256": "fc15a57f37b711f746e523bc89ee7311e2081cd4b25a6a89db0da33c3c42f64c",
+        "license_evidence": [
+          "mixkit-track-evidence.html",
+          "mixkit-license-evidence.html",
+          "mixkit-music-faq-evidence.html",
+          "mixkit-terms-evidence.html"
+        ],
+        "selection_basis": "Provider labels this existing full-length recording Downtempo, Atmospheric, Bass and Drums. Subjective warmth, arrangement and suitability remain subject to owner listening review.",
+        "edit": "16–31 second excerpt; 0.25 second smooth entry, 2.2 second smooth exit; two-pass loudness normalization; synchronized with unchanged approved visual stream.",
+        "checked_at": "2026-10-02T19:55:14.579Z"
+      }
+    },
+    {
+      "id": "carousel-supply-outdoor",
+      "title": "Supply air is not outdoor air",
+      "destination": "https://www.anyhvac.net/tools/air-distribution",
+      "purpose": "Build trust around room-air-change inputs and send appropriate design questions to the existing Air Distribution Tools.",
+      "primaryMetric": "Instagram saves per reached account from native Insights; report absolute saves and reach too. LinkedIn engagement and destination referrals are secondary, where available.",
+      "photo": "rooftop-tokyo",
+      "source": [
+        "app/resources/airflow-static-pressure-measurement/page.tsx",
+        "components/air-distribution/AirDistributionTools.tsx:293",
+        "https://www.epa.gov/iaq-schools/reference-guide-indoor-air-quality-schools"
+      ],
+      "technicalBoundary": "Illustrative inputs, not a prescribed ventilation rate or measured building. Outdoor and supply example flows use the same reference basis. Nominal ACH does not establish outdoor-air delivery, mixing effectiveness or code compliance. Diagram is a simplified mixing concept, not a specific unit layout.",
+      "linkedin": "Supply airflow and outdoor airflow answer different questions.\n\nA room receiving 500 CFM in 5,000 ft³ has a nominal supply-air rate of 6 ACH. If only 100 CFM of that flow is verified outdoor air on the same reference basis, its nominal outdoor-air rate is 1.2 ACH.\n\nThese are illustrative calculations, not ventilation recommendations. ACH alone does not establish outdoor-air delivery, mixing effectiveness or code compliance.\n\nSwipe through the six-slide check, then use the free Air Distribution Tools for the arithmetic:\nhttps://www.anyhvac.net/tools/air-distribution\n\nSave it for your next airflow review.\n\nPhoto: Marek Ślusarczyk (Tupungato), Wikimedia Commons, CC BY 3.0. Cropped; original explanatory graphics added.\nhttps://commons.wikimedia.org/wiki/File:012_Rooftop_HVAC_systems_and_roof_ventilation_ducts_in_Tokyo,_Japan.jpg\nhttps://creativecommons.org/licenses/by/3.0/\n\n#HVAC #Ventilation #AirDistribution #MEPEngineering",
+      "instagram": "Supply air ≠ outdoor air.\n\nSwipe for the distinction that belongs beside every ACH calculation. Our illustrated room-flow example gives 6 nominal supply ACH, but only 1.2 nominal outdoor ACH when verified outdoor flow is 100 CFM on the same basis.\n\nExample only—not a required ventilation rate. ACH alone does not prove compliance or mixing effectiveness.\n\nVisit anyhvac.net → Tools → Air Distribution Tools. Save this check for your next design review.\n\nPhoto: Marek Ślusarczyk (Tupungato), Wikimedia Commons, CC BY 3.0. Cropped; explanatory graphics added. Source: Wikimedia Commons file “012 Rooftop HVAC systems and roof ventilation ducts in Tokyo, Japan.jpg”; license: https://creativecommons.org/licenses/by/3.0/\n\n#HVAC #Ventilation #AirDistribution #HVACDesign #MEPEngineering\nhttps://commons.wikimedia.org/wiki/File:012_Rooftop_HVAC_systems_and_roof_ventilation_ducts_in_Tokyo,_Japan.jpg",
+      "slides": [
+        {
+          "headline": [
+            "SUPPLY AIR",
+            "ISN’T OUTDOOR AIR."
+          ],
+          "body": [
+            "A room-flow reading doesn’t tell you",
+            "the outdoor-air share."
+          ],
+          "visual": "photo",
+          "alt": "Real rooftop ventilation ducts with the headline Supply air isn't outdoor air; equipment is illustrative, not a measured flow diagram."
+        },
+        {
+          "headline": [
+            "TWO SOURCES.",
+            "ONE SUPPLY STREAM."
+          ],
+          "body": [
+            "Many air handlers mix outdoor air",
+            "with recirculated return air."
+          ],
+          "visual": "mix",
+          "alt": "Simplified conceptual diagram: outdoor air and recirculated return air combine into a supply stream; configurations vary."
+        },
+        {
+          "headline": [
+            "FIRST, NAME",
+            "THE FLOW BASIS."
+          ],
+          "body": [
+            "500 CFM supply • 5,000 ft³ room",
+            "500 × 60 ÷ 5,000 = 6 nominal ACH"
+          ],
+          "visual": "ach",
+          "alt": "Illustrative nominal supply ACH calculation: 500 CFM times 60 divided by 5,000 cubic feet equals 6 ACH; not a prescribed rate."
+        },
+        {
+          "headline": [
+            "6 SUPPLY ACH ≠",
+            "6 OUTDOOR ACH."
+          ],
+          "body": [
+            "If verified outdoor flow is 100 CFM:",
+            "100 × 60 ÷ 5,000 = 1.2 outdoor ACH"
+          ],
+          "visual": "split",
+          "alt": "Illustrative same-reference-basis supply flow of 500 CFM includes 100 CFM outdoor and 400 CFM recirculated; nominal outdoor ACH is 1.2."
+        },
+        {
+          "headline": [
+            "MEASURE THE",
+            "QUESTION YOU NEED."
+          ],
+          "body": [
+            "Room flow → circulation check",
+            "Verified outdoor flow → outdoor rate",
+            "Compliance → governing requirements"
+          ],
+          "visual": "check",
+          "alt": "Three checks distinguish room circulation, verified outdoor airflow and governing ventilation requirements; ACH is not compliance evidence."
+        },
+        {
+          "headline": [
+            "CHECK THE MATH.",
+            "KEEP THE CONTEXT."
+          ],
+          "body": [
+            "Free Air Distribution Tools",
+            "anyhvac.net → Tools → Air Distribution",
+            "ACH alone does not prove compliance."
+          ],
+          "visual": "cta",
+          "alt": "AnyHVAC Air Distribution Tools invitation with the reminder that nominal ACH alone does not establish code compliance."
+        }
+      ],
+      "media": [
+        "carousel-supply-outdoor-01.png",
+        "carousel-supply-outdoor-02.png",
+        "carousel-supply-outdoor-03.png",
+        "carousel-supply-outdoor-04.png",
+        "carousel-supply-outdoor-05.png",
+        "carousel-supply-outdoor-06.png"
+      ],
+      "photoProvenance": {
+        "id": "rooftop-tokyo",
+        "title": "File:012 Rooftop HVAC systems and roof ventilation ducts in Tokyo, Japan.jpg",
+        "license": "CC BY 3.0",
+        "author": "Marek Ślusarczyk (Tupungato)",
+        "credit": "Photo: Marek Ślusarczyk (Tupungato), Wikimedia Commons, CC BY 3.0. Cropped and annotated.",
+        "path": "growth/.generated/weekly/2026-10-12-18/sources/rooftop-tokyo.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:012_Rooftop_HVAC_systems_and_roof_ventilation_ducts_in_Tokyo,_Japan.jpg",
+        "download": "https://upload.wikimedia.org/wikipedia/commons/6/63/012_Rooftop_HVAC_systems_and_roof_ventilation_ducts_in_Tokyo%2C_Japan.jpg",
+        "width": 2160,
+        "height": 1440,
+        "sha256": "a00bde9a114747aed3299b7ac376716355c0923474932cbbfb8703386617b392",
+        "commercialUse": true,
+        "attributionRequired": true,
+        "acquiredAt": "2026-10-06T18:11:51.532Z",
+        "releases": "No model/property release supplied; equipment-context use only, no endorsement."
+      }
+    },
+    {
+      "id": "promo-project-pressure",
+      "title": "Set the pressure. Check the air state.",
+      "destination": "https://www.anyhvac.net/tools/psychrometric-calculator",
+      "purpose": "Promote a practical, underused project input in the existing psychrometric tool; attract relevant designers without repeating the queued mixed-air demonstration.",
+      "primaryMetric": "LinkedIn post link clicks when separately available; native total clicks only as a labelled proxy otherwise. Destination referrals are aggregate secondary evidence; YouTube engaged views and Instagram saves are secondary.",
+      "technicalBoundary": "Set known project elevation or atmospheric pressure and use a supported air-state input pair. No claim that the photo depicts a measured air state or that calculator results establish compliance.",
+      "linkedin": "The air state needs a pressure context.\n\nBefore comparing psychrometric properties, set the project elevation or atmospheric pressure and choose a supported input pair. Then check the resulting properties together.\n\nThe free AnyHVAC Psychrometric Calculator supports dry bulb with relative humidity, wet bulb or dew point, plus project pressure context.\nhttps://www.anyhvac.net/tools/psychrometric-calculator\n\nVerify inputs before using results in design. Save this check for your next air-state review.\n\nPhoto: Alf van Beem, Wikimedia Commons, CC0. Cropped and overlaid; no endorsement implied.\nhttps://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG\n\n#HVAC #Psychrometrics #HVACDesign #MEPEngineering",
+      "instagram": "Set the pressure. Check the air state.\n\nProject elevation or atmospheric pressure belongs beside your temperature and moisture inputs. Choose the matching input mode before comparing the outputs.\n\nUse the free calculator: anyhvac.net → Tools → Air Properties → Psychrometric Calculator.\n\nSave this input check. Verify project inputs before design use.\n\nPhoto: Alf van Beem, Wikimedia Commons, CC0. Cropped and overlaid.\nhttps://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG\n\n#HVAC #Psychrometrics #HVACTools #HVACDesign #MEPEngineering",
+      "youtubeTitle": "Set project pressure before your air-state check | AnyHVAC",
+      "youtube": "Set project elevation or atmospheric pressure, then choose a supported air-state input pair. Explore the free Psychrometric Calculator:\nhttps://www.anyhvac.net/tools/psychrometric-calculator\n\nVerify project inputs before design use. Photo is equipment context, not a measured air state.\nPhoto: Alf van Beem, Wikimedia Commons, CC0. Cropped and overlaid.\nhttps://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG\n\nMusic: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit. Licensed synchronized use; source and terms recorded in the package.\n\n#HVAC #Psychrometrics #Shorts",
+      "alt": "Real indoor air-handling unit with Set the pressure. Check the air state. and a free psychrometric-calculator invitation.",
+      "photoProvenance": {
+        "author": "Alf van Beem",
+        "license": "CC0 1.0 Universal",
+        "source": "https://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG",
+        "evidence": "evidence/air-handler-commons.json; evidence/cc0-deed.html",
+        "modifications": "Cropped, shaded and overlaid; no identifiable people, no endorsement implied."
+      },
+      "media": [
+        "promo-project-pressure-social.png"
+      ],
+      "youtubeMedia": "promo-project-pressure-short.mp4",
+      "musicProvenance": {
+        "track": "Sleepy Cat",
+        "artist": "Alejandro Magaña (A. M.)",
+        "provider": "Mixkit",
+        "catalog_url": "https://mixkit.co/free-stock-music/chillout/",
+        "download_url": "https://assets.mixkit.co/music/135/135.mp3",
+        "license_name": "Mixkit Stock Music Free License",
+        "license_url": "https://mixkit.co/license/modal/musicFree/",
+        "terms_url": "https://mixkit.co/terms/",
+        "attribution_faq_url": "https://mixkit.co/free-stock-music/",
+        "rights": "Free commercial and non-commercial use in promotional web/social videos including YouTube. Editing permitted for synchronized video. Attribution not required.",
+        "restrictions": "No standalone music redistribution, music-only remix, ownership claim or rights-management registration. No TV/radio, video games or CDs/DVDs.",
+        "attribution_required": false,
+        "optional_credit": "Music: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit.",
+        "local_source": "growth/promotions/2026-10-05-platform-tests/audio-revision-v2/sleepy-cat-source.mp3",
+        "source_sha256": "fc15a57f37b711f746e523bc89ee7311e2081cd4b25a6a89db0da33c3c42f64c",
+        "license_evidence": [
+          "mixkit-track-evidence.html",
+          "mixkit-license-evidence.html",
+          "mixkit-music-faq-evidence.html",
+          "mixkit-terms-evidence.html"
+        ],
+        "selection_basis": "Provider labels this existing full-length recording Downtempo, Atmospheric, Bass and Drums. Subjective warmth, arrangement and suitability remain subject to owner listening review.",
+        "edit": "16–31 second excerpt; 0.25 second smooth entry, 2.2 second smooth exit; two-pass loudness normalization; synchronized with unchanged approved visual stream.",
+        "checked_at": "2026-10-02T19:55:14.579Z"
+      }
+    },
+    {
+      "id": "carousel-dewpoint-wetbulb",
+      "title": "Dew point and wet bulb answer different questions",
+      "destination": "https://www.anyhvac.net/tools/psychrometric-calculator",
+      "purpose": "Teach a practical air-property distinction, demonstrate engineering care and lead qualified users to the existing psychrometric calculator.",
+      "primaryMetric": "Instagram saves per reached account from native Insights; report absolute saves and reach. LinkedIn engagement and qualified psychrometric page referrals are secondary where available.",
+      "photo": "sling-psychrometer",
+      "source": [
+        "components/psychrometrics/PsychrometricGuide.tsx",
+        "app/tools/psychrometric-calculator/page.tsx",
+        "https://forecast.weather.gov/glossary.php?word=dew+point",
+        "https://www.weather.gov/source/zhu/ZHU_Training_Page/definitions/dry_wet_bulb_definition/dry_wet_bulb.html",
+        "https://handbook.ashrae.org/Handbooks/F25/IP/F25_Ch01/F25_Ch01_ip.aspx"
+      ],
+      "technicalBoundary": "Conceptual explanations, not a field measurement procedure or measured air state. Condensation depends on surface conditions; no diagnostic conclusion follows from an illustrative pipe. The normal unsaturated-state ordering is dew point ≤ wet bulb ≤ dry bulb; values coincide at saturation. Use the correct input mode and project pressure.",
+      "linkedin": "Dew point and wet bulb are related, but they are not interchangeable inputs.\n\nDew point describes the saturation temperature reached by cooling without changing moisture content at fixed pressure. Wet bulb describes evaporative cooling and depends on temperature, moisture and pressure.\n\nFor normal unsaturated conditions: dew point ≤ wet bulb ≤ dry bulb. At saturation, the three coincide.\n\nThe six-slide explainer shows which question each property answers. In the free AnyHVAC Psychrometric Calculator, choose the matching moisture-input mode and set project elevation or atmospheric pressure.\nhttps://www.anyhvac.net/tools/psychrometric-calculator\n\nSave it for your next air-state check. Follow AnyHVAC for practical HVAC explanations.\n\nInstrument photo: CambridgeBayWeather, Wikimedia Commons, public-domain release. Cropped; conceptual graphics added.\n\n#HVAC #Psychrometrics #Humidity #MEPEngineering",
+      "instagram": "Dew point. Wet bulb. Different questions.\n\nSwipe to separate condensation context from evaporative-cooling context, then choose the correct calculator input. For normal unsaturated air: dew point ≤ wet bulb ≤ dry bulb; at saturation they coincide.\n\nConcepts only—not a measurement procedure or an equipment diagnosis. Set project pressure or elevation.\n\nVisit anyhvac.net → Tools → Air Properties → Psychrometric Calculator. Save this explainer and follow @AnyHVAC for practical HVAC checks.\n\nInstrument photo: CambridgeBayWeather, Wikimedia Commons, public domain. Cropped; conceptual graphics added.\n\n#HVAC #Psychrometrics #Humidity #HVACTools #MEPEngineering\nhttps://commons.wikimedia.org/wiki/File:Sling_psychrometer.JPG",
+      "slides": [
+        {
+          "headline": [
+            "DEW POINT.",
+            "WET BULB.",
+            "DIFFERENT QUESTIONS."
+          ],
+          "body": [
+            "Related air properties.",
+            "Not interchangeable inputs."
+          ],
+          "visual": "photo",
+          "alt": "Real sling psychrometer photograph introduces dew point and wet bulb as related properties answering different questions."
+        },
+        {
+          "headline": [
+            "DEW POINT:",
+            "SATURATION BY COOLING."
+          ],
+          "body": [
+            "Cool at fixed pressure without",
+            "changing moisture content."
+          ],
+          "visual": "dew",
+          "alt": "Conceptual cool surface and droplet diagram explaining dew point as saturation by cooling at fixed pressure and moisture content; not a diagnosis."
+        },
+        {
+          "headline": [
+            "WET BULB:",
+            "EVAPORATIVE COOLING."
+          ],
+          "body": [
+            "Depends on air temperature,",
+            "moisture and pressure."
+          ],
+          "visual": "wet",
+          "alt": "Real sling psychrometer photograph illustrates the instrument context for wet-bulb evaporative cooling; no field measurement procedure is prescribed."
+        },
+        {
+          "headline": [
+            "SAME STATE.",
+            "THREE TEMPERATURES."
+          ],
+          "body": [
+            "Normal unsaturated conditions:",
+            "dew point ≤ wet bulb ≤ dry bulb",
+            "At saturation, all three coincide."
+          ],
+          "visual": "order",
+          "alt": "Conceptual ordering of dew point, wet bulb and dry bulb for normal unsaturated air, with equality at saturation; no numerical state values."
+        },
+        {
+          "headline": [
+            "DON’T SWAP",
+            "THE INPUT MODES."
+          ],
+          "body": [
+            "Dry bulb + RH, wet bulb or dew point",
+            "Choose the matching moisture input.",
+            "Set project pressure or elevation."
+          ],
+          "visual": "modes",
+          "alt": "Original graphic lists the calculator's supported moisture inputs and reminds users to match the mode and set project pressure or elevation."
+        },
+        {
+          "headline": [
+            "COMPARE THE",
+            "COMPLETE AIR STATE."
+          ],
+          "body": [
+            "Free Psychrometric Calculator",
+            "anyhvac.net → Tools → Air Properties",
+            "Verify the inputs before design use."
+          ],
+          "visual": "cta",
+          "alt": "AnyHVAC Psychrometric Calculator invitation to compare air properties using supported inputs and project pressure; no measured result is shown."
+        }
+      ],
+      "media": [
+        "carousel-dewpoint-wetbulb-01.png",
+        "carousel-dewpoint-wetbulb-02.png",
+        "carousel-dewpoint-wetbulb-03.png",
+        "carousel-dewpoint-wetbulb-04.png",
+        "carousel-dewpoint-wetbulb-05.png",
+        "carousel-dewpoint-wetbulb-06.png"
+      ],
+      "photoProvenance": {
+        "id": "sling-psychrometer",
+        "title": "File:Sling psychrometer.JPG",
+        "license": "Public domain",
+        "author": "CambridgeBayWeather",
+        "credit": "Photo: CambridgeBayWeather, Wikimedia Commons (public domain). Cropped.",
+        "path": "growth/.generated/weekly/2026-10-12-18/sources/sling-psychrometer.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Sling_psychrometer.JPG",
+        "download": "https://upload.wikimedia.org/wikipedia/commons/0/09/Sling_psychrometer.JPG",
+        "width": 1632,
+        "height": 1232,
+        "sha256": "c66c9c57cb6a1265b33770c321f8e014ca53078808e6093499facdf437c07a44",
+        "commercialUse": true,
+        "attributionRequired": false,
+        "acquiredAt": "2026-10-06T18:11:52.015Z",
+        "releases": "No model/property release supplied; equipment-context use only, no endorsement."
+      }
+    },
+    {
+      "id": "main-nominal-size",
+      "title": "Calculated diameter versus suggested nominal size",
+      "destination": "https://www.anyhvac.net/tools/duct-calculator",
+      "purpose": "Show a useful calculator-reading habit with actual local UI and distinct computed-versus-nominal outputs. Build trust and send qualified designers to the existing tool.",
+      "primaryMetric": "YouTube average percentage viewed for this 28-second Short, with engaged-view denominator and native retention export where available. Report LinkedIn/Instagram video viewing and destination referrals separately; no signup inference.",
+      "technicalBoundary": "Illustrative 3,000 and 5,000 CFM cases at 0.08 in. w.g./100 ft; that friction input is not a universal recommendation. Actual local UI gives computed diameter 22.0 in / suggested 24 in at 3,000 CFM, and 26.7 in / 28 in at 5,000 CFM. Verify fittings, noise, space and project requirements beyond a calculator.",
+      "linkedin": "Calculated diameter and suggested nominal size are different outputs.\n\nThis 28-second local calculator demonstration shows both, then checks velocity and friction at the nominal size. The 3,000 and 5,000 CFM cases are illustrative. The 0.08 in. w.g./100 ft friction input is not a universal recommendation.\n\nUse the free HVAC Duct Calculator for your next sizing check:\nhttps://www.anyhvac.net/tools/duct-calculator\n\nConfirm fittings, noise, available space and project requirements beyond the calculation. Save this reading habit for your next review.\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; no endorsement implied.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\nMusic: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit. Licensed synchronized use; source and terms recorded in the package.\n\n#HVAC #DuctDesign #HVACDesign #MEPEngineering",
+      "instagram": "Calculated diameter ≠ suggested nominal size.\n\nWatch the real calculator outputs, then recheck velocity and friction at the nominal size. Illustrative 3,000 and 5,000 CFM cases—not project recommendations. The 0.08 in. w.g./100 ft input is an example.\n\nTry it: anyhvac.net → Tools → HVAC Duct Calculator. Save this output-reading check and follow @AnyHVAC.\n\nVerify fittings, noise, space and project requirements beyond the calculator.\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; no endorsement implied.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\nMusic: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit. Licensed synchronized use; source and terms recorded in the package.\n\n#HVAC #DuctDesign #HVACTools #HVACDesign #MEPEngineering",
+      "youtubeTitle": "Calculated duct diameter vs nominal size | 28-second check",
+      "youtube": "Read both calculated diameter and suggested nominal size, then check velocity and friction at that nominal size. Actual local AnyHVAC calculator demonstration.\nhttps://www.anyhvac.net/tools/duct-calculator\n\nIllustrative inputs: 3,000 and 5,000 CFM at 0.08 in. w.g./100 ft. This friction input is not a universal design recommendation. Verify fittings, noise, available space and project requirements.\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; no endorsement implied.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\nMusic: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit. Licensed synchronized use; source and terms recorded in the package.\n\n#HVAC #DuctDesign #Shorts",
+      "alt": "28-second motion-led local duct-calculator demonstration comparing computed round diameter and nominal size, checking nominal velocity/friction and changing illustrative airflow.",
+      "photoProvenance": {
+        "asset_id": "pressure-mechanical-room-photo",
+        "source_title": "Layout and installation of ducts for motor fans in a ventilation-facility mechanical room in Queens (CS179, 02-13-2019)",
+        "author": "MTA Capital Construction Mega Projects",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg",
+        "original_source": "https://www.flickr.com/photos/mtacc-esa/33228414918/",
+        "download_url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._%28CS179%2C_02-13-2019%29_%2833228414918%29.jpg",
+        "local_source": "growth/.generated/weekly/2026-10-12-18/inputs/pressure-mechanical-room.jpg",
+        "source_sha256": "67f50572169a4a4f4d8156eb2cec45ee67e20f9accc21affdaf2bf2605dd061e",
+        "license": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "commercial_use": true,
+        "attribution_required": true,
+        "attribution_text": "Photo: MTA Capital Construction Mega Projects / Wikimedia Commons, CC BY 2.0. Cropped and overlaid; no endorsement implied.",
+        "license_evidence": [
+          "growth/promotions/2026-10-12-18/provenance/pressure-photo-commons.html",
+          "growth/promotions/2026-10-12-18/provenance/cc-by-2.0.html"
+        ],
+        "date_acquired": "2026-10-06",
+        "publication_approved": false,
+        "model_property_permission_notes": "Equipment and infrastructure illustration only; finished crop must contain no recognizable person. No operational condition, test procedure, endorsement or customer relationship asserted.",
+        "technical_review_notes": "Real ventilation-facility equipment photograph; not a pressure-tap-location diagram or a measured operating condition."
+      },
+      "musicProvenance": {
+        "track": "Sleepy Cat",
+        "artist": "Alejandro Magaña (A. M.)",
+        "provider": "Mixkit",
+        "catalog_url": "https://mixkit.co/free-stock-music/chillout/",
+        "download_url": "https://assets.mixkit.co/music/135/135.mp3",
+        "license_name": "Mixkit Stock Music Free License",
+        "license_url": "https://mixkit.co/license/modal/musicFree/",
+        "terms_url": "https://mixkit.co/terms/",
+        "attribution_faq_url": "https://mixkit.co/free-stock-music/",
+        "rights": "Free commercial and non-commercial use in promotional web/social videos including YouTube. Editing permitted for synchronized video. Attribution not required.",
+        "restrictions": "No standalone music redistribution, music-only remix, ownership claim or rights-management registration. No TV/radio, video games or CDs/DVDs.",
+        "attribution_required": false,
+        "optional_credit": "Music: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit.",
+        "local_source": "growth/promotions/2026-10-05-platform-tests/audio-revision-v2/sleepy-cat-source.mp3",
+        "source_sha256": "fc15a57f37b711f746e523bc89ee7311e2081cd4b25a6a89db0da33c3c42f64c",
+        "license_evidence": [
+          "mixkit-track-evidence.html",
+          "mixkit-license-evidence.html",
+          "mixkit-music-faq-evidence.html",
+          "mixkit-terms-evidence.html"
+        ],
+        "selection_basis": "Provider labels this existing full-length recording Downtempo, Atmospheric, Bass and Drums. Subjective warmth, arrangement and suitability remain subject to owner listening review.",
+        "edit": "16–31 second excerpt; 0.25 second smooth entry, 2.2 second smooth exit; two-pass loudness normalization; synchronized with unchanged approved visual stream.",
+        "checked_at": "2026-10-02T19:55:14.579Z"
+      },
+      "media": [
+        "main-nominal-size.mp4"
+      ]
+    }
+  ]
+}

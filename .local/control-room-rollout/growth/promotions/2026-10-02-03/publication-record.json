@@ -1,0 +1,83 @@
+{
+  "package_id": "2026-10-02-03",
+  "status": "SCHEDULED",
+  "publication_status": "SCHEDULED",
+  "owner_approval": {
+    "confirmed": true,
+    "confirmed_date": "2026-10-01",
+    "source": "Owner message: OWNER APPROVAL CONFIRMED"
+  },
+  "timezone": "America/New_York",
+  "scheduling_source": "Owner-confirmed manual Buffer scheduling",
+  "buffer_queue_independently_verified": false,
+  "published_at": null,
+  "platform_publications": [
+    {
+      "platform": "linkedin",
+      "scheduled_at": "2026-10-02T15:00:00-04:00",
+      "asset": "friday-duct-reference.png",
+      "publication_status": "SCHEDULED",
+      "published_at": null,
+      "post_url": null,
+      "buffer_post_id": null,
+      "confirmation_source": "Owner confirmed manual scheduling in Buffer; provider publication not yet confirmed"
+    },
+    {
+      "platform": "instagram",
+      "scheduled_at": "2026-10-02T18:00:00-04:00",
+      "asset": "friday-duct-reference.png",
+      "publication_status": "SCHEDULED",
+      "published_at": null,
+      "post_url": null,
+      "buffer_post_id": null,
+      "confirmation_source": "Owner confirmed manual scheduling in Buffer; provider publication not yet confirmed"
+    },
+    {
+      "platform": "youtube-short",
+      "scheduled_at": "2026-10-03T19:00:00-04:00",
+      "asset": "saturday-discover-anyhvac.mp4",
+      "publication_status": "SCHEDULED",
+      "published_at": null,
+      "post_url": null,
+      "buffer_post_id": null,
+      "confirmation_source": "Owner confirmed manual scheduling in Buffer; provider publication not yet confirmed"
+    }
+  ],
+  "media_retention": [
+    {
+      "path": "growth/.generated/promotions/2026-10-02-03/friday-duct-reference.png",
+      "sha256": "d919c094c3cc2fa12af6a6595b9f73d93a671f0e7bc30d31425d5aee74ec17d7",
+      "temporary": false,
+      "publication_confirmed": false,
+      "lifecycle_state": "QUEUED",
+      "publishing_system_requires_local_file": true
+    },
+    {
+      "path": "growth/.generated/promotions/2026-10-02-03/saturday-discover-anyhvac.png",
+      "sha256": "0f21732872f8b8c75b6cb068abea083561f4950f9bed3c4f37ac98ac0b66bc96",
+      "temporary": false,
+      "publication_confirmed": false,
+      "lifecycle_state": "QUEUED",
+      "publishing_system_requires_local_file": true
+    },
+    {
+      "path": "growth/.generated/promotions/2026-10-02-03/saturday-discover-anyhvac.mp4",
+      "sha256": "f7fed71892c8e53ee8d9024b5c3dd19955453cedda737c65dbd17100f8246266",
+      "temporary": false,
+      "publication_confirmed": false,
+      "lifecycle_state": "QUEUED",
+      "publishing_system_requires_local_file": true
+    },
+    {
+      "path": "growth/.generated/promotions/2026-10-02-03/saturday-original-instrumental.wav",
+      "sha256": "140fe70480b71e2014069ffb4e1c43c1857b4b097236444b8b606952e775c0d0",
+      "temporary": false,
+      "publication_confirmed": false,
+      "lifecycle_state": "QUEUED",
+      "publishing_system_requires_local_file": true
+    }
+  ],
+  "approved_caption_section_sha256": "0f0a7e8360532c5d492ceb79572068d78e56a4c380973a4db4dfa41880bb33a5",
+  "caption_source": "growth/promotions/2026-10-02-03/owner-review.md",
+  "notes": "Record scheduled times from previously proposed slots and owner confirmation of all three posts. No external action performed by George. Remain SCHEDULED until successful publication is confirmed by Buffer per platform. Exact scheduling action time and Buffer IDs not supplied."
+}

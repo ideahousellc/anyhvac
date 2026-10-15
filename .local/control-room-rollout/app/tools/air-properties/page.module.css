@@ -1,0 +1,160 @@
+.categoryPage {
+  min-height: 100vh;
+  overflow-x: clip;
+}
+
+.intro {
+  padding-top: clamp(44px, 6vw, 72px);
+  padding-bottom: 30px;
+}
+
+.breadcrumb {
+  margin-bottom: 25px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 620;
+}
+
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.breadcrumb a {
+  color: var(--primary);
+}
+
+.separator {
+  color: color-mix(in srgb, var(--muted) 58%, transparent);
+}
+
+.eyebrow,
+.sectionHeading > p,
+.futureEyebrow {
+  margin: 0 0 12px;
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 760;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.eyebrow::before {
+  width: 24px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--primary-light);
+  content: "";
+}
+
+.intro h1 {
+  margin: 0;
+  font-size: clamp(38px, 5vw, 58px);
+  font-weight: 750;
+  line-height: 1.02;
+  letter-spacing: -0.05em;
+}
+
+.description {
+  max-width: 790px;
+  margin: 17px 0 0;
+  color: var(--muted);
+  font-size: clamp(15px, 1.4vw, 18px);
+  line-height: 1.65;
+}
+
+.library {
+  padding-bottom: 96px;
+}
+
+.sectionHeading h2,
+.futureSection h2 {
+  margin: 0;
+  font-size: clamp(27px, 3vw, 38px);
+  font-weight: 740;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+.futureSection {
+  margin-top: 58px;
+  padding-top: 42px;
+  border-top: 1px solid color-mix(in srgb, var(--muted) 22%, transparent);
+}
+
+.futureGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 25px;
+}
+
+.futureCard {
+  min-height: 130px;
+  padding: 21px;
+  border: 1px solid rgba(255, 255, 255, 0.46);
+  border-radius: 19px;
+  background: var(--surface);
+  box-shadow:
+    6px 7px 16px rgba(166, 175, 188, 0.28),
+    -6px -6px 16px rgba(255, 255, 255, 0.68);
+}
+
+.futureCard span {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 720;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.futureCard h3 {
+  margin: 17px 0 0;
+  font-size: 17px;
+  font-weight: 720;
+  line-height: 1.35;
+}
+
+:global(.dark) .futureCard {
+  border-color: rgba(255, 255, 255, 0.07);
+  box-shadow:
+    8px 9px 20px rgba(4, 10, 17, 0.38),
+    -8px -8px 20px rgba(48, 65, 82, 0.28);
+}
+
+@media (max-width: 760px) {
+  .intro {
+    padding-top: 36px;
+    padding-bottom: 25px;
+  }
+
+  .futureGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .library {
+    padding-bottom: 76px;
+  }
+}
+
+@media (max-width: 520px) {
+  .intro {
+    padding-top: 29px;
+  }
+
+  .intro h1 {
+    font-size: clamp(35px, 11vw, 46px);
+  }
+
+}

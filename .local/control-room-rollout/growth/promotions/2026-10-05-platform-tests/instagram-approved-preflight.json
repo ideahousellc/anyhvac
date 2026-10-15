@@ -1,0 +1,45 @@
+{
+  "mode": "APPROVED DRY RUN",
+  "endpoint": "https://api.buffer.com",
+  "package_sha256": "4dc86db072c704127602a24b097c63e23d999dca8927ec0e0271e290e41b0d4f",
+  "plans": [
+    {
+      "post_id": "buffer-instagram-controlled-test-v1",
+      "scheduled_at": "2026-10-05T19:00:00-04:00",
+      "queue_checked_at": "2026-10-02T19:38:50.658Z",
+      "queue_count": 1,
+      "operation": {
+        "query": "mutation ScheduleApprovedPost($input: CreatePostInput!) {\n  createPost(input: $input) {\n    __typename\n    ... on PostActionSuccess { post { id channelId text dueAt status assets { source } } }\n    ... on MutationError { message }\n  }\n}",
+        "variables": {
+          "input": {
+            "channelId": "6abd5952ea19ca0bde37267c",
+            "text": "Start your duct-design check with the right inputs.\n\nExplore round and rectangular options with the free AnyHVAC HVAC Duct Calculator. Bring your airflow and design friction rate, then check fittings, noise, space and project requirements.\n\nVisit anyhvac.net → Tools → HVAC Duct Calculator.\n\nSave this post for your next design check.\n\n#HVAC #DuctDesign #HVACDesign #MEPEngineering",
+            "schedulingType": "automatic",
+            "mode": "customScheduled",
+            "dueAt": "2026-10-05T23:00:00.000Z",
+            "needsApproval": false,
+            "saveToDraft": false,
+            "aiAssisted": true,
+            "assets": [
+              {
+                "image": {
+                  "url": "https://www.anyhvac.net/social/duct-calculator-linkedin-ceea97e30f5c731e.png",
+                  "metadata": {
+                    "altText": "AnyHVAC HVAC Duct Calculator promotion showing real mechanical-room ductwork, with the headline Start your next duct design here and CTA Try the free calculator."
+                  }
+                }
+              }
+            ],
+            "metadata": {
+              "instagram": {
+                "type": "post",
+                "shouldShareToFeed": true,
+                "isAiGenerated": false
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

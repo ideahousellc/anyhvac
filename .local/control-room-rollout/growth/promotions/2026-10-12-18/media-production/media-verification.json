@@ -1,0 +1,268 @@
+{
+  "status": "OWNER REVIEW / LOCAL ONLY",
+  "date": "2026-10-06",
+  "artifacts": [
+    {
+      "package_id": "promo-pressure-reference",
+      "role": "LINKEDIN_INSTAGRAM",
+      "path": "C:\\Projects\\anyhvac\\growth\\.generated\\weekly\\2026-10-12-18\\media\\promo-pressure-reference-social.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 887334,
+      "sha256": "b3709e672ac788b0d96522ae78422903c9b971352726a1c379c2de373c708713",
+      "publication_approved": false
+    },
+    {
+      "package_id": "promo-pressure-reference",
+      "role": "SHORT_ARTWORK_REVIEW",
+      "path": "C:\\Projects\\anyhvac\\growth\\.generated\\weekly\\2026-10-12-18\\media\\promo-pressure-reference-vertical.png",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 1286556,
+      "sha256": "7277fd85191baf18a43f1e3f82f99f7216a527c64dad6925656059e4a4a7d78a",
+      "publication_approved": false
+    },
+    {
+      "package_id": "promo-pressure-reference",
+      "role": "YOUTUBE_STATIC_SHORT",
+      "path": "C:\\Projects\\anyhvac\\growth\\.generated\\weekly\\2026-10-12-18\\media\\promo-pressure-reference-short.mp4",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 752012,
+      "sha256": "a8aa0de68bf423a616432f514712554a46df41b5b8d49c86ef51ee7aa574d63c",
+      "duration_seconds": 16,
+      "video_codec": "h264",
+      "fps": "30/1",
+      "publication_approved": false
+    },
+    {
+      "package_id": "promo-project-pressure",
+      "role": "LINKEDIN_INSTAGRAM",
+      "path": "C:\\Projects\\anyhvac\\growth\\.generated\\weekly\\2026-10-12-18\\media\\promo-project-pressure-social.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 1180913,
+      "sha256": "7f507960f6e047c757b92d6e84d1c4e034e8a07cf241a6b4e2003c9aac9fc27d",
+      "publication_approved": false
+    },
+    {
+      "package_id": "promo-project-pressure",
+      "role": "SHORT_ARTWORK_REVIEW",
+      "path": "C:\\Projects\\anyhvac\\growth\\.generated\\weekly\\2026-10-12-18\\media\\promo-project-pressure-vertical.png",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 1646315,
+      "sha256": "711399a3be9ab456ec0853b852bfc9526382ac9a43838577429c50c0d8ba14b5",
+      "publication_approved": false
+    },
+    {
+      "package_id": "promo-project-pressure",
+      "role": "YOUTUBE_STATIC_SHORT",
+      "path": "C:\\Projects\\anyhvac\\growth\\.generated\\weekly\\2026-10-12-18\\media\\promo-project-pressure-short.mp4",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 743230,
+      "sha256": "a89cadc9695fd356fea95438941bde2d005b4b297333275c14e73e82837794b5",
+      "duration_seconds": 16,
+      "video_codec": "h264",
+      "fps": "30/1",
+      "publication_approved": false
+    },
+    {
+      "package_id": "main-nominal-size",
+      "role": "VIDEO_REVIEW_POSTER",
+      "path": "C:\\Projects\\anyhvac\\growth\\.generated\\weekly\\2026-10-12-18\\media\\main-nominal-size-poster.png",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 1473409,
+      "sha256": "a0d4a5b5d96e2c5c2573665e7608763bf7390f6b54b93ef3e8d82f2af33a9130",
+      "publication_approved": false
+    },
+    {
+      "package_id": "main-nominal-size",
+      "role": "LINKEDIN_INSTAGRAM_YOUTUBE_MAIN",
+      "path": "C:\\Projects\\anyhvac\\growth\\.generated\\weekly\\2026-10-12-18\\media\\main-nominal-size.mp4",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 3893429,
+      "sha256": "b6d73f0f64368b81bc303bb1d05509573215a321647d2d1a50f1fc19ddb8c5c7",
+      "duration_seconds": 28,
+      "video_codec": "h264",
+      "fps": "24/1",
+      "publication_approved": false
+    }
+  ],
+  "audio": [
+    {
+      "package_id": "promo-pressure-reference",
+      "path": "C:\\Projects\\anyhvac\\growth\\.generated\\weekly\\2026-10-12-18\\media-review\\promo-pressure-reference-warm-final.wav",
+      "source_start_seconds": 16,
+      "duration_seconds": 16,
+      "entry_fade_seconds": 0.3,
+      "exit_fade_seconds": 2.2,
+      "equalization": "Two-pole Butterworth low-pass at 6.5 kHz before two-pass -18 LUFS normalization. Existing recording, original fade envelopes; no note synthesis.",
+      "integrated_lufs": -18.05,
+      "true_peak_dbtp": -6.16,
+      "decoded_sample_peak_dbfs": -6.162236793427231,
+      "clipped_pcm_samples": 0,
+      "codec": "aac",
+      "sample_rate": "48000",
+      "channels": 2,
+      "listening_review": "Owner full-mix playback pending; reused licensed recorded music, not rejected synthesized notes.",
+      "static_image": true
+    },
+    {
+      "package_id": "promo-project-pressure",
+      "path": "C:\\Projects\\anyhvac\\growth\\.generated\\weekly\\2026-10-12-18\\media-review\\promo-project-pressure-warm-final.wav",
+      "source_start_seconds": 36,
+      "duration_seconds": 16,
+      "entry_fade_seconds": 0.3,
+      "exit_fade_seconds": 2.2,
+      "equalization": "Two-pole Butterworth low-pass at 6.5 kHz before two-pass -18 LUFS normalization. Existing recording, original fade envelopes; no note synthesis.",
+      "integrated_lufs": -18.06,
+      "true_peak_dbtp": -6.12,
+      "decoded_sample_peak_dbfs": -6.125134784803778,
+      "clipped_pcm_samples": 0,
+      "codec": "aac",
+      "sample_rate": "48000",
+      "channels": 2,
+      "listening_review": "Owner full-mix playback pending; reused licensed recorded music, not rejected synthesized notes.",
+      "static_image": true
+    },
+    {
+      "package_id": "main-nominal-size",
+      "path": "C:\\Projects\\anyhvac\\growth\\.generated\\weekly\\2026-10-12-18\\media-review\\main-nominal-size-warm-final.wav",
+      "source_start_seconds": 16,
+      "duration_seconds": 28,
+      "entry_fade_seconds": 0.3,
+      "exit_fade_seconds": 2.2,
+      "equalization": "Two-pole Butterworth low-pass at 6.5 kHz before two-pass -18 LUFS normalization. Existing recording, original fade envelopes; no note synthesis.",
+      "integrated_lufs": -18.05,
+      "true_peak_dbtp": -6.19,
+      "decoded_sample_peak_dbfs": -6.202745633002174,
+      "clipped_pcm_samples": 0,
+      "codec": "aac",
+      "sample_rate": "48000",
+      "channels": 2,
+      "listening_review": "Owner full-mix playback pending; reused licensed recorded music, not rejected synthesized notes.",
+      "static_image": false
+    }
+  ],
+  "main_claims": [
+    {
+      "classification": "DERIVED / ILLUSTRATIVE",
+      "values": {
+        "cfmInput": "3000",
+        "frictionInput": "0.08",
+        "exactDiameter": "22.0 in",
+        "nominalDiameter": "24 in",
+        "exactVelocity": "1,134 FPM",
+        "nominalVelocity": "955 FPM",
+        "nominalFriction": "0.052 in.w.g./100 ft",
+        "roundArea": "2.65 ft²"
+      },
+      "source": "growth/promotions/2026-10-12-18/media-production/calculator-capture-manifest.json"
+    },
+    {
+      "classification": "DERIVED / ILLUSTRATIVE",
+      "values": {
+        "cfmInput": "5000",
+        "frictionInput": "0.08",
+        "exactDiameter": "26.7 in",
+        "nominalDiameter": "28 in",
+        "exactVelocity": "1,284 FPM",
+        "nominalVelocity": "1,169 FPM",
+        "nominalFriction": "0.063 in.w.g./100 ft",
+        "roundArea": "3.89 ft²"
+      },
+      "source": "growth/promotions/2026-10-12-18/media-production/calculator-capture-manifest.json"
+    }
+  ],
+  "owner_listening_review": "Pending full playback of each new final mix; technical checks alone do not establish subjective comfort.",
+  "uploaded": false,
+  "deployed": false,
+  "scheduled": false,
+  "main_beats": [
+    {
+      "start": 0,
+      "end": 3.5,
+      "type": "hook",
+      "lines": [
+        "Nominal size",
+        "changes the check."
+      ],
+      "caption": "A sizing result is a starting point."
+    },
+    {
+      "start": 3.5,
+      "end": 7.5,
+      "type": "input",
+      "lines": [
+        "Start with a",
+        "defined design point."
+      ],
+      "caption": "ILLUSTRATIVE: 3,000 CFM / 0.08 in. w.g./100 ft"
+    },
+    {
+      "start": 7.5,
+      "end": 11.5,
+      "type": "round",
+      "lines": [
+        "Calculated diameter.",
+        "Suggested nominal size."
+      ],
+      "caption": "Read both results before moving on."
+    },
+    {
+      "start": 11.5,
+      "end": 15.5,
+      "type": "friction",
+      "lines": [
+        "At nominal size:",
+        "check velocity + friction."
+      ],
+      "caption": "Derived output for this illustrative input."
+    },
+    {
+      "start": 15.5,
+      "end": 19.5,
+      "type": "change",
+      "lines": [
+        "Change the airflow.",
+        "Recheck the results."
+      ],
+      "caption": "ILLUSTRATIVE: 5,000 CFM / same design friction"
+    },
+    {
+      "start": 19.5,
+      "end": 23.5,
+      "type": "limits",
+      "lines": [
+        "Fittings. Noise. Space.",
+        "Project requirements."
+      ],
+      "caption": "Confirm the design beyond the calculator."
+    },
+    {
+      "start": 23.5,
+      "end": 28,
+      "type": "cta",
+      "lines": [
+        "Make your next",
+        "duct-sizing check."
+      ],
+      "caption": "Free HVAC Duct Calculator / anyhvac.net"
+    }
+  ],
+  "audio_source": {
+    "path": "growth/promotions/2026-10-05-platform-tests/audio-revision-v2/sleepy-cat-source.mp3",
+    "sha256": "fc15a57f37b711f746e523bc89ee7311e2081cd4b25a6a89db0da33c3c42f64c",
+    "title": "Sleepy Cat",
+    "artist": "Alejandro Magaña (A. M.)",
+    "license": "Mixkit Stock Music Free License",
+    "evidence": "growth/promotions/2026-10-05-platform-tests/audio-revision-v2/music-provenance.json",
+    "attribution_required": false,
+    "new_synthesis": false,
+    "standalone_hosting": false
+  }
+}

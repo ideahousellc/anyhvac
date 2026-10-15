@@ -1,0 +1,51 @@
+{
+  "mode": "APPROVED DRY RUN",
+  "endpoint": "https://api.buffer.com",
+  "package_sha256": "d2dcd57425cc8ea04ed4a7c0ebff7e0565b26be3f51899b0761aae1f5cf01cdf",
+  "plans": [
+    {
+      "post_id": "buffer-youtube-controlled-test-v1",
+      "scheduled_at": "2026-10-08T19:00:00-04:00",
+      "queue_checked_at": "2026-10-02T20:04:01.847Z",
+      "queue_count": 1,
+      "operation": {
+        "query": "mutation ScheduleApprovedPost($input: CreatePostInput!) {\n  createPost(input: $input) {\n    __typename\n    ... on PostActionSuccess { post { id channelId text dueAt status assets { source } } }\n    ... on MutationError { message }\n  }\n}",
+        "variables": {
+          "input": {
+            "channelId": "6abd5b46ea19ca0bde375392",
+            "text": "Define outdoor air and return air, set common project pressure and explore the adiabatic mixed state with AnyHVAC's free Mixed Air Calculator. Mixing uses a dry-air mass basis; verify inputs and assumptions before design use.\n\nVisit anyhvac.net, then Tools > Mixed Air Calculator.\n\nEquipment photograph is illustrative, not a mixing-layout diagram or measured operating condition.\n\n#HVAC #MixedAir #Psychrometrics #Shorts",
+            "schedulingType": "automatic",
+            "mode": "customScheduled",
+            "dueAt": "2026-10-08T23:00:00.000Z",
+            "needsApproval": false,
+            "saveToDraft": false,
+            "aiAssisted": true,
+            "assets": [
+              {
+                "video": {
+                  "url": "https://www.anyhvac.net/social/mixed-air-short-86098e26c422d213.mp4"
+                }
+              }
+            ],
+            "metadata": {
+              "youtube": {
+                "title": "Two Air Streams, One Mixed State | Free AnyHVAC Tool",
+                "categoryId": "28",
+                "privacy": "public",
+                "madeForKids": false,
+                "notifySubscribers": true,
+                "embeddable": true,
+                "license": "youtube",
+                "isAiGenerated": false
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "checked_at": "2026-10-02T20:04:01.847Z",
+  "duplicate_check": "PASS",
+  "slot_available": true,
+  "operation_sha256": "5fa848b056a0e04e5243bf8aa7b208fe8fc88a292e9ce8fd568bcb68ccd932b6"
+}

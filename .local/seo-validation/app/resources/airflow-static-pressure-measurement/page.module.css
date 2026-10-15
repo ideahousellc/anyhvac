@@ -1,0 +1,208 @@
+.downloadPanel { margin-bottom: 50px; }
+
+.downloadMeta,
+.actions,
+.toolActions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.downloadMeta { color: var(--muted); font-size: 13px; }
+
+.badge {
+  display: inline-flex;
+  min-height: 27px;
+  align-items: center;
+  padding: 4px 10px;
+  border: 1px solid rgba(102, 176, 255, 0.32);
+  border-radius: 999px;
+  color: var(--primary);
+  font-size: 10px;
+  font-weight: 780;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.actions { margin-top: 25px; }
+
+.primaryAction,
+.secondaryAction,
+.toolActions a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 18px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 740;
+  text-align: center;
+}
+
+.primaryAction { background: var(--primary); color: white; }
+.secondaryAction,
+.toolActions a { border: 1px solid rgba(102, 176, 255, 0.35); color: var(--primary); }
+.primaryAction:hover,
+.primaryAction:focus-visible { background: color-mix(in srgb, var(--primary) 85%, black); }
+.secondaryAction:hover,
+.secondaryAction:focus-visible,
+.toolActions a:hover,
+.toolActions a:focus-visible { background: color-mix(in srgb, var(--primary-light) 9%, transparent); }
+
+.callout,
+.notice,
+.limit,
+.example,
+.diagramCard,
+.termCard,
+.summaryGrid article {
+  border: 1px solid rgba(102, 176, 255, 0.23);
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: 5px 6px 14px rgba(166, 175, 188, 0.2), -5px -5px 14px rgba(255, 255, 255, 0.55);
+}
+
+.callout { margin-top: 24px; padding: clamp(20px, 3vw, 28px); }
+.callout > strong { display: block; margin-bottom: 12px; color: var(--foreground); font-size: 17px; }
+.callout p { font-size: 14px !important; }
+.callout p + p { margin-top: 9px !important; }
+.callout b { color: var(--foreground); }
+
+.termGrid,
+.summaryGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.termCard,
+.summaryGrid article { min-width: 0; padding: 21px; }
+.termCard h3,
+.summaryGrid h3 { margin: 0; color: var(--foreground); font-size: 17px; }
+.termCard p,
+.summaryGrid p { margin: 8px 0 0 !important; font-size: 14px !important; line-height: 1.62 !important; }
+
+.diagramCard { margin: 20px 0 0; padding: clamp(15px, 3vw, 25px); overflow: hidden; }
+.diagramCard svg { display: block; width: 100%; height: auto; color: var(--primary); }
+.diagramCard figcaption { margin-top: 12px; color: var(--muted); font-size: 13px; line-height: 1.55; }
+.diagramCard figcaption strong { color: var(--foreground); }
+.airPath { fill: none; stroke: currentColor; stroke-width: 5; stroke-linecap: round; }
+.equipment { fill: color-mix(in srgb, var(--primary) 7%, var(--surface)); stroke: var(--primary); stroke-width: 3; }
+.fan { fill: none; stroke: var(--primary); stroke-width: 3; }
+.fanBlade { fill: none; stroke: var(--primary); stroke-width: 5; stroke-linecap: round; }
+.diagramLabel,
+.equipmentLabel,
+.traverseLabel { fill: var(--foreground); font-size: 15px; font-weight: 750; letter-spacing: 0.07em; text-anchor: middle; }
+.equipmentLabel { font-size: 13px; }
+.negativeLabel { fill: #b54d5a; font-size: 15px; font-weight: 760; text-anchor: middle; }
+.positiveLabel { fill: #18866b; font-size: 15px; font-weight: 760; text-anchor: middle; }
+.ductOutline { fill: color-mix(in srgb, var(--primary) 5%, var(--surface)); stroke: var(--primary); stroke-width: 3; }
+.regionLine { stroke: color-mix(in srgb, var(--muted) 48%, transparent); stroke-width: 1.5; stroke-dasharray: 5 5; }
+.traversePoint { fill: var(--primary); stroke: var(--surface); stroke-width: 3; }
+.traverseLabel { font-size: 12px; }
+
+.example { margin-top: 20px; padding: clamp(20px, 3vw, 27px); }
+.exampleLabel { margin: 0 0 7px !important; color: var(--primary) !important; font-size: 10px !important; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+.example h3 { margin: 0; font-size: 20px; }
+.exampleValues { display: grid; gap: 8px; margin: 17px 0 0; }
+.exampleValues div { display: grid; grid-template-columns: minmax(145px, 0.75fr) minmax(0, 1.25fr); gap: 15px; }
+.exampleValues dt { color: var(--muted); }
+.exampleValues dd { margin: 0; color: var(--foreground); font-weight: 720; }
+.exampleNote { margin-top: 17px !important; font-size: 12px !important; line-height: 1.55 !important; }
+.followup { margin-top: 18px !important; }
+.followup a,
+.notice a,
+.sourceList a { color: var(--primary); text-decoration: underline; text-underline-offset: 3px; }
+
+.tableWrap {
+  width: 100%;
+  margin-top: 20px;
+  overflow-x: auto;
+  border: 1px solid rgba(102, 176, 255, 0.22);
+  border-radius: 16px;
+  background: var(--surface);
+  scrollbar-width: thin;
+}
+.tableWrap:focus-visible { outline: 3px solid color-mix(in srgb, var(--primary) 45%, transparent); outline-offset: 3px; }
+.dataTable { width: 100%; min-width: 760px; border-collapse: collapse; color: var(--muted); font-size: 13px; line-height: 1.55; }
+.connectionTable { min-width: 1120px; }
+.dataTable th,
+.dataTable td { padding: 14px 15px; border-bottom: 1px solid rgba(166, 175, 188, 0.2); text-align: left; vertical-align: top; }
+.dataTable th { color: var(--foreground); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; }
+.dataTable tbody tr:last-child td { border-bottom: 0; }
+.dataTable td:first-child { color: var(--foreground); font-weight: 720; }
+
+.formulaGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+.formulaGrid article { padding: 21px; border-radius: 16px; background: color-mix(in srgb, var(--primary) 6%, var(--surface)); text-align: center; }
+.formulaGrid span,
+.formulaGrid small { display: block; color: var(--muted); }
+.formulaGrid span { font-size: 12px; font-weight: 720; letter-spacing: 0.07em; text-transform: uppercase; }
+.formulaGrid strong { display: block; margin: 9px 0 5px; color: var(--foreground); font-size: clamp(21px, 3vw, 27px); }
+.formulaGrid small { font-size: 12px; }
+.compactList { margin-top: 21px !important; }
+.compactList strong { color: var(--foreground); }
+
+.steps { display: grid; gap: 12px; margin: 19px 0 0; padding-left: 24px; }
+.steps li { padding-left: 5px; }
+.limit { margin-top: 20px !important; padding: 17px 19px; font-size: 14px !important; }
+.limit strong { color: var(--foreground); }
+
+.toolActions { margin-top: 22px; }
+.formulaBand { display: flex; align-items: stretch; flex-wrap: wrap; gap: 9px; margin: 22px 0; }
+.formulaBand span,
+.formulaBand b { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; }
+.formulaBand span { flex: 1 1 160px; padding: 10px 14px; border-radius: 13px; background: color-mix(in srgb, var(--primary) 7%, var(--surface)); color: var(--foreground); font-size: 13px; font-weight: 700; text-align: center; }
+.formulaBand b { flex: 0 0 auto; color: var(--primary); }
+
+.checkGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 28px !important; }
+.notice { padding: clamp(21px, 3vw, 29px); }
+.notice p { font-size: 14px !important; }
+.sourceList { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px 28px !important; }
+.sourceList a { overflow-wrap: anywhere; }
+
+:global(.dark) .callout,
+:global(.dark) .notice,
+:global(.dark) .limit,
+:global(.dark) .example,
+:global(.dark) .diagramCard,
+:global(.dark) .termCard,
+:global(.dark) .summaryGrid article {
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 6px 7px 16px rgba(4, 10, 17, 0.3), -6px -6px 16px rgba(48, 65, 82, 0.2);
+}
+
+@media (max-width: 720px) {
+  .termGrid,
+  .summaryGrid,
+  .checkGrid,
+  .sourceList { grid-template-columns: 1fr; }
+  .formulaGrid { grid-template-columns: 1fr 1fr; }
+  .diagramLabel,
+  .negativeLabel,
+  .positiveLabel { font-size: 18px; }
+  .equipmentLabel,
+  .traverseLabel { font-size: 15px; }
+}
+
+@media (max-width: 520px) {
+  .actions,
+  .toolActions { align-items: stretch; flex-direction: column; }
+  .primaryAction,
+  .secondaryAction,
+  .toolActions a { width: 100%; min-height: 46px; }
+  .formulaGrid { grid-template-columns: 1fr; }
+  .exampleValues div { grid-template-columns: 1fr; gap: 2px; }
+  .formulaBand { align-items: center; flex-direction: column; }
+  .formulaBand span { width: 100%; flex-basis: auto; }
+  .formulaBand b { min-height: 22px; }
+  .diagramCard { margin-inline: -4px; }
+  .diagramCard figcaption { font-size: 12px; }
+}

@@ -1,0 +1,65 @@
+{
+  "photographs": [
+    {
+      "id": "duct-context",
+      "path": "growth/.generated/weekly/2026-10-12-18/inputs/pressure-mechanical-room.jpg",
+      "sha256": "67f50572169a4a4f4d8156eb2cec45ee67e20f9accc21affdaf2bf2605dd061e",
+      "author": "MTA Capital Construction Mega Projects",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "evidence": [
+        "growth/promotions/2026-10-19-25/evidence/pressure-photo-commons.html",
+        "growth/promotions/2026-10-19-25/evidence/cc-by-2.0.html"
+      ],
+      "alterations": "Equipment-only crop, darkened with translucent overlay, original text/diagrams added. No recognizable people, customer or endorsement claim."
+    },
+    {
+      "id": "air-handler",
+      "path": "growth/.generated/weekly/2026-10-12-18/sources/air-handler-cc0.jpg",
+      "author": "Alf van Beem",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "evidence": [
+        "growth/promotions/2026-10-19-25/evidence/air-handler-commons.json",
+        "growth/promotions/2026-10-19-25/evidence/air-handler-page.html",
+        "growth/promotions/2026-10-19-25/evidence/cc0-deed.html"
+      ],
+      "sha256": "d91129129036cc296ccffff551a9bdab3180ae7db0070e8ca854bd20f457d4da",
+      "alterations": "Equipment-only crop, darkened with translucent overlay, original text/diagrams added. No recognizable people, customer or endorsement claim."
+    }
+  ],
+  "music": {
+    "track": "Sleepy Cat",
+    "artist": "Alejandro Magaña (A. M.)",
+    "provider": "Mixkit",
+    "catalog_url": "https://mixkit.co/free-stock-music/chillout/",
+    "download_url": "https://assets.mixkit.co/music/135/135.mp3",
+    "license_name": "Mixkit Stock Music Free License",
+    "license_url": "https://mixkit.co/license/modal/musicFree/",
+    "terms_url": "https://mixkit.co/terms/",
+    "attribution_faq_url": "https://mixkit.co/free-stock-music/",
+    "rights": "Free commercial and non-commercial use in promotional web/social videos including YouTube. Editing permitted for synchronized video. Attribution not required.",
+    "restrictions": "No standalone music redistribution, music-only remix, ownership claim or rights-management registration. No TV/radio, video games or CDs/DVDs.",
+    "attribution_required": false,
+    "optional_credit": "Music: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit.",
+    "local_source": "growth/promotions/2026-10-05-platform-tests/audio-revision-v2/sleepy-cat-source.mp3",
+    "source_sha256": "fc15a57f37b711f746e523bc89ee7311e2081cd4b25a6a89db0da33c3c42f64c",
+    "license_evidence": [
+      "growth/promotions/2026-10-19-25/evidence/mixkit-track-evidence.html",
+      "growth/promotions/2026-10-19-25/evidence/mixkit-license-evidence.html",
+      "growth/promotions/2026-10-19-25/evidence/mixkit-music-faq-evidence.html",
+      "growth/promotions/2026-10-19-25/evidence/mixkit-terms-evidence.html"
+    ],
+    "selection_basis": "Provider labels this existing full-length recording Downtempo, Atmospheric, Bass and Drums. Subjective warmth, arrangement and suitability remain subject to owner listening review.",
+    "edit": "Reused existing verified 16/28-second synchronized instrumental excerpts: 6.5 kHz roll-off, fade envelopes, two-pass -18 LUFS normalization. No new music synthesis.",
+    "checked_at": "2026-10-02T19:55:14.579Z"
+  },
+  "originalDiagrams": "AnyHVAC original deterministic vector artwork; no AI imagery; no third-party icons.",
+  "ownerAssets": [
+    "public/Horizontal Logo.png"
+  ],
+  "noPurchases": true,
+  "publicationApproved": false
+}

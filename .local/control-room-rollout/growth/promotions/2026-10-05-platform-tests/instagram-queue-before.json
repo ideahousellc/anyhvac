@@ -1,0 +1,71 @@
+{
+  "checked_at": "2026-10-02T19:39:40.050Z",
+  "posts": [
+    {
+      "id": "6abebb80da4126bfa6e30721",
+      "channelId": "6abd5952ea19ca0bde37267c",
+      "text": "A useful reference for your next duct-design check.\n\nOur FREE Duct Design Quick Reference covers airflow, velocity, duct sizing, pressure basics and IP/SI conversions.\n\n2 pages. Practical formulas and reference values. No signup.\n\nVisit anyhvac.net → Resources → Duct Design Quick Reference to download the PDF.\n\nSave this post for later and share it with your HVAC team. Verify reference values against your project requirements before final design.\n\n#HVAC #DuctDesign #HVACDesign #AirDistribution #HVACTools\n\nInstagram CTA deliberately uses site navigation; it does not assume a particular profile bio link or a clickable caption URL. Alt text: “AnyHVAC free HVAC Duct Design Quick Reference. Two pages of practical formulas and reference values, with no signup. Covers airflow, velocity, duct sizing, pressure basics and IP/SI conversions.” ",
+      "dueAt": "2026-10-02T22:00:00.000Z",
+      "status": "scheduled",
+      "schedulingType": "automatic",
+      "assets": [
+        {
+          "source": "https://buffer-media-uploads.s3.amazonaws.com/6abd544fcd0a4361f7debfe7/6abebb308ec67cd7b920e42d"
+        }
+      ],
+      "metadata": {
+        "type": "post",
+        "shouldShareToFeed": true,
+        "isAiGenerated": false
+      }
+    },
+    {
+      "id": "6abe9d86e0fecf780bf983a3",
+      "channelId": "6abd5952ea19ca0bde37267c",
+      "text": "Same airflow. Smaller duct. Higher velocity. 💨\n\nA small change in duct size can make a big difference in your HVAC design.\n\nMeet the **AnyHVAC Duct Calculator**. 📐\n\nExplore airflow, velocity, friction rate, and duct sizing with our free interactive calculator.\n\n🔗 Try it FREE — link in bio!\nwww.anyhvac.net/tools/duct-calculator\n\nNo subscriptions. No signup. Just useful HVAC tools.\n\n💬 When sizing ductwork, do you start with velocity or friction rate?\n\nFollow @anyhvac for free HVAC calculators, engineering references, and practical design content.\n\n#HVAC #HVACDesign #DuctDesign #HVACTools #EngineeringTools",
+      "dueAt": "2026-10-01T18:00:36.356Z",
+      "status": "sent",
+      "schedulingType": "automatic",
+      "assets": [
+        {
+          "source": "https://buffer-media-uploads.s3.amazonaws.com/6abd544fcd0a4361f7debfe7/6abe9cf108952583cad772d7_transcoded.mp4"
+        }
+      ],
+      "metadata": {
+        "type": "reel",
+        "shouldShareToFeed": true,
+        "isAiGenerated": false
+      }
+    },
+    {
+      "id": "6abd595327d3111a52729ff8",
+      "channelId": "6abd5952ea19ca0bde37267c",
+      "text": "Welcome to AnyHVAC. 🛠️\n\nWe’re building a growing collection of free HVAC calculators, practical design tools and quick-reference resources for HVAC professionals and designers.\n\nNo subscription. No account required. Just tools designed to make everyday HVAC work a little easier.\n\nAlready available:\n📐 HVAC Duct Calculator\n💨 Air Distribution Tools\n🌡️ Psychrometric Calculator\n🔀 Mixed Air Calculator\n📄 Free HVAC Design References\n\nAnd we're just getting started.\n\n🔗 Explore the tools at anyhvac.net\n\nFollow @anyhvac for new tools, HVAC references and practical engineering content.\n\n#HVAC #HVACDesign #MechanicalEngineering #Engineering #HVACTools #ductdesign",
+      "dueAt": "2026-09-22T19:43:12.000Z",
+      "status": "sent",
+      "schedulingType": "automatic",
+      "assets": [
+        {
+          "source": "https://buffer-updates-media-backfill-bucket.s3.amazonaws.com/6abd544fcd0a4361f7debfe7/6abd5952ea19ca0bde37267c/6abd595327d3111a52729ff8_thumbnail.jpg"
+        },
+        {
+          "source": "https://buffer-updates-media-backfill-bucket.s3.amazonaws.com/6abd544fcd0a4361f7debfe7/6abd5952ea19ca0bde37267c/6abd595327d3111a52729ff8_1_thumbnail.jpg"
+        },
+        {
+          "source": "https://buffer-updates-media-backfill-bucket.s3.amazonaws.com/6abd544fcd0a4361f7debfe7/6abd5952ea19ca0bde37267c/6abd595327d3111a52729ff8_2_thumbnail.jpg"
+        },
+        {
+          "source": "https://buffer-updates-media-backfill-bucket.s3.amazonaws.com/6abd544fcd0a4361f7debfe7/6abd5952ea19ca0bde37267c/6abd595327d3111a52729ff8_3_thumbnail.jpg"
+        },
+        {
+          "source": "https://buffer-updates-media-backfill-bucket.s3.amazonaws.com/6abd544fcd0a4361f7debfe7/6abd5952ea19ca0bde37267c/6abd595327d3111a52729ff8_4_thumbnail.jpg"
+        }
+      ],
+      "metadata": {
+        "type": "post",
+        "shouldShareToFeed": false,
+        "isAiGenerated": false
+      }
+    }
+  ]
+}

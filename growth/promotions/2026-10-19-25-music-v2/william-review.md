@@ -1,0 +1,11 @@
+# William — main-video music replacement review
+
+Independent local verification October 14, 2026. **Rights, integrity and measured media checks PASS; owner full playback and new-version approval pending.** New Bass 01 by Lily J is an exact-byte verified Mixkit recording covered by the shared music library review at `docs/media/music-library-william-review.md`.
+
+William independently rehashed the 29 original campaign files in the recorded baseline: every file remains unchanged. All twenty current manifest asset hashes match; nineteen original media assets are preserved. The original H.264 video payload and revised H.264 payload hash identically, so visual timing, frames, engineering text, branding and animation are unchanged by the soundtrack replacement. This is stronger than a sampled screenshot comparison.
+
+All ten non-main-video platform posts remain byte-equivalent as parsed records. Each of the three main-video posts changes only its caption and media reference: the credit identifies the new recording and the media points to the revised export. Destination links, proposed slots, platform identifiers and engineering message remain unchanged. Original review-state versions 1–3 compare identically; appended version 4 has only a revision action, with no owner-approval action. Publication/scheduling is not authorized by this review.
+
+Independent WAV/PCM decode of the new export measured 28.003 seconds (AAC framing), −22.033 dBFS RMS, −2.802 dBFS sample peak and zero clipped PCM samples. These agree with the root's validation record. The declared −3 dB ceiling is a preparation target: the decoded AAC sample peak is approximately 0.198 dB above it. Do not describe the final AAC as meeting a strict −3 dB ceiling; lower the encoding input gain and revalidate if that is a hard acceptance requirement. No integrated LUFS, true-peak or subjective comfort claim is made. The owner must play the full revised 28-second clip with sound before approval.
+
+`qa-signoff.json` records independent measurements and preservation checks. It does not transfer the owner's approval from revision 3 to revision 4. Original assets and historical scheduled content were not modified; no runner, startup task, Buffer scheduling, publishing or production configuration action was performed.

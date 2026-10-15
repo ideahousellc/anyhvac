@@ -1,0 +1,108 @@
+{
+  "batchcomplete": "",
+  "query": {
+    "pages": {
+      "114683618": {
+        "pageid": 114683618,
+        "ns": 6,
+        "title": "File:012 Rooftop HVAC systems and roof ventilation ducts in Tokyo, Japan.jpg",
+        "imagerepository": "local",
+        "imageinfo": [
+          {
+            "size": 995248,
+            "width": 2160,
+            "height": 1440,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/6/63/012_Rooftop_HVAC_systems_and_roof_ventilation_ducts_in_Tokyo%2C_Japan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:012_Rooftop_HVAC_systems_and_roof_ventilation_ducts_in_Tokyo,_Japan.jpg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=114683618",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2022-01-26 15:48:26",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "012 Rooftop HVAC systems and roof ventilation ducts in Tokyo, Japan",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "Office buildings in Tokyo|Ventilation|Self-published work|Images by Tupungato|Air conditioners in Japan",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Rooftop HVAC systems, air conditioning and ventilation ducts in an office building in Tokyo, Japan.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2016-11-30",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "Marek Ślusarczyk (<a href=\"//commons.wikimedia.org/wiki/User:Tupungato\" title=\"User:Tupungato\">Tupungato</a>) <a rel=\"nofollow\" class=\"external text\" href=\"https://www.pond5.com/artist/citylife#1/2176\">Photo portfolio</a>",
+                "source": "commons-desc-page"
+              },
+              "Permission": {
+                "value": "Outside Wikipedia projects you <b>must</b> attribute the work to the author: <b>Marek Ślusarczyk</b> or <a rel=\"nofollow\" class=\"external text\" href=\"http://www.microstock.pl\"><b>www.microstock.pl</b></a>. In case of any doubts feel free to e-mail me: <i>marek (at) microstock pl</i>.",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseShortName": {
+                "value": "CC BY 3.0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Attribution 3.0",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "true",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Attribution": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Tupungato\" title=\"User:Tupungato\">Marek Slusarczyk</a>",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "https://creativecommons.org/licenses/by/3.0",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc-by-3.0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

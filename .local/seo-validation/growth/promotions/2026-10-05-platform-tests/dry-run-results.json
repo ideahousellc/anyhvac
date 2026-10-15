@@ -1,0 +1,344 @@
+[
+  {
+    "platform": "instagram",
+    "mode": "UNAPPROVED READ-ONLY PROPOSAL — NOT EXECUTABLE",
+    "checked_at": "2026-10-02T19:29:20.696Z",
+    "package_sha256": "ee1febc7cd3d6cd219aa09f298a7adcb6d4443c25084d13de801bda688389706",
+    "owner_approval": null,
+    "channel_id": "6abd5952ea19ca0bde37267c",
+    "channel_name": "anyhvac",
+    "channel_timezone": "America/New_York",
+    "scheduled_at": "2026-10-05T19:00:00-04:00",
+    "slot_source": "First configured slot in next-week window: Monday 19:00. Earlier calendar draft proposed 18:00; this is a new time proposal.",
+    "queue_count": 1,
+    "queue_history_count": 3,
+    "duplicate_check": "PASS",
+    "duplicate_reasons": [],
+    "occupied": false,
+    "network_settings": {
+      "type": "post",
+      "shouldShareToFeed": true,
+      "isAiGenerated": false
+    },
+    "buffer_caption_character_count": 389,
+    "hashtag_count": 4,
+    "operation": {
+      "query": "mutation ScheduleApprovedPost($input: CreatePostInput!) {\n  createPost(input: $input) {\n    __typename\n    ... on PostActionSuccess { post { id channelId text dueAt status assets { source } } }\n    ... on MutationError { message }\n  }\n}",
+      "variables": {
+        "input": {
+          "channelId": "6abd5952ea19ca0bde37267c",
+          "text": "Start your duct-design check with the right inputs.\n\nExplore round and rectangular options with the free AnyHVAC HVAC Duct Calculator. Bring your airflow and design friction rate, then check fittings, noise, space and project requirements.\n\nVisit anyhvac.net → Tools → HVAC Duct Calculator.\n\nSave this post for your next design check.\n\n#HVAC #DuctDesign #HVACDesign #MEPEngineering",
+          "schedulingType": "automatic",
+          "mode": "customScheduled",
+          "dueAt": "2026-10-05T23:00:00.000Z",
+          "needsApproval": false,
+          "saveToDraft": false,
+          "aiAssisted": true,
+          "assets": [
+            {
+              "image": {
+                "url": "https://www.anyhvac.net/social/duct-calculator-linkedin-ceea97e30f5c731e.png",
+                "metadata": {
+                  "altText": "AnyHVAC HVAC Duct Calculator promotion showing real mechanical-room ductwork, with the headline Start your next duct design here and CTA Try the free calculator."
+                }
+              }
+            }
+          ],
+          "metadata": {
+            "instagram": {
+              "type": "post",
+              "shouldShareToFeed": true,
+              "isAiGenerated": false
+            }
+          }
+        }
+      }
+    },
+    "approval_gate": "BLOCKED — owner approval required",
+    "media": {
+      "format": "png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 1458712,
+      "sha256": "ceea97e30f5c731ebd517c51ed8adc7b3f6181c3e929bac10068e8fb6b8c603a"
+    },
+    "default_to_reminders": false,
+    "account_type_verification": "Professional account type is not exposed by the inspected channel metadata; verify automatic publishing eligibility before live execution.",
+    "public_media_http_status": 200,
+    "preflight": {
+      "mode": "UNAPPROVED EXAMPLE — NOT EXECUTABLE",
+      "endpoint": "https://api.buffer.com",
+      "package_sha256": "ee1febc7cd3d6cd219aa09f298a7adcb6d4443c25084d13de801bda688389706",
+      "plans": [
+        {
+          "post_id": "buffer-instagram-controlled-test-v1",
+          "scheduled_at": "2026-10-05T19:00:00-04:00",
+          "queue_checked_at": "2026-10-02T19:29:21.500Z",
+          "queue_count": 1,
+          "operation": {
+            "query": "mutation ScheduleApprovedPost($input: CreatePostInput!) {\n  createPost(input: $input) {\n    __typename\n    ... on PostActionSuccess { post { id channelId text dueAt status assets { source } } }\n    ... on MutationError { message }\n  }\n}",
+            "variables": {
+              "input": {
+                "channelId": "6abd5952ea19ca0bde37267c",
+                "text": "Start your duct-design check with the right inputs.\n\nExplore round and rectangular options with the free AnyHVAC HVAC Duct Calculator. Bring your airflow and design friction rate, then check fittings, noise, space and project requirements.\n\nVisit anyhvac.net → Tools → HVAC Duct Calculator.\n\nSave this post for your next design check.\n\n#HVAC #DuctDesign #HVACDesign #MEPEngineering",
+                "schedulingType": "automatic",
+                "mode": "customScheduled",
+                "dueAt": "2026-10-05T23:00:00.000Z",
+                "needsApproval": false,
+                "saveToDraft": false,
+                "aiAssisted": true,
+                "assets": [
+                  {
+                    "image": {
+                      "url": "https://www.anyhvac.net/social/duct-calculator-linkedin-ceea97e30f5c731e.png",
+                      "metadata": {
+                        "altText": "AnyHVAC HVAC Duct Calculator promotion showing real mechanical-room ductwork, with the headline Start your next duct design here and CTA Try the free calculator."
+                      }
+                    }
+                  }
+                ],
+                "metadata": {
+                  "instagram": {
+                    "type": "post",
+                    "shouldShareToFeed": true,
+                    "isAiGenerated": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "full_preflight": "PASS — content still unapproved"
+  },
+  {
+    "platform": "youtube",
+    "mode": "UNAPPROVED READ-ONLY PROPOSAL — NOT EXECUTABLE",
+    "checked_at": "2026-10-02T19:29:21.605Z",
+    "package_sha256": "878e44cf1f214379b15c0178ed896676d5a80a104521d794a19e65eceae65d58",
+    "owner_approval": null,
+    "channel_id": "6abd5b46ea19ca0bde375392",
+    "channel_name": "AnyHVAC",
+    "channel_timezone": "America/New_York",
+    "scheduled_at": "2026-10-08T19:00:00-04:00",
+    "slot_source": "First configured slot in next-week window: Thursday 19:00; matches next-week Mixed Air proposal.",
+    "queue_count": 1,
+    "queue_history_count": 2,
+    "duplicate_check": "PASS",
+    "duplicate_reasons": [],
+    "occupied": false,
+    "network_settings": {
+      "title": "Two Air Streams, One Mixed State | Free AnyHVAC Tool",
+      "categoryId": "28",
+      "privacy": "public",
+      "madeForKids": false,
+      "notifySubscribers": true,
+      "embeddable": true,
+      "license": "youtube",
+      "isAiGenerated": false
+    },
+    "buffer_caption_character_count": 421,
+    "hashtag_count": 4,
+    "operation": {
+      "query": "mutation ScheduleApprovedPost($input: CreatePostInput!) {\n  createPost(input: $input) {\n    __typename\n    ... on PostActionSuccess { post { id channelId text dueAt status assets { source } } }\n    ... on MutationError { message }\n  }\n}",
+      "variables": {
+        "input": {
+          "channelId": "6abd5b46ea19ca0bde375392",
+          "text": "Define outdoor air and return air, set common project pressure and explore the adiabatic mixed state with AnyHVAC's free Mixed Air Calculator. Mixing uses a dry-air mass basis; verify inputs and assumptions before design use.\n\nVisit anyhvac.net, then Tools > Mixed Air Calculator.\n\nEquipment photograph is illustrative, not a mixing-layout diagram or measured operating condition.\n\n#HVAC #MixedAir #Psychrometrics #Shorts",
+          "schedulingType": "automatic",
+          "mode": "customScheduled",
+          "dueAt": "2026-10-08T23:00:00.000Z",
+          "needsApproval": false,
+          "saveToDraft": false,
+          "aiAssisted": true,
+          "assets": [
+            {
+              "video": {
+                "url": "https://www.anyhvac.net/social/mixed-air-short-86098e26c422d213.mp4"
+              }
+            }
+          ],
+          "metadata": {
+            "youtube": {
+              "title": "Two Air Streams, One Mixed State | Free AnyHVAC Tool",
+              "categoryId": "28",
+              "privacy": "public",
+              "madeForKids": false,
+              "notifySubscribers": true,
+              "embeddable": true,
+              "license": "youtube",
+              "isAiGenerated": false
+            }
+          }
+        }
+      }
+    },
+    "approval_gate": "BLOCKED — owner approval required",
+    "media": {
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "seconds": 15,
+      "frame_rate": "30/1",
+      "codecs": [
+        "h264",
+        "aac"
+      ],
+      "bytes": 788052,
+      "sha256": "86098e26c422d213ba43f764bcc73dc5a3e8bc1122dedb3f17332a5691f0c8d4",
+      "artwork_sha256": "a4bed91c5ec816356cc66eb899cf1f177cec5a0e2e387b89b3fa877cd47304ac",
+      "audio_source": "growth/.generated/promotions/2026-10-02-03/saturday-original-instrumental.wav",
+      "audio_source_sha256": "140fe70480b71e2014069ffb4e1c43c1857b4b097236444b8b606952e775c0d0",
+      "audio_gain": 0.8,
+      "decoded_audio": {
+        "peak_dbfs": -16.658876980414135,
+        "rms_dbfs": -28.783858645436702,
+        "clipped_samples": 0
+      },
+      "listening_review": "Owner must review the complete finished MP4 with sound; prior approved instrumental reused, no new music generated.",
+      "probe": {
+        "streams": [
+          {
+            "index": 0,
+            "codec_name": "h264",
+            "codec_long_name": "unknown",
+            "profile": "100",
+            "codec_type": "video",
+            "codec_tag_string": "avc1",
+            "codec_tag": "0x31637661",
+            "width": 1080,
+            "height": 1920,
+            "coded_width": 1080,
+            "coded_height": 1920,
+            "closed_captions": 0,
+            "film_grain": 0,
+            "has_b_frames": 2,
+            "sample_aspect_ratio": "1:1",
+            "display_aspect_ratio": "9:16",
+            "pix_fmt": "yuv420p",
+            "level": 40,
+            "chroma_location": "left",
+            "field_order": "progressive",
+            "refs": 1,
+            "is_avc": "true",
+            "nal_length_size": "4",
+            "id": "0x1",
+            "r_frame_rate": "30/1",
+            "avg_frame_rate": "30/1",
+            "time_base": "1/15360",
+            "start_pts": 0,
+            "start_time": "0.000000",
+            "duration_ts": 230400,
+            "duration": "15.000000",
+            "bit_rate": "281497",
+            "bits_per_raw_sample": "8",
+            "nb_frames": "450",
+            "extradata_size": 48,
+            "disposition": {
+              "default": 1,
+              "dub": 0,
+              "original": 0,
+              "comment": 0,
+              "lyrics": 0,
+              "karaoke": 0,
+              "forced": 0,
+              "hearing_impaired": 0,
+              "visual_impaired": 0,
+              "clean_effects": 0,
+              "attached_pic": 0,
+              "timed_thumbnails": 0,
+              "non_diegetic": 0,
+              "captions": 0,
+              "descriptions": 0,
+              "metadata": 0,
+              "dependent": 0,
+              "still_image": 0,
+              "multilayer": 0
+            },
+            "tags": {
+              "language": "und",
+              "handler_name": "VideoHandler",
+              "vendor_id": "[0][0][0][0]",
+              "encoder": "Lavc61.19.100 libx264"
+            }
+          },
+          {
+            "index": 1,
+            "codec_name": "aac",
+            "codec_long_name": "unknown",
+            "profile": "1",
+            "codec_type": "audio",
+            "codec_tag_string": "mp4a",
+            "codec_tag": "0x6134706d",
+            "sample_fmt": "fltp",
+            "sample_rate": "48000",
+            "channels": 2,
+            "channel_layout": "stereo",
+            "bits_per_sample": 0,
+            "initial_padding": 0,
+            "id": "0x2",
+            "r_frame_rate": "0/0",
+            "avg_frame_rate": "0/0",
+            "time_base": "1/48000",
+            "start_pts": 0,
+            "start_time": "0.000000",
+            "duration_ts": 720000,
+            "duration": "15.000000",
+            "bit_rate": "129038",
+            "nb_frames": "705",
+            "extradata_size": 5,
+            "disposition": {
+              "default": 1,
+              "dub": 0,
+              "original": 0,
+              "comment": 0,
+              "lyrics": 0,
+              "karaoke": 0,
+              "forced": 0,
+              "hearing_impaired": 0,
+              "visual_impaired": 0,
+              "clean_effects": 0,
+              "attached_pic": 0,
+              "timed_thumbnails": 0,
+              "non_diegetic": 0,
+              "captions": 0,
+              "descriptions": 0,
+              "metadata": 0,
+              "dependent": 0,
+              "still_image": 0,
+              "multilayer": 0
+            },
+            "tags": {
+              "language": "und",
+              "handler_name": "SoundHandler",
+              "vendor_id": "[0][0][0][0]"
+            }
+          }
+        ],
+        "format": {
+          "filename": "C:\\Projects\\anyhvac\\growth\\promotions\\2026-10-05-platform-tests\\mixed-air-short.mp4",
+          "nb_streams": 2,
+          "nb_programs": 0,
+          "nb_stream_groups": 0,
+          "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+          "start_time": "0.000000",
+          "duration": "15.000000",
+          "size": "788052",
+          "bit_rate": "420294",
+          "probe_score": 100,
+          "tags": {
+            "major_brand": "isom",
+            "minor_version": "512",
+            "compatible_brands": "isomiso2avc1mp41",
+            "encoder": "Lavf61.7.100"
+          }
+        }
+      }
+    },
+    "public_media_http_status": 404,
+    "full_preflight": "BLOCKED",
+    "blocker": "Hosted media must return HTTP success and image/png or video/mp4."
+  }
+]

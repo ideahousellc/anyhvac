@@ -1,0 +1,29 @@
+{
+  "status": "DEPLOYED ? VERIFIED; SINGLE LINKEDIN POST SCHEDULED",
+  "source": "growth/promotions/2026-10-05-linkedin/duct-calculator-linkedin-v2.png",
+  "target": "public/social/duct-calculator-linkedin-ceea97e30f5c731e.png",
+  "public_url": "https://www.anyhvac.net/social/duct-calculator-linkedin-ceea97e30f5c731e.png",
+  "sha256": "ceea97e30f5c731ebd517c51ed8adc7b3f6181c3e929bac10068e8fb6b8c603a",
+  "bytes": 1458712,
+  "width": 1080,
+  "height": 1350,
+  "base_commit": "34d6ebc8d2ce58698eb5132d7ed924dba0f3eade",
+  "repository": "https://github.com/ideahousellc/anyhvac",
+  "branch": "main",
+  "deployment_method": "Existing Vercel GitHub integration; push to main triggers deployment",
+  "deployment_files": [
+    "public/social/duct-calculator-linkedin-ceea97e30f5c731e.png"
+  ],
+  "owner_image_approval": "Owner visually approved duct-calculator-linkedin-v2.png and unchanged caption for October 5, 2026, 5 PM EDT in this conversation.",
+  "final_deployment_authorization": "FINAL OWNER AUTHORIZATION GRANTED in this conversation; only the approved image may be committed and pushed to main.",
+  "post_deployment_steps": [
+    "Verify production deployment succeeds for exact new commit",
+    "Download public URL; require HTTP 200, image/png, and exact approved SHA-256",
+    "Update v2 package and approval digest with actual owner evidence",
+    "Read complete live LinkedIn queue/history; block conflicts or duplicates",
+    "Write durable scheduling intent and execute exactly one createPost",
+    "Read live queue; verify post ID, channel, caption, image, time and scheduled status; save record; never retry an ambiguous result without reconciliation"
+  ],
+  "commit": "91e9049fedbb29dcddc92de12e32538979292fdd",
+  "buffer_post_id": "6abffcdaa82b64098f40fcc6"
+}

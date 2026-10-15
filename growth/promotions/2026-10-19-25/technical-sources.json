@@ -1,0 +1,77 @@
+{
+  "checkedAt": "2026-10-14T18:25:56.971Z",
+  "packages": [
+    {
+      "packageId": "promo-duct-geometry",
+      "canonicalDestination": "https://www.anyhvac.net/tools/duct-calculator",
+      "technicalBoundary": "Calculator outputs are preliminary comparisons. Verify dimensions, material, fittings, noise, available pressure and project requirements. No guaranteed savings or compliant design claim.",
+      "sources": [
+        {
+          "file": "data/tools.ts",
+          "sha256": "1163100e4c7077b1ae50aa0b3298018930828dc872da8ab0fdbc22a5b9d6cec7"
+        },
+        {
+          "file": "components/duct-calculator/DuctCalculator.tsx",
+          "sha256": "408e3368ffc58633efe1a161e8d8a3de48dc2be0b58a1ce9f61f8096cb3b2970"
+        }
+      ],
+      "arithmeticLabel": "Illustrative or conceptual; not measured performance, equipment diagnosis, design targets or code compliance."
+    },
+    {
+      "packageId": "carousel-equal-area",
+      "canonicalDestination": "https://www.anyhvac.net/tools/duct-calculator",
+      "technicalBoundary": "Illustrative clear internal dimensions. Equal area at fixed volume flow/reference basis gives equal mean velocity, not necessarily equal friction. No pressure-loss ratio, code recommendation or hydraulic-diameter sizing equivalence.",
+      "sources": [
+        {
+          "file": "components/duct-calculator/DuctCalculator.tsx",
+          "sha256": "408e3368ffc58633efe1a161e8d8a3de48dc2be0b58a1ce9f61f8096cb3b2970"
+        }
+      ],
+      "arithmeticLabel": "Illustrative or conceptual; not measured performance, equipment diagnosis, design targets or code compliance."
+    },
+    {
+      "packageId": "promo-mixed-air",
+      "canonicalDestination": "https://www.anyhvac.net/tools/mixed-air-calculator",
+      "technicalBoundary": "Ideal mixing at a common pressure, without heat/moisture exchange with surroundings. Humidity ratio and enthalpy are dry-air-mass weighted; volume fraction need not equal dry-air mass fraction. Output is not ventilation compliance or a real equipment diagnosis.",
+      "sources": [
+        {
+          "file": "app/tools/mixed-air-calculator/page.tsx",
+          "sha256": "3e58b512ec94f2d90ad3c25bfbbfb404eea579f6db8bd43cf8fd91bb2efd059c"
+        },
+        {
+          "file": "lib/psychrometrics/mixing/README.md",
+          "sha256": "81d345e813d6b249fee7ec7ae716f5dcba967bb0120b7b381d9a2c65d40a851c"
+        }
+      ],
+      "arithmeticLabel": "Illustrative or conceptual; not measured performance, equipment diagnosis, design targets or code compliance."
+    },
+    {
+      "packageId": "carousel-rh-moisture",
+      "canonicalDestination": "https://www.anyhvac.net/tools/psychrometric-calculator",
+      "technicalBoundary": "Sensible warming at fixed total pressure and fixed humidity ratio, with no moisture exchange. RH decline is not evidence of dehumidification. Concept only, not diagnosis or heating-coil sizing.",
+      "sources": [
+        {
+          "file": "lib/psychrometrics/README.md",
+          "sha256": "989a8537814c8ff803788b0534129e22042fce15cc6cd26c391ec5097f69623a"
+        },
+        {
+          "file": "lib/psychrometrics/engine.ts",
+          "sha256": "036009e1a96b303a5d67b8a29aee4420a32b4e3f6a455158291677574f57c3ce"
+        }
+      ],
+      "arithmeticLabel": "Illustrative or conceptual; not measured performance, equipment diagnosis, design targets or code compliance."
+    },
+    {
+      "packageId": "main-airflow-area",
+      "canonicalDestination": "https://www.anyhvac.net/tools/air-distribution",
+      "technicalBoundary": "Illustrative mean cross-sectional velocity; volume flow and area use consistent units/reference basis. 500 and1000FPM are not design targets. A real duct modification may change system airflow; this arithmetic does not predict fan/system behavior.",
+      "sources": [
+        {
+          "file": "components/air-distribution/AirDistributionTools.tsx",
+          "sha256": "cf15c2a01b436c60c49bc6f092fd104d663ae88f511d94ba6c195ad8562da0ca"
+        }
+      ],
+      "arithmeticLabel": "Illustrative or conceptual; not measured performance, equipment diagnosis, design targets or code compliance."
+    }
+  ]
+}

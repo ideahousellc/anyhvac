@@ -1,0 +1,34 @@
+{
+  "checkedAt": "2026-10-14T18:13:40.234Z",
+  "method": "HEAD only; no JavaScript or analytics executed",
+  "checks": [
+    {
+      "url": "https://www.anyhvac.net/tools/duct-calculator",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "finalUrl": "https://www.anyhvac.net/tools/duct-calculator",
+      "passed": true
+    },
+    {
+      "url": "https://www.anyhvac.net/tools/mixed-air-calculator",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "finalUrl": "https://www.anyhvac.net/tools/mixed-air-calculator",
+      "passed": true
+    },
+    {
+      "url": "https://www.anyhvac.net/tools/psychrometric-calculator",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "finalUrl": "https://www.anyhvac.net/tools/psychrometric-calculator",
+      "passed": true
+    },
+    {
+      "url": "https://www.anyhvac.net/tools/air-distribution",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "finalUrl": "https://www.anyhvac.net/tools/air-distribution",
+      "passed": true
+    }
+  ]
+}

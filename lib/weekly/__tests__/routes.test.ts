@@ -39,3 +39,10 @@ it("serves private video ranges and rejects traversal, missing media and invalid
   req.headers.set("range", "bytes=100-200"); expect((await media(req, { params: Promise.resolve({ id }) })).status).toBe(416);
   expect((await media(request(), { params: Promise.resolve({ id: "../secret" }) })).status).toBe(404); expect((await media(request(), { params: Promise.resolve({ id: "b".repeat(64) }) })).status).toBe(404);
 });
+it("scopes reads/media to an allowlisted batch and denies all approved-snapshot mutations", async () => {
+  const req = request(); req.nextUrl.searchParams.set("batch", "anyhvac-week-2026-10-19"); mock.read.mockResolvedValue({ versions: [] });
+  expect((await GET(req)).status).toBe(200); expect(mock.read).toHaveBeenCalledWith("anyhvac-week-2026-10-19");
+  const write = request({ action: "edit" }); write.nextUrl.searchParams.set("batch", "anyhvac-week-2026-10-19");
+  expect((await POST(write)).status).toBe(409); expect(mock.mutate).not.toHaveBeenCalled();
+  req.nextUrl.searchParams.set("batch", "../other-owner"); mock.read.mockClear(); expect((await GET(req)).status).toBe(503); expect(mock.read).not.toHaveBeenCalled();
+});

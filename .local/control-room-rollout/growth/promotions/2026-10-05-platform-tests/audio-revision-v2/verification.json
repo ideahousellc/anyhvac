@@ -1,0 +1,40 @@
+{
+  "checked_at": "2026-10-02T19:55:14.579Z",
+  "output": "growth/promotions/2026-10-05-platform-tests/audio-revision-v2/mixed-air-short-audio-v2.mp4",
+  "sha256": "2b1c637250de4b38bd690e64385eeee2a7980a920938eef2dbf4f9c5dd3976e6",
+  "bytes": 787111,
+  "duration_seconds": 15,
+  "video": {
+    "codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "frame_rate": "30/1",
+    "unchanged_encoded_packets": 450,
+    "packet_data_and_timing_identical": true,
+    "packet_manifest_sha256": "048408780a0a1390e21eafac7d1a081bf072ac8a01ffb3ec69383945bba87b48"
+  },
+  "audio": {
+    "codec": "aac",
+    "channels": 2,
+    "sample_rate": "48000",
+    "integrated_lufs": -18.04,
+    "true_peak_dbtp": -6.33,
+    "decoded_sample_peak_dbfs": -6.333658279006186,
+    "clipped_pcm_samples": 0,
+    "source_start_seconds": 16,
+    "source_end_seconds": 31,
+    "entry_fade_seconds": 0.25,
+    "exit_fade_seconds": 2.2,
+    "normalization_target_lufs": -18
+  },
+  "preserved": {
+    "caption": "Define outdoor air and return air, set common project pressure and explore the adiabatic mixed state with AnyHVAC's free Mixed Air Calculator. Mixing uses a dry-air mass basis; verify inputs and assumptions before design use.\n\nVisit anyhvac.net, then Tools > Mixed Air Calculator.\n\nEquipment photograph is illustrative, not a mixing-layout diagram or measured operating condition.\n\n#HVAC #MixedAir #Psychrometrics #Shorts",
+    "title": "Two Air Streams, One Mixed State | Free AnyHVAC Tool",
+    "scheduled_at": "2026-10-08T19:00:00-04:00"
+  },
+  "listening_review": "Owner playback approval required; this environment cannot audition audio. Technical checks do not establish subjective musical suitability.",
+  "uploaded": false,
+  "deployed": false,
+  "scheduled": false,
+  "approval": null
+}

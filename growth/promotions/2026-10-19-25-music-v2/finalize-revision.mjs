@@ -1,0 +1,17 @@
+import fs from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+const dir='growth/promotions/2026-10-19-25-music-v2';
+const hash=b=>createHash('sha256').update(b).digest('hex');
+const canonical=v=>JSON.stringify(v,(_key,item)=>item&&typeof item==='object'&&!Array.isArray(item)?Object.fromEntries(Object.keys(item).sort().map(k=>[k,item[k]])):item);
+const read=file=>fs.readFile(dir+'/'+file,'utf8').then(JSON.parse);
+const signoff=await read('qa-signoff.json'),state=await read('review-state.json'),rights=await read('licensing.json');
+if(state.versions.at(-1).number!==4||state.versions.some((v,i)=>v.number!==i+1||v.digest!==hash(Buffer.from(canonical(v.content)))))throw Error('Review history mismatch');
+for(const [key,file]of [['mediaManifestSha256','media-manifest.json'],['calendarSha256','calendar.json'],['licensingSha256','licensing.json'],['audioValidationSha256','audio-validation.json']])if(signoff[key]!==hash(await fs.readFile(dir+'/'+file)))throw Error('QA snapshot mismatch: '+key);
+if(signoff.technical!=='PASS'||signoff.rights!=='PASS'||signoff.media!=='PASS')throw Error('William review incomplete');
+const content=structuredClone(state.versions.at(-1).content);
+content.qa={technical:'PASS',rights:'PASS',media:'PASS',evidence:[hash(Buffer.from(canonical(signoff))),hash(Buffer.from(canonical(rights)))]};
+for(const p of content.packages)if(p.id==='main-airflow-area')for(const item of p.provenance)item.evidence=[hash(Buffer.from(canonical(rights))),rights.musicByPackage['main-airflow-area'].sha256];
+const digest=hash(Buffer.from(canonical(content)));state.versions.push({number:5,digest,createdAt:new Date().toISOString(),reason:'William reviewed exact music-only revision; owner playback and approval pending.',content});
+await fs.writeFile(dir+'/review-state.json',JSON.stringify(state,null,2));await fs.writeFile(dir+'/review-ready-batch.json',JSON.stringify(content,null,2));
+let html=await fs.readFile(dir+'/review.html','utf8');html=html.replaceAll('revision 4','revision 5').replaceAll(state.versions[3].digest,digest);await fs.writeFile(dir+'/review.html',html);
+console.log(JSON.stringify({version:state.version,revision:5,digest,williamQa:'PASS',ownerApproved:false}));

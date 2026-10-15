@@ -1,0 +1,32 @@
+{
+  "checkedAt": "2026-10-07T13:10:26.614Z",
+  "localOnly": true,
+  "images": 14,
+  "allImagesDecoded": true,
+  "videos": [
+    {
+      "file": "../../.generated/weekly/2026-10-12-18/media/promo-pressure-reference-short.mp4",
+      "duration": 16,
+      "width": 1080,
+      "height": 1920,
+      "seekVerified": true
+    },
+    {
+      "file": "../../.generated/weekly/2026-10-12-18/media/promo-project-pressure-short.mp4",
+      "duration": 16,
+      "width": 1080,
+      "height": 1920,
+      "seekVerified": true
+    },
+    {
+      "file": "../../.generated/weekly/2026-10-12-18/media/main-nominal-size.mp4",
+      "duration": 28,
+      "width": 1080,
+      "height": 1920,
+      "seekVerified": true
+    }
+  ],
+  "posts": 13,
+  "packages": 5,
+  "externalScripts": 0
+}

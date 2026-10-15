@@ -1,0 +1,94 @@
+{
+  "batchcomplete": "",
+  "query": {
+    "pages": {
+      "145023101": {
+        "pageid": 145023101,
+        "ns": 6,
+        "title": "File:Cooling Tower 1983.jpg",
+        "imagerepository": "local",
+        "imageinfo": [
+          {
+            "size": 7175,
+            "width": 187,
+            "height": 269,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Cooling_Tower_1983.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Cooling_Tower_1983.jpg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=145023101",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2024-02-05 08:09:09",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Cooling Tower 1983",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "PD US Government|Cooling towers|Hartsville Nuclear Power Station|CC-PD-Mark|Cooling towers of nuclear power stations in the United States",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "1983 photo of the Cooling tower at cancelled Hartsville nuclear power plant by TVA",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "1983",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "The Tennessian",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "Tennessee Valley Authority",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "Public domain",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Public domain",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Copyrighted": {
+                "value": "False",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "pd",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

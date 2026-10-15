@@ -6,6 +6,7 @@ import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { AGENTS } from '../../lib/agents/registry.ts';
 import { executionArgs, executionEnvironment, verifiedCompletion } from './runner-core.mjs';
+import { atomicPrivateWrite, sealJournal } from './journal-integrity.mjs';
 import { acquireRunnerLock, journals, privateStatus, PROTECTED_TASK_IDS, reconnect, RunnerTransportError, RunnerRequestError, runnerApi } from './runner-runtime.mjs';
 
 export async function runRunner(options) {
@@ -15,7 +16,7 @@ export async function runRunner(options) {
   const endpoint = new URL('/api/agent-runner', options.url);
   if (!runnerId || !/^[a-zA-Z0-9_.-]{1,64}$/.test(runnerId) || !token || token.length < 32 || !binary) throw Error('Configure runner ID, token and installed Codex binary.');
   if (endpoint.username || endpoint.password || (endpoint.protocol !== 'https:' && !(endpoint.protocol === 'http:' && ['127.0.0.1','localhost'].includes(endpoint.hostname)))) throw Error('Runner requires HTTPS or loopback HTTP.');
-  const release = await acquireRunnerLock(directory); // Only verifiably dead PID locks can be reclaimed.
+  const release = await acquireRunnerLock(directory, options.journalIntegrity); // Only verifiably dead PID locks can be reclaimed.
   const api = runnerApi(endpoint, runnerId, token, options.fetcher);
   let stop = false, activeChild, finalStatus = 'stopped';
   const controller = new AbortController();
@@ -35,7 +36,7 @@ export async function runRunner(options) {
     finally { checkingStop = false; }
   };
   const stopTimer = setInterval(() => { void checkStop(); }, 1000);
-  const save = async (file, record) => { await fs.writeFile(file + '.tmp', JSON.stringify(record, null, 2), { mode: 0o600 }); await fs.rename(file + '.tmp', file); };
+  const save = async (file, record, exclusive = false) => atomicPrivateWrite(file, JSON.stringify(options.journalIntegrity ? sealJournal(record, options.journalIntegrity.key) : record, null, 2), exclusive);
   const fields = task => ({ taskId: task.id, leaseId: task.leaseId });
   const hash = text => crypto.createHash('sha256').update(text).digest('hex');
   async function execute(task) {
@@ -63,7 +64,7 @@ export async function runRunner(options) {
     const history = JSON.stringify(historyItems);
     const prompt = boundary + (resume ? '' : canonical + '\nPrior canonical conversation records (possibly bounded):\n' + history) + '\nOWNER MESSAGE\n' + task.prompt;
     const record = { taskId: task.id, agentId: task.agentId, leaseId: task.leaseId, phase: 'prepared', sources: context.map(({ relative, hash }) => ({ relative, hash })), promptHash: hash(prompt), execution: { definitionVersion: version }, createdAt: new Date().toISOString() };
-    await fs.writeFile(journal, JSON.stringify(record, null, 2), { flag: 'wx', mode: 0o600 });
+    await save(journal, record, true);
     // Only a positive one-time execution permit allows spawning. An ambiguous response stops.
     let permit;
     try { permit = await api('start', fields(task)); }
@@ -118,7 +119,7 @@ export async function runRunner(options) {
     await report('connecting');
     const status = await retry(() => api('status'));
     if (status.protocol !== 2 || status.runnerMatches !== true) throw Error('Compatible deployed server and matching runner required.');
-    for (const record of await journals(directory)) {
+    for (const record of await journals(directory, options.journalIntegrity)) {
       if (PROTECTED_TASK_IDS.includes(record.taskId)) throw Error('Protected journal requires owner review.');
       if (record.phase !== 'result-saved') continue;
       await report('recovering', { taskId: record.taskId });
@@ -127,7 +128,7 @@ export async function runRunner(options) {
     }
     if (!options.recover) {
       do {
-        const uncertain = (await journals(directory)).filter(r => r.phase === 'prepared' || r.phase === 'executing');
+        const uncertain = (await journals(directory, options.journalIntegrity)).filter(r => r.phase === 'prepared' || r.phase === 'executing');
         const excludedTaskIds = [...PROTECTED_TASK_IDS, ...uncertain.map(r => r.taskId)];
         if (excludedTaskIds.length > 20) throw Error('Unresolved journal capacity requires review.');
         const { task } = await retry(() => api('claim', { excludedTaskIds }));

@@ -1,0 +1,53 @@
+{
+  "checkedAt": "2026-10-14T18:21:41.777Z",
+  "status": "PASS",
+  "packages": 5,
+  "posts": 13,
+  "media": 20,
+  "audio": [
+    {
+      "file": "promo-duct-geometry-short.mp4",
+      "duration": 16,
+      "decodedSamplePeakDbfs": -6.162236793427231,
+      "clippedPcmSamples": 0,
+      "source": "Previously verified licensed faded/normalized instrumental excerpts; new AAC decode checked.",
+      "ownerListeningReview": "PENDING full playback; sample checks do not prove subjective comfort or true-peak loudness."
+    },
+    {
+      "file": "promo-mixed-air-short.mp4",
+      "duration": 16,
+      "decodedSamplePeakDbfs": -6.125134784803778,
+      "clippedPcmSamples": 0,
+      "source": "Previously verified licensed faded/normalized instrumental excerpts; new AAC decode checked.",
+      "ownerListeningReview": "PENDING full playback; sample checks do not prove subjective comfort or true-peak loudness."
+    },
+    {
+      "file": "main-airflow-area.mp4",
+      "duration": 28,
+      "decodedSamplePeakDbfs": -6.202745633002174,
+      "clippedPcmSamples": 0,
+      "source": "Previously verified licensed faded/normalized instrumental excerpts; new AAC decode checked.",
+      "ownerListeningReview": "PENDING full playback; sample checks do not prove subjective comfort or true-peak loudness."
+    }
+  ],
+  "mediaHashVerification": "PASS",
+  "platformLimits": "PASS",
+  "calendar": "Established pattern + seven days; queue not checked/reserved.",
+  "engineeringArithmetic": {
+    "areasSquareInches": [
+      144,
+      144
+    ],
+    "perimetersInches": [
+      48,
+      60
+    ],
+    "velocitiesFpm": [
+      500,
+      1000
+    ]
+  },
+  "uploaded": false,
+  "scheduled": false,
+  "approved": false
+}

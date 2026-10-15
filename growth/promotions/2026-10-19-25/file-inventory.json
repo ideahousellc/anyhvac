@@ -1,0 +1,438 @@
+{
+  "createdAt": "2026-10-14T18:25:57.014Z",
+  "campaignRoot": "growth/promotions/2026-10-19-25",
+  "inventorySelfExcluded": true,
+  "campaignFiles": [
+    {
+      "file": "calendar.json",
+      "bytes": 19142,
+      "sha256": "3461cbc30fcaede073bd89a102f1d4383c250999c3232e917b068c093e66e6e0"
+    },
+    {
+      "file": "carousels.json",
+      "bytes": 5530,
+      "sha256": "817e1984fde6046374629f0a7a59ee07cc4c307d2161a40e0e2d7ea67411b325"
+    },
+    {
+      "file": "collaboration-record.md",
+      "bytes": 3058,
+      "sha256": "54ec16e44ef213dc1be2f8149544231f1f3ba0290a2101516f9ab3d6becb0865"
+    },
+    {
+      "file": "evidence/air-handler-commons.json",
+      "bytes": 3347,
+      "sha256": "b8f7df03ccf60929f7266ea2343081f205e83e628a57f7acd566d0c979339e04"
+    },
+    {
+      "file": "evidence/air-handler-page.html",
+      "bytes": 105124,
+      "sha256": "79bd7d82df2f628fe51fa01ab1180da0e7b0690086a160d05f1be54a40bd9320"
+    },
+    {
+      "file": "evidence/cc-by-2.0.html",
+      "bytes": 31822,
+      "sha256": "bbb0dcc37f02552e7270e6d2e06be02672ce29ada816107d6fa91e1e6809714b"
+    },
+    {
+      "file": "evidence/cc0-deed.html",
+      "bytes": 30248,
+      "sha256": "abb4d48fc8b85de52b377dd105532c6c549f515d492a8e1712bc99e7316a1f12"
+    },
+    {
+      "file": "evidence/mixkit-license-evidence.html",
+      "bytes": 2268,
+      "sha256": "723e4bd4673eeb125480d8d44c11eb591a0391332838485783c9e9928d487177"
+    },
+    {
+      "file": "evidence/mixkit-music-faq-evidence.html",
+      "bytes": 255965,
+      "sha256": "703b8ef877a00f14a386bcee091bd3a951ecdbde7b8392dcb17a92b98045b283"
+    },
+    {
+      "file": "evidence/mixkit-terms-evidence.html",
+      "bytes": 80229,
+      "sha256": "50c79ddd42be7dce5d16dba5951c73d7e744c7b03719df0476c3b1fcb2590c44"
+    },
+    {
+      "file": "evidence/mixkit-track-evidence.html",
+      "bytes": 274474,
+      "sha256": "8cf90d7a23edbda5b4a8bf55b774ffc642da0250641f1d0362964ac8ea2cc987"
+    },
+    {
+      "file": "evidence/pressure-photo-commons.html",
+      "bytes": 131365,
+      "sha256": "a4afdf0fb2dfccd90a1ed342d662728401a1b8bcee2e9a34535e877586062575"
+    },
+    {
+      "file": "final-quality-review.md",
+      "bytes": 6337,
+      "sha256": "0e186249c49d6a8653b8da15b52a62697e26cd80b8cee64a458698918812a13d"
+    },
+    {
+      "file": "finalize-review.mjs",
+      "bytes": 14355,
+      "sha256": "bf05f8174092a3d24ac3f77cec9f68136f12e38daf91a2cbb3147df77f5b9bd9"
+    },
+    {
+      "file": "licensing.json",
+      "bytes": 3929,
+      "sha256": "d422c736f9615d44101119cb91390de33d0bc2a910517bd66b5476feccce8ccb"
+    },
+    {
+      "file": "link-checks.json",
+      "bytes": 1088,
+      "sha256": "562e15ef1df8c74f51c3806df7dff13397f2e3be35dfbadeefdcd7c7efea7089"
+    },
+    {
+      "file": "media-manifest.json",
+      "bytes": 5007,
+      "sha256": "c3f9eb54680b0a32acc36a8b03df0a2b746fd40fbbe87441af517a79c13b8958"
+    },
+    {
+      "file": "media-validation.json",
+      "bytes": 1712,
+      "sha256": "a39e979e5725ac52cb9445b507439d8be68cce8709e0169094e88e1f67f4d574"
+    },
+    {
+      "file": "owner-review.md",
+      "bytes": 8545,
+      "sha256": "d10999212725c7b656daaf2e4c264ead673a35369c29ffbe655b67bf49faaac1"
+    },
+    {
+      "file": "packages.json",
+      "bytes": 25814,
+      "sha256": "702c5fbd711768fb22036a7cea73027e61749f8dd6d21836b53f1ece92221111"
+    },
+    {
+      "file": "proposals.md",
+      "bytes": 4259,
+      "sha256": "79a882690b316e10575135d84e779e87a05cc86041915eb78021ff52221af3df"
+    },
+    {
+      "file": "qa-signoff.json",
+      "bytes": 454,
+      "sha256": "76fd8bf7c5b36a0147f31a0a5e9cdd5301830ae36f4ccd4f238e552f78801cde"
+    },
+    {
+      "file": "render-media.mjs",
+      "bytes": 14631,
+      "sha256": "005afc832714180c4ef01b1f4a25de13cf46930270748260f1e55c84d81bc417"
+    },
+    {
+      "file": "review-ready-batch.json",
+      "bytes": 39965,
+      "sha256": "ce25495ac9be4d06b7ddd306a15ae4382d09b9aac59c521b7eacd4136aee2fb9"
+    },
+    {
+      "file": "review-state.json",
+      "bytes": 130904,
+      "sha256": "a49d2a0e1dc745d6d555f6d778428896e7e55051f1551bd9dcf593b01dfb2ee7"
+    },
+    {
+      "file": "review.html",
+      "bytes": 25090,
+      "sha256": "560c01824af4a7e25d24ca91808d8ae098cb9c01feb8974dbe796df01af2f505"
+    },
+    {
+      "file": "technical-sources.json",
+      "bytes": 4165,
+      "sha256": "23e6ad269e49353342063d06f7e9bd9cc9ab33d0ebc64d56d0b567b840b713b6"
+    },
+    {
+      "file": "william-performance-brief.md",
+      "bytes": 6989,
+      "sha256": "076d1fce8287d581cc9f2db11f52a4c717c37c875499724c13b8bc40da4cf748"
+    }
+  ],
+  "publicationMedia": [
+    {
+      "file": "promo-duct-geometry-social.png",
+      "bytes": 878830,
+      "sha256": "2be5daf96094d31636ac66ac3c0e22dfd1516b15681bd84ee65d13526f7b62e6",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png",
+      "path": "growth/.generated/weekly/2026-10-19-25/media/promo-duct-geometry-social.png"
+    },
+    {
+      "file": "promo-duct-geometry-vertical.png",
+      "bytes": 1356897,
+      "sha256": "582bafcd693f2e6984541f6550a8f277ee85e2635c76d1c5f97157e13f5b271b",
+      "width": 1080,
+      "height": 1920,
+      "type": "image/png",
+      "path": "growth/.generated/weekly/2026-10-19-25/media/promo-duct-geometry-vertical.png"
+    },
+    {
+      "file": "promo-mixed-air-social.png",
+      "bytes": 1244625,
+      "sha256": "94d3e27c9a586b1258712a921323c5a920a7c78eb88e1a36e90b8f7e49e21a20",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png",
+      "path": "growth/.generated/weekly/2026-10-19-25/media/promo-mixed-air-social.png"
+    },
+    {
+      "file": "promo-mixed-air-vertical.png",
+      "bytes": 1883182,
+      "sha256": "8a0f419c7494327cfba6a6f63c5e46f6c36798bf42a13b27185a0d444c3ac912",
+      "width": 1080,
+      "height": 1920,
+      "type": "image/png",
+      "path": "growth/.generated/weekly/2026-10-19-25/media/promo-mixed-air-vertical.png"
+    },
+    {
+      "file": "carousel-equal-area-01.png",
+      "bytes": 1200636,
+      "sha256": "162b6bbe7ff88163f1858d423a7b5e887b67c49a7464b62edada14eea25d1f94",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png",
+      "path": "growth/.generated/weekly/2026-10-19-25/media/carousel-equal-area-01.png"
+    },
+    {
+      "file": "carousel-equal-area-02.png",
+      "bytes": 118021,
+      "sha256": "08d58cc5b81ad37061f4249d3685cce072be7c0a07c0377b674be817e43f512c",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png",
+      "path": "growth/.generated/weekly/2026-10-19-25/media/carousel-equal-area-02.png"
+    },
+    {
+      "file": "carousel-equal-area-03.png",
+      "bytes": 123059,
+      "sha256": "723c0a3d83c8615c204fc32e4c21ae4951b276ccddfa2576c5a932f3343f7c6e",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png",
+      "path": "growth/.generated/weekly/2026-10-19-25/media/carousel-equal-area-03.png"
+    },
+    {
+      "file": "carousel-equal-area-04.png",
+      "bytes": 117312,
+      "sha256": "4326b4ffc5e88ca6bf0d25c778d65266abc9185d0420ba9edc7fab115c94519e",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png",
+      "path": "growth/.generated/weekly/2026-10-19-25/media/carousel-equal-area-04.png"
+    },
+    {
+      "file": "carousel-equal-area-05.png",
+      "bytes": 125188,
+      "sha256": "4ad807fa40f31dd3df48bf9b509eaf38e19b794277adf439bb750236c136d109",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png",
+      "path": "growth/.generated/weekly/2026-10-19-25/media/carousel-equal-area-05.png"
+    },
+    {
+      "file": "carousel-equal-area-06.png",
+      "bytes": 1208153,
+      "sha256": "0b106f3f314f53a4bdadbe8ea9a7adb96b9b954905460b45ac575496704594c2",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png",
+      "path": "growth/.generated/weekly/2026-10-19-25/media/carousel-equal-area-06.png"
+    },
+    {
+      "file": "carousel-rh-moisture-01.png",
+      "bytes": 1582149,
+      "sha256": "40d3316361dc7f5a3b16e701f20aeabfc486e8991507fad0faf244ae836c4e5b",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png",
+      "path": "growth/.generated/weekly/2026-10-19-25/media/carousel-rh-moisture-01.png"
+    },
+    {
+      "file": "carousel-rh-moisture-02.png",
+      "bytes": 124316,
+      "sha256": "918d8761e5b44a49e2a4510af390a6918f10c60cc92b9ab484956c4f9a973d7d",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png",
+      "path": "growth/.generated/weekly/2026-10-19-25/media/carousel-rh-moisture-02.png"
+    },
+    {
+      "file": "carousel-rh-moisture-03.png",
+      "bytes": 120030,
+      "sha256": "02197a50b2c435cfe3f78640c396011208851dc8b86d386910b29a5a1837cd8f",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png",
+      "path": "growth/.generated/weekly/2026-10-19-25/media/carousel-rh-moisture-03.png"
+    },
+    {
+      "file": "carousel-rh-moisture-04.png",
+      "bytes": 130212,
+      "sha256": "1867c42010d6404d1971e9a02a3fd20f5028d09342cc7bfd4d5029d569b1138f",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png",
+      "path": "growth/.generated/weekly/2026-10-19-25/media/carousel-rh-moisture-04.png"
+    },
+    {
+      "file": "carousel-rh-moisture-05.png",
+      "bytes": 131186,
+      "sha256": "780a45a38b5b2b6a285c8650074f758890ce5d3ef9e825ed792740ea41b7d6aa",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png",
+      "path": "growth/.generated/weekly/2026-10-19-25/media/carousel-rh-moisture-05.png"
+    },
+    {
+      "file": "carousel-rh-moisture-06.png",
+      "bytes": 1593797,
+      "sha256": "e016ff9dcade1561a0af9c42fd8dcc5b69b93b67dfe5663075fd9f30b3e96853",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png",
+      "path": "growth/.generated/weekly/2026-10-19-25/media/carousel-rh-moisture-06.png"
+    },
+    {
+      "file": "promo-duct-geometry-short.mp4",
+      "bytes": 737308,
+      "sha256": "acb8d97647365a656b97e14bcec48fb6d3a3ae4404778d17e96a30d86447cfe0",
+      "width": 1080,
+      "height": 1920,
+      "duration": 16,
+      "type": "video/mp4",
+      "audio": true,
+      "path": "growth/.generated/weekly/2026-10-19-25/media/promo-duct-geometry-short.mp4"
+    },
+    {
+      "file": "promo-mixed-air-short.mp4",
+      "bytes": 744042,
+      "sha256": "312cd028f29ef827b757e7bdf1e89ccbdc2b63fbc06f06417028f09061ee13af",
+      "width": 1080,
+      "height": 1920,
+      "duration": 16,
+      "type": "video/mp4",
+      "audio": true,
+      "path": "growth/.generated/weekly/2026-10-19-25/media/promo-mixed-air-short.mp4"
+    },
+    {
+      "file": "main-airflow-area-poster.png",
+      "bytes": 1612358,
+      "sha256": "f66721c93a4ec031e529eeba8074af5eca2dcd9f9841abe39ff87ea049544e88",
+      "width": 1080,
+      "height": 1920,
+      "type": "image/png",
+      "path": "growth/.generated/weekly/2026-10-19-25/media/main-airflow-area-poster.png"
+    },
+    {
+      "file": "main-airflow-area.mp4",
+      "bytes": 1206093,
+      "sha256": "10ce25451a4004ec9455a61f466e5ec95d5c5515bb17e7c463fcf7979756435f",
+      "width": 1080,
+      "height": 1920,
+      "duration": 28,
+      "type": "video/mp4",
+      "audio": true,
+      "path": "growth/.generated/weekly/2026-10-19-25/media/main-airflow-area.mp4"
+    }
+  ],
+  "immutableMedia": [
+    {
+      "path": "growth/.generated/weekly/2026-10-19-25/media-archive/2be5daf96094d31636ac66ac3c0e22dfd1516b15681bd84ee65d13526f7b62e6.png",
+      "sha256": "2be5daf96094d31636ac66ac3c0e22dfd1516b15681bd84ee65d13526f7b62e6",
+      "bytes": 878830
+    },
+    {
+      "path": "growth/.generated/weekly/2026-10-19-25/media-archive/582bafcd693f2e6984541f6550a8f277ee85e2635c76d1c5f97157e13f5b271b.png",
+      "sha256": "582bafcd693f2e6984541f6550a8f277ee85e2635c76d1c5f97157e13f5b271b",
+      "bytes": 1356897
+    },
+    {
+      "path": "growth/.generated/weekly/2026-10-19-25/media-archive/94d3e27c9a586b1258712a921323c5a920a7c78eb88e1a36e90b8f7e49e21a20.png",
+      "sha256": "94d3e27c9a586b1258712a921323c5a920a7c78eb88e1a36e90b8f7e49e21a20",
+      "bytes": 1244625
+    },
+    {
+      "path": "growth/.generated/weekly/2026-10-19-25/media-archive/8a0f419c7494327cfba6a6f63c5e46f6c36798bf42a13b27185a0d444c3ac912.png",
+      "sha256": "8a0f419c7494327cfba6a6f63c5e46f6c36798bf42a13b27185a0d444c3ac912",
+      "bytes": 1883182
+    },
+    {
+      "path": "growth/.generated/weekly/2026-10-19-25/media-archive/162b6bbe7ff88163f1858d423a7b5e887b67c49a7464b62edada14eea25d1f94.png",
+      "sha256": "162b6bbe7ff88163f1858d423a7b5e887b67c49a7464b62edada14eea25d1f94",
+      "bytes": 1200636
+    },
+    {
+      "path": "growth/.generated/weekly/2026-10-19-25/media-archive/08d58cc5b81ad37061f4249d3685cce072be7c0a07c0377b674be817e43f512c.png",
+      "sha256": "08d58cc5b81ad37061f4249d3685cce072be7c0a07c0377b674be817e43f512c",
+      "bytes": 118021
+    },
+    {
+      "path": "growth/.generated/weekly/2026-10-19-25/media-archive/723c0a3d83c8615c204fc32e4c21ae4951b276ccddfa2576c5a932f3343f7c6e.png",
+      "sha256": "723c0a3d83c8615c204fc32e4c21ae4951b276ccddfa2576c5a932f3343f7c6e",
+      "bytes": 123059
+    },
+    {
+      "path": "growth/.generated/weekly/2026-10-19-25/media-archive/4326b4ffc5e88ca6bf0d25c778d65266abc9185d0420ba9edc7fab115c94519e.png",
+      "sha256": "4326b4ffc5e88ca6bf0d25c778d65266abc9185d0420ba9edc7fab115c94519e",
+      "bytes": 117312
+    },
+    {
+      "path": "growth/.generated/weekly/2026-10-19-25/media-archive/4ad807fa40f31dd3df48bf9b509eaf38e19b794277adf439bb750236c136d109.png",
+      "sha256": "4ad807fa40f31dd3df48bf9b509eaf38e19b794277adf439bb750236c136d109",
+      "bytes": 125188
+    },
+    {
+      "path": "growth/.generated/weekly/2026-10-19-25/media-archive/0b106f3f314f53a4bdadbe8ea9a7adb96b9b954905460b45ac575496704594c2.png",
+      "sha256": "0b106f3f314f53a4bdadbe8ea9a7adb96b9b954905460b45ac575496704594c2",
+      "bytes": 1208153
+    },
+    {
+      "path": "growth/.generated/weekly/2026-10-19-25/media-archive/40d3316361dc7f5a3b16e701f20aeabfc486e8991507fad0faf244ae836c4e5b.png",
+      "sha256": "40d3316361dc7f5a3b16e701f20aeabfc486e8991507fad0faf244ae836c4e5b",
+      "bytes": 1582149
+    },
+    {
+      "path": "growth/.generated/weekly/2026-10-19-25/media-archive/918d8761e5b44a49e2a4510af390a6918f10c60cc92b9ab484956c4f9a973d7d.png",
+      "sha256": "918d8761e5b44a49e2a4510af390a6918f10c60cc92b9ab484956c4f9a973d7d",
+      "bytes": 124316
+    },
+    {
+      "path": "growth/.generated/weekly/2026-10-19-25/media-archive/02197a50b2c435cfe3f78640c396011208851dc8b86d386910b29a5a1837cd8f.png",
+      "sha256": "02197a50b2c435cfe3f78640c396011208851dc8b86d386910b29a5a1837cd8f",
+      "bytes": 120030
+    },
+    {
+      "path": "growth/.generated/weekly/2026-10-19-25/media-archive/1867c42010d6404d1971e9a02a3fd20f5028d09342cc7bfd4d5029d569b1138f.png",
+      "sha256": "1867c42010d6404d1971e9a02a3fd20f5028d09342cc7bfd4d5029d569b1138f",
+      "bytes": 130212
+    },
+    {
+      "path": "growth/.generated/weekly/2026-10-19-25/media-archive/780a45a38b5b2b6a285c8650074f758890ce5d3ef9e825ed792740ea41b7d6aa.png",
+      "sha256": "780a45a38b5b2b6a285c8650074f758890ce5d3ef9e825ed792740ea41b7d6aa",
+      "bytes": 131186
+    },
+    {
+      "path": "growth/.generated/weekly/2026-10-19-25/media-archive/e016ff9dcade1561a0af9c42fd8dcc5b69b93b67dfe5663075fd9f30b3e96853.png",
+      "sha256": "e016ff9dcade1561a0af9c42fd8dcc5b69b93b67dfe5663075fd9f30b3e96853",
+      "bytes": 1593797
+    },
+    {
+      "path": "growth/.generated/weekly/2026-10-19-25/media-archive/acb8d97647365a656b97e14bcec48fb6d3a3ae4404778d17e96a30d86447cfe0.mp4",
+      "sha256": "acb8d97647365a656b97e14bcec48fb6d3a3ae4404778d17e96a30d86447cfe0",
+      "bytes": 737308
+    },
+    {
+      "path": "growth/.generated/weekly/2026-10-19-25/media-archive/312cd028f29ef827b757e7bdf1e89ccbdc2b63fbc06f06417028f09061ee13af.mp4",
+      "sha256": "312cd028f29ef827b757e7bdf1e89ccbdc2b63fbc06f06417028f09061ee13af",
+      "bytes": 744042
+    },
+    {
+      "path": "growth/.generated/weekly/2026-10-19-25/media-archive/f66721c93a4ec031e529eeba8074af5eca2dcd9f9841abe39ff87ea049544e88.png",
+      "sha256": "f66721c93a4ec031e529eeba8074af5eca2dcd9f9841abe39ff87ea049544e88",
+      "bytes": 1612358
+    },
+    {
+      "path": "growth/.generated/weekly/2026-10-19-25/media-archive/10ce25451a4004ec9455a61f466e5ec95d5c5515bb17e7c463fcf7979756435f.mp4",
+      "sha256": "10ce25451a4004ec9455a61f466e5ec95d5c5515bb17e7c463fcf7979756435f",
+      "bytes": 1206093
+    }
+  ],
+  "internalPreviewsAndAudio": "Ignored generation/review intermediates; not publication assets or public hosting."
+}

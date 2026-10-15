@@ -1,0 +1,56 @@
+.description {
+  margin-top: 17px;
+}
+
+.actions {
+  display: flex;
+  gap: 13px;
+  margin-top: 25px;
+}
+
+.actions button {
+  min-height: 44px;
+  cursor: pointer;
+  padding: 0 18px;
+  border-radius: 14px;
+  font-size: 13px;
+  font-weight: 690;
+}
+
+.support {
+  border: 1px solid rgba(102, 176, 255, 0.35);
+  background: var(--primary);
+  color: #fff;
+  box-shadow:
+    5px 6px 13px rgba(0, 62, 130, 0.2),
+    -4px -4px 11px var(--shadow-light);
+}
+
+.later {
+  border: 1px solid rgba(255, 255, 255, 0.46);
+  background: var(--surface);
+  color: var(--foreground);
+  box-shadow:
+    4px 5px 11px rgba(166, 175, 188, 0.28),
+    -4px -4px 11px rgba(255, 255, 255, 0.62);
+}
+
+.note {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+:global(.dark) .later {
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow:
+    4px 5px 11px rgba(4, 10, 17, 0.36),
+    -4px -4px 11px rgba(48, 65, 82, 0.22);
+}
+
+@media (max-width: 480px) {
+  .actions {
+    flex-direction: column;
+  }
+}

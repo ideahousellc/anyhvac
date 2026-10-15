@@ -1,0 +1,586 @@
+{
+  "batchId": "anyhvac-week-2026-10-19",
+  "agentId": "anyhvac.george",
+  "theme": "Compare the quantities that matter",
+  "timezone": "America/New_York",
+  "fixture": false,
+  "packages": [
+    {
+      "id": "promo-duct-geometry",
+      "title": "Compare the duct. Not just the diameter.",
+      "purpose": "Qualified discovery of the existing free Duct Calculator; a designer decision aid, not a duct recommendation.",
+      "primaryMetric": "Future native engagement and qualified destination referrals, separately labeled by source; no performance claim. Newsletter/support outcomes only if measured without attributing aggregate changes to a post.",
+      "technicalBoundary": "Calculator outputs are preliminary comparisons. Verify dimensions, material, fittings, noise, available pressure and project requirements. No guaranteed savings or compliant design claim.",
+      "provenance": [
+        {
+          "source": "https://www.anyhvac.net/tools/duct-calculator",
+          "license": "AnyHVAC original copy/diagrams with licensed real photography/music; see licensing.json",
+          "credit": "Photo: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\nMusic: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit. Licensed synchronized video use.\nhttps://mixkit.co/license/modal/musicFree/",
+          "evidence": [
+            "34dc695478b01c10488934fbb362fd068d84c5f9e6cd58f999cf7787f304eaf5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "carousel-equal-area",
+      "title": "Equal area does not establish equal friction",
+      "purpose": "Challenge an area-only substitution and introduce geometry-aware comparison.",
+      "primaryMetric": "Future native engagement and qualified destination referrals, separately labeled by source; no performance claim. Newsletter/support outcomes only if measured without attributing aggregate changes to a post.",
+      "technicalBoundary": "Illustrative clear internal dimensions. Equal area at fixed volume flow/reference basis gives equal mean velocity, not necessarily equal friction. No pressure-loss ratio, code recommendation or hydraulic-diameter sizing equivalence.",
+      "provenance": [
+        {
+          "source": "https://www.anyhvac.net/tools/duct-calculator",
+          "license": "AnyHVAC original copy/diagrams with licensed real photography/music; see licensing.json",
+          "credit": "Photo: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/",
+          "evidence": [
+            "34dc695478b01c10488934fbb362fd068d84c5f9e6cd58f999cf7787f304eaf5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "promo-mixed-air",
+      "title": "Two air streams. One checked air state.",
+      "purpose": "Introduce the existing free Mixed Air Calculator for conservation-based input review.",
+      "primaryMetric": "Future native engagement and qualified destination referrals, separately labeled by source; no performance claim. Newsletter/support outcomes only if measured without attributing aggregate changes to a post.",
+      "technicalBoundary": "Ideal mixing at a common pressure, without heat/moisture exchange with surroundings. Humidity ratio and enthalpy are dry-air-mass weighted; volume fraction need not equal dry-air mass fraction. Output is not ventilation compliance or a real equipment diagnosis.",
+      "provenance": [
+        {
+          "source": "https://www.anyhvac.net/tools/mixed-air-calculator",
+          "license": "AnyHVAC original copy/diagrams with licensed real photography/music; see licensing.json",
+          "credit": "Photo: Alf van Beem, via Wikimedia Commons, CC0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG\nhttps://creativecommons.org/publicdomain/zero/1.0/\n\nMusic: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit. Licensed synchronized video use.\nhttps://mixkit.co/license/modal/musicFree/",
+          "evidence": [
+            "34dc695478b01c10488934fbb362fd068d84c5f9e6cd58f999cf7787f304eaf5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "carousel-rh-moisture",
+      "title": "Lower RH does not necessarily mean less moisture",
+      "purpose": "Separate relative humidity from humidity ratio and encourage complete air-state checks.",
+      "primaryMetric": "Future native engagement and qualified destination referrals, separately labeled by source; no performance claim. Newsletter/support outcomes only if measured without attributing aggregate changes to a post.",
+      "technicalBoundary": "Sensible warming at fixed total pressure and fixed humidity ratio, with no moisture exchange. RH decline is not evidence of dehumidification. Concept only, not diagnosis or heating-coil sizing.",
+      "provenance": [
+        {
+          "source": "https://www.anyhvac.net/tools/psychrometric-calculator",
+          "license": "AnyHVAC original copy/diagrams with licensed real photography/music; see licensing.json",
+          "credit": "Photo: Alf van Beem, via Wikimedia Commons, CC0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG\nhttps://creativecommons.org/publicdomain/zero/1.0/",
+          "evidence": [
+            "34dc695478b01c10488934fbb362fd068d84c5f9e6cd58f999cf7787f304eaf5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "main-airflow-area",
+      "title": "Same airflow. Different mean velocity.",
+      "purpose": "Explain Q = V x A through a fixed-flow area contrast, separate from sizing or fan behavior.",
+      "primaryMetric": "Future native engagement and qualified destination referrals, separately labeled by source; no performance claim. Newsletter/support outcomes only if measured without attributing aggregate changes to a post.",
+      "technicalBoundary": "Illustrative mean cross-sectional velocity; volume flow and area use consistent units/reference basis. 500 and1000FPM are not design targets. A real duct modification may change system airflow; this arithmetic does not predict fan/system behavior.",
+      "provenance": [
+        {
+          "source": "https://www.anyhvac.net/tools/air-distribution",
+          "license": "AnyHVAC original copy/diagrams with licensed real photography/music; see licensing.json",
+          "credit": "Photo: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\nMusic: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit. Licensed synchronized video use.\nhttps://mixkit.co/license/modal/musicFree/",
+          "evidence": [
+            "34dc695478b01c10488934fbb362fd068d84c5f9e6cd58f999cf7787f304eaf5"
+          ]
+        }
+      ]
+    }
+  ],
+  "posts": [
+    {
+      "id": "anyhvac-week-2026-10-19-v1-linkedin-promo-duct-geometry",
+      "packageId": "promo-duct-geometry",
+      "platform": "linkedin",
+      "title": "Compare the duct. Not just the diameter.",
+      "caption": "Round or rectangular? Start with the quantities behind the option.\n\nThe free AnyHVAC Duct Calculator lets you explore airflow, friction rate and velocity, with round and rectangular options. A dimension alone does not describe the whole design.\n\nCompare the options, then verify actual geometry, fittings, available pressure and project requirements:\nhttps://www.anyhvac.net/tools/duct-calculator\n\nIf these free tools help your work, voluntary support is available on the website. It never changes the engineering results.\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\n#HVAC #DuctDesign #MEPEngineering #HVACTools",
+      "destination": "https://www.anyhvac.net/tools/duct-calculator",
+      "scheduledAt": "2026-10-19T17:00:00-04:00",
+      "channelId": "6abd5811ea19ca0bde3709e4",
+      "media": [
+        "2be5daf96094d31636ac66ac3c0e22dfd1516b15681bd84ee65d13526f7b62e6"
+      ],
+      "settings": {},
+      "alt": [
+        "Real ductwork with headline Compare the duct, not just the diameter and a free calculator invitation."
+      ],
+      "historicalStatus": "PROPOSED ONLY / NOT SCHEDULED",
+      "sequence": 1
+    },
+    {
+      "id": "anyhvac-week-2026-10-19-v1-instagram-promo-duct-geometry",
+      "packageId": "promo-duct-geometry",
+      "platform": "instagram",
+      "title": "Compare the duct. Not just the diameter.",
+      "caption": "Compare the duct. Not just the diameter.\n\nExplore round and rectangular options with the free AnyHVAC Duct Calculator. Check actual geometry, fittings and project requirements before design use.\n\nVisit anyhvac.net > Tools > HVAC Duct Calculator. Save it for your next design review. Optional support on the website helps keep useful tools free.\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\n#HVAC #DuctDesign #HVACTools #MEPEngineering #HVACDesign",
+      "destination": "https://www.anyhvac.net/tools/duct-calculator",
+      "scheduledAt": "2026-10-19T19:00:00-04:00",
+      "channelId": "6abd5952ea19ca0bde37267c",
+      "media": [
+        "2be5daf96094d31636ac66ac3c0e22dfd1516b15681bd84ee65d13526f7b62e6"
+      ],
+      "settings": {
+        "instagram": {
+          "postType": "post",
+          "shareToFeed": true
+        }
+      },
+      "alt": [
+        "Real ductwork with headline Compare the duct, not just the diameter and a free calculator invitation."
+      ],
+      "historicalStatus": "PROPOSED ONLY / NOT SCHEDULED",
+      "sequence": 2
+    },
+    {
+      "id": "anyhvac-week-2026-10-19-v1-linkedin-carousel-equal-area",
+      "packageId": "carousel-equal-area",
+      "platform": "linkedin",
+      "title": "Equal area does not establish equal friction",
+      "caption": "Two rectangular ducts can have the same area without establishing the same friction loss.\n\nIllustrative clear internal dimensions: 12 x 12 in and 6 x 24 in both give 144 in^2 = 1 ft^2. At the same volume flow and reference basis, both have the same cross-sectional mean velocity. Their perimeters differ: 48 in versus 60 in.\n\nThat geometry difference matters to a friction comparison; it is not a pressure-loss ratio. Length, roughness and fittings still matter.\n\nSwipe through the six-slide check, then compare geometry-aware options:\nhttps://www.anyhvac.net/tools/duct-calculator\n\nExamples only; not recommended duct sizes.\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\n#HVAC #DuctDesign #AirDistribution #MEPEngineering",
+      "destination": "https://www.anyhvac.net/tools/duct-calculator",
+      "scheduledAt": "2026-10-20T16:00:00-04:00",
+      "channelId": "6abd5811ea19ca0bde3709e4",
+      "media": [
+        "162b6bbe7ff88163f1858d423a7b5e887b67c49a7464b62edada14eea25d1f94",
+        "08d58cc5b81ad37061f4249d3685cce072be7c0a07c0377b674be817e43f512c",
+        "723c0a3d83c8615c204fc32e4c21ae4951b276ccddfa2576c5a932f3343f7c6e",
+        "4326b4ffc5e88ca6bf0d25c778d65266abc9185d0420ba9edc7fab115c94519e",
+        "4ad807fa40f31dd3df48bf9b509eaf38e19b794277adf439bb750236c136d109",
+        "0b106f3f314f53a4bdadbe8ea9a7adb96b9b954905460b45ac575496704594c2"
+      ],
+      "settings": {},
+      "alt": [
+        "Real ductwork provides context for the question of equal area and friction; no pressure-loss measurement is shown.",
+        "Two original rectangular section diagrams labeled12by12in and6by24in; each area144squareinches.",
+        "Two equal-area duct sections with equal illustrative flow and cross-sectional mean velocity; same reference basis.",
+        "Original section outlines highlight perimeter48inches for12by12and60inches for6by24; no friction ratio claimed.",
+        "Geometry-aware comparison reminder; hydraulic diameter is explicitly distinguished from friction-equivalent round diameter.",
+        "AnyHVAC Duct Calculator invitation over contextual ductwork with an example-only design boundary."
+      ],
+      "historicalStatus": "PROPOSED ONLY / NOT SCHEDULED",
+      "sequence": 3
+    },
+    {
+      "id": "anyhvac-week-2026-10-19-v1-instagram-carousel-equal-area",
+      "packageId": "carousel-equal-area",
+      "platform": "instagram",
+      "title": "Equal area does not establish equal friction",
+      "caption": "Same area. Same friction? Not established.\n\n12 x 12 in and 6 x 24 in both have 1 ft^2 clear area, but different perimeters. Equal mean velocity at the same volume flow does not prove equal pressure loss.\n\nSwipe for the six-slide geometry check. These are illustrative dimensions, not size recommendations.\n\nVisit anyhvac.net > Tools > HVAC Duct Calculator. Save this for your next duct comparison.\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\n#HVAC #DuctDesign #AirDistribution #HVACDesign #MEPEngineering",
+      "destination": "https://www.anyhvac.net/tools/duct-calculator",
+      "scheduledAt": "2026-10-20T19:00:00-04:00",
+      "channelId": "6abd5952ea19ca0bde37267c",
+      "media": [
+        "162b6bbe7ff88163f1858d423a7b5e887b67c49a7464b62edada14eea25d1f94",
+        "08d58cc5b81ad37061f4249d3685cce072be7c0a07c0377b674be817e43f512c",
+        "723c0a3d83c8615c204fc32e4c21ae4951b276ccddfa2576c5a932f3343f7c6e",
+        "4326b4ffc5e88ca6bf0d25c778d65266abc9185d0420ba9edc7fab115c94519e",
+        "4ad807fa40f31dd3df48bf9b509eaf38e19b794277adf439bb750236c136d109",
+        "0b106f3f314f53a4bdadbe8ea9a7adb96b9b954905460b45ac575496704594c2"
+      ],
+      "settings": {
+        "instagram": {
+          "postType": "post",
+          "shareToFeed": true
+        }
+      },
+      "alt": [
+        "Real ductwork provides context for the question of equal area and friction; no pressure-loss measurement is shown.",
+        "Two original rectangular section diagrams labeled12by12in and6by24in; each area144squareinches.",
+        "Two equal-area duct sections with equal illustrative flow and cross-sectional mean velocity; same reference basis.",
+        "Original section outlines highlight perimeter48inches for12by12and60inches for6by24; no friction ratio claimed.",
+        "Geometry-aware comparison reminder; hydraulic diameter is explicitly distinguished from friction-equivalent round diameter.",
+        "AnyHVAC Duct Calculator invitation over contextual ductwork with an example-only design boundary."
+      ],
+      "historicalStatus": "PROPOSED ONLY / NOT SCHEDULED",
+      "sequence": 4
+    },
+    {
+      "id": "anyhvac-week-2026-10-19-v1-linkedin-promo-mixed-air",
+      "packageId": "promo-mixed-air",
+      "platform": "linkedin",
+      "title": "Two air streams. One checked air state.",
+      "caption": "Mixed air needs more than an average of two temperatures.\n\nOutdoor and return air can differ in temperature and moisture. The free AnyHVAC Mixed Air Calculator combines the streams using psychrometric mass and energy conservation.\n\nCheck both air states, their flow inputs and the common pressure. Humidity ratio and enthalpy are weighted by dry-air mass; a volume fraction is not automatically the same mass fraction.\n\nExplore the tool:\nhttps://www.anyhvac.net/tools/mixed-air-calculator\n\nIdeal mixing assumptions apply. This is not a ventilation-compliance check. For future practical HVAC updates, the website newsletter is optional.\n\nPhoto: Alf van Beem, via Wikimedia Commons, CC0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG\nhttps://creativecommons.org/publicdomain/zero/1.0/\n\n#HVAC #Psychrometrics #MixedAir #MEPEngineering",
+      "destination": "https://www.anyhvac.net/tools/mixed-air-calculator",
+      "scheduledAt": "2026-10-21T16:00:00-04:00",
+      "channelId": "6abd5811ea19ca0bde3709e4",
+      "media": [
+        "94d3e27c9a586b1258712a921323c5a920a7c78eb88e1a36e90b8f7e49e21a20"
+      ],
+      "settings": {},
+      "alt": [
+        "Real air-handler photograph with headline Two air streams, one checked air state; equipment is contextual, not a measured mixing diagram."
+      ],
+      "historicalStatus": "PROPOSED ONLY / NOT SCHEDULED",
+      "sequence": 5
+    },
+    {
+      "id": "anyhvac-week-2026-10-19-v1-instagram-promo-mixed-air",
+      "packageId": "promo-mixed-air",
+      "platform": "instagram",
+      "title": "Two air streams. One checked air state.",
+      "caption": "Two air streams. One checked air state.\n\nReview outdoor air, return air, flow inputs and common pressure with the free Mixed Air Calculator. Moisture and energy balance need more than a simple temperature average.\n\nIdeal mixing assumptions apply; results do not establish ventilation compliance.\n\nVisit anyhvac.net > Tools > Mixed Air Calculator. Optional newsletter signup on the website for future practical HVAC updates.\n\nPhoto: Alf van Beem, via Wikimedia Commons, CC0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG\nhttps://creativecommons.org/publicdomain/zero/1.0/\n\n#HVAC #MixedAir #Psychrometrics #HVACTools #MEPEngineering",
+      "destination": "https://www.anyhvac.net/tools/mixed-air-calculator",
+      "scheduledAt": "2026-10-21T18:00:00-04:00",
+      "channelId": "6abd5952ea19ca0bde37267c",
+      "media": [
+        "94d3e27c9a586b1258712a921323c5a920a7c78eb88e1a36e90b8f7e49e21a20"
+      ],
+      "settings": {
+        "instagram": {
+          "postType": "post",
+          "shareToFeed": true
+        }
+      },
+      "alt": [
+        "Real air-handler photograph with headline Two air streams, one checked air state; equipment is contextual, not a measured mixing diagram."
+      ],
+      "historicalStatus": "PROPOSED ONLY / NOT SCHEDULED",
+      "sequence": 6
+    },
+    {
+      "id": "anyhvac-week-2026-10-19-v1-instagram-carousel-rh-moisture",
+      "packageId": "carousel-rh-moisture",
+      "platform": "instagram",
+      "title": "Lower RH does not necessarily mean less moisture",
+      "caption": "Lower RH does not prove moisture removal.\n\nWarm the same air at fixed pressure without adding or removing moisture: humidity ratio stays constant, while RH falls.\n\nSwipe for the six-slide explanation. Compare the full air state, not one reading. Concept only; not diagnosis.\n\nVisit anyhvac.net > Tools > Air Properties > Psychrometric Calculator. Save this check; optional newsletter on the website for future practical updates.\n\nPhoto: Alf van Beem, via Wikimedia Commons, CC0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG\nhttps://creativecommons.org/publicdomain/zero/1.0/\n\n#HVAC #Humidity #Psychrometrics #HVACTools #MEPEngineering",
+      "destination": "https://www.anyhvac.net/tools/psychrometric-calculator",
+      "scheduledAt": "2026-10-22T09:00:00-04:00",
+      "channelId": "6abd5952ea19ca0bde37267c",
+      "media": [
+        "40d3316361dc7f5a3b16e701f20aeabfc486e8991507fad0faf244ae836c4e5b",
+        "918d8761e5b44a49e2a4510af390a6918f10c60cc92b9ab484956c4f9a973d7d",
+        "02197a50b2c435cfe3f78640c396011208851dc8b86d386910b29a5a1837cd8f",
+        "1867c42010d6404d1971e9a02a3fd20f5028d09342cc7bfd4d5029d569b1138f",
+        "780a45a38b5b2b6a285c8650074f758890ce5d3ef9e825ed792740ea41b7d6aa",
+        "e016ff9dcade1561a0af9c42fd8dcc5b69b93b67dfe5663075fd9f30b3e96853"
+      ],
+      "settings": {
+        "instagram": {
+          "postType": "post",
+          "shareToFeed": true
+        }
+      },
+      "alt": [
+        "Contextual air-handler photograph introduces the difference between relative humidity and moisture content.",
+        "Two separate definitions: relative humidity as a vapor-pressure ratio and humidity ratio as water-vapor mass per dry-air mass.",
+        "Original conceptual heating path with fixed total pressure and no moisture exchange; humidity ratio stays constant.",
+        "A conceptual temperature rise and relative-humidity decrease with unchanged humidity ratio; no numerical equipment performance asserted.",
+        "Conceptual comparison separates moisture removal from heating-only relative-humidity change.",
+        "AnyHVAC Psychrometric Calculator invitation with full-air-state input checks and contextual air-handler photograph."
+      ],
+      "historicalStatus": "PROPOSED ONLY / NOT SCHEDULED",
+      "sequence": 7
+    },
+    {
+      "id": "anyhvac-week-2026-10-19-v1-linkedin-carousel-rh-moisture",
+      "packageId": "carousel-rh-moisture",
+      "platform": "linkedin",
+      "title": "Lower RH does not necessarily mean less moisture",
+      "caption": "A lower relative-humidity reading does not necessarily mean moisture was removed.\n\nIn a heating-only example at fixed pressure, with no moisture added or removed, humidity ratio stays constant while relative humidity falls as temperature rises.\n\nRH describes vapor pressure relative to saturation vapor pressure at the same temperature. Humidity ratio describes water-vapor mass per mass of dry air. Different quantities, different questions.\n\nSwipe through the six-slide explanation, then check the full air state:\nhttps://www.anyhvac.net/tools/psychrometric-calculator\n\nConcept only; not equipment diagnosis. Set matching inputs and project pressure before comparison.\n\nPhoto: Alf van Beem, via Wikimedia Commons, CC0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG\nhttps://creativecommons.org/publicdomain/zero/1.0/\n\n#HVAC #Psychrometrics #Humidity #MEPEngineering",
+      "destination": "https://www.anyhvac.net/tools/psychrometric-calculator",
+      "scheduledAt": "2026-10-22T17:00:00-04:00",
+      "channelId": "6abd5811ea19ca0bde3709e4",
+      "media": [
+        "40d3316361dc7f5a3b16e701f20aeabfc486e8991507fad0faf244ae836c4e5b",
+        "918d8761e5b44a49e2a4510af390a6918f10c60cc92b9ab484956c4f9a973d7d",
+        "02197a50b2c435cfe3f78640c396011208851dc8b86d386910b29a5a1837cd8f",
+        "1867c42010d6404d1971e9a02a3fd20f5028d09342cc7bfd4d5029d569b1138f",
+        "780a45a38b5b2b6a285c8650074f758890ce5d3ef9e825ed792740ea41b7d6aa",
+        "e016ff9dcade1561a0af9c42fd8dcc5b69b93b67dfe5663075fd9f30b3e96853"
+      ],
+      "settings": {},
+      "alt": [
+        "Contextual air-handler photograph introduces the difference between relative humidity and moisture content.",
+        "Two separate definitions: relative humidity as a vapor-pressure ratio and humidity ratio as water-vapor mass per dry-air mass.",
+        "Original conceptual heating path with fixed total pressure and no moisture exchange; humidity ratio stays constant.",
+        "A conceptual temperature rise and relative-humidity decrease with unchanged humidity ratio; no numerical equipment performance asserted.",
+        "Conceptual comparison separates moisture removal from heating-only relative-humidity change.",
+        "AnyHVAC Psychrometric Calculator invitation with full-air-state input checks and contextual air-handler photograph."
+      ],
+      "historicalStatus": "PROPOSED ONLY / NOT SCHEDULED",
+      "sequence": 8
+    },
+    {
+      "id": "anyhvac-week-2026-10-19-v1-youtube-promo-duct-geometry",
+      "packageId": "promo-duct-geometry",
+      "platform": "youtube",
+      "title": "Round or rectangular? Compare the duct | Free HVAC calculator",
+      "caption": "Explore airflow, friction rate and velocity with the free AnyHVAC Duct Calculator:\nhttps://www.anyhvac.net/tools/duct-calculator\n\nPreliminary comparisons only. Check actual geometry and project requirements before design use.\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\nMusic: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit. Licensed synchronized video use.\nhttps://mixkit.co/license/modal/musicFree/\n\n#HVAC #DuctDesign #Shorts",
+      "destination": "https://www.anyhvac.net/tools/duct-calculator",
+      "scheduledAt": "2026-10-22T19:00:00-04:00",
+      "channelId": "6abd5b46ea19ca0bde375392",
+      "media": [
+        "acb8d97647365a656b97e14bcec48fb6d3a3ae4404778d17e96a30d86447cfe0"
+      ],
+      "settings": {
+        "youtube": {
+          "title": "Round or rectangular? Compare the duct | Free HVAC calculator",
+          "categoryId": "28",
+          "privacy": "public",
+          "madeForKids": false,
+          "notifySubscribers": false
+        }
+      },
+      "alt": [
+        "Real ductwork with headline Compare the duct, not just the diameter and a free calculator invitation."
+      ],
+      "historicalStatus": "PROPOSED ONLY / NOT SCHEDULED",
+      "sequence": 9
+    },
+    {
+      "id": "anyhvac-week-2026-10-19-v1-linkedin-main-airflow-area",
+      "packageId": "main-airflow-area",
+      "platform": "linkedin",
+      "title": "Same airflow. Different mean velocity.",
+      "caption": "Same airflow. Different cross-sectional area. Different mean velocity.\n\nFor an illustrative 1,000 actual CFM on the same reference basis:\n- 2 ft^2 gives 500 FPM mean velocity.\n- 1 ft^2 gives 1,000 FPM mean velocity.\n\nThe relation is Q = V x A. These are arithmetic examples, not recommended velocities. A real duct change can change system airflow; this comparison does not predict fan performance.\n\nWatch the 28-second check, then use the free Air Distribution Tools:\nhttps://www.anyhvac.net/tools/air-distribution\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\nMusic: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit. Licensed synchronized video use.\nhttps://mixkit.co/license/modal/musicFree/\n\n#HVAC #Airflow #AirDistribution #MEPEngineering",
+      "destination": "https://www.anyhvac.net/tools/air-distribution",
+      "scheduledAt": "2026-10-23T15:00:00-04:00",
+      "channelId": "6abd5811ea19ca0bde3709e4",
+      "media": [
+        "10ce25451a4004ec9455a61f466e5ec95d5c5515bb17e7c463fcf7979756435f"
+      ],
+      "settings": {},
+      "alt": [
+        "Same airflow. Different mean velocity."
+      ],
+      "historicalStatus": "PROPOSED ONLY / NOT SCHEDULED",
+      "sequence": 10
+    },
+    {
+      "id": "anyhvac-week-2026-10-19-v1-youtube-main-airflow-area",
+      "packageId": "main-airflow-area",
+      "platform": "youtube",
+      "title": "Same airflow. Different velocity. | Q = V x A",
+      "caption": "A 28-second mean-velocity check: 1,000 actual CFM / 2 ft^2 = 500 FPM; 1,000 CFM / 1 ft^2 = 1,000 FPM, on the same reference basis.\n\nExamples; not design targets. This does not predict the actual flow after a real duct modification or fan/system performance.\n\nTry the free Air Distribution Tools:\nhttps://www.anyhvac.net/tools/air-distribution\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\nMusic: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit. Licensed synchronized video use.\nhttps://mixkit.co/license/modal/musicFree/\n\n#HVAC #Airflow #Shorts",
+      "destination": "https://www.anyhvac.net/tools/air-distribution",
+      "scheduledAt": "2026-10-23T16:00:00-04:00",
+      "channelId": "6abd5b46ea19ca0bde375392",
+      "media": [
+        "10ce25451a4004ec9455a61f466e5ec95d5c5515bb17e7c463fcf7979756435f"
+      ],
+      "settings": {
+        "youtube": {
+          "title": "Same airflow. Different velocity. | Q = V x A",
+          "categoryId": "28",
+          "privacy": "public",
+          "madeForKids": false,
+          "notifySubscribers": false
+        }
+      },
+      "alt": [
+        "Same airflow. Different velocity. | Q = V x A"
+      ],
+      "historicalStatus": "PROPOSED ONLY / NOT SCHEDULED",
+      "sequence": 11
+    },
+    {
+      "id": "anyhvac-week-2026-10-19-v1-instagram-main-airflow-area",
+      "packageId": "main-airflow-area",
+      "platform": "instagram",
+      "title": "Same airflow. Different mean velocity.",
+      "caption": "Same airflow. Different mean velocity.\n\nIllustrative example: 1,000 actual CFM / 2 ft^2 = 500 FPM; 1,000 CFM / 1 ft^2 = 1,000 FPM. Same volume-flow reference basis.\n\nExamples; not target velocities. Changing a real duct can also change system airflow. This does not predict fan behavior.\n\nWatch the quick check. Visit anyhvac.net > Tools > Air Distribution Tools.\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\nMusic: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit. Licensed synchronized video use.\nhttps://mixkit.co/license/modal/musicFree/\n\n#HVAC #Airflow #AirDistribution #HVACTools #MEPEngineering",
+      "destination": "https://www.anyhvac.net/tools/air-distribution",
+      "scheduledAt": "2026-10-23T18:00:00-04:00",
+      "channelId": "6abd5952ea19ca0bde37267c",
+      "media": [
+        "10ce25451a4004ec9455a61f466e5ec95d5c5515bb17e7c463fcf7979756435f"
+      ],
+      "settings": {
+        "instagram": {
+          "postType": "reel",
+          "shareToFeed": true
+        }
+      },
+      "alt": [
+        "Same airflow. Different mean velocity."
+      ],
+      "historicalStatus": "PROPOSED ONLY / NOT SCHEDULED",
+      "sequence": 12
+    },
+    {
+      "id": "anyhvac-week-2026-10-19-v1-youtube-promo-mixed-air",
+      "packageId": "promo-mixed-air",
+      "platform": "youtube",
+      "title": "Check the mixed-air state | Free HVAC calculator",
+      "caption": "Explore the free AnyHVAC Mixed Air Calculator:\nhttps://www.anyhvac.net/tools/mixed-air-calculator\n\nCheck both streams, flow inputs and common pressure. Ideal mixing; dry-air mass and energy conservation. No ventilation-compliance claim.\n\nPhoto: Alf van Beem, via Wikimedia Commons, CC0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG\nhttps://creativecommons.org/publicdomain/zero/1.0/\n\nMusic: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit. Licensed synchronized video use.\nhttps://mixkit.co/license/modal/musicFree/\n\n#HVAC #Psychrometrics #Shorts",
+      "destination": "https://www.anyhvac.net/tools/mixed-air-calculator",
+      "scheduledAt": "2026-10-24T19:00:00-04:00",
+      "channelId": "6abd5b46ea19ca0bde375392",
+      "media": [
+        "312cd028f29ef827b757e7bdf1e89ccbdc2b63fbc06f06417028f09061ee13af"
+      ],
+      "settings": {
+        "youtube": {
+          "title": "Check the mixed-air state | Free HVAC calculator",
+          "categoryId": "28",
+          "privacy": "public",
+          "madeForKids": false,
+          "notifySubscribers": false
+        }
+      },
+      "alt": [
+        "Real air-handler photograph with headline Two air streams, one checked air state; equipment is contextual, not a measured mixing diagram."
+      ],
+      "historicalStatus": "PROPOSED ONLY / NOT SCHEDULED",
+      "sequence": 13
+    }
+  ],
+  "media": [
+    {
+      "id": "2be5daf96094d31636ac66ac3c0e22dfd1516b15681bd84ee65d13526f7b62e6",
+      "file": "promo-duct-geometry-social.png",
+      "sha256": "2be5daf96094d31636ac66ac3c0e22dfd1516b15681bd84ee65d13526f7b62e6",
+      "bytes": 878830,
+      "type": "image/png"
+    },
+    {
+      "id": "582bafcd693f2e6984541f6550a8f277ee85e2635c76d1c5f97157e13f5b271b",
+      "file": "promo-duct-geometry-vertical.png",
+      "sha256": "582bafcd693f2e6984541f6550a8f277ee85e2635c76d1c5f97157e13f5b271b",
+      "bytes": 1356897,
+      "type": "image/png"
+    },
+    {
+      "id": "94d3e27c9a586b1258712a921323c5a920a7c78eb88e1a36e90b8f7e49e21a20",
+      "file": "promo-mixed-air-social.png",
+      "sha256": "94d3e27c9a586b1258712a921323c5a920a7c78eb88e1a36e90b8f7e49e21a20",
+      "bytes": 1244625,
+      "type": "image/png"
+    },
+    {
+      "id": "8a0f419c7494327cfba6a6f63c5e46f6c36798bf42a13b27185a0d444c3ac912",
+      "file": "promo-mixed-air-vertical.png",
+      "sha256": "8a0f419c7494327cfba6a6f63c5e46f6c36798bf42a13b27185a0d444c3ac912",
+      "bytes": 1883182,
+      "type": "image/png"
+    },
+    {
+      "id": "162b6bbe7ff88163f1858d423a7b5e887b67c49a7464b62edada14eea25d1f94",
+      "file": "carousel-equal-area-01.png",
+      "sha256": "162b6bbe7ff88163f1858d423a7b5e887b67c49a7464b62edada14eea25d1f94",
+      "bytes": 1200636,
+      "type": "image/png"
+    },
+    {
+      "id": "08d58cc5b81ad37061f4249d3685cce072be7c0a07c0377b674be817e43f512c",
+      "file": "carousel-equal-area-02.png",
+      "sha256": "08d58cc5b81ad37061f4249d3685cce072be7c0a07c0377b674be817e43f512c",
+      "bytes": 118021,
+      "type": "image/png"
+    },
+    {
+      "id": "723c0a3d83c8615c204fc32e4c21ae4951b276ccddfa2576c5a932f3343f7c6e",
+      "file": "carousel-equal-area-03.png",
+      "sha256": "723c0a3d83c8615c204fc32e4c21ae4951b276ccddfa2576c5a932f3343f7c6e",
+      "bytes": 123059,
+      "type": "image/png"
+    },
+    {
+      "id": "4326b4ffc5e88ca6bf0d25c778d65266abc9185d0420ba9edc7fab115c94519e",
+      "file": "carousel-equal-area-04.png",
+      "sha256": "4326b4ffc5e88ca6bf0d25c778d65266abc9185d0420ba9edc7fab115c94519e",
+      "bytes": 117312,
+      "type": "image/png"
+    },
+    {
+      "id": "4ad807fa40f31dd3df48bf9b509eaf38e19b794277adf439bb750236c136d109",
+      "file": "carousel-equal-area-05.png",
+      "sha256": "4ad807fa40f31dd3df48bf9b509eaf38e19b794277adf439bb750236c136d109",
+      "bytes": 125188,
+      "type": "image/png"
+    },
+    {
+      "id": "0b106f3f314f53a4bdadbe8ea9a7adb96b9b954905460b45ac575496704594c2",
+      "file": "carousel-equal-area-06.png",
+      "sha256": "0b106f3f314f53a4bdadbe8ea9a7adb96b9b954905460b45ac575496704594c2",
+      "bytes": 1208153,
+      "type": "image/png"
+    },
+    {
+      "id": "40d3316361dc7f5a3b16e701f20aeabfc486e8991507fad0faf244ae836c4e5b",
+      "file": "carousel-rh-moisture-01.png",
+      "sha256": "40d3316361dc7f5a3b16e701f20aeabfc486e8991507fad0faf244ae836c4e5b",
+      "bytes": 1582149,
+      "type": "image/png"
+    },
+    {
+      "id": "918d8761e5b44a49e2a4510af390a6918f10c60cc92b9ab484956c4f9a973d7d",
+      "file": "carousel-rh-moisture-02.png",
+      "sha256": "918d8761e5b44a49e2a4510af390a6918f10c60cc92b9ab484956c4f9a973d7d",
+      "bytes": 124316,
+      "type": "image/png"
+    },
+    {
+      "id": "02197a50b2c435cfe3f78640c396011208851dc8b86d386910b29a5a1837cd8f",
+      "file": "carousel-rh-moisture-03.png",
+      "sha256": "02197a50b2c435cfe3f78640c396011208851dc8b86d386910b29a5a1837cd8f",
+      "bytes": 120030,
+      "type": "image/png"
+    },
+    {
+      "id": "1867c42010d6404d1971e9a02a3fd20f5028d09342cc7bfd4d5029d569b1138f",
+      "file": "carousel-rh-moisture-04.png",
+      "sha256": "1867c42010d6404d1971e9a02a3fd20f5028d09342cc7bfd4d5029d569b1138f",
+      "bytes": 130212,
+      "type": "image/png"
+    },
+    {
+      "id": "780a45a38b5b2b6a285c8650074f758890ce5d3ef9e825ed792740ea41b7d6aa",
+      "file": "carousel-rh-moisture-05.png",
+      "sha256": "780a45a38b5b2b6a285c8650074f758890ce5d3ef9e825ed792740ea41b7d6aa",
+      "bytes": 131186,
+      "type": "image/png"
+    },
+    {
+      "id": "e016ff9dcade1561a0af9c42fd8dcc5b69b93b67dfe5663075fd9f30b3e96853",
+      "file": "carousel-rh-moisture-06.png",
+      "sha256": "e016ff9dcade1561a0af9c42fd8dcc5b69b93b67dfe5663075fd9f30b3e96853",
+      "bytes": 1593797,
+      "type": "image/png"
+    },
+    {
+      "id": "acb8d97647365a656b97e14bcec48fb6d3a3ae4404778d17e96a30d86447cfe0",
+      "file": "promo-duct-geometry-short.mp4",
+      "sha256": "acb8d97647365a656b97e14bcec48fb6d3a3ae4404778d17e96a30d86447cfe0",
+      "bytes": 737308,
+      "type": "video/mp4"
+    },
+    {
+      "id": "312cd028f29ef827b757e7bdf1e89ccbdc2b63fbc06f06417028f09061ee13af",
+      "file": "promo-mixed-air-short.mp4",
+      "sha256": "312cd028f29ef827b757e7bdf1e89ccbdc2b63fbc06f06417028f09061ee13af",
+      "bytes": 744042,
+      "type": "video/mp4"
+    },
+    {
+      "id": "f66721c93a4ec031e529eeba8074af5eca2dcd9f9841abe39ff87ea049544e88",
+      "file": "main-airflow-area-poster.png",
+      "sha256": "f66721c93a4ec031e529eeba8074af5eca2dcd9f9841abe39ff87ea049544e88",
+      "bytes": 1612358,
+      "type": "image/png"
+    },
+    {
+      "id": "10ce25451a4004ec9455a61f466e5ec95d5c5515bb17e7c463fcf7979756435f",
+      "file": "main-airflow-area.mp4",
+      "sha256": "10ce25451a4004ec9455a61f466e5ec95d5c5515bb17e7c463fcf7979756435f",
+      "bytes": 1206093,
+      "type": "video/mp4"
+    }
+  ],
+  "qa": {
+    "technical": "PASS",
+    "rights": "PASS",
+    "media": "PASS",
+    "evidence": [
+      "34dc695478b01c10488934fbb362fd068d84c5f9e6cd58f999cf7787f304eaf5",
+      "700f7701dff4cf22f8e796f6e5bd8decd825f02a0956b9368faa7379abacb957",
+      "777a7d04f2589c13420445bf06040bb7f3dedea669cbf574977d5180ff2f706a"
+    ]
+  },
+  "ingestionStatus": "BLOCKED: current importer/domain accepts only the original historical fixture",
+  "approvalStatus": "NOT APPROVED"
+}

@@ -1,0 +1,51 @@
+{
+  "checked_at": "2026-10-02T20:14:46.351Z",
+  "checks": [
+    {
+      "path": "/tools/duct-calculator",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "title": "HVAC Duct Calculator | AnyHVAC"
+    },
+    {
+      "path": "/tools/air-distribution",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "title": "Air Distribution Tools | AnyHVAC"
+    },
+    {
+      "path": "/tools/psychrometric-calculator",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "title": "Psychrometric Calculator | AnyHVAC"
+    },
+    {
+      "path": "/tools/mixed-air-calculator",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "title": "Mixed Air Calculator | HVAC Air Mixing | AnyHVAC"
+    },
+    {
+      "path": "/resources/duct-design-quick-reference",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "title": "Duct Design Quick Reference | AnyHVAC"
+    },
+    {
+      "path": "/resources/airflow-static-pressure-measurement",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "title": "HVAC Airflow &amp; Static Pressure Measurement Guide | AnyHVAC"
+    },
+    {
+      "path": "/resources/anyhvac-duct-design-quick-reference.pdf",
+      "status": 200,
+      "content_type": "application/pdf"
+    },
+    {
+      "path": "/resources/anyhvac-airflow-static-pressure-measurement-quick-reference.pdf",
+      "status": 200,
+      "content_type": "application/pdf"
+    }
+  ]
+}

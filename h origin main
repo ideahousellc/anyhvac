@@ -1,0 +1,51 @@
+[1mdiff --git a/app/tools/duct-calculator/page.tsx b/app/tools/duct-calculator/page.tsx[m
+[1mindex 248a811..24409e2 100644[m
+[1m--- a/app/tools/duct-calculator/page.tsx[m
+[1m+++ b/app/tools/duct-calculator/page.tsx[m
+[36m@@ -14,7 +14,7 @@[m [mimport styles from "./page.module.css";[m
+ export const metadata: Metadata = createPageMetadata({[m
+   title: "HVAC Duct Calculator | AnyHVAC",[m
+   description:[m
+[31m-    "Interactive duct sizing tool for airflow, friction rate, velocity, round duct, and rectangular duct design.",[m
+[32m+[m[32m    "Free HVAC duct sizing Ductulator for round and rectangular ducts. Compare duct size, air velocity and friction rate from airflow.",[m
+   path: "/tools/duct-calculator",[m
+ });[m
+ [m
+[36m@@ -48,7 +48,7 @@[m [mexport default function DuctCalculatorPage() {[m
+       <ToolPageIntro[m
+         eyebrow="HVAC Design Tool"[m
+         title="HVAC Duct Calculator"[m
+[31m-        description="Interactive duct sizing tool for airflow, friction rate, velocity, round duct, and rectangular duct design."[m
+[32m+[m[32m        description="Use this free online ductulator to size round and rectangular HVAC ducts from airflow and friction rate, then compare nominal sizes and air velocity."[m
+         status="Equal Friction Method"[m
+       />[m
+ [m
+[1mdiff --git a/components/duct-calculator/DuctSizingGuide.tsx b/components/duct-calculator/DuctSizingGuide.tsx[m
+[1mindex d2a6732..de3a360 100644[m
+[1m--- a/components/duct-calculator/DuctSizingGuide.tsx[m
+[1m+++ b/components/duct-calculator/DuctSizingGuide.tsx[m
+[36m@@ -216,6 +216,24 @@[m [mconst guideSections: readonly ToolGuideSection[] = [[m
+     title: "Frequently Asked Questions",[m
+     content: ([m
+       <div className={styles.faqList}>[m
+[32m+[m[32m        <div>[m
+[32m+[m[32m          <h4>What does an online ductulator calculate?</h4>[m
+[32m+[m[32m          <p>[m
+[32m+[m[32m            A ductulator relates airflow, duct size, air velocity and friction[m
+[32m+[m[32m            rate. This HVAC duct calculator uses airflow and a selected friction[m
+[32m+[m[32m            rate to calculate a round duct diameter, then shows nominal sizes[m
+[32m+[m[32m            and equivalent rectangular options for comparison.[m
+[32m+[m[32m          </p>[m
+[32m+[m[32m        </div>[m
+[32m+[m[32m        <div>[m
+[32m+[m[32m          <h4>Does this ductulator calculate total system pressure loss?</h4>[m
+[32m+[m[32m          <p>[m
+[32m+[m[32m            No. The displayed friction rate is duct friction loss per unit[m
+[32m+[m[32m            length, not total system pressure loss. Fittings, equipment and[m
+[32m+[m[32m            other system components require separate pressure-loss checks before[m
+[32m+[m[32m            final duct selection.[m
+[32m+[m[32m          </p>[m
+[32m+[m[32m        </div>[m
+         <div>[m
+           <h4>What size duct do I need for a certain CFM?</h4>[m
+           <p>[m

@@ -1,0 +1,174 @@
+{
+  "version": "anyhvac-week-2026-10-19-v1",
+  "status": "OWNER REVIEW / LOCAL ONLY",
+  "mediaRoot": "growth\\.generated\\weekly\\2026-10-19-25\\media",
+  "uploaded": false,
+  "assets": [
+    {
+      "file": "promo-duct-geometry-social.png",
+      "bytes": 878830,
+      "sha256": "2be5daf96094d31636ac66ac3c0e22dfd1516b15681bd84ee65d13526f7b62e6",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "promo-duct-geometry-vertical.png",
+      "bytes": 1356897,
+      "sha256": "582bafcd693f2e6984541f6550a8f277ee85e2635c76d1c5f97157e13f5b271b",
+      "width": 1080,
+      "height": 1920,
+      "type": "image/png"
+    },
+    {
+      "file": "promo-mixed-air-social.png",
+      "bytes": 1244625,
+      "sha256": "94d3e27c9a586b1258712a921323c5a920a7c78eb88e1a36e90b8f7e49e21a20",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "promo-mixed-air-vertical.png",
+      "bytes": 1883182,
+      "sha256": "8a0f419c7494327cfba6a6f63c5e46f6c36798bf42a13b27185a0d444c3ac912",
+      "width": 1080,
+      "height": 1920,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-equal-area-01.png",
+      "bytes": 1200636,
+      "sha256": "162b6bbe7ff88163f1858d423a7b5e887b67c49a7464b62edada14eea25d1f94",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-equal-area-02.png",
+      "bytes": 118021,
+      "sha256": "08d58cc5b81ad37061f4249d3685cce072be7c0a07c0377b674be817e43f512c",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-equal-area-03.png",
+      "bytes": 123059,
+      "sha256": "723c0a3d83c8615c204fc32e4c21ae4951b276ccddfa2576c5a932f3343f7c6e",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-equal-area-04.png",
+      "bytes": 117312,
+      "sha256": "4326b4ffc5e88ca6bf0d25c778d65266abc9185d0420ba9edc7fab115c94519e",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-equal-area-05.png",
+      "bytes": 125188,
+      "sha256": "4ad807fa40f31dd3df48bf9b509eaf38e19b794277adf439bb750236c136d109",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-equal-area-06.png",
+      "bytes": 1208153,
+      "sha256": "0b106f3f314f53a4bdadbe8ea9a7adb96b9b954905460b45ac575496704594c2",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-rh-moisture-01.png",
+      "bytes": 1582149,
+      "sha256": "40d3316361dc7f5a3b16e701f20aeabfc486e8991507fad0faf244ae836c4e5b",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-rh-moisture-02.png",
+      "bytes": 124316,
+      "sha256": "918d8761e5b44a49e2a4510af390a6918f10c60cc92b9ab484956c4f9a973d7d",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-rh-moisture-03.png",
+      "bytes": 120030,
+      "sha256": "02197a50b2c435cfe3f78640c396011208851dc8b86d386910b29a5a1837cd8f",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-rh-moisture-04.png",
+      "bytes": 130212,
+      "sha256": "1867c42010d6404d1971e9a02a3fd20f5028d09342cc7bfd4d5029d569b1138f",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-rh-moisture-05.png",
+      "bytes": 131186,
+      "sha256": "780a45a38b5b2b6a285c8650074f758890ce5d3ef9e825ed792740ea41b7d6aa",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-rh-moisture-06.png",
+      "bytes": 1593797,
+      "sha256": "e016ff9dcade1561a0af9c42fd8dcc5b69b93b67dfe5663075fd9f30b3e96853",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "promo-duct-geometry-short.mp4",
+      "bytes": 737308,
+      "sha256": "acb8d97647365a656b97e14bcec48fb6d3a3ae4404778d17e96a30d86447cfe0",
+      "width": 1080,
+      "height": 1920,
+      "duration": 16,
+      "type": "video/mp4",
+      "audio": true
+    },
+    {
+      "file": "promo-mixed-air-short.mp4",
+      "bytes": 744042,
+      "sha256": "312cd028f29ef827b757e7bdf1e89ccbdc2b63fbc06f06417028f09061ee13af",
+      "width": 1080,
+      "height": 1920,
+      "duration": 16,
+      "type": "video/mp4",
+      "audio": true
+    },
+    {
+      "file": "main-airflow-area-poster.png",
+      "bytes": 1612358,
+      "sha256": "f66721c93a4ec031e529eeba8074af5eca2dcd9f9841abe39ff87ea049544e88",
+      "width": 1080,
+      "height": 1920,
+      "type": "image/png"
+    },
+    {
+      "file": "main-airflow-area.mp4",
+      "bytes": 1206093,
+      "sha256": "10ce25451a4004ec9455a61f466e5ec95d5c5515bb17e7c463fcf7979756435f",
+      "width": 1080,
+      "height": 1920,
+      "duration": 28,
+      "type": "video/mp4",
+      "audio": true
+    }
+  ]
+}

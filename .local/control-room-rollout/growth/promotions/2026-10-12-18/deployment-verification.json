@@ -1,0 +1,16 @@
+{
+  "checkedAt": "2026-10-07T13:46:48.568Z",
+  "id": "dpl_Gy3HxHdsZVjaV79SUGemQ7Q82zUG",
+  "state": "READY",
+  "target": "production",
+  "url": "anyhvac-jp3rkpuk0-idea-house.vercel.app",
+  "alias": [
+    "www.anyhvac.net",
+    "anyhvac.vercel.app",
+    "anyhvac.net",
+    "anyhvac-idea-house.vercel.app",
+    "anyhvac-git-main-idea-house.vercel.app"
+  ],
+  "commit": "6eb05268e9cecfcdc3ad8e4abe5ef59651d76a01",
+  "environmentUnchanged": true
+}

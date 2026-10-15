@@ -1,0 +1,169 @@
+{
+  "version": 1,
+  "batchId": "anyhvac-week-2026-10-19",
+  "label": "anyhvac-week-2026-10-19-v2",
+  "reviewRevision": 5,
+  "contentDigest": "bf8488e8273cb40ca0456c632f1680ebcea7a23d4dc112a17e8109539c694975",
+  "approvedStateDigest": "70b3a29f3733d40a806c4caa87e4746a39d5b46a86683703ad6a64d4e670d397",
+  "approval": {
+    "requestId": "e5e1b3cd-6514-4243-8134-f333c0523d22",
+    "action": "approve",
+    "version": 5,
+    "digest": "bf8488e8273cb40ca0456c632f1680ebcea7a23d4dc112a17e8109539c694975",
+    "at": "2026-10-14T19:44:10.204Z",
+    "text": "Explicit owner chat approval of October 19?25 v1 revision3 and music replacement v2 revision5: New Bass 01 by Lily J. Revised video supersedes original for all three main-video posts. No scheduling/publication authorization."
+  },
+  "video": {
+    "file": "main-airflow-area-new-bass.mp4",
+    "bytes": 1232960,
+    "sha256": "296114e1c4489c48e7e60169f4060af5ee2242ff575b7ce5db761341f00ef409",
+    "width": 1080,
+    "height": 1920,
+    "duration": 28,
+    "type": "video/mp4",
+    "audio": true,
+    "path": "growth/.generated/weekly/2026-10-19-25-music-v2/media/main-airflow-area-new-bass.mp4"
+  },
+  "postReferences": [
+    {
+      "id": "anyhvac-week-2026-10-19-v1-linkedin-promo-duct-geometry",
+      "platform": "linkedin",
+      "packageId": "promo-duct-geometry",
+      "media": [
+        "2be5daf96094d31636ac66ac3c0e22dfd1516b15681bd84ee65d13526f7b62e6"
+      ],
+      "slot": "2026-10-19T17:00:00-04:00"
+    },
+    {
+      "id": "anyhvac-week-2026-10-19-v1-instagram-promo-duct-geometry",
+      "platform": "instagram",
+      "packageId": "promo-duct-geometry",
+      "media": [
+        "2be5daf96094d31636ac66ac3c0e22dfd1516b15681bd84ee65d13526f7b62e6"
+      ],
+      "slot": "2026-10-19T19:00:00-04:00"
+    },
+    {
+      "id": "anyhvac-week-2026-10-19-v1-linkedin-carousel-equal-area",
+      "platform": "linkedin",
+      "packageId": "carousel-equal-area",
+      "media": [
+        "162b6bbe7ff88163f1858d423a7b5e887b67c49a7464b62edada14eea25d1f94",
+        "08d58cc5b81ad37061f4249d3685cce072be7c0a07c0377b674be817e43f512c",
+        "723c0a3d83c8615c204fc32e4c21ae4951b276ccddfa2576c5a932f3343f7c6e",
+        "4326b4ffc5e88ca6bf0d25c778d65266abc9185d0420ba9edc7fab115c94519e",
+        "4ad807fa40f31dd3df48bf9b509eaf38e19b794277adf439bb750236c136d109",
+        "0b106f3f314f53a4bdadbe8ea9a7adb96b9b954905460b45ac575496704594c2"
+      ],
+      "slot": "2026-10-20T16:00:00-04:00"
+    },
+    {
+      "id": "anyhvac-week-2026-10-19-v1-instagram-carousel-equal-area",
+      "platform": "instagram",
+      "packageId": "carousel-equal-area",
+      "media": [
+        "162b6bbe7ff88163f1858d423a7b5e887b67c49a7464b62edada14eea25d1f94",
+        "08d58cc5b81ad37061f4249d3685cce072be7c0a07c0377b674be817e43f512c",
+        "723c0a3d83c8615c204fc32e4c21ae4951b276ccddfa2576c5a932f3343f7c6e",
+        "4326b4ffc5e88ca6bf0d25c778d65266abc9185d0420ba9edc7fab115c94519e",
+        "4ad807fa40f31dd3df48bf9b509eaf38e19b794277adf439bb750236c136d109",
+        "0b106f3f314f53a4bdadbe8ea9a7adb96b9b954905460b45ac575496704594c2"
+      ],
+      "slot": "2026-10-20T19:00:00-04:00"
+    },
+    {
+      "id": "anyhvac-week-2026-10-19-v1-linkedin-promo-mixed-air",
+      "platform": "linkedin",
+      "packageId": "promo-mixed-air",
+      "media": [
+        "94d3e27c9a586b1258712a921323c5a920a7c78eb88e1a36e90b8f7e49e21a20"
+      ],
+      "slot": "2026-10-21T16:00:00-04:00"
+    },
+    {
+      "id": "anyhvac-week-2026-10-19-v1-instagram-promo-mixed-air",
+      "platform": "instagram",
+      "packageId": "promo-mixed-air",
+      "media": [
+        "94d3e27c9a586b1258712a921323c5a920a7c78eb88e1a36e90b8f7e49e21a20"
+      ],
+      "slot": "2026-10-21T18:00:00-04:00"
+    },
+    {
+      "id": "anyhvac-week-2026-10-19-v1-instagram-carousel-rh-moisture",
+      "platform": "instagram",
+      "packageId": "carousel-rh-moisture",
+      "media": [
+        "40d3316361dc7f5a3b16e701f20aeabfc486e8991507fad0faf244ae836c4e5b",
+        "918d8761e5b44a49e2a4510af390a6918f10c60cc92b9ab484956c4f9a973d7d",
+        "02197a50b2c435cfe3f78640c396011208851dc8b86d386910b29a5a1837cd8f",
+        "1867c42010d6404d1971e9a02a3fd20f5028d09342cc7bfd4d5029d569b1138f",
+        "780a45a38b5b2b6a285c8650074f758890ce5d3ef9e825ed792740ea41b7d6aa",
+        "e016ff9dcade1561a0af9c42fd8dcc5b69b93b67dfe5663075fd9f30b3e96853"
+      ],
+      "slot": "2026-10-22T09:00:00-04:00"
+    },
+    {
+      "id": "anyhvac-week-2026-10-19-v1-linkedin-carousel-rh-moisture",
+      "platform": "linkedin",
+      "packageId": "carousel-rh-moisture",
+      "media": [
+        "40d3316361dc7f5a3b16e701f20aeabfc486e8991507fad0faf244ae836c4e5b",
+        "918d8761e5b44a49e2a4510af390a6918f10c60cc92b9ab484956c4f9a973d7d",
+        "02197a50b2c435cfe3f78640c396011208851dc8b86d386910b29a5a1837cd8f",
+        "1867c42010d6404d1971e9a02a3fd20f5028d09342cc7bfd4d5029d569b1138f",
+        "780a45a38b5b2b6a285c8650074f758890ce5d3ef9e825ed792740ea41b7d6aa",
+        "e016ff9dcade1561a0af9c42fd8dcc5b69b93b67dfe5663075fd9f30b3e96853"
+      ],
+      "slot": "2026-10-22T17:00:00-04:00"
+    },
+    {
+      "id": "anyhvac-week-2026-10-19-v1-youtube-promo-duct-geometry",
+      "platform": "youtube",
+      "packageId": "promo-duct-geometry",
+      "media": [
+        "acb8d97647365a656b97e14bcec48fb6d3a3ae4404778d17e96a30d86447cfe0"
+      ],
+      "slot": "2026-10-22T19:00:00-04:00"
+    },
+    {
+      "id": "anyhvac-week-2026-10-19-v1-linkedin-main-airflow-area",
+      "platform": "linkedin",
+      "packageId": "main-airflow-area",
+      "media": [
+        "296114e1c4489c48e7e60169f4060af5ee2242ff575b7ce5db761341f00ef409"
+      ],
+      "slot": "2026-10-23T15:00:00-04:00"
+    },
+    {
+      "id": "anyhvac-week-2026-10-19-v1-youtube-main-airflow-area",
+      "platform": "youtube",
+      "packageId": "main-airflow-area",
+      "media": [
+        "296114e1c4489c48e7e60169f4060af5ee2242ff575b7ce5db761341f00ef409"
+      ],
+      "slot": "2026-10-23T16:00:00-04:00"
+    },
+    {
+      "id": "anyhvac-week-2026-10-19-v1-instagram-main-airflow-area",
+      "platform": "instagram",
+      "packageId": "main-airflow-area",
+      "media": [
+        "296114e1c4489c48e7e60169f4060af5ee2242ff575b7ce5db761341f00ef409"
+      ],
+      "slot": "2026-10-23T18:00:00-04:00"
+    },
+    {
+      "id": "anyhvac-week-2026-10-19-v1-youtube-promo-mixed-air",
+      "platform": "youtube",
+      "packageId": "promo-mixed-air",
+      "media": [
+        "312cd028f29ef827b757e7bdf1e89ccbdc2b63fbc06f06417028f09061ee13af"
+      ],
+      "slot": "2026-10-24T19:00:00-04:00"
+    }
+  ],
+  "publicationAuthorized": false,
+  "ingested": false,
+  "sourceRevisionsUnchanged": true
+}

@@ -1,0 +1,7 @@
+{
+  "decision": "AUTHORIZE LIVE SCHEDULING",
+  "owner": "Cesar",
+  "authorized_at": "2026-10-02T20:04:01.134Z",
+  "evidence": "FINAL OWNER APPROVAL in this conversation: owner watched and approved revised 15-second Mixed Air MP4 with Sleepy Cat by Alejandro Magaña, existing visuals and unchanged caption; authorizes only that MP4 at public/social/mixed-air-short-86098e26c422d213.mp4, one single-file commit/push/deployment, and exactly one YouTube Short scheduling test for October 8, 2026, 7 PM EDT with previously reviewed title and settings, after successful verification and duplicate/slot checks.",
+  "package_sha256": "d2dcd57425cc8ea04ed4a7c0ebff7e0565b26be3f51899b0761aae1f5cf01cdf"
+}

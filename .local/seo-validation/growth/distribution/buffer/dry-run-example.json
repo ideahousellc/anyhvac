@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "batch_id": "buffer-first-test-proposal",
+  "batch_version": "v1",
+  "kind": "single-test",
+  "timezone": "America/New_York",
+  "approval": null,
+  "posts": [
+    {
+      "post_id": "buffer-first-test-linkedin-v1",
+      "package_id": "duct-sizing-test",
+      "platform": "linkedin",
+      "channel_id": "6abd5811ea19ca0bde3709e4",
+      "caption": "A duct size is a design starting point.\n\nExplore round and rectangular sizing with the free AnyHVAC HVAC Duct Calculator. Check fittings, noise, available space and project requirements before final design.\n\nhttps://www.anyhvac.net/tools/duct-calculator\n\n#HVAC #DuctDesign #MEPEngineering",
+      "destination_url": "https://www.anyhvac.net/tools/duct-calculator",
+      "link_wording": "https://www.anyhvac.net/tools/duct-calculator",
+      "scheduled_at": "2026-10-05T17:00:00-04:00",
+      "technical_review": "PASS",
+      "rights_review": "PASS",
+      "ai_assisted": true,
+      "media": [
+        {
+          "kind": "image",
+          "path": "public/images/hero/Ductwork.png",
+          "url": "https://www.anyhvac.net/images/hero/Ductwork.png",
+          "sha256": "0765d2689798c8aaa8c5a6f61957a4321fdfdff463d1fb97f25ac46b096f4645",
+          "alt_text": "Ductwork illustration from the existing AnyHVAC website.",
+          "preview_review": "Existing canonical website asset used for a dry-run demonstration only; owner must approve exact LinkedIn crop and caption before live use."
+        }
+      ]
+    }
+  ]
+}

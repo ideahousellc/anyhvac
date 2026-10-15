@@ -1,0 +1,196 @@
+[
+  {
+    "channel": {
+      "id": "6abd5952ea19ca0bde37267c",
+      "organizationId": "6abd544fcd0a4361f7debfe7",
+      "name": "anyhvac",
+      "displayName": "anyhvac",
+      "service": "instagram",
+      "timezone": "America/New_York",
+      "isDisconnected": false,
+      "isLocked": false,
+      "isQueuePaused": false,
+      "postingSchedule": [
+        {
+          "day": "mon",
+          "paused": false,
+          "times": [
+            "19:00"
+          ]
+        },
+        {
+          "day": "tue",
+          "paused": false,
+          "times": [
+            "19:00"
+          ]
+        },
+        {
+          "day": "wed",
+          "paused": false,
+          "times": [
+            "18:00"
+          ]
+        },
+        {
+          "day": "thu",
+          "paused": false,
+          "times": [
+            "09:00"
+          ]
+        },
+        {
+          "day": "fri",
+          "paused": false,
+          "times": [
+            "18:00"
+          ]
+        },
+        {
+          "day": "sat",
+          "paused": false,
+          "times": []
+        },
+        {
+          "day": "sun",
+          "paused": false,
+          "times": []
+        }
+      ]
+    },
+    "queue_checked_at": "2026-10-02T19:24:17.769Z",
+    "posts": [
+      {
+        "id": "6abebb80da4126bfa6e30721",
+        "channelId": "6abd5952ea19ca0bde37267c",
+        "text": "A useful reference for your next duct-design check.\n\nOur FREE Duct Design Quick Reference covers airflow, velocity, duct sizing, pressure basics and IP/SI conversions.\n\n2 pages. Practical formulas and reference values. No signup.\n\nVisit anyhvac.net → Resources → Duct Design Quick Reference to download the PDF.\n\nSave this post for later and share it with your HVAC team. Verify reference values against your project requirements before final design.\n\n#HVAC #DuctDesign #HVACDesign #AirDistribution #HVACTools\n\nInstagram CTA deliberately uses site navigation; it does not assume a particular profile bio link or a clickable caption URL. Alt text: “AnyHVAC free HVAC Duct Design Quick Reference. Two pages of practical formulas and reference values, with no signup. Covers airflow, velocity, duct sizing, pressure basics and IP/SI conversions.” ",
+        "dueAt": "2026-10-02T22:00:00.000Z",
+        "status": "scheduled",
+        "assets": [
+          {
+            "source": "https://buffer-media-uploads.s3.amazonaws.com/6abd544fcd0a4361f7debfe7/6abebb308ec67cd7b920e42d"
+          }
+        ]
+      },
+      {
+        "id": "6abe9d86e0fecf780bf983a3",
+        "channelId": "6abd5952ea19ca0bde37267c",
+        "text": "Same airflow. Smaller duct. Higher velocity. 💨\n\nA small change in duct size can make a big difference in your HVAC design.\n\nMeet the **AnyHVAC Duct Calculator**. 📐\n\nExplore airflow, velocity, friction rate, and duct sizing with our free interactive calculator.\n\n🔗 Try it FREE — link in bio!\nwww.anyhvac.net/tools/duct-calculator\n\nNo subscriptions. No signup. Just useful HVAC tools.\n\n💬 When sizing ductwork, do you start with velocity or friction rate?\n\nFollow @anyhvac for free HVAC calculators, engineering references, and practical design content.\n\n#HVAC #HVACDesign #DuctDesign #HVACTools #EngineeringTools",
+        "dueAt": "2026-10-01T18:00:36.356Z",
+        "status": "sent",
+        "assets": [
+          {
+            "source": "https://buffer-media-uploads.s3.amazonaws.com/6abd544fcd0a4361f7debfe7/6abe9cf108952583cad772d7_transcoded.mp4"
+          }
+        ]
+      },
+      {
+        "id": "6abd595327d3111a52729ff8",
+        "channelId": "6abd5952ea19ca0bde37267c",
+        "text": "Welcome to AnyHVAC. 🛠️\n\nWe’re building a growing collection of free HVAC calculators, practical design tools and quick-reference resources for HVAC professionals and designers.\n\nNo subscription. No account required. Just tools designed to make everyday HVAC work a little easier.\n\nAlready available:\n📐 HVAC Duct Calculator\n💨 Air Distribution Tools\n🌡️ Psychrometric Calculator\n🔀 Mixed Air Calculator\n📄 Free HVAC Design References\n\nAnd we're just getting started.\n\n🔗 Explore the tools at anyhvac.net\n\nFollow @anyhvac for new tools, HVAC references and practical engineering content.\n\n#HVAC #HVACDesign #MechanicalEngineering #Engineering #HVACTools #ductdesign",
+        "dueAt": "2026-09-22T19:43:12.000Z",
+        "status": "sent",
+        "assets": [
+          {
+            "source": "https://buffer-updates-media-backfill-bucket.s3.amazonaws.com/6abd544fcd0a4361f7debfe7/6abd5952ea19ca0bde37267c/6abd595327d3111a52729ff8_thumbnail.jpg"
+          },
+          {
+            "source": "https://buffer-updates-media-backfill-bucket.s3.amazonaws.com/6abd544fcd0a4361f7debfe7/6abd5952ea19ca0bde37267c/6abd595327d3111a52729ff8_1_thumbnail.jpg"
+          },
+          {
+            "source": "https://buffer-updates-media-backfill-bucket.s3.amazonaws.com/6abd544fcd0a4361f7debfe7/6abd5952ea19ca0bde37267c/6abd595327d3111a52729ff8_2_thumbnail.jpg"
+          },
+          {
+            "source": "https://buffer-updates-media-backfill-bucket.s3.amazonaws.com/6abd544fcd0a4361f7debfe7/6abd5952ea19ca0bde37267c/6abd595327d3111a52729ff8_3_thumbnail.jpg"
+          },
+          {
+            "source": "https://buffer-updates-media-backfill-bucket.s3.amazonaws.com/6abd544fcd0a4361f7debfe7/6abd5952ea19ca0bde37267c/6abd595327d3111a52729ff8_4_thumbnail.jpg"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "channel": {
+      "id": "6abd5b46ea19ca0bde375392",
+      "organizationId": "6abd544fcd0a4361f7debfe7",
+      "name": "AnyHVAC",
+      "displayName": "AnyHVAC",
+      "service": "youtube",
+      "timezone": "America/New_York",
+      "isDisconnected": false,
+      "isLocked": false,
+      "isQueuePaused": false,
+      "postingSchedule": [
+        {
+          "day": "mon",
+          "paused": false,
+          "times": []
+        },
+        {
+          "day": "tue",
+          "paused": false,
+          "times": []
+        },
+        {
+          "day": "wed",
+          "paused": false,
+          "times": []
+        },
+        {
+          "day": "thu",
+          "paused": false,
+          "times": [
+            "19:00"
+          ]
+        },
+        {
+          "day": "fri",
+          "paused": false,
+          "times": [
+            "16:00"
+          ]
+        },
+        {
+          "day": "sat",
+          "paused": false,
+          "times": [
+            "19:00"
+          ]
+        },
+        {
+          "day": "sun",
+          "paused": false,
+          "times": []
+        }
+      ]
+    },
+    "queue_checked_at": "2026-10-02T19:24:17.857Z",
+    "posts": [
+      {
+        "id": "6abebc48d74cc83fe70c3dff",
+        "channelId": "6abd5b46ea19ca0bde375392",
+        "text": "Explore free HVAC calculators, design tools and downloadable references at anyhvac.net.\n\nFind duct-sizing, air-distribution, psychrometric and mixed-air tools for your next HVAC check.\n\nVisit anyhvac.net and explore Tools and Resources. Save this Short for your next project.\n\n#HVAC #HVACTools #MEPEngineering #Shorts\n\nCTA uses the readable domain and does not depend on clickable Shorts description links. ",
+        "dueAt": "2026-10-03T23:00:00.000Z",
+        "status": "scheduled",
+        "assets": [
+          {
+            "source": "https://buffer-media-uploads.s3.amazonaws.com/6abd544fcd0a4361f7debfe7/6abebc06f616f36e66cefdf0_transcoded.mp4"
+          }
+        ]
+      },
+      {
+        "id": "6abe9e261986aa24afcbec17",
+        "channelId": "6abd5b46ea19ca0bde375392",
+        "text": "What happens when you reduce duct size while keeping the same airflow?\n\nAir velocity increases, with important implications for HVAC duct design.\n\nExplore duct sizing, airflow, velocity, and friction rate with the FREE AnyHVAC Duct Calculator.\n\n🔧 Try it here:\nhttps://www.anyhvac.net/tools/duct-calculator\n\nNo signup. No subscription. Free HVAC engineering tools.\n\nSubscribe to @AnyHVAC for more HVAC design tips, calculators, and engineering resources.\n\n#Shorts #HVAC #DuctDesign #AnyHVAC #MechanicalEngineering",
+        "dueAt": "2026-10-01T18:00:30.549Z",
+        "status": "sent",
+        "assets": [
+          {
+            "source": "https://buffer-media-uploads.s3.amazonaws.com/6abd544fcd0a4361f7debfe7/6abe9da0cf6fc213c47a446a_transcoded.mp4"
+          }
+        ]
+      }
+    ]
+  }
+]

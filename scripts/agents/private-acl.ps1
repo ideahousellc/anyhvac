@@ -1,19 +1,21 @@
-# Read-only validation. No credentials are printed or modified.
+﻿# Read-only validation; no permission repairs or credential output.
+[CmdletBinding()]
+param([switch]$CheckLegacyCredential)
 $ErrorActionPreference = 'Stop'
 try {
-    $taskRoot = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '../..'))
-    $privateRoot = Join-Path $taskRoot '.local/agent-inbox'
-    $ownerSid = [Security.Principal.WindowsIdentity]::GetCurrent().User.Value
-    $allowed = @($ownerSid, 'S-1-5-18', 'S-1-5-32-544')
-    # Future files inherit the directory ACL; check existing data as well.
-    $productionRoot = Join-Path $privateRoot 'production'
-    $runnerRoot = Join-Path $privateRoot 'runner'
-    $items = @((Get-Item -LiteralPath $privateRoot), (Get-Item -LiteralPath $productionRoot), (Get-Item -LiteralPath $runnerRoot)) + @(Get-ChildItem -LiteralPath $productionRoot -Recurse -Force) + @(Get-ChildItem -LiteralPath $runnerRoot -Recurse -Force)
-    foreach ($item in $items) {
-        if ($item.Attributes -band [IO.FileAttributes]::ReparsePoint) { throw 'Reparse point requires review.' }
-        foreach ($rule in (Get-Acl -LiteralPath $item.FullName).Access) {
-            if ($rule.AccessControlType -eq 'Allow' -and $rule.IdentityReference.Translate([Security.Principal.SecurityIdentifier]).Value -notin $allowed) { throw 'Private ACL requires review.' }
+    . (Join-Path $PSScriptRoot 'private-directory.ps1')
+    $context = Get-AgentPrivateContext
+    Assert-AgentPrivateTree $context
+    if ($CheckLegacyCredential) {
+        $repository = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '../..'))
+        $legacy = Join-Path $repository '.local/agent-inbox/production/runner-config.json'
+        if (Test-Path -LiteralPath $legacy) {
+            Assert-AgentPrivateItem (Get-Item -LiteralPath $legacy -Force) $context
+            # A writable ancestor permits credential replacement despite a secure file ACL.
+            foreach ($relative in @('.local', '.local/agent-inbox', '.local/agent-inbox/production')) {
+                Assert-AgentPrivateItem (Get-Item -LiteralPath (Join-Path $repository $relative) -Force) $context
+            }
         }
     }
-    exit 0
-} catch { Write-Error 'Private inbox permissions require owner review.'; exit 1 }
+    Write-Output 'Private ownership and ACL verification passed.'
+} catch { Write-Error 'Private permissions or designated identity require owner review.'; exit 1 }

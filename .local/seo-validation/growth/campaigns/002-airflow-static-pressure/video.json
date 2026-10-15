@@ -1,0 +1,12 @@
+{
+  "campaignId":"002-airflow-static-pressure","videoId":"002-pressure-field-airflow-stream","title":"Static pressure is not airflow","hook":"Static pressure ≠ airflow","fps":30,"width":1080,"height":1920,"durationSeconds":42,"logoPath":"Compact AH logo.png",
+  "audio":{"mode":"ambient-text","rationale":"Original restrained sound design supports pacing while the complete technical explanation remains on screen; no narration or third-party media is used.","narration":null,"music":null,"ambient":[{"path":"audio/002-pressure-field-soundscape.wav","volume":0.55,"provenance":{"source":"Deterministically synthesized by growth/media/generate-audio.ts","license":"AnyHVAC original/internal asset","commercialUse":true,"attributionRequired":false,"attributionText":null,"dateAcquired":"2026-09-30","publicationApproved":true}}]},
+  "destinationUrl":"https://www.anyhvac.net/resources/airflow-static-pressure-measurement","cta":"Open the free measurement quick reference","sourceNote":"Conceptual visualization • illustrative arithmetic only",
+  "scenes":[
+    {"id":"hook","kind":"hook","durationSeconds":4,"eyebrow":"Measurement reminder","title":"Static pressure ≠ airflow","body":"They are related. They are not interchangeable."},
+    {"id":"concept","kind":"concept","durationSeconds":9,"eyebrow":"Conceptual view","title":"Pressure describes the condition the fan works against.","body":"Airflow is the quantity of air moving through the system.","sourceNote":"Conceptual—not a measurement diagram."},
+    {"id":"example","kind":"example","durationSeconds":12,"eyebrow":"Illustrative arithmetic","title":"Add the pressure magnitudes","formula":"|-0.20| + |+0.35| = 0.55 in. w.c.","values":[{"label":"Return static","value":"-0.20 in. w.c."},{"label":"Supply static","value":"+0.35 in. w.c."},{"label":"TESP magnitude","value":"0.55 in. w.c."}],"sourceNote":"Illustrative values only—not a design target."},
+    {"id":"warning","kind":"warning","durationSeconds":12,"eyebrow":"Keep the limit","title":"0.55 in. w.c. does not independently establish airflow.","body":"Use the correct equipment data, operating condition, and manufacturer-defined test boundary.","sourceNote":"Field checks are not a substitute for certified TAB. Design ASP is not measured TESP."},
+    {"id":"cta","kind":"cta","durationSeconds":5,"eyebrow":"Free AnyHVAC resource","title":"Measure with context—not assumptions.","body":"AnyHVAC.net/resources/airflow-static-pressure-measurement"}
+  ]
+}

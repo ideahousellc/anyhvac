@@ -1,0 +1,66 @@
+{
+  "checked_at": "2026-10-02T19:39:41.592Z",
+  "create_attempts": 1,
+  "scheduling_error": null,
+  "queue_error": null,
+  "queue_match_count": 1,
+  "verification_status": "VERIFIED SCHEDULED",
+  "package_sha256": "4dc86db072c704127602a24b097c63e23d999dca8927ec0e0271e290e41b0d4f",
+  "buffer_post": {
+    "id": "6ac0087d4d76cf8285c7d95c",
+    "channelId": "6abd5952ea19ca0bde37267c",
+    "text": "Start your duct-design check with the right inputs.\n\nExplore round and rectangular options with the free AnyHVAC HVAC Duct Calculator. Bring your airflow and design friction rate, then check fittings, noise, space and project requirements.\n\nVisit anyhvac.net → Tools → HVAC Duct Calculator.\n\nSave this post for your next design check.\n\n#HVAC #DuctDesign #HVACDesign #MEPEngineering",
+    "dueAt": "2026-10-05T23:00:00.000Z",
+    "status": "scheduled",
+    "schedulingType": "automatic",
+    "assets": [
+      {
+        "source": "https://www.anyhvac.net/social/duct-calculator-linkedin-ceea97e30f5c731e.png"
+      }
+    ],
+    "metadata": {
+      "type": "post",
+      "shouldShareToFeed": true,
+      "isAiGenerated": false
+    }
+  },
+  "create_result": [
+    {
+      "post_id": "buffer-instagram-controlled-test-v1",
+      "batch_id": "instagram-controlled-test-2026-10-05",
+      "batch_version": "v1",
+      "platform": "instagram",
+      "destination_channel_id": "6abd5952ea19ca0bde37267c",
+      "destination_channel_name": "AnyHVAC",
+      "approved_media_references": [
+        {
+          "kind": "image",
+          "path": "public/social/duct-calculator-linkedin-ceea97e30f5c731e.png",
+          "url": "https://www.anyhvac.net/social/duct-calculator-linkedin-ceea97e30f5c731e.png",
+          "sha256": "ceea97e30f5c731ebd517c51ed8adc7b3f6181c3e929bac10068e8fb6b8c603a",
+          "alt_text": "AnyHVAC HVAC Duct Calculator promotion showing real mechanical-room ductwork, with the headline Start your next duct design here and CTA Try the free calculator.",
+          "preview_review": "Owner approved the Instagram package, previously approved Duct Calculator graphic and exact reviewed caption in this conversation for Monday October 5, 2026 at 7 PM EDT."
+        }
+      ],
+      "approved_caption_reference": "5780ae26319a1586fdb700765b025050c1615d83079680b85135c5f6dbb41af0",
+      "caption": "Start your duct-design check with the right inputs.\n\nExplore round and rectangular options with the free AnyHVAC HVAC Duct Calculator. Bring your airflow and design friction rate, then check fittings, noise, space and project requirements.\n\nVisit anyhvac.net → Tools → HVAC Duct Calculator.\n\nSave this post for your next design check.\n\n#HVAC #DuctDesign #HVACDesign #MEPEngineering",
+      "canonical_destination_url": "https://www.anyhvac.net/tools/duct-calculator",
+      "proposed_at": "2026-10-05T19:00:00-04:00",
+      "timezone": "America/New_York",
+      "queue_checked_at": "2026-10-02T19:39:41.254Z",
+      "duplicate_check": "PASS",
+      "integration_blockers": [],
+      "publication_status": "SCHEDULED",
+      "owner_approved_at": "2026-10-02T19:38:49.774Z",
+      "buffer_post_id": "6ac0087d4d76cf8285c7d95c",
+      "scheduled_at": "2026-10-05T19:00:00-04:00",
+      "published_at": null,
+      "public_url": null,
+      "package_sha256": "4dc86db072c704127602a24b097c63e23d999dca8927ec0e0271e290e41b0d4f",
+      "operation_sha256": "84928ed603ba9f234574a0f9bf50c55437a0747eb48d9675bb7904a57e6f6de3",
+      "provider_status": "scheduled",
+      "provider_checked_at": "2026-10-02T19:39:41.496Z",
+      "schedule_confirmation_source": "Buffer createPost exact response"
+    }
+  ]
+}

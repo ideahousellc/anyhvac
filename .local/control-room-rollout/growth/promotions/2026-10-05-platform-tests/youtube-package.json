@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "batch_id": "youtube-controlled-test-2026-10-05",
+  "batch_version": "v2",
+  "kind": "single-test",
+  "timezone": "America/New_York",
+  "approval": {
+    "decision": "APPROVED",
+    "owner": "Cesar",
+    "approved_at": "2026-10-02T20:04:01.134Z",
+    "evidence": "FINAL OWNER APPROVAL in this conversation: owner watched and approved revised 15-second Mixed Air MP4 with Sleepy Cat by Alejandro Magaña, existing visuals and unchanged caption; authorizes only that MP4 at public/social/mixed-air-short-86098e26c422d213.mp4, one single-file commit/push/deployment, and exactly one YouTube Short scheduling test for October 8, 2026, 7 PM EDT with previously reviewed title and settings, after successful verification and duplicate/slot checks.",
+    "package_sha256": "d2dcd57425cc8ea04ed4a7c0ebff7e0565b26be3f51899b0761aae1f5cf01cdf"
+  },
+  "posts": [
+    {
+      "technical_review": "PASS",
+      "rights_review": "PASS",
+      "ai_assisted": true,
+      "post_id": "buffer-youtube-controlled-test-v1",
+      "package_id": "04-mixed-air",
+      "platform": "youtube",
+      "channel_id": "6abd5b46ea19ca0bde375392",
+      "caption": "Define outdoor air and return air, set common project pressure and explore the adiabatic mixed state with AnyHVAC's free Mixed Air Calculator. Mixing uses a dry-air mass basis; verify inputs and assumptions before design use.\n\nVisit anyhvac.net, then Tools > Mixed Air Calculator.\n\nEquipment photograph is illustrative, not a mixing-layout diagram or measured operating condition.\n\n#HVAC #MixedAir #Psychrometrics #Shorts",
+      "destination_url": "https://www.anyhvac.net/tools/mixed-air-calculator",
+      "link_wording": "Visit anyhvac.net, then Tools > Mixed Air Calculator.",
+      "scheduled_at": "2026-10-08T19:00:00-04:00",
+      "youtube": {
+        "title": "Two Air Streams, One Mixed State | Free AnyHVAC Tool",
+        "categoryId": "28",
+        "privacy": "public",
+        "madeForKids": false,
+        "notifySubscribers": true,
+        "embeddable": true,
+        "license": "youtube",
+        "isAiGenerated": false
+      },
+      "media": [
+        {
+          "kind": "video",
+          "path": "public/social/mixed-air-short-86098e26c422d213.mp4",
+          "url": "https://www.anyhvac.net/social/mixed-air-short-86098e26c422d213.mp4",
+          "sha256": "2b1c637250de4b38bd690e64385eeee2a7980a920938eef2dbf4f9c5dd3976e6",
+          "preview_review": "Owner watched and approved revised 15-second MP4 including Sleepy Cat soundtrack, existing visuals and unchanged caption; exact revised bytes verified against retained local source and deployed URL."
+        }
+      ]
+    }
+  ]
+}

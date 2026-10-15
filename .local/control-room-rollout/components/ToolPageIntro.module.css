@@ -1,0 +1,137 @@
+.intro {
+  padding-top: clamp(44px, 6vw, 72px);
+  padding-bottom: 30px;
+}
+
+.breadcrumb {
+  margin-bottom: 25px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 620;
+}
+
+.breadcrumbList {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.breadcrumb a {
+  color: var(--primary);
+  transition: color 160ms ease;
+}
+
+.breadcrumb a:hover {
+  color: #064c99;
+}
+
+.breadcrumbSeparator {
+  color: color-mix(in srgb, var(--muted) 58%, transparent);
+}
+
+.headingRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.copy {
+  min-width: 0;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 12px;
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 760;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  width: 24px;
+  height: 2px;
+  flex: 0 0 auto;
+  border-radius: 2px;
+  background: var(--primary-light);
+  content: "";
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(38px, 5vw, 58px);
+  font-weight: 750;
+  line-height: 1.02;
+  letter-spacing: -0.05em;
+}
+
+.description {
+  max-width: 760px;
+  margin: 17px 0 0;
+  color: var(--muted);
+  font-size: clamp(15px, 1.4vw, 18px);
+  line-height: 1.65;
+}
+
+.status {
+  flex: 0 0 auto;
+  margin-bottom: 5px;
+  padding: 9px 13px;
+  border: 1px solid rgba(102, 176, 255, 0.25);
+  border-radius: 999px;
+  background: rgba(102, 176, 255, 0.13);
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 720;
+  letter-spacing: 0.035em;
+  white-space: nowrap;
+}
+
+:global(.dark) .breadcrumb a:hover {
+  color: var(--primary-light);
+}
+
+:global(.dark) .status {
+  border-color: rgba(102, 176, 255, 0.26);
+  background: rgba(102, 176, 255, 0.1);
+  color: var(--primary-light);
+}
+
+@media (max-width: 700px) {
+  .intro {
+    padding-top: 36px;
+    padding-bottom: 25px;
+  }
+
+  .breadcrumb {
+    margin-bottom: 20px;
+  }
+
+  .headingRow {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .status {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .intro {
+    padding-top: 29px;
+  }
+
+  .title {
+    font-size: clamp(35px, 11vw, 46px);
+  }
+}

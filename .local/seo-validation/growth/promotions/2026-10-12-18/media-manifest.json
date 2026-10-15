@@ -1,0 +1,146 @@
+{
+  "oneWeeklyBatch": true,
+  "uploaded": false,
+  "assets": [
+    {
+      "file": "carousel-dewpoint-wetbulb-01.png",
+      "bytes": 1339621,
+      "sha256": "0bb1d2381fa70ac231116cca71c5ebf667650c7cee2f5be0caa9f23b340ea744",
+      "futureBatchPath": "/social/2026-10-12-18/carousel-dewpoint-wetbulb-01.png",
+      "hostedUrl": null
+    },
+    {
+      "file": "carousel-dewpoint-wetbulb-02.png",
+      "bytes": 130478,
+      "sha256": "e4fca081a8110e44f8f0a71bc6a72df99bff90332c8dada7c7f42119a5f544ba",
+      "futureBatchPath": "/social/2026-10-12-18/carousel-dewpoint-wetbulb-02.png",
+      "hostedUrl": null
+    },
+    {
+      "file": "carousel-dewpoint-wetbulb-03.png",
+      "bytes": 1340621,
+      "sha256": "2082c78b84902689a7aacadf5275c2d68c0d517021414fc6adce728a63b71a61",
+      "futureBatchPath": "/social/2026-10-12-18/carousel-dewpoint-wetbulb-03.png",
+      "hostedUrl": null
+    },
+    {
+      "file": "carousel-dewpoint-wetbulb-04.png",
+      "bytes": 132373,
+      "sha256": "6af9270ca88fd47dc972fe9f2c91aec2a76ebe04b7d096bfe28a81842e14d54d",
+      "futureBatchPath": "/social/2026-10-12-18/carousel-dewpoint-wetbulb-04.png",
+      "hostedUrl": null
+    },
+    {
+      "file": "carousel-dewpoint-wetbulb-05.png",
+      "bytes": 140414,
+      "sha256": "a8342e7008e6846cdc5b582816f2ed7920c8d4b992d2e9daed5eef846969c1b4",
+      "futureBatchPath": "/social/2026-10-12-18/carousel-dewpoint-wetbulb-05.png",
+      "hostedUrl": null
+    },
+    {
+      "file": "carousel-dewpoint-wetbulb-06.png",
+      "bytes": 145247,
+      "sha256": "759510963af3ea091dc53a319d2b39706b3a526f76e3d772bb5a71a843cc1646",
+      "futureBatchPath": "/social/2026-10-12-18/carousel-dewpoint-wetbulb-06.png",
+      "hostedUrl": null
+    },
+    {
+      "file": "carousel-supply-outdoor-01.png",
+      "bytes": 1380794,
+      "sha256": "ca9c06e43c7f7c7dca8d70c3d0555bb4b975e8ac788b2307d46058b5b6ec4390",
+      "futureBatchPath": "/social/2026-10-12-18/carousel-supply-outdoor-01.png",
+      "hostedUrl": null
+    },
+    {
+      "file": "carousel-supply-outdoor-02.png",
+      "bytes": 133260,
+      "sha256": "b746cbebe43c37c764846865b19592ec1b219b879803b982cfc0e0e831c2b41d",
+      "futureBatchPath": "/social/2026-10-12-18/carousel-supply-outdoor-02.png",
+      "hostedUrl": null
+    },
+    {
+      "file": "carousel-supply-outdoor-03.png",
+      "bytes": 132423,
+      "sha256": "39666ce81bef87ea04b4b0772259c97a80a2b66660a0f4344edfc49a8e7a1884",
+      "futureBatchPath": "/social/2026-10-12-18/carousel-supply-outdoor-03.png",
+      "hostedUrl": null
+    },
+    {
+      "file": "carousel-supply-outdoor-04.png",
+      "bytes": 136039,
+      "sha256": "4f3413d8e34221f991b77318c21b3a3c5e79bc49b7ad962bf6c100612419ac6f",
+      "futureBatchPath": "/social/2026-10-12-18/carousel-supply-outdoor-04.png",
+      "hostedUrl": null
+    },
+    {
+      "file": "carousel-supply-outdoor-05.png",
+      "bytes": 142618,
+      "sha256": "1a95a2aacaad86ea0ef8e2f4bb847bb957728a41e4abff5ce0965dbc900c7e06",
+      "futureBatchPath": "/social/2026-10-12-18/carousel-supply-outdoor-05.png",
+      "hostedUrl": null
+    },
+    {
+      "file": "carousel-supply-outdoor-06.png",
+      "bytes": 141894,
+      "sha256": "e8a2ff34bdbaed6174b4066c3b87da918d3818a0ce850f71d711198b3e1cc2a2",
+      "futureBatchPath": "/social/2026-10-12-18/carousel-supply-outdoor-06.png",
+      "hostedUrl": null
+    },
+    {
+      "file": "main-nominal-size-poster.png",
+      "bytes": 1473409,
+      "sha256": "a0d4a5b5d96e2c5c2573665e7608763bf7390f6b54b93ef3e8d82f2af33a9130",
+      "futureBatchPath": "/social/2026-10-12-18/main-nominal-size-poster.png",
+      "hostedUrl": null
+    },
+    {
+      "file": "main-nominal-size.mp4",
+      "bytes": 3893429,
+      "sha256": "b6d73f0f64368b81bc303bb1d05509573215a321647d2d1a50f1fc19ddb8c5c7",
+      "futureBatchPath": "/social/2026-10-12-18/main-nominal-size.mp4",
+      "hostedUrl": null
+    },
+    {
+      "file": "promo-pressure-reference-short.mp4",
+      "bytes": 752012,
+      "sha256": "a8aa0de68bf423a616432f514712554a46df41b5b8d49c86ef51ee7aa574d63c",
+      "futureBatchPath": "/social/2026-10-12-18/promo-pressure-reference-short.mp4",
+      "hostedUrl": null
+    },
+    {
+      "file": "promo-pressure-reference-social.png",
+      "bytes": 887334,
+      "sha256": "b3709e672ac788b0d96522ae78422903c9b971352726a1c379c2de373c708713",
+      "futureBatchPath": "/social/2026-10-12-18/promo-pressure-reference-social.png",
+      "hostedUrl": null
+    },
+    {
+      "file": "promo-pressure-reference-vertical.png",
+      "bytes": 1286556,
+      "sha256": "7277fd85191baf18a43f1e3f82f99f7216a527c64dad6925656059e4a4a7d78a",
+      "futureBatchPath": "/social/2026-10-12-18/promo-pressure-reference-vertical.png",
+      "hostedUrl": null
+    },
+    {
+      "file": "promo-project-pressure-short.mp4",
+      "bytes": 743230,
+      "sha256": "a89cadc9695fd356fea95438941bde2d005b4b297333275c14e73e82837794b5",
+      "futureBatchPath": "/social/2026-10-12-18/promo-project-pressure-short.mp4",
+      "hostedUrl": null
+    },
+    {
+      "file": "promo-project-pressure-social.png",
+      "bytes": 1180913,
+      "sha256": "7f507960f6e047c757b92d6e84d1c4e034e8a07cf241a6b4e2003c9aac9fc27d",
+      "futureBatchPath": "/social/2026-10-12-18/promo-project-pressure-social.png",
+      "hostedUrl": null
+    },
+    {
+      "file": "promo-project-pressure-vertical.png",
+      "bytes": 1646315,
+      "sha256": "711399a3be9ab456ec0853b852bfc9526382ac9a43838577429c50c0d8ba14b5",
+      "futureBatchPath": "/social/2026-10-12-18/promo-project-pressure-vertical.png",
+      "hostedUrl": null
+    }
+  ]
+}

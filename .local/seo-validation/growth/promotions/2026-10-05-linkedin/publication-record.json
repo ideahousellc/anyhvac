@@ -1,0 +1,52 @@
+{
+  "post_id": "buffer-first-test-linkedin-v2",
+  "batch_id": "buffer-first-test-proposal",
+  "batch_version": "v2",
+  "platform": "linkedin",
+  "destination_channel_id": "6abd5811ea19ca0bde3709e4",
+  "destination_channel_name": "AnyHVAC",
+  "approved_media_references": [
+    {
+      "kind": "image",
+      "path": "public/social/duct-calculator-linkedin-ceea97e30f5c731e.png",
+      "url": "https://www.anyhvac.net/social/duct-calculator-linkedin-ceea97e30f5c731e.png",
+      "sha256": "ceea97e30f5c731ebd517c51ed8adc7b3f6181c3e929bac10068e8fb6b8c603a",
+      "alt_text": "AnyHVAC HVAC Duct Calculator promotion showing real mechanical-room ductwork, with the headline Start your next duct design here and CTA Try the free calculator.",
+      "preview_review": "Owner visually approved duct-calculator-linkedin-v2.png and unchanged caption in this conversation; final owner authorization grants exactly one LinkedIn schedule for October 5, 2026 at 5 PM EDT."
+    }
+  ],
+  "approved_caption_reference": "01afa39e7ea6a23fb8758ae5ec9edcc95ec71b8c4c61472639b28e87d5f89964",
+  "caption": "A duct size is a design starting point.\n\nExplore round and rectangular sizing with the free AnyHVAC HVAC Duct Calculator. Check fittings, noise, available space and project requirements before final design.\n\nhttps://www.anyhvac.net/tools/duct-calculator\n\n#HVAC #DuctDesign #MEPEngineering",
+  "canonical_destination_url": "https://www.anyhvac.net/tools/duct-calculator",
+  "proposed_at": "2026-10-05T17:00:00-04:00",
+  "timezone": "America/New_York",
+  "queue_checked_at": "2026-10-02T18:50:02.029Z",
+  "duplicate_check": "PASS",
+  "integration_blockers": [],
+  "publication_status": "SCHEDULED",
+  "owner_approved_at": "2026-10-02T18:49:19.842Z",
+  "buffer_post_id": "6abffcdaa82b64098f40fcc6",
+  "scheduled_at": "2026-10-05T17:00:00-04:00",
+  "published_at": null,
+  "public_url": null,
+  "package_sha256": "fbf230ae9ec03445a00c38c98349c657c370b4d44fb7aeebadddb5915009b154",
+  "operation_sha256": "d736ad4e37960c3a7c7f2fbff664a3654b7a849c15bc6c29f84fb31a3358570b",
+  "provider_status": "scheduled",
+  "provider_checked_at": "2026-10-02T18:50:03.003Z",
+  "schedule_confirmation_source": "Buffer createPost response plus independently retrieved live queue",
+  "queue_verified": true,
+  "queue_post_id": "6abffcdaa82b64098f40fcc6",
+  "queue_channel_id": "6abd5811ea19ca0bde3709e4",
+  "queue_due_at": "2026-10-05T21:00:00.000Z",
+  "queue_media": [
+    {
+      "source": "https://www.anyhvac.net/social/duct-calculator-linkedin-ceea97e30f5c731e.png"
+    }
+  ],
+  "create_attempts": 1,
+  "owner_independent_queue_verification": {
+    "recorded_at": "2026-10-02T19:24:17.339Z",
+    "evidence": "Owner states in this conversation: Your first LinkedIn API scheduling test was successful. The owner independently verified the post in Buffer.",
+    "publication_verified": false
+  }
+}

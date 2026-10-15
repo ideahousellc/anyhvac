@@ -1,0 +1,10 @@
+.wrap {
+  min-height: 50px;
+  margin-top: 24px;
+  text-align: center;
+}
+
+.wrap stripe-buy-button {
+  display: block;
+  max-width: 100%;
+}

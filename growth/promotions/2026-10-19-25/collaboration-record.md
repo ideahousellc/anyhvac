@@ -1,0 +1,15 @@
+# George + William collaboration — October 19–25
+
+Local Codex collaboration on 2026-10-14. The conversation runner stayed offline. No scheduled posts, production records or approval controls were changed by this collaboration.
+
+1. George inspected the established five-package/thirteen-post format, calendar and October 12–17 historical topics. He proposed duct geometry, equal-area friction assumptions, mixed-air input review, RH versus humidity ratio, and a fixed-flow Q = V × A video. Each is a usefulness hypothesis, not a performance winner.
+2. William reported unavailable current topic-level Search Console/Cloudflare/newsletter evidence and unavailable social engagement. Historical impressions do not establish topic rankings. Empty stored resource rows do not establish zero audience. George retained this uncertainty rather than describing the new topics as proven.
+3. William challenged concentration: three duct-adjacent packages need separate purposes. George differentiated the promotional designer decision aid, technician geometry misconception and arithmetic quick-check video. The video uses original changing sections, not the preceding week’s calculator UI or nominal-size walkthrough.
+4. William required fixed thermodynamic pressure/no moisture exchange for the heating-only RH example, dry-air-mass weighting for mixed-air humidity ratio/enthalpy, and consistent actual volume-flow reference basis/illustrative rather than target velocities for Q = V × A. George incorporated all three in captions and technical boundaries.
+5. William cautioned that hydraulic diameter is not rectangular friction-equivalent round diameter. George omitted hydraulic-diameter values from the visual comparison; the area/perimeter example explicitly does not give a pressure-loss ratio.
+6. George preserved canonical tool URLs without new tracking configuration. The newsletter CTA promises future practical updates, not fabricated readership or performance. Support is optional and unrelated to engineering results.
+
+Final media licensing/visual QA and William’s final check are recorded separately when assets are complete. Proposed slots follow the previous weekly pattern, seven days later; they are unreserved and not claimed to be performance-proven.
+
+7. William caught damaged mathematical characters in draft captions and required ASCII-safe unit/math notation. George corrected the captions and supplied twelve per-slide alt descriptions. Root corrected one remaining grammar error and appended the verified photo/music credits consistently across package and calendar records.
+8. Root produced deterministic branded media using licensed real photos and original diagrams. Visual checks corrected the equipment-only crop, equal-area diagram scale and continuity of the video area comparison. William independently inspected the final contact sheet and sampled video frames, verified all twenty hashes and licensing paths, and issued a snapshot-bound technical/rights/media signoff. Full owner playback and approval remain pending.

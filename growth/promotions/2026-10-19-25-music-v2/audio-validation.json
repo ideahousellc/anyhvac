@@ -1,0 +1,145 @@
+{
+  "status": "PASS",
+  "originalVideoHash": "10ce25451a4004ec9455a61f466e5ec95d5c5515bb17e7c463fcf7979756435f",
+  "revisedVideoHash": "296114e1c4489c48e7e60169f4060af5ee2242ff575b7ce5db761341f00ef409",
+  "originalVideoStreamSha256": "a565a333adf30959197a1cc5fc9f3f477f6623a104c449927f6875c20064afb9",
+  "revisedVideoStreamSha256": "a565a333adf30959197a1cc5fc9f3f477f6623a104c449927f6875c20064afb9",
+  "visualBitstreamIdentical": true,
+  "narration": "No separate narration stem in original; only background music replaced.",
+  "sectionSeconds": [
+    24,
+    52
+  ],
+  "entryFadeSeconds": 0.35,
+  "exitFadeSeconds": 2,
+  "targetRmsDbfs": -22,
+  "measuredDecodedRmsDbfs": -22.03332458108154,
+  "measuredDecodedSamplePeakDbfs": -2.8019459145391745,
+  "clippedPcmSamples": 0,
+  "duration": 28,
+  "format": "1080x1920 H.264/AAC MP4; same export for LinkedIn, Instagram Reel, YouTube Short",
+  "ownerPlayback": "PENDING; no subjective listening/LUFS/true-peak claim",
+  "baselineFiles": [
+    {
+      "file": "growth/promotions/2026-10-19-25/calendar.json",
+      "sha256": "3461cbc30fcaede073bd89a102f1d4383c250999c3232e917b068c093e66e6e0"
+    },
+    {
+      "file": "growth/promotions/2026-10-19-25/carousels.json",
+      "sha256": "817e1984fde6046374629f0a7a59ee07cc4c307d2161a40e0e2d7ea67411b325"
+    },
+    {
+      "file": "growth/promotions/2026-10-19-25/collaboration-record.md",
+      "sha256": "54ec16e44ef213dc1be2f8149544231f1f3ba0290a2101516f9ab3d6becb0865"
+    },
+    {
+      "file": "growth/promotions/2026-10-19-25/evidence/air-handler-commons.json",
+      "sha256": "b8f7df03ccf60929f7266ea2343081f205e83e628a57f7acd566d0c979339e04"
+    },
+    {
+      "file": "growth/promotions/2026-10-19-25/evidence/air-handler-page.html",
+      "sha256": "79bd7d82df2f628fe51fa01ab1180da0e7b0690086a160d05f1be54a40bd9320"
+    },
+    {
+      "file": "growth/promotions/2026-10-19-25/evidence/cc-by-2.0.html",
+      "sha256": "bbb0dcc37f02552e7270e6d2e06be02672ce29ada816107d6fa91e1e6809714b"
+    },
+    {
+      "file": "growth/promotions/2026-10-19-25/evidence/cc0-deed.html",
+      "sha256": "abb4d48fc8b85de52b377dd105532c6c549f515d492a8e1712bc99e7316a1f12"
+    },
+    {
+      "file": "growth/promotions/2026-10-19-25/evidence/mixkit-license-evidence.html",
+      "sha256": "723e4bd4673eeb125480d8d44c11eb591a0391332838485783c9e9928d487177"
+    },
+    {
+      "file": "growth/promotions/2026-10-19-25/evidence/mixkit-music-faq-evidence.html",
+      "sha256": "703b8ef877a00f14a386bcee091bd3a951ecdbde7b8392dcb17a92b98045b283"
+    },
+    {
+      "file": "growth/promotions/2026-10-19-25/evidence/mixkit-terms-evidence.html",
+      "sha256": "50c79ddd42be7dce5d16dba5951c73d7e744c7b03719df0476c3b1fcb2590c44"
+    },
+    {
+      "file": "growth/promotions/2026-10-19-25/evidence/mixkit-track-evidence.html",
+      "sha256": "8cf90d7a23edbda5b4a8bf55b774ffc642da0250641f1d0362964ac8ea2cc987"
+    },
+    {
+      "file": "growth/promotions/2026-10-19-25/evidence/pressure-photo-commons.html",
+      "sha256": "a4afdf0fb2dfccd90a1ed342d662728401a1b8bcee2e9a34535e877586062575"
+    },
+    {
+      "file": "growth/promotions/2026-10-19-25/final-quality-review.md",
+      "sha256": "0e186249c49d6a8653b8da15b52a62697e26cd80b8cee64a458698918812a13d"
+    },
+    {
+      "file": "growth/promotions/2026-10-19-25/finalize-review.mjs",
+      "sha256": "bf05f8174092a3d24ac3f77cec9f68136f12e38daf91a2cbb3147df77f5b9bd9"
+    },
+    {
+      "file": "growth/promotions/2026-10-19-25/licensing.json",
+      "sha256": "d422c736f9615d44101119cb91390de33d0bc2a910517bd66b5476feccce8ccb"
+    },
+    {
+      "file": "growth/promotions/2026-10-19-25/link-checks.json",
+      "sha256": "562e15ef1df8c74f51c3806df7dff13397f2e3be35dfbadeefdcd7c7efea7089"
+    },
+    {
+      "file": "growth/promotions/2026-10-19-25/media-manifest.json",
+      "sha256": "c3f9eb54680b0a32acc36a8b03df0a2b746fd40fbbe87441af517a79c13b8958"
+    },
+    {
+      "file": "growth/promotions/2026-10-19-25/media-validation.json",
+      "sha256": "a39e979e5725ac52cb9445b507439d8be68cce8709e0169094e88e1f67f4d574"
+    },
+    {
+      "file": "growth/promotions/2026-10-19-25/owner-review.md",
+      "sha256": "d10999212725c7b656daaf2e4c264ead673a35369c29ffbe655b67bf49faaac1"
+    },
+    {
+      "file": "growth/promotions/2026-10-19-25/packages.json",
+      "sha256": "702c5fbd711768fb22036a7cea73027e61749f8dd6d21836b53f1ece92221111"
+    },
+    {
+      "file": "growth/promotions/2026-10-19-25/proposals.md",
+      "sha256": "79a882690b316e10575135d84e779e87a05cc86041915eb78021ff52221af3df"
+    },
+    {
+      "file": "growth/promotions/2026-10-19-25/qa-signoff.json",
+      "sha256": "76fd8bf7c5b36a0147f31a0a5e9cdd5301830ae36f4ccd4f238e552f78801cde"
+    },
+    {
+      "file": "growth/promotions/2026-10-19-25/render-media.mjs",
+      "sha256": "005afc832714180c4ef01b1f4a25de13cf46930270748260f1e55c84d81bc417"
+    },
+    {
+      "file": "growth/promotions/2026-10-19-25/review-ready-batch.json",
+      "sha256": "ce25495ac9be4d06b7ddd306a15ae4382d09b9aac59c521b7eacd4136aee2fb9"
+    },
+    {
+      "file": "growth/promotions/2026-10-19-25/review-state.json",
+      "sha256": "a49d2a0e1dc745d6d555f6d778428896e7e55051f1551bd9dcf593b01dfb2ee7"
+    },
+    {
+      "file": "growth/promotions/2026-10-19-25/review.html",
+      "sha256": "560c01824af4a7e25d24ca91808d8ae098cb9c01feb8974dbe796df01af2f505"
+    },
+    {
+      "file": "growth/promotions/2026-10-19-25/technical-sources.json",
+      "sha256": "23e6ad269e49353342063d06f7e9bd9cc9ab33d0ebc64d56d0b567b840b713b6"
+    },
+    {
+      "file": "growth/promotions/2026-10-19-25/william-performance-brief.md",
+      "sha256": "076d1fce8287d581cc9f2db11f52a4c717c37c875499724c13b8bc40da4cf748"
+    },
+    {
+      "file": "growth/promotions/2026-10-19-25/file-inventory.json",
+      "sha256": "b9740b7161eda4fc6c6fc05ea5ff94462c995b2c88a5df603aeeb75043f11eb0"
+    }
+  ],
+  "otherAssetsVerified": 19,
+  "scheduled": false,
+  "published": false,
+  "preEncodeSamplePeakCeilingDbfs": -3,
+  "encodedPeakNote": "AAC decoding can produce overshoot; encoded sample peak is measured at -2.802 dBFS with zero clipped samples, not a -3 dBFS export guarantee."
+}

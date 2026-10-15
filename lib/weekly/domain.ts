@@ -1,11 +1,13 @@
 import { createHash } from "node:crypto";
 import type { ReviewAction, ReviewContent, ReviewState, ReviewVersion } from "./types";
+import { APPROVED_BATCH_ID, APPROVED_CONTENT_DIGEST } from "./approved-batch";
 export class ReviewError extends Error { status: number; constructor(message: string, status = 409) { super(message); this.status = status; } }
 export const canonical = (value: unknown): string => JSON.stringify(value, (_key, item) => item && typeof item === "object" && !Array.isArray(item) ? Object.fromEntries(Object.keys(item).sort().map(key => [key, item[key]])) : item);
 export const digest = (value: unknown) => createHash("sha256").update(canonical(value)).digest("hex");
 export function validate(content: ReviewContent) {
   const fail = (message: string) => { throw new ReviewError(message, 422); };
-  if (content.agentId !== "anyhvac.george" || content.fixture !== true || content.timezone !== "America/New_York") fail("Invalid batch identity.");
+  const approvedNonFixture = content.fixture === false && content.batchId === APPROVED_BATCH_ID && digest(content) === APPROVED_CONTENT_DIGEST;
+  if (content.agentId !== "anyhvac.george" || (content.fixture !== true && !approvedNonFixture) || content.timezone !== "America/New_York") fail("Invalid batch identity.");
   if (content.packages.length !== 5 || content.posts.length !== 13 || ["linkedin", "instagram", "youtube"].some((p, i) => content.posts.filter(post => post.platform === p).length !== [5, 5, 3][i])) fail("Five packages and 5/5/3 adaptations required.");
   if (new Set(content.packages.map(p => p.id)).size !== 5 || new Set(content.posts.map(p => p.id)).size !== 13 || new Set(content.media.map(m => m.id)).size !== content.media.length) fail("Duplicate identifiers.");
   for (const p of content.packages) {

@@ -1,0 +1,208 @@
+{
+  "checkedAt": "2026-10-15T16:59:52.835Z",
+  "commit": "cdfb67923dda5d9d7e93ffc18fe2c8b9a13c2ab0",
+  "all13Verified": true,
+  "results": [
+    {
+      "post_id": "anyhvac-week-2026-10-19-v1-linkedin-promo-duct-geometry",
+      "platform": "linkedin",
+      "package_id": "promo-duct-geometry",
+      "id": "6ad106739e106c07ca7a7825",
+      "scheduledAt": "2026-10-19T17:00:00-04:00",
+      "status": "scheduled",
+      "captionExact": true,
+      "channelExact": true,
+      "timeExact": true,
+      "mediaOrderExact": true
+    },
+    {
+      "post_id": "anyhvac-week-2026-10-19-v1-instagram-promo-duct-geometry",
+      "platform": "instagram",
+      "package_id": "promo-duct-geometry",
+      "id": "6ad106749e106c07ca7a7866",
+      "scheduledAt": "2026-10-19T19:00:00-04:00",
+      "status": "scheduled",
+      "captionExact": true,
+      "channelExact": true,
+      "timeExact": true,
+      "mediaOrderExact": true
+    },
+    {
+      "post_id": "anyhvac-week-2026-10-19-v1-linkedin-carousel-equal-area",
+      "platform": "linkedin",
+      "package_id": "carousel-equal-area",
+      "id": "6ad106757208706296a0a512",
+      "scheduledAt": "2026-10-20T16:00:00-04:00",
+      "status": "scheduled",
+      "captionExact": true,
+      "channelExact": true,
+      "timeExact": true,
+      "mediaOrderExact": true
+    },
+    {
+      "post_id": "anyhvac-week-2026-10-19-v1-instagram-carousel-equal-area",
+      "platform": "instagram",
+      "package_id": "carousel-equal-area",
+      "id": "6ad10675e30d190e5e5fb639",
+      "scheduledAt": "2026-10-20T19:00:00-04:00",
+      "status": "scheduled",
+      "captionExact": true,
+      "channelExact": true,
+      "timeExact": true,
+      "mediaOrderExact": true
+    },
+    {
+      "post_id": "anyhvac-week-2026-10-19-v1-linkedin-promo-mixed-air",
+      "platform": "linkedin",
+      "package_id": "promo-mixed-air",
+      "id": "6ad10676accae0c0bef9eb05",
+      "scheduledAt": "2026-10-21T16:00:00-04:00",
+      "status": "scheduled",
+      "captionExact": true,
+      "channelExact": true,
+      "timeExact": true,
+      "mediaOrderExact": true
+    },
+    {
+      "post_id": "anyhvac-week-2026-10-19-v1-instagram-promo-mixed-air",
+      "platform": "instagram",
+      "package_id": "promo-mixed-air",
+      "id": "6ad10676accae0c0bef9eb39",
+      "scheduledAt": "2026-10-21T18:00:00-04:00",
+      "status": "scheduled",
+      "captionExact": true,
+      "channelExact": true,
+      "timeExact": true,
+      "mediaOrderExact": true
+    },
+    {
+      "post_id": "anyhvac-week-2026-10-19-v1-instagram-carousel-rh-moisture",
+      "platform": "instagram",
+      "package_id": "carousel-rh-moisture",
+      "id": "6ad10677e30d190e5e5fb666",
+      "scheduledAt": "2026-10-22T09:00:00-04:00",
+      "status": "scheduled",
+      "captionExact": true,
+      "channelExact": true,
+      "timeExact": true,
+      "mediaOrderExact": true
+    },
+    {
+      "post_id": "anyhvac-week-2026-10-19-v1-linkedin-carousel-rh-moisture",
+      "platform": "linkedin",
+      "package_id": "carousel-rh-moisture",
+      "id": "6ad1067802634b2d67e58e13",
+      "scheduledAt": "2026-10-22T17:00:00-04:00",
+      "status": "scheduled",
+      "captionExact": true,
+      "channelExact": true,
+      "timeExact": true,
+      "mediaOrderExact": true
+    },
+    {
+      "post_id": "anyhvac-week-2026-10-19-v1-youtube-promo-duct-geometry",
+      "platform": "youtube",
+      "package_id": "promo-duct-geometry",
+      "id": "6ad106789e106c07ca7a791f",
+      "scheduledAt": "2026-10-22T19:00:00-04:00",
+      "status": "scheduled",
+      "captionExact": true,
+      "channelExact": true,
+      "timeExact": true,
+      "mediaOrderExact": true
+    },
+    {
+      "post_id": "anyhvac-week-2026-10-19-v1-linkedin-main-airflow-area",
+      "platform": "linkedin",
+      "package_id": "main-airflow-area",
+      "id": "6ad1067902634b2d67e58eaa",
+      "scheduledAt": "2026-10-23T15:00:00-04:00",
+      "status": "scheduled",
+      "captionExact": true,
+      "channelExact": true,
+      "timeExact": true,
+      "mediaOrderExact": true
+    },
+    {
+      "post_id": "anyhvac-week-2026-10-19-v1-youtube-main-airflow-area",
+      "platform": "youtube",
+      "package_id": "main-airflow-area",
+      "id": "6ad1067aaccae0c0bef9ec49",
+      "scheduledAt": "2026-10-23T16:00:00-04:00",
+      "status": "scheduled",
+      "captionExact": true,
+      "channelExact": true,
+      "timeExact": true,
+      "mediaOrderExact": true
+    },
+    {
+      "post_id": "anyhvac-week-2026-10-19-v1-instagram-main-airflow-area",
+      "platform": "instagram",
+      "package_id": "main-airflow-area",
+      "id": "6ad1067b9e106c07ca7a797e",
+      "scheduledAt": "2026-10-23T18:00:00-04:00",
+      "status": "scheduled",
+      "captionExact": true,
+      "channelExact": true,
+      "timeExact": true,
+      "mediaOrderExact": true
+    },
+    {
+      "post_id": "anyhvac-week-2026-10-19-v1-youtube-promo-mixed-air",
+      "platform": "youtube",
+      "package_id": "promo-mixed-air",
+      "id": "6ad1067ce30d190e5e5fb750",
+      "scheduledAt": "2026-10-24T19:00:00-04:00",
+      "status": "scheduled",
+      "captionExact": true,
+      "channelExact": true,
+      "timeExact": true,
+      "mediaOrderExact": true
+    }
+  ],
+  "publicationVerified": false,
+  "previousRecordsUnchanged": [
+    "6ac64d6b6a5e2d6ed6c216bf",
+    "6ac64d69002d92909c829b98",
+    "6ac64d67002d92909c8299e7",
+    "6ac64d66d75d415cada58218",
+    "6ac64d65686a926ce2af3a4f",
+    "6abffcdaa82b64098f40fcc6",
+    "6abebbe411a9a1be4b7e4103",
+    "6abe9ce0af27bb0d0771b824",
+    "6abd58282327c3f9ee43de75",
+    "6abd58282327c3f9ee43de73",
+    "6ac64d6c6a5e2d6ed6c2171a",
+    "6ac64d68cf6aaa083c74f73c",
+    "6ac64d68686a926ce2af3c09",
+    "6ac64d666a5e2d6ed6c214fe",
+    "6ac64d65cf6aaa083c74f686",
+    "6ac0087d4d76cf8285c7d95c",
+    "6abebb80da4126bfa6e30721",
+    "6abe9d86e0fecf780bf983a3",
+    "6abd595327d3111a52729ff8",
+    "6ac64d6dcf6aaa083c74f7a1",
+    "6ac64d6b6a5e2d6ed6c216e9",
+    "6ac64d6a0f4d385dd632eb55",
+    "6ac00e3b9df0308ea07d372f",
+    "6abebc48d74cc83fe70c3dff",
+    "6abe9e261986aa24afcbec17"
+  ],
+  "queueCounts": [
+    {
+      "platform": "linkedin",
+      "scheduled": 7,
+      "errors": 0
+    },
+    {
+      "platform": "instagram",
+      "scheduled": 6,
+      "errors": 0
+    },
+    {
+      "platform": "youtube",
+      "scheduled": 6,
+      "errors": 1
+    }
+  ]
+}

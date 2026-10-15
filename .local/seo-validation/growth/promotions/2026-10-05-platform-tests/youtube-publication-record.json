@@ -1,0 +1,50 @@
+{
+  "post_id": "buffer-youtube-controlled-test-v1",
+  "batch_id": "youtube-controlled-test-2026-10-05",
+  "batch_version": "v2",
+  "platform": "youtube",
+  "destination_channel_id": "6abd5b46ea19ca0bde375392",
+  "destination_channel_name": "AnyHVAC",
+  "approved_media_references": [
+    {
+      "kind": "video",
+      "path": "public/social/mixed-air-short-86098e26c422d213.mp4",
+      "url": "https://www.anyhvac.net/social/mixed-air-short-86098e26c422d213.mp4",
+      "sha256": "2b1c637250de4b38bd690e64385eeee2a7980a920938eef2dbf4f9c5dd3976e6",
+      "preview_review": "Owner watched and approved revised 15-second MP4 including Sleepy Cat soundtrack, existing visuals and unchanged caption; exact revised bytes verified against retained local source and deployed URL."
+    }
+  ],
+  "approved_caption_reference": "8d8b599355995d09735ce46c06ba344e26cbd5ad4ff0cdb50a81b94f0545b99e",
+  "caption": "Define outdoor air and return air, set common project pressure and explore the adiabatic mixed state with AnyHVAC's free Mixed Air Calculator. Mixing uses a dry-air mass basis; verify inputs and assumptions before design use.\n\nVisit anyhvac.net, then Tools > Mixed Air Calculator.\n\nEquipment photograph is illustrative, not a mixing-layout diagram or measured operating condition.\n\n#HVAC #MixedAir #Psychrometrics #Shorts",
+  "canonical_destination_url": "https://www.anyhvac.net/tools/mixed-air-calculator",
+  "proposed_at": "2026-10-08T19:00:00-04:00",
+  "timezone": "America/New_York",
+  "queue_checked_at": "2026-10-02T20:04:11.233Z",
+  "duplicate_check": "PASS",
+  "integration_blockers": [],
+  "publication_status": "SCHEDULED",
+  "owner_approved_at": "2026-10-02T20:04:01.134Z",
+  "buffer_post_id": "6ac00e3b9df0308ea07d372f",
+  "scheduled_at": "2026-10-08T19:00:00-04:00",
+  "published_at": null,
+  "public_url": null,
+  "package_sha256": "d2dcd57425cc8ea04ed4a7c0ebff7e0565b26be3f51899b0761aae1f5cf01cdf",
+  "operation_sha256": "5fa848b056a0e04e5243bf8aa7b208fe8fc88a292e9ce8fd568bcb68ccd932b6",
+  "provider_status": "scheduled",
+  "provider_checked_at": "2026-10-02T20:04:11.935Z",
+  "schedule_confirmation_source": "Exact Buffer createPost response plus independently retrieved live queue",
+  "queue_verified": true,
+  "queue_verified_at": "2026-10-02T20:04:12.245Z",
+  "queue_post_id": "6ac00e3b9df0308ea07d372f",
+  "queue_channel_id": "6abd5b46ea19ca0bde375392",
+  "queue_due_at": "2026-10-08T23:00:00.000Z",
+  "queue_status": "scheduled",
+  "queue_media": [
+    {
+      "source": "https://www.anyhvac.net/social/mixed-air-short-86098e26c422d213.mp4"
+    }
+  ],
+  "create_attempts": 1,
+  "media_deployment_commit": "7c7abf3b25c47db79afa9e015d2b41fda53a80d2",
+  "music_provenance": "growth/promotions/2026-10-05-platform-tests/audio-revision-v2/music-provenance.json"
+}

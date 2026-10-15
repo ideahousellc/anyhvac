@@ -1,0 +1,157 @@
+{
+  "version": "anyhvac-week-2026-10-19-v1",
+  "packages": [
+    {
+      "id": "carousel-equal-area",
+      "slides": [
+        {
+          "headline": [
+            "SAME AREA. SAME FRICTION?"
+          ],
+          "body": [
+            "Equal area does not establish equal friction."
+          ],
+          "visual": "photo",
+          "alt": "Real ductwork provides context for the question of equal area and friction; no pressure-loss measurement is shown."
+        },
+        {
+          "headline": [
+            "TWO SECTIONS. ONE AREA."
+          ],
+          "body": [
+            "12 x 12 in = 144 in^2.",
+            "6 x 24 in = 144 in^2.",
+            "Illustrative clear internal dimensions."
+          ],
+          "visual": "sections",
+          "alt": "Two original rectangular section diagrams labeled12by12in and6by24in; each area144squareinches."
+        },
+        {
+          "headline": [
+            "SAME FLOW. SAME MEAN VELOCITY."
+          ],
+          "body": [
+            "Both areas are 1 ft^2.",
+            "At the same volume-flow reference basis,",
+            "V = Q / A gives the same mean velocity."
+          ],
+          "visual": "sections",
+          "alt": "Two equal-area duct sections with equal illustrative flow and cross-sectional mean velocity; same reference basis."
+        },
+        {
+          "headline": [
+            "THE GEOMETRY CHANGES."
+          ],
+          "body": [
+            "Perimeter: 48 in versus 60 in.",
+            "Area alone does not describe wetted perimeter.",
+            "This is not a pressure-loss ratio."
+          ],
+          "visual": "perimeter",
+          "alt": "Original section outlines highlight perimeter48inches for12by12and60inches for6by24; no friction ratio claimed."
+        },
+        {
+          "headline": [
+            "CHECK THE FRICTION METHOD."
+          ],
+          "body": [
+            "Rectangular friction equivalence needs more than area.",
+            "Length, roughness and fittings still matter.",
+            "Hydraulic diameter is not equivalent round diameter."
+          ],
+          "visual": "diagram",
+          "alt": "Geometry-aware comparison reminder; hydraulic diameter is explicitly distinguished from friction-equivalent round diameter."
+        },
+        {
+          "headline": [
+            "COMPARE. THEN VERIFY."
+          ],
+          "body": [
+            "Explore the free AnyHVAC Duct Calculator.",
+            "Check actual geometry and project requirements.",
+            "Example only, not a duct recommendation."
+          ],
+          "visual": "photo",
+          "alt": "AnyHVAC Duct Calculator invitation over contextual ductwork with an example-only design boundary."
+        }
+      ]
+    },
+    {
+      "id": "carousel-rh-moisture",
+      "slides": [
+        {
+          "headline": [
+            "LOWER RH. LESS MOISTURE?"
+          ],
+          "body": [
+            "Not necessarily.",
+            "Relative humidity and humidity ratio",
+            "answer different questions."
+          ],
+          "visual": "photo",
+          "alt": "Contextual air-handler photograph introduces the difference between relative humidity and moisture content."
+        },
+        {
+          "headline": [
+            "TWO DIFFERENT MEASURES."
+          ],
+          "body": [
+            "RH: vapor pressure / saturation vapor pressure",
+            "at that temperature.",
+            "Humidity ratio: water-vapor mass / dry-air mass."
+          ],
+          "visual": "definitions",
+          "alt": "Two separate definitions: relative humidity as a vapor-pressure ratio and humidity ratio as water-vapor mass per dry-air mass."
+        },
+        {
+          "headline": [
+            "WARM THE SAME AIR."
+          ],
+          "body": [
+            "Heating only. Fixed total pressure.",
+            "No moisture added or removed.",
+            "Humidity ratio stays constant."
+          ],
+          "visual": "heating",
+          "alt": "Original conceptual heating path with fixed total pressure and no moisture exchange; humidity ratio stays constant."
+        },
+        {
+          "headline": [
+            "RH CAN FALL."
+          ],
+          "body": [
+            "Saturation vapor pressure increases as temperature rises.",
+            "RH falls in this heating-only example.",
+            "Water-vapor content has not decreased."
+          ],
+          "visual": "heating",
+          "alt": "A conceptual temperature rise and relative-humidity decrease with unchanged humidity ratio; no numerical equipment performance asserted."
+        },
+        {
+          "headline": [
+            "DEHUMIDIFICATION IS DIFFERENT."
+          ],
+          "body": [
+            "Removing moisture lowers humidity ratio.",
+            "Lower RH alone does not prove moisture removal.",
+            "Concept only, not equipment diagnosis."
+          ],
+          "visual": "comparison",
+          "alt": "Conceptual comparison separates moisture removal from heating-only relative-humidity change."
+        },
+        {
+          "headline": [
+            "CHECK THE FULL AIR STATE."
+          ],
+          "body": [
+            "Use the free Psychrometric Calculator.",
+            "Set matching inputs and pressure.",
+            "Compare temperature, RH and humidity ratio."
+          ],
+          "visual": "photo",
+          "alt": "AnyHVAC Psychrometric Calculator invitation with full-air-state input checks and contextual air-handler photograph."
+        }
+      ]
+    }
+  ]
+}

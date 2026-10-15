@@ -1,0 +1,26 @@
+{
+  "status": "OWNER APPROVED ? SCHEDULED",
+  "date_acquired": "2026-10-02",
+  "source_title": "HVAC ductwork in the chiller plant room of the future LIRR passenger concourse. (CM014B, 01-09-2019)",
+  "author": "MTA Capital Construction Mega Projects",
+  "source_url": "https://www.flickr.com/photos/mtacc-esa/31760231797/",
+  "source_download": "https://live.staticflickr.com/7800/31760231797_7829ccb792_o.jpg",
+  "source_sha256": "2ada950614096a8e9f8cd2097b03f95da22c6585245624bc31833a6302718eb0",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0/",
+  "evidence": [
+    "source-license-evidence.html",
+    "cc-by-2.0-evidence.html"
+  ],
+  "commercial_use": true,
+  "attribution_required": true,
+  "alterations": "Equipment-area crop, resize, gradient and promotional text overlay.",
+  "people": "No recognizable person appears in the finished equipment crop. No endorsement or customer relationship claimed.",
+  "branding": "Existing public/Horizontal Logo.png; AnyHVAC internal brand asset.",
+  "output": "duct-calculator-linkedin-v2.png",
+  "output_sha256": "ceea97e30f5c731ebd517c51ed8adc7b3f6181c3e929bac10068e8fb6b8c603a",
+  "width": 1080,
+  "height": 1350,
+  "public_media_url": "https://www.anyhvac.net/social/duct-calculator-linkedin-ceea97e30f5c731e.png",
+  "hosting_status": "VERIFIED: HTTP 200 image/png; approved SHA-256 and exact local bytes match"
+}

@@ -1,0 +1,29 @@
+{
+  "recordedDate": "2026-10-01",
+  "assets": [
+    {
+      "assetId": "video-003-final",
+      "path": "growth/.generated/campaigns/003-why-duct-size-matters/video/001-why-duct-size-matters.mp4",
+      "present": true,
+      "sha256": "f911d8d711becddb11811a8b0406148d75936921e8a9c0b93f6fb8a6c95a0883"
+    },
+    {
+      "assetId": "video-003-phone-preview",
+      "path": "growth/.generated/campaigns/003-why-duct-size-matters/video/001-why-duct-size-matters-phone.mp4",
+      "present": true,
+      "sha256": "d96313b116d556248ee405d62ac04fc4574b2d17689827739d13c4c3724e05d9"
+    },
+    {
+      "assetId": "music-003-original",
+      "path": "growth/.generated/remotion-public/audio/003-duct-drive-music.wav",
+      "present": true,
+      "sha256": "5a0263fc26c86949faba6572b04d4940d5a75c37656da06fdfa34c078c5c8233"
+    },
+    {
+      "assetId": "sfx-003-original",
+      "path": "growth/.generated/remotion-public/audio/003-duct-transitions-sfx.wav",
+      "present": true,
+      "sha256": "23d4279f2f8848a0fd93d4ac1f7c73404b0124d7a90d35f7920b0c48a0b8c77f"
+    }
+  ]
+}

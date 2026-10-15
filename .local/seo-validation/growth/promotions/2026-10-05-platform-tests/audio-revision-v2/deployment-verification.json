@@ -1,0 +1,18 @@
+{
+  "verified_at": "2026-10-02T20:04:01.130Z",
+  "commit": "7c7abf3b25c47db79afa9e015d2b41fda53a80d2",
+  "commit_files": [
+    "public/social/mixed-air-short-86098e26c422d213.mp4"
+  ],
+  "deployment_status": "success",
+  "deployment_url": "https://vercel.com/idea-house/anyhvac/2nrkMRTnPosG7kMPgJa1tS9p9FyQ",
+  "public_url": "https://www.anyhvac.net/social/mixed-air-short-86098e26c422d213.mp4",
+  "http_status": 200,
+  "content_type": "video/mp4",
+  "sha256": "2b1c637250de4b38bd690e64385eeee2a7980a920938eef2dbf4f9c5dd3976e6",
+  "bytes": 787111,
+  "approved_local_file": "growth/promotions/2026-10-05-platform-tests/audio-revision-v2/mixed-air-short-audio-v2.mp4",
+  "matching_approved_bytes": true,
+  "license_evidence_retained": true,
+  "filename_suffix_is_historical": true
+}

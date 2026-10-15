@@ -1,5 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
+import { verifyJournal } from './journal-integrity.mjs';
 
 export const PROTECTED_TASK_IDS = Object.freeze([
   '60bc8020-8abc-4871-8403-ddf7ca98c642',
@@ -52,7 +54,7 @@ export async function privateStatus(directory, status, details = {}) {
   await fs.appendFile(log, JSON.stringify(record) + '\n', { mode: 0o600 });
 }
 
-export async function acquireRunnerLock(directory) {
+export async function acquireRunnerLock(directory, integrity) {
   await fs.mkdir(directory, { recursive: true });
   const file = path.join(directory, 'runner.lock');
   let lock;
@@ -73,7 +75,7 @@ export async function acquireRunnerLock(directory) {
       if (!dead) { const live = new Error('Runner already active.'); live.code = 'EEXIST'; throw live; }
       // Parse every journal BEFORE reclaim. All uncertain phases remain fenced
       // by runRunner; reclaim never clears journals, starts or model threads.
-      const records = await journals(directory);
+      const records = await journals(directory, integrity);
       await fs.appendFile(path.join(directory, 'lock-recovery.jsonl'), JSON.stringify({ at: new Date().toISOString(), previousPid: previous.pid, unresolved: records.filter(r => r.phase !== 'delivered').length }) + '\n', { mode: 0o600 });
       await fs.unlink(file);
       lock = await fs.open(file, 'wx');
@@ -83,10 +85,18 @@ export async function acquireRunnerLock(directory) {
   return async () => { await lock.close(); await fs.unlink(file); };
 }
 
-export async function journals(directory) {
+export async function journals(directory, integrity) {
   const records = [];
-  for (const file of await fs.readdir(directory)) if (/^[0-9a-f-]{36}\.json$/i.test(file)) {
-    const record = JSON.parse(await fs.readFile(path.join(directory, file), 'utf8'));
+  const files = await fs.readdir(directory);
+  if (integrity && files.some(file => /^[0-9a-f-]{36}\.json\.tmp$/i.test(file))) throw Error('Interrupted journal write requires review.');
+  if (integrity) for (const file of Object.keys(integrity.imported)) if (!files.includes(file)) throw Error('Imported journal missing.');
+  for (const file of files) if (/^[0-9a-f-]{36}\.json$/i.test(file)) {
+    const bytes = await fs.readFile(path.join(directory, file));
+    const record = JSON.parse(bytes.toString('utf8'));
+    if (integrity) {
+      if (record.integrity) verifyJournal(record, integrity.key);
+      else if (createHash('sha256').update(bytes).digest('hex') !== integrity.imported[file]) throw Error('Unsigned or modified journal requires review.');
+    }
     if (record.taskId + '.json' !== file || !['prepared', 'executing', 'result-saved', 'delivered'].includes(record.phase)) throw new Error('Journal requires review.');
     records.push(record);
   }

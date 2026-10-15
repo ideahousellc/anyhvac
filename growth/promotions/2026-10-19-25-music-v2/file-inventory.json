@@ -1,0 +1,82 @@
+{
+  "files": [
+    {
+      "file": "audio-validation.json",
+      "bytes": 6145,
+      "sha256": "85aa358bcad9f48d623818060943e7caf90fbca2920a5ac4635bcfa74b5f5d23"
+    },
+    {
+      "file": "calendar.json",
+      "bytes": 19115,
+      "sha256": "c56e9199950904e58c69ab734e778381ec990c9b523453699b41d481dda0cc37"
+    },
+    {
+      "file": "finalize-revision.mjs",
+      "bytes": 2217,
+      "sha256": "91817655d5e98340f41fd72a27cff7249cd1251e73e5f94daeec381d0fbc8fbf"
+    },
+    {
+      "file": "licensing.json",
+      "bytes": 7427,
+      "sha256": "88272c9a86b55dc9ee607cd712b3636a883d803ff0c8c048ad3b6ad3be8b6655"
+    },
+    {
+      "file": "media-manifest.json",
+      "bytes": 6723,
+      "sha256": "8f3f0a079c8d67720ab6a5c4f50fb9d698d2717ba5c539014b6ea9c569e6154c"
+    },
+    {
+      "file": "owner-review.md",
+      "bytes": 4925,
+      "sha256": "f088cb0e78c91a50102570a07cd080256e72d76cb493735b158999198a955536"
+    },
+    {
+      "file": "packages.json",
+      "bytes": 25778,
+      "sha256": "47a59fea0b1710aedd6b70a4be673a5ddc3e778ccc88d8b39d777108c94113cf"
+    },
+    {
+      "file": "prepare-revision.mjs",
+      "bytes": 11283,
+      "sha256": "9a53d0de785ce8b88f6c7e694b2bd9099b2b8ec9a156730efd2b2d7012eec378"
+    },
+    {
+      "file": "qa-signoff.json",
+      "bytes": 1154,
+      "sha256": "f33d4dac91ef4391e0693b80082ff5fdef004131f789aacd02fe37ed6d1ecc16"
+    },
+    {
+      "file": "review-ready-batch.json",
+      "bytes": 39908,
+      "sha256": "e3c21bd81834ffc5ef7fd23b68f5e75457cc745ea92029402b8d30e936136f7a"
+    },
+    {
+      "file": "review-state.json",
+      "bytes": 218612,
+      "sha256": "25d5694daa9df69187f2702d55a61eb66c6fe1885cb8620b63b5f64adc94305c"
+    },
+    {
+      "file": "review.html",
+      "bytes": 3985,
+      "sha256": "e9fe2576eeb0005c81a59013b31519246570b5babf49c30e12705a1223b551da"
+    },
+    {
+      "file": "william-review.md",
+      "bytes": 2309,
+      "sha256": "76713e0bbb8f6e21dac6860d702b35a94789c20ff2e13d174f4a6aa52e5c5db5"
+    }
+  ],
+  "inventorySelfExcluded": true,
+  "generatedVideo": {
+    "file": "main-airflow-area-new-bass.mp4",
+    "bytes": 1232960,
+    "sha256": "296114e1c4489c48e7e60169f4060af5ee2242ff575b7ce5db761341f00ef409",
+    "width": 1080,
+    "height": 1920,
+    "duration": 28,
+    "type": "video/mp4",
+    "audio": true,
+    "path": "growth/.generated/weekly/2026-10-19-25-music-v2/media/main-airflow-area-new-bass.mp4"
+  },
+  "originalsUnchanged": true
+}

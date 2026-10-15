@@ -1,0 +1,563 @@
+{
+  "checkedAt": "2026-10-15T16:59:31.370Z",
+  "commit": "cdfb67923dda5d9d7e93ffc18fe2c8b9a13c2ab0",
+  "queues": [
+    {
+      "platform": "linkedin",
+      "channel": {
+        "id": "6abd5811ea19ca0bde3709e4",
+        "organizationId": "6abd544fcd0a4361f7debfe7",
+        "name": "anyhvac",
+        "displayName": "AnyHVAC",
+        "service": "linkedin",
+        "timezone": "America/New_York",
+        "isDisconnected": false,
+        "isLocked": false,
+        "isQueuePaused": false,
+        "postingSchedule": [
+          {
+            "day": "mon",
+            "paused": false,
+            "times": [
+              "17:00"
+            ]
+          },
+          {
+            "day": "tue",
+            "paused": false,
+            "times": [
+              "16:00"
+            ]
+          },
+          {
+            "day": "wed",
+            "paused": false,
+            "times": [
+              "16:00"
+            ]
+          },
+          {
+            "day": "thu",
+            "paused": false,
+            "times": [
+              "17:00"
+            ]
+          },
+          {
+            "day": "fri",
+            "paused": false,
+            "times": [
+              "15:00"
+            ]
+          },
+          {
+            "day": "sat",
+            "paused": false,
+            "times": []
+          },
+          {
+            "day": "sun",
+            "paused": false,
+            "times": []
+          }
+        ]
+      },
+      "posts": [
+        {
+          "id": "6ac64d6b6a5e2d6ed6c216bf",
+          "channelId": "6abd5811ea19ca0bde3709e4",
+          "text": "Calculated diameter and suggested nominal size are different outputs.\n\nThis 28-second local calculator demonstration shows both, then checks velocity and friction at the nominal size. The 3,000 and 5,000 CFM cases are illustrative. The 0.08 in. w.g./100 ft friction input is not a universal recommendation.\n\nUse the free HVAC Duct Calculator for your next sizing check:\nhttps://www.anyhvac.net/tools/duct-calculator\n\nConfirm fittings, noise, available space and project requirements beyond the calculation. Save this reading habit for your next review.\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; no endorsement implied.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\nMusic: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit. Licensed synchronized use; source and terms recorded in the package.\n\n#HVAC #DuctDesign #HVACDesign #MEPEngineering",
+          "dueAt": "2026-10-16T19:00:00.000Z",
+          "status": "scheduled",
+          "assets": [
+            {
+              "source": "https://www.anyhvac.net/social/2026-10-12-18/main-nominal-size.mp4"
+            }
+          ]
+        },
+        {
+          "id": "6ac64d69002d92909c829b98",
+          "channelId": "6abd5811ea19ca0bde3709e4",
+          "text": "Dew point and wet bulb are related, but they are not interchangeable inputs.\n\nDew point describes the saturation temperature reached by cooling without changing moisture content at fixed pressure. Wet bulb describes evaporative cooling and depends on temperature, moisture and pressure.\n\nFor normal unsaturated conditions: dew point ≤ wet bulb ≤ dry bulb. At saturation, the three coincide.\n\nThe six-slide explainer shows which question each property answers. In the free AnyHVAC Psychrometric Calculator, choose the matching moisture-input mode and set project elevation or atmospheric pressure.\nhttps://www.anyhvac.net/tools/psychrometric-calculator\n\nSave it for your next air-state check. Follow AnyHVAC for practical HVAC explanations.\n\nInstrument photo: CambridgeBayWeather, Wikimedia Commons, public-domain release. Cropped; conceptual graphics added.\n\n#HVAC #Psychrometrics #Humidity #MEPEngineering",
+          "dueAt": "2026-10-15T21:00:00.000Z",
+          "status": "scheduled",
+          "assets": [
+            {
+              "source": "https://www.anyhvac.net/social/2026-10-12-18/carousel-dewpoint-wetbulb-01.png"
+            },
+            {
+              "source": "https://www.anyhvac.net/social/2026-10-12-18/carousel-dewpoint-wetbulb-02.png"
+            },
+            {
+              "source": "https://www.anyhvac.net/social/2026-10-12-18/carousel-dewpoint-wetbulb-03.png"
+            },
+            {
+              "source": "https://www.anyhvac.net/social/2026-10-12-18/carousel-dewpoint-wetbulb-04.png"
+            },
+            {
+              "source": "https://www.anyhvac.net/social/2026-10-12-18/carousel-dewpoint-wetbulb-05.png"
+            },
+            {
+              "source": "https://www.anyhvac.net/social/2026-10-12-18/carousel-dewpoint-wetbulb-06.png"
+            }
+          ]
+        },
+        {
+          "id": "6ac64d67002d92909c8299e7",
+          "channelId": "6abd5811ea19ca0bde3709e4",
+          "text": "The air state needs a pressure context.\n\nBefore comparing psychrometric properties, set the project elevation or atmospheric pressure and choose a supported input pair. Then check the resulting properties together.\n\nThe free AnyHVAC Psychrometric Calculator supports dry bulb with relative humidity, wet bulb or dew point, plus project pressure context.\nhttps://www.anyhvac.net/tools/psychrometric-calculator\n\nVerify inputs before using results in design. Save this check for your next air-state review.\n\nPhoto: Alf van Beem, Wikimedia Commons, CC0. Cropped and overlaid; no endorsement implied.\nhttps://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG\n\n#HVAC #Psychrometrics #HVACDesign #MEPEngineering",
+          "dueAt": "2026-10-14T20:00:00.000Z",
+          "status": "sent",
+          "assets": [
+            {
+              "source": "https://www.anyhvac.net/social/2026-10-12-18/promo-project-pressure-social.png"
+            }
+          ]
+        },
+        {
+          "id": "6ac64d66d75d415cada58218",
+          "channelId": "6abd5811ea19ca0bde3709e4",
+          "text": "Supply airflow and outdoor airflow answer different questions.\n\nA room receiving 500 CFM in 5,000 ft³ has a nominal supply-air rate of 6 ACH. If only 100 CFM of that flow is verified outdoor air on the same reference basis, its nominal outdoor-air rate is 1.2 ACH.\n\nThese are illustrative calculations, not ventilation recommendations. ACH alone does not establish outdoor-air delivery, mixing effectiveness or code compliance.\n\nSwipe through the six-slide check, then use the free Air Distribution Tools for the arithmetic:\nhttps://lnkd.in/eQ4TBQmt\n\nSave it for your next airflow review.\n\nPhoto: Marek Ślusarczyk (Tupungato), Wikimedia Commons, CC BY 3.0. Cropped; original explanatory graphics added.\nhttps://lnkd.in/eA7MJ9YG\nhttps://lnkd.in/ecwhyWb\n\n#HVAC #Ventilation #AirDistribution #MEPEngineering",
+          "dueAt": "2026-10-13T20:00:00.000Z",
+          "status": "sent",
+          "assets": [
+            {
+              "source": "https://www.anyhvac.net/social/2026-10-12-18/carousel-supply-outdoor-01.png"
+            },
+            {
+              "source": "https://www.anyhvac.net/social/2026-10-12-18/carousel-supply-outdoor-02.png"
+            },
+            {
+              "source": "https://www.anyhvac.net/social/2026-10-12-18/carousel-supply-outdoor-03.png"
+            },
+            {
+              "source": "https://www.anyhvac.net/social/2026-10-12-18/carousel-supply-outdoor-04.png"
+            },
+            {
+              "source": "https://www.anyhvac.net/social/2026-10-12-18/carousel-supply-outdoor-05.png"
+            },
+            {
+              "source": "https://www.anyhvac.net/social/2026-10-12-18/carousel-supply-outdoor-06.png"
+            }
+          ]
+        },
+        {
+          "id": "6ac64d65686a926ce2af3a4f",
+          "channelId": "6abd5811ea19ca0bde3709e4",
+          "text": "A pressure reading needs context.\n\nStatic, velocity and total pressure are different quantities. A pressure drop alone does not establish airflow, and external-static boundaries depend on the equipment and test configuration.\n\nOur free Airflow & Static Pressure Measurement resource includes a field-reference PDF covering methods, boundaries and common interpretation traps. No email gate.\nhttps://lnkd.in/epDwT4GW\n\nKeep it beside the equipment-specific instructions on your next review.\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; no endorsement implied.\nhttps://lnkd.in/eESyui53\nhttps://lnkd.in/eSv-8eP\n\n#HVAC #Airflow #StaticPressure #MEPEngineering",
+          "dueAt": "2026-10-12T21:00:00.000Z",
+          "status": "sent",
+          "assets": [
+            {
+              "source": "https://www.anyhvac.net/social/2026-10-12-18/promo-pressure-reference-social.png"
+            }
+          ]
+        },
+        {
+          "id": "6abffcdaa82b64098f40fcc6",
+          "channelId": "6abd5811ea19ca0bde3709e4",
+          "text": "A duct size is a design starting point.\n\nExplore round and rectangular sizing with the free AnyHVAC HVAC Duct Calculator. Check fittings, noise, available space and project requirements before final design.\n\nhttps://lnkd.in/eB2V6pNB\n\n#HVAC #DuctDesign #MEPEngineering",
+          "dueAt": "2026-10-05T21:00:00.000Z",
+          "status": "sent",
+          "assets": [
+            {
+              "source": "https://www.anyhvac.net/social/duct-calculator-linkedin-ceea97e30f5c731e.png"
+            }
+          ]
+        },
+        {
+          "id": "6abebbe411a9a1be4b7e4103",
+          "channelId": "6abd5811ea19ca0bde3709e4",
+          "text": "Keep a practical duct-design reference close to your next project.\n\nThe free AnyHVAC Duct Design Quick Reference brings airflow and velocity formulas, duct-sizing relationships, pressure basics, reference values and IP/SI conversions into a two-page PDF.\n\n2 pages. Practical formulas and reference values. No signup.\n\nDownload the free PDF:\nhttps://lnkd.in/eRfyBfxT\n\nSave it for your next design check, or share it with a colleague. Verify reference values against your project requirements before final design.\n\n#HVAC #DuctDesign #MEPEngineering #HVACDesign ",
+          "dueAt": "2026-10-02T19:00:00.000Z",
+          "status": "sent",
+          "assets": [
+            {
+              "source": "https://buffer-media-uploads.s3.amazonaws.com/6abd544fcd0a4361f7debfe7/6abebbc9370307f0fdbde56e"
+            }
+          ]
+        },
+        {
+          "id": "6abe9ce0af27bb0d0771b824",
+          "channelId": "6abd5811ea19ca0bde3709e4",
+          "text": "📐 **Same airflow. Smaller duct. What changes?**\n\nWhen duct size decreases while airflow stays constant, air velocity increases. And that can have important implications for friction loss and duct design.\n\nThat's why we built the **AnyHVAC Duct Calculator**.\n\nA free, interactive tool to help HVAC designers and engineers explore duct sizing, airflow, velocity, and friction rate.\n\n🔧 Try it here:\nhttps://lnkd.in/eB2V6pNB\n\n✅ Completely free\n✅ No signup required\n✅ Built for HVAC design workflows\n\nWe're just getting started. More free engineering tools and resources are on the way.\n\n**What's your preferred starting point when sizing ductwork: velocity or friction rate?**\n\n#AnyHVAC #HVAC #HVACDesign #MEPEngineering #MechanicalEngineering #DuctDesign #HVACEngineering ",
+          "dueAt": "2026-10-01T18:00:12.059Z",
+          "status": "sent",
+          "assets": [
+            {
+              "source": "https://buffer-media-uploads.s3.amazonaws.com/6abd544fcd0a4361f7debfe7/6abe9c47070bc05e67b36cf2_transcoded.mp4"
+            }
+          ]
+        },
+        {
+          "id": "6abd58282327c3f9ee43de75",
+          "channelId": "6abd5811ea19ca0bde3709e4",
+          "text": "AnyHVAC is live.\nWe’re building a free collection of practical, browser-based HVAC calculators and tools designed to make everyday HVAC work a little simpler.\nAvailable now:\n• HVAC Duct Calculator\n • Air Distribution Tools\n • Psychrometric Calculator\n • Mixed Air Calculator\nAll tools are free to use, with no account required.\nAnyHVAC is still growing, and more calculators and practical HVAC resources are planned. Feedback, calculation issues, and suggestions for future tools are always welcome.\nExplore the tools:\n www.anyhvac.net\n#HVAC #MEP #HVACDesign #Engineering\n",
+          "dueAt": "2026-09-15T18:30:03.171Z",
+          "status": "sent",
+          "assets": [
+            {
+              "source": "https://buffer-updates-media-backfill-bucket.s3.amazonaws.com/6abd544fcd0a4361f7debfe7/6abd5811ea19ca0bde3709e4/6abd58282327c3f9ee43de75_thumbnail.jpg"
+            }
+          ]
+        },
+        {
+          "id": "6abd58282327c3f9ee43de73",
+          "channelId": "6abd5811ea19ca0bde3709e4",
+          "text": "📐 Free HVAC Duct Design Quick Reference\nWe just added the first downloadable resource to AnyHVAC.\nDuct Design Quick Reference — Design Reference #01\nA simple 2-page reference covering:\n • Airflow, velocity & duct area\n • Round duct airflow reference values\n • Friction rate fundamentals\n • Rectangular & equivalent round duct relationships\n • Static, velocity & total pressure\n • Common HVAC conversions\n • Quick design sanity checks\nIt’s completely free, and there’s no signup required.\n👉 https://lnkd.in/eRfyBfxT\nThe idea is simple: useful HVAC references you can keep nearby while designing, plus free calculators when you need to go a little deeper.\nMore references are coming.\nWhat HVAC reference do you find yourself looking up over and over?\n#HVAC #MEP #MechanicalEngineering #HVACDesign #Engineering #DuctDesign",
+          "dueAt": "2026-09-22T14:08:06.557Z",
+          "status": "sent",
+          "assets": [
+            {
+              "source": "https://buffer-updates-media-backfill-bucket.s3.amazonaws.com/6abd544fcd0a4361f7debfe7/6abd5811ea19ca0bde3709e4/6abd58282327c3f9ee43de73_thumbnail.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "instagram",
+      "channel": {
+        "id": "6abd5952ea19ca0bde37267c",
+        "organizationId": "6abd544fcd0a4361f7debfe7",
+        "name": "anyhvac",
+        "displayName": "anyhvac",
+        "service": "instagram",
+        "timezone": "America/New_York",
+        "isDisconnected": false,
+        "isLocked": false,
+        "isQueuePaused": false,
+        "postingSchedule": [
+          {
+            "day": "mon",
+            "paused": false,
+            "times": [
+              "19:00"
+            ]
+          },
+          {
+            "day": "tue",
+            "paused": false,
+            "times": [
+              "19:00"
+            ]
+          },
+          {
+            "day": "wed",
+            "paused": false,
+            "times": [
+              "18:00"
+            ]
+          },
+          {
+            "day": "thu",
+            "paused": false,
+            "times": [
+              "09:00"
+            ]
+          },
+          {
+            "day": "fri",
+            "paused": false,
+            "times": [
+              "18:00"
+            ]
+          },
+          {
+            "day": "sat",
+            "paused": false,
+            "times": []
+          },
+          {
+            "day": "sun",
+            "paused": false,
+            "times": []
+          }
+        ]
+      },
+      "posts": [
+        {
+          "id": "6ac64d6c6a5e2d6ed6c2171a",
+          "channelId": "6abd5952ea19ca0bde37267c",
+          "text": "Calculated diameter ≠ suggested nominal size.\n\nWatch the real calculator outputs, then recheck velocity and friction at the nominal size. Illustrative 3,000 and 5,000 CFM cases—not project recommendations. The 0.08 in. w.g./100 ft input is an example.\n\nTry it: anyhvac.net → Tools → HVAC Duct Calculator. Save this output-reading check and follow @AnyHVAC.\n\nVerify fittings, noise, space and project requirements beyond the calculator.\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; no endorsement implied.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\nMusic: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit. Licensed synchronized use; source and terms recorded in the package.\n\n#HVAC #DuctDesign #HVACTools #HVACDesign #MEPEngineering",
+          "dueAt": "2026-10-16T22:00:00.000Z",
+          "status": "scheduled",
+          "assets": [
+            {
+              "source": "https://www.anyhvac.net/social/2026-10-12-18/main-nominal-size.mp4"
+            }
+          ]
+        },
+        {
+          "id": "6ac64d68cf6aaa083c74f73c",
+          "channelId": "6abd5952ea19ca0bde37267c",
+          "text": "Dew point. Wet bulb. Different questions.\n\nSwipe to separate condensation context from evaporative-cooling context, then choose the correct calculator input. For normal unsaturated air: dew point ≤ wet bulb ≤ dry bulb; at saturation they coincide.\n\nConcepts only—not a measurement procedure or an equipment diagnosis. Set project pressure or elevation.\n\nVisit anyhvac.net → Tools → Air Properties → Psychrometric Calculator. Save this explainer and follow @AnyHVAC for practical HVAC checks.\n\nInstrument photo: CambridgeBayWeather, Wikimedia Commons, public domain. Cropped; conceptual graphics added.\n\n#HVAC #Psychrometrics #Humidity #HVACTools #MEPEngineering\nhttps://commons.wikimedia.org/wiki/File:Sling_psychrometer.JPG",
+          "dueAt": "2026-10-15T13:00:00.000Z",
+          "status": "sent",
+          "assets": [
+            {
+              "source": "https://www.anyhvac.net/social/2026-10-12-18/carousel-dewpoint-wetbulb-01.png"
+            },
+            {
+              "source": "https://www.anyhvac.net/social/2026-10-12-18/carousel-dewpoint-wetbulb-02.png"
+            },
+            {
+              "source": "https://www.anyhvac.net/social/2026-10-12-18/carousel-dewpoint-wetbulb-03.png"
+            },
+            {
+              "source": "https://www.anyhvac.net/social/2026-10-12-18/carousel-dewpoint-wetbulb-04.png"
+            },
+            {
+              "source": "https://www.anyhvac.net/social/2026-10-12-18/carousel-dewpoint-wetbulb-05.png"
+            },
+            {
+              "source": "https://www.anyhvac.net/social/2026-10-12-18/carousel-dewpoint-wetbulb-06.png"
+            }
+          ]
+        },
+        {
+          "id": "6ac64d68686a926ce2af3c09",
+          "channelId": "6abd5952ea19ca0bde37267c",
+          "text": "Set the pressure. Check the air state.\n\nProject elevation or atmospheric pressure belongs beside your temperature and moisture inputs. Choose the matching input mode before comparing the outputs.\n\nUse the free calculator: anyhvac.net → Tools → Air Properties → Psychrometric Calculator.\n\nSave this input check. Verify project inputs before design use.\n\nPhoto: Alf van Beem, Wikimedia Commons, CC0. Cropped and overlaid.\nhttps://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG\n\n#HVAC #Psychrometrics #HVACTools #HVACDesign #MEPEngineering",
+          "dueAt": "2026-10-14T22:00:00.000Z",
+          "status": "sent",
+          "assets": [
+            {
+              "source": "https://www.anyhvac.net/social/2026-10-12-18/promo-project-pressure-social.png"
+            }
+          ]
+        },
+        {
+          "id": "6ac64d666a5e2d6ed6c214fe",
+          "channelId": "6abd5952ea19ca0bde37267c",
+          "text": "Supply air ≠ outdoor air.\n\nSwipe for the distinction that belongs beside every ACH calculation. Our illustrated room-flow example gives 6 nominal supply ACH, but only 1.2 nominal outdoor ACH when verified outdoor flow is 100 CFM on the same basis.\n\nExample only—not a required ventilation rate. ACH alone does not prove compliance or mixing effectiveness.\n\nVisit anyhvac.net → Tools → Air Distribution Tools. Save this check for your next design review.\n\nPhoto: Marek Ślusarczyk (Tupungato), Wikimedia Commons, CC BY 3.0. Cropped; explanatory graphics added. Source: Wikimedia Commons file “012 Rooftop HVAC systems and roof ventilation ducts in Tokyo, Japan.jpg”; license: https://creativecommons.org/licenses/by/3.0/\n\n#HVAC #Ventilation #AirDistribution #HVACDesign #MEPEngineering\nhttps://commons.wikimedia.org/wiki/File:012_Rooftop_HVAC_systems_and_roof_ventilation_ducts_in_Tokyo,_Japan.jpg",
+          "dueAt": "2026-10-13T23:00:00.000Z",
+          "status": "sent",
+          "assets": [
+            {
+              "source": "https://www.anyhvac.net/social/2026-10-12-18/carousel-supply-outdoor-01.png"
+            },
+            {
+              "source": "https://www.anyhvac.net/social/2026-10-12-18/carousel-supply-outdoor-02.png"
+            },
+            {
+              "source": "https://www.anyhvac.net/social/2026-10-12-18/carousel-supply-outdoor-03.png"
+            },
+            {
+              "source": "https://www.anyhvac.net/social/2026-10-12-18/carousel-supply-outdoor-04.png"
+            },
+            {
+              "source": "https://www.anyhvac.net/social/2026-10-12-18/carousel-supply-outdoor-05.png"
+            },
+            {
+              "source": "https://www.anyhvac.net/social/2026-10-12-18/carousel-supply-outdoor-06.png"
+            }
+          ]
+        },
+        {
+          "id": "6ac64d65cf6aaa083c74f686",
+          "channelId": "6abd5952ea19ca0bde37267c",
+          "text": "A pressure reading needs context.\n\nPressure drop is not automatically airflow. Check what was measured, where it was measured and which equipment boundary applies.\n\nOur free Airflow & Static Pressure Measurement resource includes a downloadable field-reference PDF. Visit anyhvac.net → Resources → Airflow & Static Pressure Measurement. No email gate.\n\nSave this reminder for your next review. Follow the equipment-specific instructions.\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; no endorsement implied.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\n#HVAC #StaticPressure #Airflow #HVACTools #MEPEngineering",
+          "dueAt": "2026-10-12T23:00:00.000Z",
+          "status": "sent",
+          "assets": [
+            {
+              "source": "https://www.anyhvac.net/social/2026-10-12-18/promo-pressure-reference-social.png"
+            }
+          ]
+        },
+        {
+          "id": "6ac0087d4d76cf8285c7d95c",
+          "channelId": "6abd5952ea19ca0bde37267c",
+          "text": "Start your duct-design check with the right inputs.\n\nExplore round and rectangular options with the free AnyHVAC HVAC Duct Calculator. Bring your airflow and design friction rate, then check fittings, noise, space and project requirements.\n\nVisit anyhvac.net → Tools → HVAC Duct Calculator.\n\nSave this post for your next design check.\n\n#HVAC #DuctDesign #HVACDesign #MEPEngineering",
+          "dueAt": "2026-10-05T23:00:00.000Z",
+          "status": "sent",
+          "assets": [
+            {
+              "source": "https://www.anyhvac.net/social/duct-calculator-linkedin-ceea97e30f5c731e.png"
+            }
+          ]
+        },
+        {
+          "id": "6abebb80da4126bfa6e30721",
+          "channelId": "6abd5952ea19ca0bde37267c",
+          "text": "A useful reference for your next duct-design check.\n\nOur FREE Duct Design Quick Reference covers airflow, velocity, duct sizing, pressure basics and IP/SI conversions.\n\n2 pages. Practical formulas and reference values. No signup.\n\nVisit anyhvac.net → Resources → Duct Design Quick Reference to download the PDF.\n\nSave this post for later and share it with your HVAC team. Verify reference values against your project requirements before final design.\n\n#HVAC #DuctDesign #HVACDesign #AirDistribution #HVACTools\n\nInstagram CTA deliberately uses site navigation; it does not assume a particular profile bio link or a clickable caption URL. Alt text: “AnyHVAC free HVAC Duct Design Quick Reference. Two pages of practical formulas and reference values, with no signup. Covers airflow, velocity, duct sizing, pressure basics and IP/SI conversions.”",
+          "dueAt": "2026-10-02T22:00:00.000Z",
+          "status": "sent",
+          "assets": [
+            {
+              "source": "https://buffer-media-uploads.s3.amazonaws.com/6abd544fcd0a4361f7debfe7/6abebb308ec67cd7b920e42d"
+            }
+          ]
+        },
+        {
+          "id": "6abe9d86e0fecf780bf983a3",
+          "channelId": "6abd5952ea19ca0bde37267c",
+          "text": "Same airflow. Smaller duct. Higher velocity. 💨\n\nA small change in duct size can make a big difference in your HVAC design.\n\nMeet the **AnyHVAC Duct Calculator**. 📐\n\nExplore airflow, velocity, friction rate, and duct sizing with our free interactive calculator.\n\n🔗 Try it FREE — link in bio!\nwww.anyhvac.net/tools/duct-calculator\n\nNo subscriptions. No signup. Just useful HVAC tools.\n\n💬 When sizing ductwork, do you start with velocity or friction rate?\n\nFollow @anyhvac for free HVAC calculators, engineering references, and practical design content.\n\n#HVAC #HVACDesign #DuctDesign #HVACTools #EngineeringTools",
+          "dueAt": "2026-10-01T18:00:36.356Z",
+          "status": "sent",
+          "assets": [
+            {
+              "source": "https://buffer-media-uploads.s3.amazonaws.com/6abd544fcd0a4361f7debfe7/6abe9cf108952583cad772d7_transcoded.mp4"
+            }
+          ]
+        },
+        {
+          "id": "6abd595327d3111a52729ff8",
+          "channelId": "6abd5952ea19ca0bde37267c",
+          "text": "Welcome to AnyHVAC. 🛠️\n\nWe’re building a growing collection of free HVAC calculators, practical design tools and quick-reference resources for HVAC professionals and designers.\n\nNo subscription. No account required. Just tools designed to make everyday HVAC work a little easier.\n\nAlready available:\n📐 HVAC Duct Calculator\n💨 Air Distribution Tools\n🌡️ Psychrometric Calculator\n🔀 Mixed Air Calculator\n📄 Free HVAC Design References\n\nAnd we're just getting started.\n\n🔗 Explore the tools at anyhvac.net\n\nFollow @anyhvac for new tools, HVAC references and practical engineering content.\n\n#HVAC #HVACDesign #MechanicalEngineering #Engineering #HVACTools #ductdesign",
+          "dueAt": "2026-09-22T19:43:12.000Z",
+          "status": "sent",
+          "assets": [
+            {
+              "source": "https://buffer-updates-media-backfill-bucket.s3.amazonaws.com/6abd544fcd0a4361f7debfe7/6abd5952ea19ca0bde37267c/6abd595327d3111a52729ff8_thumbnail.jpg"
+            },
+            {
+              "source": "https://buffer-updates-media-backfill-bucket.s3.amazonaws.com/6abd544fcd0a4361f7debfe7/6abd5952ea19ca0bde37267c/6abd595327d3111a52729ff8_1_thumbnail.jpg"
+            },
+            {
+              "source": "https://buffer-updates-media-backfill-bucket.s3.amazonaws.com/6abd544fcd0a4361f7debfe7/6abd5952ea19ca0bde37267c/6abd595327d3111a52729ff8_2_thumbnail.jpg"
+            },
+            {
+              "source": "https://buffer-updates-media-backfill-bucket.s3.amazonaws.com/6abd544fcd0a4361f7debfe7/6abd5952ea19ca0bde37267c/6abd595327d3111a52729ff8_3_thumbnail.jpg"
+            },
+            {
+              "source": "https://buffer-updates-media-backfill-bucket.s3.amazonaws.com/6abd544fcd0a4361f7debfe7/6abd5952ea19ca0bde37267c/6abd595327d3111a52729ff8_4_thumbnail.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "youtube",
+      "channel": {
+        "id": "6abd5b46ea19ca0bde375392",
+        "organizationId": "6abd544fcd0a4361f7debfe7",
+        "name": "AnyHVAC",
+        "displayName": "AnyHVAC",
+        "service": "youtube",
+        "timezone": "America/New_York",
+        "isDisconnected": false,
+        "isLocked": false,
+        "isQueuePaused": false,
+        "postingSchedule": [
+          {
+            "day": "mon",
+            "paused": false,
+            "times": []
+          },
+          {
+            "day": "tue",
+            "paused": false,
+            "times": []
+          },
+          {
+            "day": "wed",
+            "paused": false,
+            "times": []
+          },
+          {
+            "day": "thu",
+            "paused": false,
+            "times": [
+              "19:00"
+            ]
+          },
+          {
+            "day": "fri",
+            "paused": false,
+            "times": [
+              "16:00"
+            ]
+          },
+          {
+            "day": "sat",
+            "paused": false,
+            "times": [
+              "19:00"
+            ]
+          },
+          {
+            "day": "sun",
+            "paused": false,
+            "times": []
+          }
+        ]
+      },
+      "posts": [
+        {
+          "id": "6ac64d6dcf6aaa083c74f7a1",
+          "channelId": "6abd5b46ea19ca0bde375392",
+          "text": "Set project elevation or atmospheric pressure, then choose a supported air-state input pair. Explore the free Psychrometric Calculator:\nhttps://www.anyhvac.net/tools/psychrometric-calculator\n\nVerify project inputs before design use. Photo is equipment context, not a measured air state.\nPhoto: Alf van Beem, Wikimedia Commons, CC0. Cropped and overlaid.\nhttps://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG\n\nMusic: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit. Licensed synchronized use; source and terms recorded in the package.\n\n#HVAC #Psychrometrics #Shorts",
+          "dueAt": "2026-10-17T23:00:00.000Z",
+          "status": "scheduled",
+          "assets": [
+            {
+              "source": "https://www.anyhvac.net/social/2026-10-12-18/promo-project-pressure-short.mp4"
+            }
+          ]
+        },
+        {
+          "id": "6ac64d6b6a5e2d6ed6c216e9",
+          "channelId": "6abd5b46ea19ca0bde375392",
+          "text": "Read both calculated diameter and suggested nominal size, then check velocity and friction at that nominal size. Actual local AnyHVAC calculator demonstration.\nhttps://www.anyhvac.net/tools/duct-calculator\n\nIllustrative inputs: 3,000 and 5,000 CFM at 0.08 in. w.g./100 ft. This friction input is not a universal design recommendation. Verify fittings, noise, available space and project requirements.\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; no endorsement implied.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\nMusic: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit. Licensed synchronized use; source and terms recorded in the package.\n\n#HVAC #DuctDesign #Shorts",
+          "dueAt": "2026-10-16T20:00:00.000Z",
+          "status": "scheduled",
+          "assets": [
+            {
+              "source": "https://www.anyhvac.net/social/2026-10-12-18/main-nominal-size.mp4"
+            }
+          ]
+        },
+        {
+          "id": "6ac64d6a0f4d385dd632eb55",
+          "channelId": "6abd5b46ea19ca0bde375392",
+          "text": "Keep pressure quantities and equipment boundaries in view. Explore the free AnyHVAC Airflow & Static Pressure Measurement resource and ungated PDF:\nhttps://www.anyhvac.net/resources/airflow-static-pressure-measurement\n\nFollow manufacturer-specific instructions and project requirements. Equipment photo is illustrative; it does not identify test locations.\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; no endorsement implied.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\nMusic: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit. Licensed synchronized use; source and terms recorded in the package.\n\n#HVAC #StaticPressure #Shorts",
+          "dueAt": "2026-10-15T23:00:00.000Z",
+          "status": "scheduled",
+          "assets": [
+            {
+              "source": "https://www.anyhvac.net/social/2026-10-12-18/promo-pressure-reference-short.mp4"
+            }
+          ]
+        },
+        {
+          "id": "6ac00e3b9df0308ea07d372f",
+          "channelId": "6abd5b46ea19ca0bde375392",
+          "text": "Define outdoor air and return air, set common project pressure and explore the adiabatic mixed state with AnyHVAC's free Mixed Air Calculator. Mixing uses a dry-air mass basis; verify inputs and assumptions before design use.\n\nVisit anyhvac.net, then Tools > Mixed Air Calculator.\n\nEquipment photograph is illustrative, not a mixing-layout diagram or measured operating condition.\n\n#HVAC #MixedAir #Psychrometrics #Shorts",
+          "dueAt": "2026-10-08T23:00:00.000Z",
+          "status": "error",
+          "assets": [
+            {
+              "source": "https://www.anyhvac.net/social/mixed-air-short-86098e26c422d213.mp4"
+            }
+          ]
+        },
+        {
+          "id": "6abebc48d74cc83fe70c3dff",
+          "channelId": "6abd5b46ea19ca0bde375392",
+          "text": "Explore free HVAC calculators, design tools and downloadable references at anyhvac.net.\n\nFind duct-sizing, air-distribution, psychrometric and mixed-air tools for your next HVAC check.\n\nVisit anyhvac.net and explore Tools and Resources. Save this Short for your next project.\n\n#HVAC #HVACTools #MEPEngineering #Shorts\n\nCTA uses the readable domain and does not depend on clickable Shorts description links.",
+          "dueAt": "2026-10-03T23:00:00.000Z",
+          "status": "sent",
+          "assets": [
+            {
+              "source": "https://buffer-media-uploads.s3.amazonaws.com/6abd544fcd0a4361f7debfe7/6abebc06f616f36e66cefdf0_transcoded.mp4"
+            }
+          ]
+        },
+        {
+          "id": "6abe9e261986aa24afcbec17",
+          "channelId": "6abd5b46ea19ca0bde375392",
+          "text": "What happens when you reduce duct size while keeping the same airflow?\n\nAir velocity increases, with important implications for HVAC duct design.\n\nExplore duct sizing, airflow, velocity, and friction rate with the FREE AnyHVAC Duct Calculator.\n\n🔧 Try it here:\nhttps://www.anyhvac.net/tools/duct-calculator\n\nNo signup. No subscription. Free HVAC engineering tools.\n\nSubscribe to @AnyHVAC for more HVAC design tips, calculators, and engineering resources.\n\n#Shorts #HVAC #DuctDesign #AnyHVAC #MechanicalEngineering",
+          "dueAt": "2026-10-01T18:00:30.549Z",
+          "status": "sent",
+          "assets": [
+            {
+              "source": "https://buffer-media-uploads.s3.amazonaws.com/6abd544fcd0a4361f7debfe7/6abe9da0cf6fc213c47a446a_transcoded.mp4"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

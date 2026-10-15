@@ -1,0 +1,222 @@
+{
+  "checkedAt": "2026-10-07T13:10:08.699Z",
+  "timezone": "America/New_York",
+  "availability": "Empty at read-only inspection; not reserved. Recheck before any future scheduling.",
+  "posts": [
+    {
+      "platform": "linkedin",
+      "package": "promo-pressure-reference",
+      "title": "A pressure reading needs context",
+      "caption": "A pressure reading needs context.\n\nStatic, velocity and total pressure are different quantities. A pressure drop alone does not establish airflow, and external-static boundaries depend on the equipment and test configuration.\n\nOur free Airflow & Static Pressure Measurement resource includes a field-reference PDF covering methods, boundaries and common interpretation traps. No email gate.\nhttps://www.anyhvac.net/resources/airflow-static-pressure-measurement\n\nKeep it beside the equipment-specific instructions on your next review.\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; no endorsement implied.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\n#HVAC #Airflow #StaticPressure #MEPEngineering",
+      "destination": "https://www.anyhvac.net/resources/airflow-static-pressure-measurement",
+      "proposedSlot": "2026-10-12T17:00:00-04:00",
+      "timezone": "America/New_York",
+      "media": [
+        "promo-pressure-reference-social.png"
+      ],
+      "hostedUrls": null,
+      "status": "PROPOSED ONLY / NOT SCHEDULED",
+      "channelId": "6abd5811ea19ca0bde3709e4"
+    },
+    {
+      "platform": "instagram",
+      "package": "promo-pressure-reference",
+      "title": "A pressure reading needs context",
+      "caption": "A pressure reading needs context.\n\nPressure drop is not automatically airflow. Check what was measured, where it was measured and which equipment boundary applies.\n\nOur free Airflow & Static Pressure Measurement resource includes a downloadable field-reference PDF. Visit anyhvac.net → Resources → Airflow & Static Pressure Measurement. No email gate.\n\nSave this reminder for your next review. Follow the equipment-specific instructions.\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; no endorsement implied.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\n#HVAC #StaticPressure #Airflow #HVACTools #MEPEngineering",
+      "destination": "https://www.anyhvac.net/resources/airflow-static-pressure-measurement",
+      "proposedSlot": "2026-10-12T19:00:00-04:00",
+      "timezone": "America/New_York",
+      "media": [
+        "promo-pressure-reference-social.png"
+      ],
+      "hostedUrls": null,
+      "status": "PROPOSED ONLY / NOT SCHEDULED",
+      "channelId": "6abd5952ea19ca0bde37267c"
+    },
+    {
+      "platform": "linkedin",
+      "package": "carousel-supply-outdoor",
+      "title": "Supply air is not outdoor air",
+      "caption": "Supply airflow and outdoor airflow answer different questions.\n\nA room receiving 500 CFM in 5,000 ft³ has a nominal supply-air rate of 6 ACH. If only 100 CFM of that flow is verified outdoor air on the same reference basis, its nominal outdoor-air rate is 1.2 ACH.\n\nThese are illustrative calculations, not ventilation recommendations. ACH alone does not establish outdoor-air delivery, mixing effectiveness or code compliance.\n\nSwipe through the six-slide check, then use the free Air Distribution Tools for the arithmetic:\nhttps://www.anyhvac.net/tools/air-distribution\n\nSave it for your next airflow review.\n\nPhoto: Marek Ślusarczyk (Tupungato), Wikimedia Commons, CC BY 3.0. Cropped; original explanatory graphics added.\nhttps://commons.wikimedia.org/wiki/File:012_Rooftop_HVAC_systems_and_roof_ventilation_ducts_in_Tokyo,_Japan.jpg\nhttps://creativecommons.org/licenses/by/3.0/\n\n#HVAC #Ventilation #AirDistribution #MEPEngineering",
+      "destination": "https://www.anyhvac.net/tools/air-distribution",
+      "proposedSlot": "2026-10-13T16:00:00-04:00",
+      "timezone": "America/New_York",
+      "media": [
+        "carousel-supply-outdoor-01.png",
+        "carousel-supply-outdoor-02.png",
+        "carousel-supply-outdoor-03.png",
+        "carousel-supply-outdoor-04.png",
+        "carousel-supply-outdoor-05.png",
+        "carousel-supply-outdoor-06.png"
+      ],
+      "hostedUrls": null,
+      "status": "PROPOSED ONLY / NOT SCHEDULED",
+      "channelId": "6abd5811ea19ca0bde3709e4"
+    },
+    {
+      "platform": "instagram",
+      "package": "carousel-supply-outdoor",
+      "title": "Supply air is not outdoor air",
+      "caption": "Supply air ≠ outdoor air.\n\nSwipe for the distinction that belongs beside every ACH calculation. Our illustrated room-flow example gives 6 nominal supply ACH, but only 1.2 nominal outdoor ACH when verified outdoor flow is 100 CFM on the same basis.\n\nExample only—not a required ventilation rate. ACH alone does not prove compliance or mixing effectiveness.\n\nVisit anyhvac.net → Tools → Air Distribution Tools. Save this check for your next design review.\n\nPhoto: Marek Ślusarczyk (Tupungato), Wikimedia Commons, CC BY 3.0. Cropped; explanatory graphics added. Source: Wikimedia Commons file “012 Rooftop HVAC systems and roof ventilation ducts in Tokyo, Japan.jpg”; license: https://creativecommons.org/licenses/by/3.0/\n\n#HVAC #Ventilation #AirDistribution #HVACDesign #MEPEngineering\nhttps://commons.wikimedia.org/wiki/File:012_Rooftop_HVAC_systems_and_roof_ventilation_ducts_in_Tokyo,_Japan.jpg",
+      "destination": "https://www.anyhvac.net/tools/air-distribution",
+      "proposedSlot": "2026-10-13T19:00:00-04:00",
+      "timezone": "America/New_York",
+      "media": [
+        "carousel-supply-outdoor-01.png",
+        "carousel-supply-outdoor-02.png",
+        "carousel-supply-outdoor-03.png",
+        "carousel-supply-outdoor-04.png",
+        "carousel-supply-outdoor-05.png",
+        "carousel-supply-outdoor-06.png"
+      ],
+      "hostedUrls": null,
+      "status": "PROPOSED ONLY / NOT SCHEDULED",
+      "channelId": "6abd5952ea19ca0bde37267c"
+    },
+    {
+      "platform": "linkedin",
+      "package": "promo-project-pressure",
+      "title": "Set the pressure. Check the air state.",
+      "caption": "The air state needs a pressure context.\n\nBefore comparing psychrometric properties, set the project elevation or atmospheric pressure and choose a supported input pair. Then check the resulting properties together.\n\nThe free AnyHVAC Psychrometric Calculator supports dry bulb with relative humidity, wet bulb or dew point, plus project pressure context.\nhttps://www.anyhvac.net/tools/psychrometric-calculator\n\nVerify inputs before using results in design. Save this check for your next air-state review.\n\nPhoto: Alf van Beem, Wikimedia Commons, CC0. Cropped and overlaid; no endorsement implied.\nhttps://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG\n\n#HVAC #Psychrometrics #HVACDesign #MEPEngineering",
+      "destination": "https://www.anyhvac.net/tools/psychrometric-calculator",
+      "proposedSlot": "2026-10-14T16:00:00-04:00",
+      "timezone": "America/New_York",
+      "media": [
+        "promo-project-pressure-social.png"
+      ],
+      "hostedUrls": null,
+      "status": "PROPOSED ONLY / NOT SCHEDULED",
+      "channelId": "6abd5811ea19ca0bde3709e4"
+    },
+    {
+      "platform": "instagram",
+      "package": "promo-project-pressure",
+      "title": "Set the pressure. Check the air state.",
+      "caption": "Set the pressure. Check the air state.\n\nProject elevation or atmospheric pressure belongs beside your temperature and moisture inputs. Choose the matching input mode before comparing the outputs.\n\nUse the free calculator: anyhvac.net → Tools → Air Properties → Psychrometric Calculator.\n\nSave this input check. Verify project inputs before design use.\n\nPhoto: Alf van Beem, Wikimedia Commons, CC0. Cropped and overlaid.\nhttps://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG\n\n#HVAC #Psychrometrics #HVACTools #HVACDesign #MEPEngineering",
+      "destination": "https://www.anyhvac.net/tools/psychrometric-calculator",
+      "proposedSlot": "2026-10-14T18:00:00-04:00",
+      "timezone": "America/New_York",
+      "media": [
+        "promo-project-pressure-social.png"
+      ],
+      "hostedUrls": null,
+      "status": "PROPOSED ONLY / NOT SCHEDULED",
+      "channelId": "6abd5952ea19ca0bde37267c"
+    },
+    {
+      "platform": "instagram",
+      "package": "carousel-dewpoint-wetbulb",
+      "title": "Dew point and wet bulb answer different questions",
+      "caption": "Dew point. Wet bulb. Different questions.\n\nSwipe to separate condensation context from evaporative-cooling context, then choose the correct calculator input. For normal unsaturated air: dew point ≤ wet bulb ≤ dry bulb; at saturation they coincide.\n\nConcepts only—not a measurement procedure or an equipment diagnosis. Set project pressure or elevation.\n\nVisit anyhvac.net → Tools → Air Properties → Psychrometric Calculator. Save this explainer and follow @AnyHVAC for practical HVAC checks.\n\nInstrument photo: CambridgeBayWeather, Wikimedia Commons, public domain. Cropped; conceptual graphics added.\n\n#HVAC #Psychrometrics #Humidity #HVACTools #MEPEngineering\nhttps://commons.wikimedia.org/wiki/File:Sling_psychrometer.JPG",
+      "destination": "https://www.anyhvac.net/tools/psychrometric-calculator",
+      "proposedSlot": "2026-10-15T09:00:00-04:00",
+      "timezone": "America/New_York",
+      "media": [
+        "carousel-dewpoint-wetbulb-01.png",
+        "carousel-dewpoint-wetbulb-02.png",
+        "carousel-dewpoint-wetbulb-03.png",
+        "carousel-dewpoint-wetbulb-04.png",
+        "carousel-dewpoint-wetbulb-05.png",
+        "carousel-dewpoint-wetbulb-06.png"
+      ],
+      "hostedUrls": null,
+      "status": "PROPOSED ONLY / NOT SCHEDULED",
+      "channelId": "6abd5952ea19ca0bde37267c"
+    },
+    {
+      "platform": "linkedin",
+      "package": "carousel-dewpoint-wetbulb",
+      "title": "Dew point and wet bulb answer different questions",
+      "caption": "Dew point and wet bulb are related, but they are not interchangeable inputs.\n\nDew point describes the saturation temperature reached by cooling without changing moisture content at fixed pressure. Wet bulb describes evaporative cooling and depends on temperature, moisture and pressure.\n\nFor normal unsaturated conditions: dew point ≤ wet bulb ≤ dry bulb. At saturation, the three coincide.\n\nThe six-slide explainer shows which question each property answers. In the free AnyHVAC Psychrometric Calculator, choose the matching moisture-input mode and set project elevation or atmospheric pressure.\nhttps://www.anyhvac.net/tools/psychrometric-calculator\n\nSave it for your next air-state check. Follow AnyHVAC for practical HVAC explanations.\n\nInstrument photo: CambridgeBayWeather, Wikimedia Commons, public-domain release. Cropped; conceptual graphics added.\n\n#HVAC #Psychrometrics #Humidity #MEPEngineering",
+      "destination": "https://www.anyhvac.net/tools/psychrometric-calculator",
+      "proposedSlot": "2026-10-15T17:00:00-04:00",
+      "timezone": "America/New_York",
+      "media": [
+        "carousel-dewpoint-wetbulb-01.png",
+        "carousel-dewpoint-wetbulb-02.png",
+        "carousel-dewpoint-wetbulb-03.png",
+        "carousel-dewpoint-wetbulb-04.png",
+        "carousel-dewpoint-wetbulb-05.png",
+        "carousel-dewpoint-wetbulb-06.png"
+      ],
+      "hostedUrls": null,
+      "status": "PROPOSED ONLY / NOT SCHEDULED",
+      "channelId": "6abd5811ea19ca0bde3709e4"
+    },
+    {
+      "platform": "youtube",
+      "package": "promo-pressure-reference",
+      "title": "A pressure reading needs context | Free HVAC field reference",
+      "caption": "Keep pressure quantities and equipment boundaries in view. Explore the free AnyHVAC Airflow & Static Pressure Measurement resource and ungated PDF:\nhttps://www.anyhvac.net/resources/airflow-static-pressure-measurement\n\nFollow manufacturer-specific instructions and project requirements. Equipment photo is illustrative; it does not identify test locations.\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; no endorsement implied.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\nMusic: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit. Licensed synchronized use; source and terms recorded in the package.\n\n#HVAC #StaticPressure #Shorts",
+      "destination": "https://www.anyhvac.net/resources/airflow-static-pressure-measurement",
+      "proposedSlot": "2026-10-15T19:00:00-04:00",
+      "timezone": "America/New_York",
+      "media": [
+        "promo-pressure-reference-short.mp4"
+      ],
+      "hostedUrls": null,
+      "status": "PROPOSED ONLY / NOT SCHEDULED",
+      "channelId": "6abd5b46ea19ca0bde375392"
+    },
+    {
+      "platform": "linkedin",
+      "package": "main-nominal-size",
+      "title": "Calculated diameter versus suggested nominal size",
+      "caption": "Calculated diameter and suggested nominal size are different outputs.\n\nThis 28-second local calculator demonstration shows both, then checks velocity and friction at the nominal size. The 3,000 and 5,000 CFM cases are illustrative. The 0.08 in. w.g./100 ft friction input is not a universal recommendation.\n\nUse the free HVAC Duct Calculator for your next sizing check:\nhttps://www.anyhvac.net/tools/duct-calculator\n\nConfirm fittings, noise, available space and project requirements beyond the calculation. Save this reading habit for your next review.\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; no endorsement implied.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\nMusic: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit. Licensed synchronized use; source and terms recorded in the package.\n\n#HVAC #DuctDesign #HVACDesign #MEPEngineering",
+      "destination": "https://www.anyhvac.net/tools/duct-calculator",
+      "proposedSlot": "2026-10-16T15:00:00-04:00",
+      "timezone": "America/New_York",
+      "media": [
+        "main-nominal-size.mp4"
+      ],
+      "hostedUrls": null,
+      "status": "PROPOSED ONLY / NOT SCHEDULED",
+      "channelId": "6abd5811ea19ca0bde3709e4"
+    },
+    {
+      "platform": "youtube",
+      "package": "main-nominal-size",
+      "title": "Calculated duct diameter vs nominal size | 28-second check",
+      "caption": "Read both calculated diameter and suggested nominal size, then check velocity and friction at that nominal size. Actual local AnyHVAC calculator demonstration.\nhttps://www.anyhvac.net/tools/duct-calculator\n\nIllustrative inputs: 3,000 and 5,000 CFM at 0.08 in. w.g./100 ft. This friction input is not a universal design recommendation. Verify fittings, noise, available space and project requirements.\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; no endorsement implied.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\nMusic: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit. Licensed synchronized use; source and terms recorded in the package.\n\n#HVAC #DuctDesign #Shorts",
+      "destination": "https://www.anyhvac.net/tools/duct-calculator",
+      "proposedSlot": "2026-10-16T16:00:00-04:00",
+      "timezone": "America/New_York",
+      "media": [
+        "main-nominal-size.mp4"
+      ],
+      "hostedUrls": null,
+      "status": "PROPOSED ONLY / NOT SCHEDULED",
+      "channelId": "6abd5b46ea19ca0bde375392"
+    },
+    {
+      "platform": "instagram",
+      "package": "main-nominal-size",
+      "title": "Calculated diameter versus suggested nominal size",
+      "caption": "Calculated diameter ≠ suggested nominal size.\n\nWatch the real calculator outputs, then recheck velocity and friction at the nominal size. Illustrative 3,000 and 5,000 CFM cases—not project recommendations. The 0.08 in. w.g./100 ft input is an example.\n\nTry it: anyhvac.net → Tools → HVAC Duct Calculator. Save this output-reading check and follow @AnyHVAC.\n\nVerify fittings, noise, space and project requirements beyond the calculator.\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; no endorsement implied.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\nMusic: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit. Licensed synchronized use; source and terms recorded in the package.\n\n#HVAC #DuctDesign #HVACTools #HVACDesign #MEPEngineering",
+      "destination": "https://www.anyhvac.net/tools/duct-calculator",
+      "proposedSlot": "2026-10-16T18:00:00-04:00",
+      "timezone": "America/New_York",
+      "media": [
+        "main-nominal-size.mp4"
+      ],
+      "hostedUrls": null,
+      "status": "PROPOSED ONLY / NOT SCHEDULED",
+      "channelId": "6abd5952ea19ca0bde37267c"
+    },
+    {
+      "platform": "youtube",
+      "package": "promo-project-pressure",
+      "title": "Set project pressure before your air-state check | AnyHVAC",
+      "caption": "Set project elevation or atmospheric pressure, then choose a supported air-state input pair. Explore the free Psychrometric Calculator:\nhttps://www.anyhvac.net/tools/psychrometric-calculator\n\nVerify project inputs before design use. Photo is equipment context, not a measured air state.\nPhoto: Alf van Beem, Wikimedia Commons, CC0. Cropped and overlaid.\nhttps://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG\n\nMusic: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit. Licensed synchronized use; source and terms recorded in the package.\n\n#HVAC #Psychrometrics #Shorts",
+      "destination": "https://www.anyhvac.net/tools/psychrometric-calculator",
+      "proposedSlot": "2026-10-17T19:00:00-04:00",
+      "timezone": "America/New_York",
+      "media": [
+        "promo-project-pressure-short.mp4"
+      ],
+      "hostedUrls": null,
+      "status": "PROPOSED ONLY / NOT SCHEDULED",
+      "channelId": "6abd5b46ea19ca0bde375392"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "checked_date": "2026-10-01",
+  "method": "read-only HTTP GET",
+  "results": [
+    {
+      "package": "01-duct-sizing",
+      "url": "https://www.anyhvac.net/tools/duct-calculator",
+      "status": 200
+    },
+    {
+      "package": "02-air-distribution",
+      "url": "https://www.anyhvac.net/tools/air-distribution",
+      "status": 200
+    },
+    {
+      "package": "03-psychrometrics",
+      "url": "https://www.anyhvac.net/tools/psychrometric-calculator",
+      "status": 200
+    },
+    {
+      "package": "04-mixed-air",
+      "url": "https://www.anyhvac.net/tools/mixed-air-calculator",
+      "status": 200
+    },
+    {
+      "package": "05-measurement-reference",
+      "url": "https://www.anyhvac.net/resources/airflow-static-pressure-measurement",
+      "status": 200
+    }
+  ]
+}

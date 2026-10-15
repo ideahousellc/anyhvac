@@ -1,0 +1,10 @@
+{
+  "checkedAt": "2026-10-15T16:59:27.683Z",
+  "commit": "cdfb67923dda5d9d7e93ffc18fe2c8b9a13c2ab0",
+  "state": "READY",
+  "target": "production",
+  "alias": "www.anyhvac.net",
+  "verificationSource": "Owner Vercel dashboard confirmation",
+  "evidence": "Owner confirmed pushed media-only commit cdfb679 and its Ready production deployment. Independently verified all 20 public asset hashes.",
+  "apiVerificationPerformed": false
+}

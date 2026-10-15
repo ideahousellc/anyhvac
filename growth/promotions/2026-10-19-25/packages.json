@@ -1,0 +1,145 @@
+{
+  "version": "anyhvac-week-2026-10-19-v1",
+  "status": "OWNER REVIEW / LOCAL ONLY",
+  "theme": "Compare the quantities that matter",
+  "packages": [
+    {
+      "id": "promo-duct-geometry",
+      "title": "Compare the duct. Not just the diameter.",
+      "type": "promotional-static",
+      "audience": "HVAC and MEP designers comparing round and rectangular duct options",
+      "purpose": "Qualified discovery of the existing free Duct Calculator; a designer decision aid, not a duct recommendation.",
+      "destination": "https://www.anyhvac.net/tools/duct-calculator",
+      "technicalBoundary": "Calculator outputs are preliminary comparisons. Verify dimensions, material, fittings, noise, available pressure and project requirements. No guaranteed savings or compliant design claim.",
+      "source": [
+        "data/tools.ts",
+        "components/duct-calculator/DuctCalculator.tsx"
+      ],
+      "linkedin": "Round or rectangular? Start with the quantities behind the option.\n\nThe free AnyHVAC Duct Calculator lets you explore airflow, friction rate and velocity, with round and rectangular options. A dimension alone does not describe the whole design.\n\nCompare the options, then verify actual geometry, fittings, available pressure and project requirements:\nhttps://www.anyhvac.net/tools/duct-calculator\n\nIf these free tools help your work, voluntary support is available on the website. It never changes the engineering results.\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\n#HVAC #DuctDesign #MEPEngineering #HVACTools",
+      "instagram": "Compare the duct. Not just the diameter.\n\nExplore round and rectangular options with the free AnyHVAC Duct Calculator. Check actual geometry, fittings and project requirements before design use.\n\nVisit anyhvac.net > Tools > HVAC Duct Calculator. Save it for your next design review. Optional support on the website helps keep useful tools free.\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\n#HVAC #DuctDesign #HVACTools #MEPEngineering #HVACDesign",
+      "youtubeTitle": "Round or rectangular? Compare the duct | Free HVAC calculator",
+      "youtube": "Explore airflow, friction rate and velocity with the free AnyHVAC Duct Calculator:\nhttps://www.anyhvac.net/tools/duct-calculator\n\nPreliminary comparisons only. Check actual geometry and project requirements before design use.\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\nMusic: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit. Licensed synchronized video use.\nhttps://mixkit.co/license/modal/musicFree/\n\n#HVAC #DuctDesign #Shorts",
+      "media": [
+        "promo-duct-geometry-social.png"
+      ],
+      "youtubeMedia": "promo-duct-geometry-short.mp4",
+      "alt": "Real ductwork with headline Compare the duct, not just the diameter and a free calculator invitation.",
+      "primaryMetric": "Future native engagement and qualified destination referrals, separately labeled by source; no performance claim. Newsletter/support outcomes only if measured without attributing aggregate changes to a post.",
+      "evidenceStatus": "USEFULNESS HYPOTHESIS / NO CURRENT TOPIC PERFORMANCE RANKING",
+      "linkedinBase": "Round or rectangular? Start with the quantities behind the option.\n\nThe free AnyHVAC Duct Calculator lets you explore airflow, friction rate and velocity, with round and rectangular options. A dimension alone does not describe the whole design.\n\nCompare the options, then verify actual geometry, fittings, available pressure and project requirements:\nhttps://www.anyhvac.net/tools/duct-calculator\n\nIf these free tools help your work, voluntary support is available on the website. It never changes the engineering results.\n\n#HVAC #DuctDesign #MEPEngineering #HVACTools",
+      "instagramBase": "Compare the duct. Not just the diameter.\n\nExplore round and rectangular options with the free AnyHVAC Duct Calculator. Check actual geometry, fittings and project requirements before design use.\n\nVisit anyhvac.net > Tools > HVAC Duct Calculator. Save it for your next design review. Optional support on the website helps keep useful tools free.\n\n#HVAC #DuctDesign #HVACTools #MEPEngineering #HVACDesign",
+      "youtubeBase": "Explore airflow, friction rate and velocity with the free AnyHVAC Duct Calculator:\nhttps://www.anyhvac.net/tools/duct-calculator\n\nPreliminary comparisons only. Check actual geometry and project requirements before design use.\n\n#HVAC #DuctDesign #Shorts",
+      "status": "OWNER REVIEW / LOCAL ONLY"
+    },
+    {
+      "id": "carousel-equal-area",
+      "title": "Equal area does not establish equal friction",
+      "type": "educational-carousel",
+      "audience": "HVAC technicians and designers checking rectangular-duct assumptions",
+      "purpose": "Challenge an area-only substitution and introduce geometry-aware comparison.",
+      "destination": "https://www.anyhvac.net/tools/duct-calculator",
+      "technicalBoundary": "Illustrative clear internal dimensions. Equal area at fixed volume flow/reference basis gives equal mean velocity, not necessarily equal friction. No pressure-loss ratio, code recommendation or hydraulic-diameter sizing equivalence.",
+      "source": [
+        "components/duct-calculator/DuctCalculator.tsx"
+      ],
+      "linkedin": "Two rectangular ducts can have the same area without establishing the same friction loss.\n\nIllustrative clear internal dimensions: 12 x 12 in and 6 x 24 in both give 144 in^2 = 1 ft^2. At the same volume flow and reference basis, both have the same cross-sectional mean velocity. Their perimeters differ: 48 in versus 60 in.\n\nThat geometry difference matters to a friction comparison; it is not a pressure-loss ratio. Length, roughness and fittings still matter.\n\nSwipe through the six-slide check, then compare geometry-aware options:\nhttps://www.anyhvac.net/tools/duct-calculator\n\nExamples only; not recommended duct sizes.\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\n#HVAC #DuctDesign #AirDistribution #MEPEngineering",
+      "instagram": "Same area. Same friction? Not established.\n\n12 x 12 in and 6 x 24 in both have 1 ft^2 clear area, but different perimeters. Equal mean velocity at the same volume flow does not prove equal pressure loss.\n\nSwipe for the six-slide geometry check. These are illustrative dimensions, not size recommendations.\n\nVisit anyhvac.net > Tools > HVAC Duct Calculator. Save this for your next duct comparison.\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\n#HVAC #DuctDesign #AirDistribution #HVACDesign #MEPEngineering",
+      "media": [
+        "carousel-equal-area-01.png",
+        "carousel-equal-area-02.png",
+        "carousel-equal-area-03.png",
+        "carousel-equal-area-04.png",
+        "carousel-equal-area-05.png",
+        "carousel-equal-area-06.png"
+      ],
+      "primaryMetric": "Future native engagement and qualified destination referrals, separately labeled by source; no performance claim. Newsletter/support outcomes only if measured without attributing aggregate changes to a post.",
+      "evidenceStatus": "USEFULNESS HYPOTHESIS / NO CURRENT TOPIC PERFORMANCE RANKING",
+      "linkedinBase": "Two rectangular ducts can have the same area without establishing the same friction loss.\n\nIllustrative clear internal dimensions: 12 x 12 in and 6 x 24 in both give 144 in^2 = 1 ft^2. At the same volume flow and reference basis, both have the same cross-sectional mean velocity. Their perimeters differ: 48 in versus 60 in.\n\nThat geometry difference matters to a friction comparison; it is not a pressure-loss ratio. Length, roughness and fittings still matter.\n\nSwipe through the six-slide check, then compare geometry-aware options:\nhttps://www.anyhvac.net/tools/duct-calculator\n\nExamples only; not recommended duct sizes.\n\n#HVAC #DuctDesign #AirDistribution #MEPEngineering",
+      "instagramBase": "Same area. Same friction? Not established.\n\n12 x 12 in and 6 x 24 in both have 1 ft^2 clear area, but different perimeters. Equal mean velocity at the same volume flow does not prove equal pressure loss.\n\nSwipe for the six-slide geometry check. These are illustrative dimensions, not size recommendations.\n\nVisit anyhvac.net > Tools > HVAC Duct Calculator. Save this for your next duct comparison.\n\n#HVAC #DuctDesign #AirDistribution #HVACDesign #MEPEngineering",
+      "status": "OWNER REVIEW / LOCAL ONLY"
+    },
+    {
+      "id": "promo-mixed-air",
+      "title": "Two air streams. One checked air state.",
+      "type": "promotional-static",
+      "audience": "HVAC engineers reviewing outdoor/return-air mixing",
+      "purpose": "Introduce the existing free Mixed Air Calculator for conservation-based input review.",
+      "destination": "https://www.anyhvac.net/tools/mixed-air-calculator",
+      "technicalBoundary": "Ideal mixing at a common pressure, without heat/moisture exchange with surroundings. Humidity ratio and enthalpy are dry-air-mass weighted; volume fraction need not equal dry-air mass fraction. Output is not ventilation compliance or a real equipment diagnosis.",
+      "source": [
+        "app/tools/mixed-air-calculator/page.tsx",
+        "lib/psychrometrics/mixing/README.md"
+      ],
+      "linkedin": "Mixed air needs more than an average of two temperatures.\n\nOutdoor and return air can differ in temperature and moisture. The free AnyHVAC Mixed Air Calculator combines the streams using psychrometric mass and energy conservation.\n\nCheck both air states, their flow inputs and the common pressure. Humidity ratio and enthalpy are weighted by dry-air mass; a volume fraction is not automatically the same mass fraction.\n\nExplore the tool:\nhttps://www.anyhvac.net/tools/mixed-air-calculator\n\nIdeal mixing assumptions apply. This is not a ventilation-compliance check. For future practical HVAC updates, the website newsletter is optional.\n\nPhoto: Alf van Beem, via Wikimedia Commons, CC0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG\nhttps://creativecommons.org/publicdomain/zero/1.0/\n\n#HVAC #Psychrometrics #MixedAir #MEPEngineering",
+      "instagram": "Two air streams. One checked air state.\n\nReview outdoor air, return air, flow inputs and common pressure with the free Mixed Air Calculator. Moisture and energy balance need more than a simple temperature average.\n\nIdeal mixing assumptions apply; results do not establish ventilation compliance.\n\nVisit anyhvac.net > Tools > Mixed Air Calculator. Optional newsletter signup on the website for future practical HVAC updates.\n\nPhoto: Alf van Beem, via Wikimedia Commons, CC0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG\nhttps://creativecommons.org/publicdomain/zero/1.0/\n\n#HVAC #MixedAir #Psychrometrics #HVACTools #MEPEngineering",
+      "youtubeTitle": "Check the mixed-air state | Free HVAC calculator",
+      "youtube": "Explore the free AnyHVAC Mixed Air Calculator:\nhttps://www.anyhvac.net/tools/mixed-air-calculator\n\nCheck both streams, flow inputs and common pressure. Ideal mixing; dry-air mass and energy conservation. No ventilation-compliance claim.\n\nPhoto: Alf van Beem, via Wikimedia Commons, CC0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG\nhttps://creativecommons.org/publicdomain/zero/1.0/\n\nMusic: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit. Licensed synchronized video use.\nhttps://mixkit.co/license/modal/musicFree/\n\n#HVAC #Psychrometrics #Shorts",
+      "media": [
+        "promo-mixed-air-social.png"
+      ],
+      "youtubeMedia": "promo-mixed-air-short.mp4",
+      "alt": "Real air-handler photograph with headline Two air streams, one checked air state; equipment is contextual, not a measured mixing diagram.",
+      "primaryMetric": "Future native engagement and qualified destination referrals, separately labeled by source; no performance claim. Newsletter/support outcomes only if measured without attributing aggregate changes to a post.",
+      "evidenceStatus": "USEFULNESS HYPOTHESIS / NO CURRENT TOPIC PERFORMANCE RANKING",
+      "linkedinBase": "Mixed air needs more than an average of two temperatures.\n\nOutdoor and return air can differ in temperature and moisture. The free AnyHVAC Mixed Air Calculator combines the streams using psychrometric mass and energy conservation.\n\nCheck both air states, their flow inputs and the common pressure. Humidity ratio and enthalpy are weighted by dry-air mass; a volume fraction is not automatically the same mass fraction.\n\nExplore the tool:\nhttps://www.anyhvac.net/tools/mixed-air-calculator\n\nIdeal mixing assumptions apply. This is not a ventilation-compliance check. For future practical HVAC updates, the website newsletter is optional.\n\n#HVAC #Psychrometrics #MixedAir #MEPEngineering",
+      "instagramBase": "Two air streams. One checked air state.\n\nReview outdoor air, return air, flow inputs and common pressure with the free Mixed Air Calculator. Moisture and energy balance need more than a simple temperature average.\n\nIdeal mixing assumptions apply; results do not establish ventilation compliance.\n\nVisit anyhvac.net > Tools > Mixed Air Calculator. Optional newsletter signup on the website for future practical HVAC updates.\n\n#HVAC #MixedAir #Psychrometrics #HVACTools #MEPEngineering",
+      "youtubeBase": "Explore the free AnyHVAC Mixed Air Calculator:\nhttps://www.anyhvac.net/tools/mixed-air-calculator\n\nCheck both streams, flow inputs and common pressure. Ideal mixing; dry-air mass and energy conservation. No ventilation-compliance claim.\n\n#HVAC #Psychrometrics #Shorts",
+      "status": "OWNER REVIEW / LOCAL ONLY"
+    },
+    {
+      "id": "carousel-rh-moisture",
+      "title": "Lower RH does not necessarily mean less moisture",
+      "type": "educational-carousel",
+      "audience": "HVAC designers and technicians interpreting humidity readings",
+      "purpose": "Separate relative humidity from humidity ratio and encourage complete air-state checks.",
+      "destination": "https://www.anyhvac.net/tools/psychrometric-calculator",
+      "technicalBoundary": "Sensible warming at fixed total pressure and fixed humidity ratio, with no moisture exchange. RH decline is not evidence of dehumidification. Concept only, not diagnosis or heating-coil sizing.",
+      "source": [
+        "lib/psychrometrics/README.md",
+        "lib/psychrometrics/engine.ts"
+      ],
+      "linkedin": "A lower relative-humidity reading does not necessarily mean moisture was removed.\n\nIn a heating-only example at fixed pressure, with no moisture added or removed, humidity ratio stays constant while relative humidity falls as temperature rises.\n\nRH describes vapor pressure relative to saturation vapor pressure at the same temperature. Humidity ratio describes water-vapor mass per mass of dry air. Different quantities, different questions.\n\nSwipe through the six-slide explanation, then check the full air state:\nhttps://www.anyhvac.net/tools/psychrometric-calculator\n\nConcept only; not equipment diagnosis. Set matching inputs and project pressure before comparison.\n\nPhoto: Alf van Beem, via Wikimedia Commons, CC0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG\nhttps://creativecommons.org/publicdomain/zero/1.0/\n\n#HVAC #Psychrometrics #Humidity #MEPEngineering",
+      "instagram": "Lower RH does not prove moisture removal.\n\nWarm the same air at fixed pressure without adding or removing moisture: humidity ratio stays constant, while RH falls.\n\nSwipe for the six-slide explanation. Compare the full air state, not one reading. Concept only; not diagnosis.\n\nVisit anyhvac.net > Tools > Air Properties > Psychrometric Calculator. Save this check; optional newsletter on the website for future practical updates.\n\nPhoto: Alf van Beem, via Wikimedia Commons, CC0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG\nhttps://creativecommons.org/publicdomain/zero/1.0/\n\n#HVAC #Humidity #Psychrometrics #HVACTools #MEPEngineering",
+      "media": [
+        "carousel-rh-moisture-01.png",
+        "carousel-rh-moisture-02.png",
+        "carousel-rh-moisture-03.png",
+        "carousel-rh-moisture-04.png",
+        "carousel-rh-moisture-05.png",
+        "carousel-rh-moisture-06.png"
+      ],
+      "primaryMetric": "Future native engagement and qualified destination referrals, separately labeled by source; no performance claim. Newsletter/support outcomes only if measured without attributing aggregate changes to a post.",
+      "evidenceStatus": "USEFULNESS HYPOTHESIS / NO CURRENT TOPIC PERFORMANCE RANKING",
+      "linkedinBase": "A lower relative-humidity reading does not necessarily mean moisture was removed.\n\nIn a heating-only example at fixed pressure, with no moisture added or removed, humidity ratio stays constant while relative humidity falls as temperature rises.\n\nRH describes vapor pressure relative to saturation vapor pressure at the same temperature. Humidity ratio describes water-vapor mass per mass of dry air. Different quantities, different questions.\n\nSwipe through the six-slide explanation, then check the full air state:\nhttps://www.anyhvac.net/tools/psychrometric-calculator\n\nConcept only; not equipment diagnosis. Set matching inputs and project pressure before comparison.\n\n#HVAC #Psychrometrics #Humidity #MEPEngineering",
+      "instagramBase": "Lower RH does not prove moisture removal.\n\nWarm the same air at fixed pressure without adding or removing moisture: humidity ratio stays constant, while RH falls.\n\nSwipe for the six-slide explanation. Compare the full air state, not one reading. Concept only; not diagnosis.\n\nVisit anyhvac.net > Tools > Air Properties > Psychrometric Calculator. Save this check; optional newsletter on the website for future practical updates.\n\n#HVAC #Humidity #Psychrometrics #HVACTools #MEPEngineering",
+      "status": "OWNER REVIEW / LOCAL ONLY"
+    },
+    {
+      "id": "main-airflow-area",
+      "title": "Same airflow. Different mean velocity.",
+      "type": "main-educational-video",
+      "audience": "HVAC technicians, students and designers doing an airflow arithmetic check",
+      "purpose": "Explain Q = V x A through a fixed-flow area contrast, separate from sizing or fan behavior.",
+      "destination": "https://www.anyhvac.net/tools/air-distribution",
+      "technicalBoundary": "Illustrative mean cross-sectional velocity; volume flow and area use consistent units/reference basis. 500 and1000FPM are not design targets. A real duct modification may change system airflow; this arithmetic does not predict fan/system behavior.",
+      "source": [
+        "components/air-distribution/AirDistributionTools.tsx"
+      ],
+      "durationSeconds": 28,
+      "linkedin": "Same airflow. Different cross-sectional area. Different mean velocity.\n\nFor an illustrative 1,000 actual CFM on the same reference basis:\n- 2 ft^2 gives 500 FPM mean velocity.\n- 1 ft^2 gives 1,000 FPM mean velocity.\n\nThe relation is Q = V x A. These are arithmetic examples, not recommended velocities. A real duct change can change system airflow; this comparison does not predict fan performance.\n\nWatch the 28-second check, then use the free Air Distribution Tools:\nhttps://www.anyhvac.net/tools/air-distribution\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\nMusic: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit. Licensed synchronized video use.\nhttps://mixkit.co/license/modal/musicFree/\n\n#HVAC #Airflow #AirDistribution #MEPEngineering",
+      "instagram": "Same airflow. Different mean velocity.\n\nIllustrative example: 1,000 actual CFM / 2 ft^2 = 500 FPM; 1,000 CFM / 1 ft^2 = 1,000 FPM. Same volume-flow reference basis.\n\nExamples; not target velocities. Changing a real duct can also change system airflow. This does not predict fan behavior.\n\nWatch the quick check. Visit anyhvac.net > Tools > Air Distribution Tools.\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\nMusic: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit. Licensed synchronized video use.\nhttps://mixkit.co/license/modal/musicFree/\n\n#HVAC #Airflow #AirDistribution #HVACTools #MEPEngineering",
+      "youtubeTitle": "Same airflow. Different velocity. | Q = V x A",
+      "youtube": "A 28-second mean-velocity check: 1,000 actual CFM / 2 ft^2 = 500 FPM; 1,000 CFM / 1 ft^2 = 1,000 FPM, on the same reference basis.\n\nExamples; not design targets. This does not predict the actual flow after a real duct modification or fan/system performance.\n\nTry the free Air Distribution Tools:\nhttps://www.anyhvac.net/tools/air-distribution\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\nMusic: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit. Licensed synchronized video use.\nhttps://mixkit.co/license/modal/musicFree/\n\n#HVAC #Airflow #Shorts",
+      "media": [
+        "main-airflow-area.mp4"
+      ],
+      "youtubeMedia": "main-airflow-area.mp4",
+      "primaryMetric": "Future native engagement and qualified destination referrals, separately labeled by source; no performance claim. Newsletter/support outcomes only if measured without attributing aggregate changes to a post.",
+      "evidenceStatus": "USEFULNESS HYPOTHESIS / NO CURRENT TOPIC PERFORMANCE RANKING",
+      "linkedinBase": "Same airflow. Different cross-sectional area. Different mean velocity.\n\nFor an illustrative 1,000 actual CFM on the same reference basis:\n- 2 ft^2 gives 500 FPM mean velocity.\n- 1 ft^2 gives 1,000 FPM mean velocity.\n\nThe relation is Q = V x A. These are arithmetic examples, not recommended velocities. A real duct change can change system airflow; this comparison does not predict fan performance.\n\nWatch the 28-second check, then use the free Air Distribution Tools:\nhttps://www.anyhvac.net/tools/air-distribution\n\n#HVAC #Airflow #AirDistribution #MEPEngineering",
+      "instagramBase": "Same airflow. Different mean velocity.\n\nIllustrative example: 1,000 actual CFM / 2 ft^2 = 500 FPM; 1,000 CFM / 1 ft^2 = 1,000 FPM. Same volume-flow reference basis.\n\nExamples; not target velocities. Changing a real duct can also change system airflow. This does not predict fan behavior.\n\nWatch the quick check. Visit anyhvac.net > Tools > Air Distribution Tools.\n\n#HVAC #Airflow #AirDistribution #HVACTools #MEPEngineering",
+      "youtubeBase": "A 28-second mean-velocity check: 1,000 actual CFM / 2 ft^2 = 500 FPM; 1,000 CFM / 1 ft^2 = 1,000 FPM, on the same reference basis.\n\nExamples; not design targets. This does not predict the actual flow after a real duct modification or fan/system performance.\n\nTry the free Air Distribution Tools:\nhttps://www.anyhvac.net/tools/air-distribution\n\n#HVAC #Airflow #Shorts",
+      "status": "OWNER REVIEW / LOCAL ONLY"
+    }
+  ]
+}

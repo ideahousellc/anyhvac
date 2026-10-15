@@ -3,6 +3,7 @@ import { ADMIN_SESSION_COOKIE, verifyAdminSession } from "@/lib/admin/session";
 import { NO_STORE_HEADERS } from "@/lib/admin/request-security";
 import { response } from "@/lib/agents/http";
 import { enabled, mediaBytes, readState } from "@/lib/weekly/storage";
+import { selectedBatch } from "@/lib/weekly/selection";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 export async function GET(request: NextRequest, context: { params: Promise<{ id: string }> }) {
@@ -11,9 +12,10 @@ export async function GET(request: NextRequest, context: { params: Promise<{ id:
   const { id } = await context.params;
   if (!/^[a-f0-9]{64}$/.test(id)) return response({ error: "Media not found." }, 404);
   try {
-    const state = await readState(); const media = state.versions.flatMap(v => v.content.media).find(m => m.id === id);
+    const batch = selectedBatch(request.nextUrl.searchParams.get("batch"));
+    const state = await readState(batch); const media = state.versions.flatMap(v => v.content.media).find(m => m.id === id);
     if (!media) return response({ error: "Media not found." }, 404);
-    const bytes = await mediaBytes(media);
+    const bytes = await mediaBytes(media, batch);
     const headers = { ...NO_STORE_HEADERS, "Content-Type": media.type, "X-Content-Type-Options": "nosniff", "X-Robots-Tag": "noindex, nofollow", "Accept-Ranges": "bytes" };
     const range = request.headers.get("range");
     if (range) {

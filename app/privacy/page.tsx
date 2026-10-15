@@ -151,10 +151,56 @@ export default function PrivacyPage() {
 
       <ContentSection title="9. Advertising and Affiliate Relationships">
         <p>
-          AnyHVAC may introduce advertising, sponsorship, affiliate, or referral
-          technologies in the future. This Policy and any necessary consent mechanisms
-          will be updated as appropriate. Commercial relationships will not determine or
-          alter engineering calculations or results.
+          Advertising is not currently active on AnyHVAC. We are preparing to apply
+          for Google AdSense. The following explains how advertising may work if it
+          is introduced; it does not mean advertising cookies are currently being
+          used on this site.
+        </p>
+        <p>
+          If advertising is enabled, third-party vendors, including Google and
+          advertising partners, may use cookies and similar technologies to serve
+          ads based on your prior visits to AnyHVAC or other websites. Google&apos;s
+          advertising cookies may enable Google and its partners to personalize
+          ads using activity across websites and apps. These technologies may also
+          support ad measurement, reporting, fraud prevention, and limits on how
+          often an ad is shown. Learn more about{" "}
+          <a href="https://policies.google.com/technologies/partner-sites">
+            how Google uses information from sites and apps that use its services
+          </a>.
+        </p>
+        <p>
+          Personalized ads use information about past activity or inferred interests
+          to select ads. Non-personalized ads use context, such as the current
+          page&apos;s content or approximate location, rather than past behavior.
+          Non-personalized advertising may still use cookies or similar technologies
+          for frequency limits and aggregated reporting; it is not necessarily
+          cookie-free and may still require consent where applicable.
+        </p>
+        <p>
+          You can manage Google advertising preferences and opt out of personalized
+          advertising through{" "}
+          <a href="https://www.google.com/settings/ads">Google Ads Settings</a>.
+          You can also review participating advertising companies and available
+          opt-outs through the{" "}
+          <a href="https://www.aboutads.info/choices/">
+            Digital Advertising Alliance&apos;s consumer choice tools
+          </a>.
+          These choices depend on the provider, browser, device, and location and
+          do not necessarily stop all advertising. Browser settings can also
+          manage cookies and local storage, as described above.
+        </p>
+        <p>
+          AnyHVAC does not currently provide an advertising consent banner or
+          on-site advertising preference controls. Before activating advertising,
+          we will implement required consent and privacy-choice mechanisms and
+          update this Policy to reflect the services and advertising partners
+          actually used. External opt-out tools do not replace consent where it is
+          required.
+        </p>
+        <p>
+          AnyHVAC may introduce sponsorship, affiliate, or referral relationships
+          in the future. Commercial relationships will not determine or alter
+          engineering calculations or results.
         </p>
       </ContentSection>
 

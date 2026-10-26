@@ -57,7 +57,7 @@ describe("launch polish batch 1", () => {
 
   it.each([
     ["home", Home, ["HVAC tools.", 'id="tools"']],
-    ["tools", ToolsPage, ["Explore Tools", "Built for everyday HVAC work."]],
+    ["tools", ToolsPage, ["Explore Tools", "Choose the tool for your engineering question."]],
     ["duct calculator", DuctCalculatorPage, ['aria-label="HVAC duct calculator workspace"', "Engineering Notice", "How to Use the HVAC Duct Calculator"]],
   ])("preserves surrounding %s content without ad scaffolding or wrappers", (_name, Page, content) => {
     const markup = render(<Page />);

@@ -13,21 +13,6 @@ export const metadata: Metadata = createPageMetadata({
   path: "/resources",
 });
 
-const upcomingResources = [
-  {
-    number: "#03",
-    title: "Psychrometrics Quick Reference",
-    description:
-      "Dry bulb, wet bulb, dew point, relative humidity, humidity ratio, enthalpy, and common HVAC processes.",
-  },
-  {
-    number: "#04",
-    title: "Mixed Air Quick Reference",
-    description:
-      "Outdoor air, return air, mixed air, airflow weighting, moisture, and enthalpy relationships.",
-  },
-] as const;
-
 export default function ResourcesPage() {
   return (
     <ContentPage
@@ -36,8 +21,10 @@ export default function ResourcesPage() {
       intro="Practical references for HVAC professionals and designers."
     >
       <p className={styles.secondary}>
-        Download free quick-reference sheets, keep them at your desk, or use them
-        alongside the AnyHVAC calculators. No signup required.
+        Choose the duct design reference for sizing relationships and design
+        checks. Choose the measurement reference when you need to interpret
+        field readings before using them in a calculation. Both include a free
+        two-page PDF with no signup required.
       </p>
 
       <section className={styles.library} aria-label="Resource library">
@@ -51,6 +38,11 @@ export default function ResourcesPage() {
             A two-page HVAC duct design reference covering airflow, velocity,
             duct area, friction rate, pressure relationships, rectangular duct
             fundamentals, conversions, and design checks.
+          </p>
+          <p>
+            Use this to check units and relationships while reviewing a design.
+            When you need to compare duct sizes for your own airflow and friction
+            rate, use the <Link href="/tools/duct-calculator">Duct Calculator</Link>.
           </p>
           <div className={styles.cardBottom}>
             <span className={styles.descriptor}>PDF · 2 pages</span>
@@ -71,6 +63,11 @@ export default function ResourcesPage() {
             TESP, airflow measurement, traverses, capture hoods, formulas, and
             responsible calculator connections.
           </p>
+          <p>
+            Start here to distinguish measured TESP from airflow and design
+            available static pressure. Then use <Link href="/tools/air-distribution">Air Distribution Tools</Link>{" "}
+            for the calculation that matches the inputs you have established.
+          </p>
           <div className={styles.cardBottom}>
             <span className={styles.descriptor}>PDF · 2 pages</span>
             <Link className={styles.cardLink} href="/resources/airflow-static-pressure-measurement">
@@ -79,16 +76,6 @@ export default function ResourcesPage() {
           </div>
         </article>
 
-        {upcomingResources.map((resource) => (
-          <article className={`${styles.card} ${styles.upcoming}`} key={resource.number}>
-            <div className={styles.cardTop}>
-              <p className={styles.eyebrow}>Design Reference {resource.number}</p>
-              <span className={`${styles.badge} ${styles.soonBadge}`}>Coming Soon</span>
-            </div>
-            <h2>{resource.title}</h2>
-            <p>{resource.description}</p>
-          </article>
-        ))}
       </section>
     </ContentPage>
   );

@@ -44,7 +44,9 @@ function ToolIcon({ name }: { name: ToolIconName }) {
   );
 }
 
-const homepageTools = HVAC_TOOLS.filter((tool) => tool.showOnHomepage);
+const homepageTools = HVAC_TOOLS.filter(
+  (tool) => tool.showOnHomepage && tool.status === "Available" && tool.href,
+);
 
 function ToolCardContents({ tool }: { tool: (typeof homepageTools)[number] }) {
   return (
@@ -76,8 +78,9 @@ export function ToolsSection() {
         <p className="tools-eyebrow">HVAC Calculators</p>
         <h2 id="tools-title">Tools built for real HVAC work.</h2>
         <p>
-          Fast, practical calculators designed for HVAC professionals, engineers,
-          designers, and students.
+          Start with the Duct Calculator to compare duct sizes. Choose Air
+          Distribution for airflow, velocity and pressure-budget questions, or
+          Air Properties to work with temperature and moisture together.
         </p>
       </div>
 

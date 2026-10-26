@@ -6,6 +6,8 @@ import { describe, expect, it } from "vitest";
 
 import sitemap from "../../sitemap";
 import { ModalProvider } from "../../../components/ModalProvider";
+import { ToolsSection } from "../../../components/ToolsSection";
+import { HVAC_TOOLS } from "../../../data/tools";
 import AirPropertiesPage, {
   metadata as airPropertiesMetadata,
 } from "../air-properties/page";
@@ -19,6 +21,18 @@ const render = (page: React.ReactNode) =>
 const h1Count = (markup: string) => (markup.match(/<h1(?:\s|>)/g) ?? []).length;
 
 describe("psychrometric production integration", () => {
+  it("shows available tools without exposing planned tools or empty categories", () => {
+    for (const page of [<ToolsSection key="home" />, <ToolsPage key="tools" />, <AirPropertiesPage key="air-properties" />]) {
+      const markup = render(page);
+      expect(markup).not.toMatch(/coming soon|planned library|Heating &amp; Cooling/i);
+    }
+    expect(HVAC_TOOLS.find((tool) => tool.id === "heating-cooling-tools")?.status).toBe("Coming Soon");
+    const markup = render(<ToolsPage />);
+    for (const href of ["/tools/duct-calculator", "/tools/air-distribution", "/tools/air-properties", "/tools/mixed-air-calculator"]) {
+      expect(markup).toContain(`href="${href}"`);
+    }
+  });
+
   it("links the tools library to the active Air Properties category", () => {
     const markup = render(<ToolsPage />);
     expect(markup).toContain('href="/tools/air-properties"');

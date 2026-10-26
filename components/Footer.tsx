@@ -66,12 +66,6 @@ export function Footer() {
               <li><Link href="/resources">HVAC Design Resources</Link></li>
               <li><Link href="/resources/duct-design-quick-reference">Duct Design Quick Reference</Link></li>
             </ul>
-            <ul className={styles.futureList}>
-              <li>
-                <span>Codes &amp; Standards</span>
-                <small>Coming soon</small>
-              </li>
-            </ul>
           </div>
 
           <div className={styles.linkGroup}>

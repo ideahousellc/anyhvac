@@ -17,7 +17,7 @@ const render = (page: React.ReactNode) =>
   renderToStaticMarkup(<ModalProvider>{page}</ModalProvider>);
 
 describe("public resource pages", () => {
-  it("lists two available references and two unlinked future references", () => {
+  it("lists the two available references without unfinished content", () => {
     const markup = render(<ResourcesPage />);
     expect(markup).toContain("HVAC Design Resources");
     expect(markup).toContain("Duct Design Quick Reference");
@@ -25,8 +25,8 @@ describe("public resource pages", () => {
     expect(markup).toContain('href="/resources/duct-design-quick-reference"');
     expect(markup).not.toContain("anyhvac-duct-design-quick-reference.pdf");
     expect(markup).toContain('href="/resources/airflow-static-pressure-measurement"');
-    expect((markup.match(/Coming Soon/g) ?? []).length).toBe(2);
-    expect((markup.match(/Design Reference #0[1-4]/g) ?? []).length).toBe(4);
+    expect(markup).not.toMatch(/coming soon/i);
+    expect((markup.match(/Design Reference #0[1-4]/g) ?? []).length).toBe(2);
     expect((markup.match(/<h1(?:\s|>)/g) ?? []).length).toBe(1);
   });
 
@@ -41,11 +41,12 @@ describe("public resource pages", () => {
     expect((markup.match(/<h1(?:\s|>)/g) ?? []).length).toBe(1);
   });
 
-  it("uses the existing public navigation and preserves the footer's future link area", () => {
+  it("preserves working public navigation without the footer placeholder", () => {
     const markup = render(<><Header /><Footer /></>);
     expect((markup.match(/href="\/resources"/g) ?? []).length).toBe(2);
     expect(markup).toContain('href="/resources/duct-design-quick-reference"');
-    expect(markup).toContain("Codes &amp; Standards");
+    expect(markup).not.toContain("Codes &amp; Standards");
+    expect(markup).not.toMatch(/coming soon/i);
     expect(markup).toContain('href="/tools"');
   });
 

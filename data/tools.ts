@@ -62,8 +62,8 @@ export const HVAC_TOOLS: readonly HvacTool[] = [
     href: null,
     cta: null,
     icon: "cooling",
-    showOnHomepage: true,
-    showInDirectory: true,
+    showOnHomepage: false,
+    showInDirectory: false,
   },
   {
     id: "air-properties",

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { AdPlaceholder } from "@/components/AdPlaceholder";
 import { Header } from "@/components/Header";
@@ -14,15 +15,27 @@ export const metadata: Metadata = createPageMetadata({
   path: "/tools",
 });
 
-const benefits = [
-  { title: "Free to Use", description: "No account required." },
+const toolGuidance = [
   {
-    title: "Practical",
-    description: "Focused on everyday HVAC calculations.",
+    title: "Compare duct sizes",
+    description:
+      "Use the Duct Calculator when airflow and a design friction rate are known. Compare round and rectangular options, then check velocity, fittings and project requirements before selecting a size.",
+    href: "/tools/duct-calculator",
+    linkLabel: "Open Duct Calculator",
   },
   {
-    title: "Growing Library",
-    description: "More HVAC tools are on the way.",
+    title: "Check airflow and pressure inputs",
+    description:
+      "Choose Air Distribution to relate airflow, velocity and area, calculate nominal air changes, or work through a design pressure budget. Establish the friction rate here before using it to size ducts; measured TESP is not a design pressure allowance.",
+    href: "/tools/air-distribution",
+    linkLabel: "Open Air Distribution Tools",
+  },
+  {
+    title: "Describe air or combine streams",
+    description:
+      "Choose the Psychrometric Calculator for one moist-air state. Use the Mixed Air Calculator for outdoor and return air together, with flow inputs and a common project pressure. Air Properties links to both tools.",
+    href: "/tools/air-properties",
+    linkLabel: "Explore Air Properties",
   },
 ];
 
@@ -49,20 +62,22 @@ export default function ToolsPage() {
 
       <section className={`page-shell ${styles.support}`}>
         <div className={styles.supportHeading}>
-          <h2>Built for everyday HVAC work.</h2>
+          <h2>Choose the tool for your engineering question.</h2>
           <p>
-            AnyHVAC brings practical HVAC calculations together in one simple,
-            free toolbox. More tools will be added as the library grows.
+            Start with the quantities you know and the result you need. All tools
+            are free to use without an account; results still need to be checked
+            against the conditions and requirements of your project.
           </p>
         </div>
         <div className={styles.benefits}>
-          {benefits.map((benefit) => (
-            <article className={styles.benefit} key={benefit.title}>
+          {toolGuidance.map((guide) => (
+            <article className={styles.benefit} key={guide.title}>
               <span className={styles.benefitIcon} aria-hidden="true">
                 ✓
               </span>
-              <h3>{benefit.title}</h3>
-              <p>{benefit.description}</p>
+              <h3>{guide.title}</h3>
+              <p>{guide.description}</p>
+              <p><Link href={guide.href}>{guide.linkLabel}</Link></p>
             </article>
           ))}
         </div>

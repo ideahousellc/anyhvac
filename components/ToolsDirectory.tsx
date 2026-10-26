@@ -12,7 +12,12 @@ import {
 
 import styles from "./ToolsDirectory.module.css";
 
-const DIRECTORY_TOOLS = HVAC_TOOLS.filter((tool) => tool.showInDirectory);
+const DIRECTORY_TOOLS = HVAC_TOOLS.filter(
+  (tool) => tool.showInDirectory && tool.status === "Available" && tool.href,
+);
+const DIRECTORY_CATEGORIES = TOOL_CATEGORIES.filter(
+  (category) => category === "All Tools" || DIRECTORY_TOOLS.some((tool) => tool.category === category),
+);
 
 function ArrowIcon() {
   return (
@@ -168,7 +173,7 @@ export function ToolsDirectory() {
         role="group"
         aria-label="Filter tools by category"
       >
-        {TOOL_CATEGORIES.map((category) => (
+        {DIRECTORY_CATEGORIES.map((category) => (
           <button
             className={`${styles.categoryButton} ${
               activeCategory === category ? styles.active : ""

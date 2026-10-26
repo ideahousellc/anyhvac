@@ -120,6 +120,16 @@
   line-height: 1.55;
 }
 
+.benefit a {
+  color: var(--primary);
+  font-weight: 740;
+}
+
+.benefit a:hover,
+.benefit a:focus-visible {
+  text-decoration: underline;
+}
+
 :global(.dark) .benefit {
   border-color: rgba(255, 255, 255, 0.07);
   box-shadow:

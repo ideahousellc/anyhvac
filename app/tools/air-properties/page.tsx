@@ -15,12 +15,6 @@ export const metadata: Metadata = createPageMetadata({
   path: "/tools/air-properties",
 });
 
-const futureTools = [
-  "Dew Point Calculator",
-  "Humidity Ratio / RH Converter",
-  "Air Density Calculator",
-] as const;
-
 const PSYCHROMETRIC_CALCULATOR_TOOL: HvacTool = {
   id: "psychrometric-calculator",
   title: "Psychrometric Calculator",
@@ -69,8 +63,17 @@ export default function AirPropertiesPage() {
         <p className={styles.eyebrow}>Air Properties</p>
         <h1 id="category-title">Air Properties Tools</h1>
         <p className={styles.description}>
-          Practical moist-air and psychrometric calculation tools for HVAC design
-          and analysis.
+          Choose the Psychrometric Calculator to describe one air state from
+          dry-bulb temperature, a moisture input and atmospheric pressure. Use
+          the chart to compare temperature, humidity ratio, enthalpy and the
+          other properties of that same state.
+        </p>
+        <p className={styles.description}>
+          Choose the Mixed Air Calculator when outdoor air and return air combine.
+          Enter both states, their airflows and a common project pressure. The
+          tool balances moisture and energy on a dry-air mass basis; simply
+          averaging the two relative humidities does not describe the mixed state.
+          Ideal mixing results do not establish ventilation compliance.
         </p>
       </section>
 
@@ -82,20 +85,6 @@ export default function AirPropertiesPage() {
 
         <ToolCardGrid tools={[PSYCHROMETRIC_CALCULATOR_TOOL, MIXED_AIR_CALCULATOR_TOOL]} />
 
-        <div className={styles.futureSection}>
-          <div>
-            <p className={styles.futureEyebrow}>Planned library</p>
-            <h2>More focused air-property tools</h2>
-          </div>
-          <div className={styles.futureGrid}>
-            {futureTools.map((tool) => (
-              <article className={styles.futureCard} key={tool}>
-                <span>Coming Soon</span>
-                <h3>{tool}</h3>
-              </article>
-            ))}
-          </div>
-        </div>
       </section>
     </main>
   );

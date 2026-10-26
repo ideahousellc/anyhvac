@@ -56,7 +56,7 @@ describe("airflow and static pressure measurement resource", () => {
     const indexMarkup = render(<ResourcesPage />);
     expect(indexMarkup).toContain('href="/resources/airflow-static-pressure-measurement"');
     expect(indexMarkup).toContain("Design Reference #02");
-    expect((indexMarkup.match(/Coming Soon/g) ?? []).length).toBe(2);
+    expect(indexMarkup).not.toMatch(/coming soon/i);
   });
 
   it("sets canonical metadata and appears in the sitemap", () => {

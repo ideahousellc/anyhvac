@@ -7,10 +7,12 @@ import styles from "./LegalPageShell.module.css";
 export function LegalPageShell({
   title,
   intro,
+  lastUpdated = "September 10, 2026",
   children,
 }: {
   title: string;
   intro: string;
+  lastUpdated?: string;
   children: ReactNode;
 }) {
   return (
@@ -20,7 +22,7 @@ export function LegalPageShell({
       title={title}
       intro={intro}
     >
-      <p className={styles.updated}>Last Updated: September 10, 2026</p>
+      <p className={styles.updated}>Last Updated: {lastUpdated}</p>
       <div className={styles.document}>{children}</div>
     </ContentPage>
   );

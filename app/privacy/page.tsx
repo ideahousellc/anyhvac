@@ -16,6 +16,7 @@ export default function PrivacyPage() {
   return (
     <LegalPageShell
       title="Privacy Policy"
+      lastUpdated="October 15, 2026"
       intro="AnyHVAC respects your privacy. This Privacy Policy explains what information may be collected when you use the AnyHVAC website, calculators, newsletter, contact features, support/payment features, and related services, and how that information may be used. By using AnyHVAC, you acknowledge the practices described in this Privacy Policy."
     >
       <ContentSection title="1. Information You Provide">

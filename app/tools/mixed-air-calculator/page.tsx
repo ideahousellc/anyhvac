@@ -27,11 +27,34 @@ export default function MixedAirCalculatorPage() {
       </section>
       <section className={`page-shell ${styles.workspace}`} aria-label="Mixed air calculator workspace"><MixedAirCalculator /></section>
       <EngineeringNotice />
-      <div className={`page-shell ${styles.guideSection}`}><MixedAirGuide /></div>
       <section className={`page-shell ${styles.guidance}`} aria-labelledby="using-tool">
-        <div><p className={styles.guidanceEyebrow}>Using the calculator</p><h2 id="using-tool">Combine two air streams</h2><p>Define outdoor and return air, set the common project pressure, and calculate the adiabatic mixed state. Current weather is optional and affects outdoor input fields only.</p></div>
+        <div>
+          <p className={styles.guidanceEyebrow}>Using the calculator</p>
+          <h2 id="using-tool">Combine two air streams</h2>
+          <p>
+            Use this to estimate the entering air condition after outdoor air and
+            return air mix, before heating or cooling. Define both states and
+            airflows at a common project pressure. The calculation conserves
+            humidity ratio and enthalpy on a dry-air mass basis; relative humidity
+            is calculated from the mixed state, not directly averaged.
+          </p>
+          <p>
+            For example, enter 500 CFM of outdoor air at 90°F and 50% RH, and
+            1,500 CFM of return air at 75°F and 50% RH, with 0 ft elevation.
+            Calculate the mixed state and inspect its dry bulb, humidity ratio
+            and enthalpy. These are illustrative inputs, not ventilation rates
+            or recommended operating conditions.
+          </p>
+          <p>
+            This ideal, adiabatic mixing model does not calculate coil loads,
+            leaving-air conditions or ventilation compliance. Current weather
+            is an optional input convenience, not design weather. Incoming and
+            mixed air properties use <a href="https://github.com/psychrometrics/psychrolib" target="_blank" rel="noreferrer">PsychroLib</a> through the existing engine.
+          </p>
+        </div>
         <nav className={styles.relatedLinks} aria-label="Related tool navigation"><Link href="/tools/psychrometric-calculator">Psychrometric Calculator</Link><Link href="/tools/air-properties">Air Properties Tools</Link></nav>
       </section>
+      <div className={`page-shell ${styles.guideSection}`}><MixedAirGuide /></div>
     </main>
   );
 }

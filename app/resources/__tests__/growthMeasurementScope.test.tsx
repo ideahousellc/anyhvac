@@ -6,14 +6,14 @@ import { metadata as ductMetadata } from "@/app/tools/duct-calculator/page";
 import { ModalProvider } from "@/components/ModalProvider";
 
 describe("measurement-only growth preparation", () => {
-  it("marks both existing calculator links while leaving the content experiment unlaunched", () => {
+  it("preserves both existing calculator markers without adding promotional sections", () => {
     const markup = renderToStaticMarkup(
       <ModalProvider><DuctDesignQuickReferencePage /></ModalProvider>,
     );
     expect(markup).toContain('data-growth-calculator="duct-reference-top"');
     expect(markup).toContain('data-growth-calculator="duct-reference-contextual"');
     expect((markup.match(/href="\/tools\/duct-calculator"/g) ?? []).length).toBe(2);
-    expect(markup).toContain("Need an exact duct size instead of a quick reference?");
+    expect(markup).toContain("Use the calculator to compare round and rectangular sizes");
     expect(markup).toContain("Download Free PDF");
     expect(markup).toContain("No signup required");
     expect(markup).not.toContain("Get free tool updates");

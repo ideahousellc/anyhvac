@@ -15,12 +15,29 @@ import PsychrometricCalculatorPage, {
   metadata as psychrometricMetadata,
 } from "../psychrometric-calculator/page";
 import ToolsPage from "../page";
+import DuctCalculatorPage from "../duct-calculator/page";
+import MixedAirCalculatorPage from "../mixed-air-calculator/page";
 
 const render = (page: React.ReactNode) =>
   renderToStaticMarkup(<ModalProvider>{page}</ModalProvider>);
 const h1Count = (markup: string) => (markup.match(/<h1(?:\s|>)/g) ?? []).length;
 
 describe("psychrometric production integration", () => {
+  it.each([
+    ["duct", DuctCalculatorPage, "duct-sizing-guide", "Practical duct-sizing example", "5,000 CFM"],
+    ["psychrometric", PsychrometricCalculatorPage, "psychrometric-guide", "Define or select one air state", "75°F dry bulb"],
+    ["mixed air", MixedAirCalculatorPage, "mixed-air-guide", "Combine two air streams", "500 CFM of outdoor air"],
+  ])("provides visible instructions and an example before the %s guide", (_label, Page, guideId, heading, example) => {
+    const markup = render(<Page />);
+    const guideStart = markup.indexOf(`id="${guideId}-title"`);
+    expect(guideStart).toBeGreaterThan(0);
+    const visibleSummary = markup.slice(0, guideStart);
+    expect(visibleSummary).toContain(heading);
+    expect(visibleSummary).toContain(example);
+    expect(visibleSummary).not.toContain('aria-hidden="true"><p>');
+    expect(markup).toContain('aria-label="' + (guideId === "duct-sizing-guide" ? "Duct sizing" : guideId === "psychrometric-guide" ? "Psychrometric" : "Mixed air") + ' guide topics"');
+  });
+
   it("shows available tools without exposing planned tools or empty categories", () => {
     for (const page of [<ToolsSection key="home" />, <ToolsPage key="tools" />, <AirPropertiesPage key="air-properties" />]) {
       const markup = render(page);

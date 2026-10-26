@@ -56,10 +56,6 @@ export default function PsychrometricCalculatorPage() {
 
       <EngineeringNotice />
 
-      <div className={`page-shell ${styles.guideSection}`}>
-        <PsychrometricGuide />
-      </div>
-
       <section className={`page-shell ${styles.guidance}`} aria-labelledby="using-tool">
         <div>
           <p className={styles.guidanceEyebrow}>Using the calculator</p>
@@ -70,12 +66,29 @@ export default function PsychrometricCalculatorPage() {
             directly on the chart. Calculated properties and the chart marker stay
             synchronized.
           </p>
+          <p>
+            Use this to inspect the temperature and moisture properties of one
+            air stream. For example, enter 75°F dry bulb, 50% relative humidity
+            and 0 ft elevation, then read the dew point, wet bulb, humidity ratio
+            and enthalpy for that same state. These illustrative inputs are not
+            indoor design targets or verified field conditions.
+          </p>
+          <p>
+            Property calculations use PsychroLib through the existing engine.
+            Elevation supplies standard-atmosphere pressure; use actual
+            atmospheric pressure when that is the input your analysis requires.
+            See the <a href="https://github.com/psychrometrics/psychrolib" target="_blank" rel="noreferrer">PsychroLib method documentation</a>.
+          </p>
         </div>
         <nav className={styles.relatedLinks} aria-label="Related tool navigation">
           <Link href="/tools/air-properties">Air Properties Tools</Link>
           <Link href="/tools">All HVAC Tools</Link>
         </nav>
       </section>
+
+      <div className={`page-shell ${styles.guideSection}`}>
+        <PsychrometricGuide />
+      </div>
     </main>
   );
 }

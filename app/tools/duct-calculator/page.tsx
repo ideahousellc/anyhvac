@@ -72,6 +72,29 @@ export default function DuctCalculatorPage() {
             Enter airflow and friction rate to determine an equivalent round duct
             size, velocity, and practical rectangular duct options.
           </p>
+          <p>
+            Use this when required airflow and a design friction rate have been
+            established and you need to compare duct geometry. A calculated size
+            is a starting point; it does not include all fitting and equipment
+            losses or establish acceptable noise levels.
+          </p>
+        </div>
+
+        <div className={styles.contentBlock}>
+          <h2>Practical duct-sizing example</h2>
+          <p>
+            For illustrative inputs of 5,000 CFM and 0.10 in. w.g./100 ft, the
+            calculator gives a round diameter of about 25.6 inches. Comparing a
+            26-inch nominal round size gives about 1,356 FPM and 0.092 in.
+            w.g./100 ft. The nominal size changes both reported quantities;
+            these values are not recommended design targets.
+          </p>
+          <p>
+            The detailed guide below explains the equal-friction approach and
+            rectangular comparisons. For the broader design method and its
+            limitations, see the{" "}
+            <Link href="/resources/duct-design-quick-reference">Duct Design Quick Reference</Link>.
+          </p>
         </div>
 
         <div className={styles.contentBlock}>

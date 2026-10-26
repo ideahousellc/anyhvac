@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import {
   ContentPage,
@@ -62,13 +63,46 @@ export default function AboutPage() {
         <PrincipleGrid items={principles} />
       </ContentSection>
 
-      <ContentSection title="What&apos;s Coming">
-        <p>The platform is planned to grow with:</p>
+      <ContentSection title="Project background">
+        <p>
+          AnyHVAC is a project by Idea House, focused on practical HVAC design
+          relationships: airflow, duct geometry, pressure loss, moist-air
+          properties and air mixing. Calculators are paired with explanations,
+          worked examples and references so users can understand the inputs and
+          interpret the results in a project context.
+        </p>
+        <p>
+          The site provides calculation and reference assistance, not
+          project-specific professional engineering services. Use the methods
+          alongside applicable specifications, codes, manufacturer data and
+          professional judgment. Read the <Link href="/engineering-disclaimer">Engineering Disclaimer</Link> for the full scope and limitations.
+        </p>
+      </ContentSection>
+
+      <ContentSection title="Calculation methods and references">
+        <p>
+          The method depends on the question being answered. References support
+          understanding of the approach; they do not constitute an endorsement,
+          certification or independent review of AnyHVAC.
+        </p>
         <ul>
-          <li>More HVAC calculators</li>
-          <li>Code and standards navigation resources</li>
-          <li>Manufacturer and equipment resources</li>
-          <li>Additional practical reference tools</li>
+          <li>
+            <Link href="/tools/duct-calculator">Duct sizing</Link> uses an
+            equal-friction approach with round and rectangular comparisons.
+            The <Link href="/resources/duct-design-quick-reference">Duct Design Quick Reference</Link> explains sizing relationships and project checks,
+            with <a href="https://handbook.ashrae.org/Handbooks/F25/IP/F25_Ch21/F25_Ch21_ip.aspx" target="_blank" rel="noreferrer">ASHRAE Handbook—Fundamentals, Duct Design</a> as a technical reference.
+          </li>
+          <li>
+            <Link href="/tools/psychrometric-calculator">Psychrometric properties</Link> are calculated with the MIT-licensed <a href="https://github.com/psychrometrics/psychrolib" target="_blank" rel="noreferrer">PsychroLib</a> backend,
+            with explicit unit, moisture-input and atmospheric-pressure handling.
+          </li>
+          <li>
+            <Link href="/tools/mixed-air-calculator">Mixed-air analysis</Link> converts
+            incoming airflow to dry-air mass flow using specific volume, then
+            balances humidity ratio and enthalpy at a common pressure. It uses
+            the same psychrometric property engine and reports a warning when
+            the single-phase mixing model reaches saturation.
+          </li>
         </ul>
       </ContentSection>
 

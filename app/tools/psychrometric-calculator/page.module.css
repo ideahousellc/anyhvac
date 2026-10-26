@@ -97,7 +97,7 @@
   letter-spacing: -0.04em;
 }
 
-.guidance > div > p:last-child {
+.guidance > div > p:not(.guidanceEyebrow) {
   max-width: 800px;
   margin: 15px 0 0;
   color: var(--muted);

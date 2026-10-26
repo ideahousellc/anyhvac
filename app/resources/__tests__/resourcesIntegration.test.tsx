@@ -41,6 +41,15 @@ describe("public resource pages", () => {
     expect((markup.match(/<h1(?:\s|>)/g) ?? []).length).toBe(1);
   });
 
+  it("explains the reference in HTML with a bounded worked example and source", () => {
+    const markup = render(<DuctDesignQuickReferencePage />);
+    expect(markup).toContain("Worked example: read the round-duct table");
+    expect(markup).toContain("785 CFM");
+    expect(markup).toContain("not a recommended duct size or target");
+    expect(markup).toContain("Equal areas alone do not");
+    expect(markup).toContain('href="https://handbook.ashrae.org/Handbooks/F25/IP/F25_Ch21/F25_Ch21_ip.aspx"');
+  });
+
   it("preserves working public navigation without the footer placeholder", () => {
     const markup = render(<><Header /><Footer /></>);
     expect((markup.match(/href="\/resources"/g) ?? []).length).toBe(2);

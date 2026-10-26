@@ -1,0 +1,113 @@
+{
+  "batchId": "anyhvac-week-2026-10-26-v1",
+  "revision": 1,
+  "status": "OWNER REVIEW — NOT APPROVED",
+  "packages": [
+    {
+      "id": "promo-measurement",
+      "title": "Measurement before interpretation",
+      "kind": "promo",
+      "photo": "Photo: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/",
+      "destination": "https://www.anyhvac.net/resources/airflow-static-pressure-measurement",
+      "alt": "Equipment-only duct photograph with invitation to read the free airflow and static-pressure measurement reference; not a depicted measurement procedure.",
+      "li": "Separate the field reading from the design input.\n\nThe free AnyHVAC Airflow & Static Pressure Measurement Reference separates measured TESP, airflow evaluation and a design pressure budget. It covers instruments, measurement limitations and the inputs each calculator actually needs.\n\nUse the exact equipment and instrument procedures. A TESP reading alone does not establish airflow or design available static pressure.\n\nRead the free guide and download the two-page PDF:",
+      "ig": "Measured a pressure? First identify what it means.\n\nThe free airflow and static-pressure reference helps separate TESP, airflow and design pressure budgets. A pressure reading alone proves neither airflow nor a valid design allowance. Follow the exact equipment procedure.\n\nVisit anyhvac.net > Resources > Airflow & Static Pressure Measurement. Free PDF; no signup required.",
+      "yt": "Measurement before interpretation | Free HVAC reference",
+      "tags": "#HVAC #StaticPressure #Airflow #MEPEngineering",
+      "status": "OWNER REVIEW — NOT APPROVED",
+      "linkedin": "Separate the field reading from the design input.\n\nThe free AnyHVAC Airflow & Static Pressure Measurement Reference separates measured TESP, airflow evaluation and a design pressure budget. It covers instruments, measurement limitations and the inputs each calculator actually needs.\n\nUse the exact equipment and instrument procedures. A TESP reading alone does not establish airflow or design available static pressure.\n\nRead the free guide and download the two-page PDF:\nhttps://www.anyhvac.net/resources/airflow-static-pressure-measurement\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\n#HVAC #StaticPressure #Airflow #MEPEngineering",
+      "instagram": "Measured a pressure? First identify what it means.\n\nThe free airflow and static-pressure reference helps separate TESP, airflow and design pressure budgets. A pressure reading alone proves neither airflow nor a valid design allowance. Follow the exact equipment procedure.\n\nVisit anyhvac.net > Resources > Airflow & Static Pressure Measurement. Free PDF; no signup required.\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\n#HVAC #StaticPressure #Airflow #MEPEngineering",
+      "youtube": "Separate the field reading from the design input.\n\nThe free AnyHVAC Airflow & Static Pressure Measurement Reference separates measured TESP, airflow evaluation and a design pressure budget. It covers instruments, measurement limitations and the inputs each calculator actually needs.\n\nUse the exact equipment and instrument procedures. A TESP reading alone does not establish airflow or design available static pressure.\n\nRead the free guide and download the two-page PDF:\nhttps://www.anyhvac.net/resources/airflow-static-pressure-measurement\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\nMusic: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit. Licensed synchronized video use.\nhttps://mixkit.co/license/modal/musicFree/\n\n#HVAC #Shorts",
+      "media": [
+        "promo-measurement-social.png"
+      ],
+      "youtubeMedia": "promo-measurement-short.mp4"
+    },
+    {
+      "id": "carousel-tesp",
+      "title": "TESP is not airflow",
+      "kind": "carousel",
+      "photo": "Photo: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/",
+      "destination": "https://www.anyhvac.net/resources/airflow-static-pressure-measurement",
+      "li": "TESP is a pressure measurement—not a direct airflow measurement.\n\nFor an illustrative conventional negative-return/positive-supply arrangement, -0.20 and +0.35 in. w.c. give a TESP magnitude of 0.55 in. w.c. That arithmetic does not establish CFM, acceptable operation, or a design pressure allowance.\n\nUse the exact equipment boundary, approved probe locations, operating mode and manufacturer data. There is no universal pair of probe locations for every system.\n\nSwipe through the six-slide check. Example readings are not recommended targets. Read the supporting reference:",
+      "ig": "TESP ≠ airflow.\n\nIllustrative readings: return -0.20 and supply +0.35 in. w.c. give a 0.55 in. w.c. magnitude for the stated arrangement. These are not targets, and the result does not establish CFM.\n\nSwipe for boundaries, interpretation and the difference from design available static pressure. Follow the exact equipment procedure.\n\nVisit anyhvac.net > Resources > Airflow & Static Pressure Measurement.",
+      "tags": "#HVAC #TESP #StaticPressure #HVACTechnician",
+      "status": "OWNER REVIEW — NOT APPROVED",
+      "linkedin": "TESP is a pressure measurement—not a direct airflow measurement.\n\nFor an illustrative conventional negative-return/positive-supply arrangement, -0.20 and +0.35 in. w.c. give a TESP magnitude of 0.55 in. w.c. That arithmetic does not establish CFM, acceptable operation, or a design pressure allowance.\n\nUse the exact equipment boundary, approved probe locations, operating mode and manufacturer data. There is no universal pair of probe locations for every system.\n\nSwipe through the six-slide check. Example readings are not recommended targets. Read the supporting reference:\nhttps://www.anyhvac.net/resources/airflow-static-pressure-measurement\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\n#HVAC #TESP #StaticPressure #HVACTechnician",
+      "instagram": "TESP ≠ airflow.\n\nIllustrative readings: return -0.20 and supply +0.35 in. w.c. give a 0.55 in. w.c. magnitude for the stated arrangement. These are not targets, and the result does not establish CFM.\n\nSwipe for boundaries, interpretation and the difference from design available static pressure. Follow the exact equipment procedure.\n\nVisit anyhvac.net > Resources > Airflow & Static Pressure Measurement.\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\n#HVAC #TESP #StaticPressure #HVACTechnician",
+      "youtube": null,
+      "media": [
+        "carousel-tesp-01.png",
+        "carousel-tesp-02.png",
+        "carousel-tesp-03.png",
+        "carousel-tesp-04.png",
+        "carousel-tesp-05.png",
+        "carousel-tesp-06.png"
+      ],
+      "youtubeMedia": null
+    },
+    {
+      "id": "promo-psychrometric",
+      "title": "One state. Several useful properties.",
+      "kind": "promo",
+      "photo": "Photo: Alf van Beem, via Wikimedia Commons, CC0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG\nhttps://creativecommons.org/publicdomain/zero/1.0/",
+      "destination": "https://www.anyhvac.net/tools/psychrometric-calculator",
+      "alt": "Contextual air-handler photograph and headline One state, several useful properties; invitation to use the free psychrometric calculator.",
+      "li": "A dry-bulb temperature alone does not define a complete moist-air state.\n\nUse the free AnyHVAC Psychrometric Calculator to pair dry bulb with relative humidity, wet bulb or dew point, then establish elevation-derived or actual atmospheric pressure. The chart and calculated properties describe the same state.\n\nReview humidity ratio, enthalpy and specific volume together. These are calculated properties from supplied inputs—not a field measurement or equipment-performance guarantee.\n\nExplore the tool:",
+      "ig": "One state. Several useful properties.\n\nPair dry bulb with RH, wet bulb or dew point. Establish elevation or atmospheric pressure. Explore the chart, humidity ratio, enthalpy and specific volume with the free Psychrometric Calculator.\n\nCalculated properties depend on your inputs; they do not verify equipment performance.\n\nVisit anyhvac.net > Tools > Air Properties > Psychrometric Calculator.",
+      "yt": "One air state, several properties | Free psychrometric calculator",
+      "tags": "#HVAC #Psychrometrics #HVACTools #MEPEngineering",
+      "status": "OWNER REVIEW — NOT APPROVED",
+      "linkedin": "A dry-bulb temperature alone does not define a complete moist-air state.\n\nUse the free AnyHVAC Psychrometric Calculator to pair dry bulb with relative humidity, wet bulb or dew point, then establish elevation-derived or actual atmospheric pressure. The chart and calculated properties describe the same state.\n\nReview humidity ratio, enthalpy and specific volume together. These are calculated properties from supplied inputs—not a field measurement or equipment-performance guarantee.\n\nExplore the tool:\nhttps://www.anyhvac.net/tools/psychrometric-calculator\n\nPhoto: Alf van Beem, via Wikimedia Commons, CC0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG\nhttps://creativecommons.org/publicdomain/zero/1.0/\n\n#HVAC #Psychrometrics #HVACTools #MEPEngineering",
+      "instagram": "One state. Several useful properties.\n\nPair dry bulb with RH, wet bulb or dew point. Establish elevation or atmospheric pressure. Explore the chart, humidity ratio, enthalpy and specific volume with the free Psychrometric Calculator.\n\nCalculated properties depend on your inputs; they do not verify equipment performance.\n\nVisit anyhvac.net > Tools > Air Properties > Psychrometric Calculator.\n\nPhoto: Alf van Beem, via Wikimedia Commons, CC0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG\nhttps://creativecommons.org/publicdomain/zero/1.0/\n\n#HVAC #Psychrometrics #HVACTools #MEPEngineering",
+      "youtube": "A dry-bulb temperature alone does not define a complete moist-air state.\n\nUse the free AnyHVAC Psychrometric Calculator to pair dry bulb with relative humidity, wet bulb or dew point, then establish elevation-derived or actual atmospheric pressure. The chart and calculated properties describe the same state.\n\nReview humidity ratio, enthalpy and specific volume together. These are calculated properties from supplied inputs—not a field measurement or equipment-performance guarantee.\n\nExplore the tool:\nhttps://www.anyhvac.net/tools/psychrometric-calculator\n\nPhoto: Alf van Beem, via Wikimedia Commons, CC0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG\nhttps://creativecommons.org/publicdomain/zero/1.0/\n\nMusic: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit. Licensed synchronized video use.\nhttps://mixkit.co/license/modal/musicFree/\n\n#HVAC #Shorts",
+      "media": [
+        "promo-psychrometric-social.png"
+      ],
+      "youtubeMedia": "promo-psychrometric-short.mp4"
+    },
+    {
+      "id": "carousel-pressure-terms",
+      "title": "Which pressure are you comparing?",
+      "kind": "carousel",
+      "photo": "Photo: Alf van Beem, via Wikimedia Commons, CC0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG\nhttps://creativecommons.org/publicdomain/zero/1.0/",
+      "destination": "https://www.anyhvac.net/resources/airflow-static-pressure-measurement",
+      "li": "Static pressure, velocity pressure, total pressure and pressure drop answer different questions.\n\nAt the same measurement point, total pressure is static pressure plus velocity pressure. A pressure drop compares pressures across a defined component or section at a stated operating condition. TESP uses the equipment-defined external boundary.\n\nBefore comparing readings, identify the quantity, reference, location, instrument and operating condition. Do not interchange the terms or infer airflow from pressure alone.\n\nSwipe through the six-slide terminology check and read the measurement reference:",
+      "ig": "Which pressure are you comparing?\n\nStatic + velocity = total pressure at the same point. A component pressure drop compares defined locations. TESP depends on the equipment external boundary.\n\nSwipe to keep the quantities separate. Follow the governing measurement procedure; pressure alone does not establish airflow.\n\nVisit anyhvac.net > Resources > Airflow & Static Pressure Measurement.",
+      "tags": "#HVAC #Pressure #AirDistribution #MEPEngineering",
+      "status": "OWNER REVIEW — NOT APPROVED",
+      "linkedin": "Static pressure, velocity pressure, total pressure and pressure drop answer different questions.\n\nAt the same measurement point, total pressure is static pressure plus velocity pressure. A pressure drop compares pressures across a defined component or section at a stated operating condition. TESP uses the equipment-defined external boundary.\n\nBefore comparing readings, identify the quantity, reference, location, instrument and operating condition. Do not interchange the terms or infer airflow from pressure alone.\n\nSwipe through the six-slide terminology check and read the measurement reference:\nhttps://www.anyhvac.net/resources/airflow-static-pressure-measurement\n\nPhoto: Alf van Beem, via Wikimedia Commons, CC0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG\nhttps://creativecommons.org/publicdomain/zero/1.0/\n\n#HVAC #Pressure #AirDistribution #MEPEngineering",
+      "instagram": "Which pressure are you comparing?\n\nStatic + velocity = total pressure at the same point. A component pressure drop compares defined locations. TESP depends on the equipment external boundary.\n\nSwipe to keep the quantities separate. Follow the governing measurement procedure; pressure alone does not establish airflow.\n\nVisit anyhvac.net > Resources > Airflow & Static Pressure Measurement.\n\nPhoto: Alf van Beem, via Wikimedia Commons, CC0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG\nhttps://creativecommons.org/publicdomain/zero/1.0/\n\n#HVAC #Pressure #AirDistribution #MEPEngineering",
+      "youtube": null,
+      "media": [
+        "carousel-pressure-terms-01.png",
+        "carousel-pressure-terms-02.png",
+        "carousel-pressure-terms-03.png",
+        "carousel-pressure-terms-04.png",
+        "carousel-pressure-terms-05.png",
+        "carousel-pressure-terms-06.png"
+      ],
+      "youtubeMedia": null
+    },
+    {
+      "id": "main-pressure-budget",
+      "title": "A design pressure budget, step by step",
+      "kind": "video",
+      "photo": "AnyHVAC original illustrative design diagram.",
+      "destination": "https://www.anyhvac.net/tools/air-distribution",
+      "alt": "Animated illustrative design budget: 0.80 minus 0.30 equals 0.50 in. w.g. available static, then 0.50 times 100 divided by 250 feet equals 0.20 in. w.g. per 100 feet. Not measured TESP or design targets.",
+      "li": "Design available static pressure is a budget—not a measured TESP shortcut.\n\nIllustrative inputs only: a valid design fan external-static allowance at the intended airflow of 0.80 in. w.g. minus 0.30 in. w.g. of applicable external component losses leaves 0.50 in. w.g. available static pressure. With 250 ft total effective length, FR = 0.50 × 100 / 250 = 0.20 in. w.g./100 ft.\n\nAccount for each applicable loss once and use a valid design allowance and TEL. These are arithmetic examples, not recommended targets, measured system performance or a compliant-design finding.\n\nExplore the existing Friction Rate module:",
+      "ig": "Build the design pressure budget before choosing friction rate.\n\nIllustrative inputs: 0.80 − 0.30 = 0.50 in. w.g. available static. At 250 ft TEL: 0.50 × 100 / 250 = 0.20 in. w.g./100 ft.\n\nExamples only—not targets. Start with a valid design allowance, deduct applicable external component losses once, and verify TEL. Measured TESP is not a substitute.\n\nVisit anyhvac.net > Tools > Air Distribution > Friction Rate.",
+      "yt": "Design pressure budget: ESP to friction rate | HVAC example",
+      "tags": "#HVAC #DuctDesign #StaticPressure #MEPEngineering",
+      "status": "OWNER REVIEW — NOT APPROVED",
+      "linkedin": "Design available static pressure is a budget—not a measured TESP shortcut.\n\nIllustrative inputs only: a valid design fan external-static allowance at the intended airflow of 0.80 in. w.g. minus 0.30 in. w.g. of applicable external component losses leaves 0.50 in. w.g. available static pressure. With 250 ft total effective length, FR = 0.50 × 100 / 250 = 0.20 in. w.g./100 ft.\n\nAccount for each applicable loss once and use a valid design allowance and TEL. These are arithmetic examples, not recommended targets, measured system performance or a compliant-design finding.\n\nExplore the existing Friction Rate module:\nhttps://www.anyhvac.net/tools/air-distribution\n\nAnyHVAC original illustrative design diagram.\n\nMusic: New Bass 01 — Lily J, via Mixkit. Licensed synchronized video use.\nhttps://mixkit.co/license/modal/musicFree/\n\n#HVAC #DuctDesign #StaticPressure #MEPEngineering",
+      "instagram": "Build the design pressure budget before choosing friction rate.\n\nIllustrative inputs: 0.80 − 0.30 = 0.50 in. w.g. available static. At 250 ft TEL: 0.50 × 100 / 250 = 0.20 in. w.g./100 ft.\n\nExamples only—not targets. Start with a valid design allowance, deduct applicable external component losses once, and verify TEL. Measured TESP is not a substitute.\n\nVisit anyhvac.net > Tools > Air Distribution > Friction Rate.\n\nAnyHVAC original illustrative design diagram.\n\nMusic: New Bass 01 — Lily J, via Mixkit. Licensed synchronized video use.\nhttps://mixkit.co/license/modal/musicFree/\n\n#HVAC #DuctDesign #StaticPressure #MEPEngineering",
+      "youtube": "Design available static pressure is a budget—not a measured TESP shortcut.\n\nIllustrative inputs only: a valid design fan external-static allowance at the intended airflow of 0.80 in. w.g. minus 0.30 in. w.g. of applicable external component losses leaves 0.50 in. w.g. available static pressure. With 250 ft total effective length, FR = 0.50 × 100 / 250 = 0.20 in. w.g./100 ft.\n\nAccount for each applicable loss once and use a valid design allowance and TEL. These are arithmetic examples, not recommended targets, measured system performance or a compliant-design finding.\n\nExplore the existing Friction Rate module:\nhttps://www.anyhvac.net/tools/air-distribution\n\nAnyHVAC original illustrative design diagram.\n\nMusic: New Bass 01 — Lily J, via Mixkit. Licensed synchronized video use.\nhttps://mixkit.co/license/modal/musicFree/\n\n#HVAC #Shorts",
+      "media": [
+        "main-pressure-budget.mp4"
+      ],
+      "youtubeMedia": "main-pressure-budget.mp4"
+    }
+  ]
+}

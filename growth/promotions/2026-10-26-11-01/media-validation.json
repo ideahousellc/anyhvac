@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "file": "promo-measurement-short.mp4",
+      "width": 1080,
+      "height": 1920,
+      "duration": 16,
+      "audio": true,
+      "decode": "PASS",
+      "meanVolume": -18.317586692106364,
+      "peakVolume": -6.162236793427231
+    },
+    {
+      "file": "promo-psychrometric-short.mp4",
+      "width": 1080,
+      "height": 1920,
+      "duration": 16,
+      "audio": true,
+      "decode": "PASS",
+      "meanVolume": -18.506052897019842,
+      "peakVolume": -6.125134784803778
+    },
+    {
+      "file": "main-pressure-budget.mp4",
+      "width": 1080,
+      "height": 1920,
+      "duration": 28,
+      "audio": true,
+      "decode": "PASS",
+      "meanVolume": -22.03332458108154,
+      "peakVolume": -2.8019459145391745
+    }
+  ],
+  "visualQa": "Contact sheet inspected: all 17 image exports legible, margins and credits clear, no clipping. Main keyframes additionally reviewed. Subjective soundtrack listening reserved for owner.",
+  "contactSheet": "growth/.generated/weekly/2026-10-26-11-01/review/contact-sheet.png",
+  "scheduled": false,
+  "published": false
+}

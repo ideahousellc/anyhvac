@@ -1,0 +1,174 @@
+{
+  "version": "anyhvac-week-2026-10-26-v1",
+  "status": "OWNER REVIEW / LOCAL ONLY",
+  "mediaRoot": "growth\\.generated\\weekly\\2026-10-26-11-01\\media",
+  "uploaded": false,
+  "assets": [
+    {
+      "file": "promo-measurement-social.png",
+      "bytes": 876112,
+      "sha256": "1c9e2d5e0f324fc170453a1cda10a59499d4f2266211d2828af1f592e88645ad",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "promo-measurement-vertical.png",
+      "bytes": 1355398,
+      "sha256": "fa111a0f71ed4482fb99dad71c568ebb79c7e63d9d52c11d36ec376d153d3eb1",
+      "width": 1080,
+      "height": 1920,
+      "type": "image/png"
+    },
+    {
+      "file": "promo-psychrometric-social.png",
+      "bytes": 1249704,
+      "sha256": "d6f5b8aab7fee02906a908ec82db569cf43943df7e6fbbe7ba70cef727db4a2e",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "promo-psychrometric-vertical.png",
+      "bytes": 1879823,
+      "sha256": "a93145fa5a30916fa7d6d9469050f5df69721876268da2dfba5b9534710a9d15",
+      "width": 1080,
+      "height": 1920,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-tesp-01.png",
+      "bytes": 1050783,
+      "sha256": "e309a8a5f7a3c24a91bce0e9625e3ca241055bb7b60ca15c1ddc638da60d5bb2",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-tesp-02.png",
+      "bytes": 117988,
+      "sha256": "b1b54371591e9ebb8791ef4e42cd94c25c3c4ce92f52db3ef8cc188b90853216",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-tesp-03.png",
+      "bytes": 120879,
+      "sha256": "c39c77d1b818fbd56a1895541db59946fc56360f08ae5dc2c7531397086d94c5",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-tesp-04.png",
+      "bytes": 120734,
+      "sha256": "b412b4068fc07eb457fab61cf8253a7d20f7d5c6a00ebf52ce7c5da0eef855be",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-tesp-05.png",
+      "bytes": 125844,
+      "sha256": "b73f24a4b5008e04436b2855b6db6d44fe775cf9f6c86fdc0df9b92619e43aa0",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-tesp-06.png",
+      "bytes": 1054828,
+      "sha256": "256a341c940520d50e893ba4de344d7d8df92daa3e2a625732923c386f69d51b",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-pressure-terms-01.png",
+      "bytes": 1317137,
+      "sha256": "2cd087bc648fbe12e188d01b96dd82bd5e83b4c2b6254b5702bebbc7e743ddbf",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-pressure-terms-02.png",
+      "bytes": 115096,
+      "sha256": "3aa47f6e632811c451254a42260a863d9cc43772e6063e6f0ac592c096a48e6a",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-pressure-terms-03.png",
+      "bytes": 114862,
+      "sha256": "61c6abb2a7bd50e50af71e7aed67be2e20e2a5d89f5de190ca464f6741a4bb53",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-pressure-terms-04.png",
+      "bytes": 113009,
+      "sha256": "61ec704a21e1ed993a0c6a5251f91652849365ff9e22b434acd5ea410e6a58da",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-pressure-terms-05.png",
+      "bytes": 119616,
+      "sha256": "b2899e920ebeb5754e963616c79b126f9ec5df3e2b5f8e36dee21a2f85c2bc0e",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-pressure-terms-06.png",
+      "bytes": 1325303,
+      "sha256": "107338d06ad2f6013041e8f062369ac94e9f8a9db204a189cfd4eb3fa09eb1b8",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "promo-measurement-short.mp4",
+      "bytes": 740877,
+      "sha256": "fa2229549b32a02dc774cc350ebc024e8160af3b43c8eb6162fed5825fb66217",
+      "width": 1080,
+      "height": 1920,
+      "duration": 16,
+      "type": "video/mp4",
+      "audio": true
+    },
+    {
+      "file": "promo-psychrometric-short.mp4",
+      "bytes": 745028,
+      "sha256": "7b198e2b12579b7d94c88a494e3775bc5cf0b587ca946600ff876cd3172432e8",
+      "width": 1080,
+      "height": 1920,
+      "duration": 16,
+      "type": "video/mp4",
+      "audio": true
+    },
+    {
+      "file": "main-pressure-budget-poster.png",
+      "bytes": 109465,
+      "sha256": "78d8650f405d067e429ca7fcfdf48dd04e487ac7356e54442c96ebb6e008e7ac",
+      "width": 1080,
+      "height": 1920,
+      "type": "image/png"
+    },
+    {
+      "file": "main-pressure-budget.mp4",
+      "bytes": 909051,
+      "sha256": "88e5a71d922132fc2435f1b115a7263ab970d8683bd2d7d3479840a4e65652dd",
+      "width": 1080,
+      "height": 1920,
+      "duration": 28,
+      "type": "video/mp4",
+      "audio": true
+    }
+  ]
+}

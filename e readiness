@@ -1,0 +1,65 @@
+[1mdiff --git a/app/privacy/page.tsx b/app/privacy/page.tsx[m
+[1mindex abe2096..227e86a 100644[m
+[1m--- a/app/privacy/page.tsx[m
+[1m+++ b/app/privacy/page.tsx[m
+[36m@@ -151,10 +151,56 @@[m [mexport default function PrivacyPage() {[m
+ [m
+       <ContentSection title="9. Advertising and Affiliate Relationships">[m
+         <p>[m
+[31m-          AnyHVAC may introduce advertising, sponsorship, affiliate, or referral[m
+[31m-          technologies in the future. This Policy and any necessary consent mechanisms[m
+[31m-          will be updated as appropriate. Commercial relationships will not determine or[m
+[31m-          alter engineering calculations or results.[m
+[32m+[m[32m          Advertising is not currently active on AnyHVAC. We are preparing to apply[m
+[32m+[m[32m          for Google AdSense. The following explains how advertising may work if it[m
+[32m+[m[32m          is introduced; it does not mean advertising cookies are currently being[m
+[32m+[m[32m          used on this site.[m
+[32m+[m[32m        </p>[m
+[32m+[m[32m        <p>[m
+[32m+[m[32m          If advertising is enabled, third-party vendors, including Google and[m
+[32m+[m[32m          advertising partners, may use cookies and similar technologies to serve[m
+[32m+[m[32m          ads based on your prior visits to AnyHVAC or other websites. Google&apos;s[m
+[32m+[m[32m          advertising cookies may enable Google and its partners to personalize[m
+[32m+[m[32m          ads using activity across websites and apps. These technologies may also[m
+[32m+[m[32m          support ad measurement, reporting, fraud prevention, and limits on how[m
+[32m+[m[32m          often an ad is shown. Learn more about{" "}[m
+[32m+[m[32m          <a href="https://policies.google.com/technologies/partner-sites">[m
+[32m+[m[32m            how Google uses information from sites and apps that use its services[m
+[32m+[m[32m          </a>.[m
+[32m+[m[32m        </p>[m
+[32m+[m[32m        <p>[m
+[32m+[m[32m          Personalized ads use information about past activity or inferred interests[m
+[32m+[m[32m          to select ads. Non-personalized ads use context, such as the current[m
+[32m+[m[32m          page&apos;s content or approximate location, rather than past behavior.[m
+[32m+[m[32m          Non-personalized advertising may still use cookies or similar technologies[m
+[32m+[m[32m          for frequency limits and aggregated reporting; it is not necessarily[m
+[32m+[m[32m          cookie-free and may still require consent where applicable.[m
+[32m+[m[32m        </p>[m
+[32m+[m[32m        <p>[m
+[32m+[m[32m          You can manage Google advertising preferences and opt out of personalized[m
+[32m+[m[32m          advertising through{" "}[m
+[32m+[m[32m          <a href="https://www.google.com/settings/ads">Google Ads Settings</a>.[m
+[32m+[m[32m          You can also review participating advertising companies and available[m
+[32m+[m[32m          opt-outs through the{" "}[m
+[32m+[m[32m          <a href="https://www.aboutads.info/choices/">[m
+[32m+[m[32m            Digital Advertising Alliance&apos;s consumer choice tools[m
+[32m+[m[32m          </a>.[m
+[32m+[m[32m          These choices depend on the provider, browser, device, and location and[m
+[32m+[m[32m          do not necessarily stop all advertising. Browser settings can also[m
+[32m+[m[32m          manage cookies and local storage, as described above.[m
+[32m+[m[32m        </p>[m
+[32m+[m[32m        <p>[m
+[32m+[m[32m          AnyHVAC does not currently provide an advertising consent banner or[m
+[32m+[m[32m          on-site advertising preference controls. Before activating advertising,[m
+[32m+[m[32m          we will implement required consent and privacy-choice mechanisms and[m
+[32m+[m[32m          update this Policy to reflect the services and advertising partners[m
+[32m+[m[32m          actually used. External opt-out tools do not replace consent where it is[m
+[32m+[m[32m          required.[m
+[32m+[m[32m        </p>[m
+[32m+[m[32m        <p>[m
+[32m+[m[32m          AnyHVAC may introduce sponsorship, affiliate, or referral relationships[m
+[32m+[m[32m          in the future. Commercial relationships will not determine or alter[m
+[32m+[m[32m          engineering calculations or results.[m
+         </p>[m
+       </ContentSection>[m
+ [m

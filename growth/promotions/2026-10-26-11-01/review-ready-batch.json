@@ -1,0 +1,406 @@
+{
+  "batchId": "anyhvac-week-2026-10-26-v1",
+  "revision": 1,
+  "status": "OWNER REVIEW",
+  "approved": false,
+  "scheduled": false,
+  "posts": [
+    {
+      "id": "anyhvac-week-2026-10-26-v1-linkedin-promo-measurement",
+      "packageId": "promo-measurement",
+      "platform": "linkedin",
+      "channelId": "6abd5811ea19ca0bde3709e4",
+      "proposedAt": "2026-10-26T17:00:00-04:00",
+      "timezone": "America/New_York",
+      "caption": "Separate the field reading from the design input.\n\nThe free AnyHVAC Airflow & Static Pressure Measurement Reference separates measured TESP, airflow evaluation and a design pressure budget. It covers instruments, measurement limitations and the inputs each calculator actually needs.\n\nUse the exact equipment and instrument procedures. A TESP reading alone does not establish airflow or design available static pressure.\n\nRead the free guide and download the two-page PDF:\nhttps://www.anyhvac.net/resources/airflow-static-pressure-measurement\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\n#HVAC #StaticPressure #Airflow #MEPEngineering",
+      "title": null,
+      "destination": "https://www.anyhvac.net/resources/airflow-static-pressure-measurement",
+      "media": [
+        "promo-measurement-social.png"
+      ],
+      "status": "PROPOSED — NOT SCHEDULED",
+      "alt": "Equipment-only duct photograph with invitation to read the free airflow and static-pressure measurement reference; not a depicted measurement procedure."
+    },
+    {
+      "id": "anyhvac-week-2026-10-26-v1-instagram-promo-measurement",
+      "packageId": "promo-measurement",
+      "platform": "instagram",
+      "channelId": "6abd5952ea19ca0bde37267c",
+      "proposedAt": "2026-10-26T19:00:00-04:00",
+      "timezone": "America/New_York",
+      "caption": "Measured a pressure? First identify what it means.\n\nThe free airflow and static-pressure reference helps separate TESP, airflow and design pressure budgets. A pressure reading alone proves neither airflow nor a valid design allowance. Follow the exact equipment procedure.\n\nVisit anyhvac.net > Resources > Airflow & Static Pressure Measurement. Free PDF; no signup required.\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\n#HVAC #StaticPressure #Airflow #MEPEngineering",
+      "title": null,
+      "destination": "https://www.anyhvac.net/resources/airflow-static-pressure-measurement",
+      "media": [
+        "promo-measurement-social.png"
+      ],
+      "status": "PROPOSED — NOT SCHEDULED",
+      "alt": "Equipment-only duct photograph with invitation to read the free airflow and static-pressure measurement reference; not a depicted measurement procedure."
+    },
+    {
+      "id": "anyhvac-week-2026-10-26-v1-linkedin-carousel-tesp",
+      "packageId": "carousel-tesp",
+      "platform": "linkedin",
+      "channelId": "6abd5811ea19ca0bde3709e4",
+      "proposedAt": "2026-10-27T16:00:00-04:00",
+      "timezone": "America/New_York",
+      "caption": "TESP is a pressure measurement—not a direct airflow measurement.\n\nFor an illustrative conventional negative-return/positive-supply arrangement, -0.20 and +0.35 in. w.c. give a TESP magnitude of 0.55 in. w.c. That arithmetic does not establish CFM, acceptable operation, or a design pressure allowance.\n\nUse the exact equipment boundary, approved probe locations, operating mode and manufacturer data. There is no universal pair of probe locations for every system.\n\nSwipe through the six-slide check. Example readings are not recommended targets. Read the supporting reference:\nhttps://www.anyhvac.net/resources/airflow-static-pressure-measurement\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\n#HVAC #TESP #StaticPressure #HVACTechnician",
+      "title": null,
+      "destination": "https://www.anyhvac.net/resources/airflow-static-pressure-measurement",
+      "media": [
+        "carousel-tesp-01.png",
+        "carousel-tesp-02.png",
+        "carousel-tesp-03.png",
+        "carousel-tesp-04.png",
+        "carousel-tesp-05.png",
+        "carousel-tesp-06.png"
+      ],
+      "status": "PROPOSED — NOT SCHEDULED",
+      "alt": "See numbered slide text and technical limitations in carousels.json; equipment photos are contextual, not measurement procedures."
+    },
+    {
+      "id": "anyhvac-week-2026-10-26-v1-instagram-carousel-tesp",
+      "packageId": "carousel-tesp",
+      "platform": "instagram",
+      "channelId": "6abd5952ea19ca0bde37267c",
+      "proposedAt": "2026-10-27T19:00:00-04:00",
+      "timezone": "America/New_York",
+      "caption": "TESP ≠ airflow.\n\nIllustrative readings: return -0.20 and supply +0.35 in. w.c. give a 0.55 in. w.c. magnitude for the stated arrangement. These are not targets, and the result does not establish CFM.\n\nSwipe for boundaries, interpretation and the difference from design available static pressure. Follow the exact equipment procedure.\n\nVisit anyhvac.net > Resources > Airflow & Static Pressure Measurement.\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\n#HVAC #TESP #StaticPressure #HVACTechnician",
+      "title": null,
+      "destination": "https://www.anyhvac.net/resources/airflow-static-pressure-measurement",
+      "media": [
+        "carousel-tesp-01.png",
+        "carousel-tesp-02.png",
+        "carousel-tesp-03.png",
+        "carousel-tesp-04.png",
+        "carousel-tesp-05.png",
+        "carousel-tesp-06.png"
+      ],
+      "status": "PROPOSED — NOT SCHEDULED",
+      "alt": "See numbered slide text and technical limitations in carousels.json; equipment photos are contextual, not measurement procedures."
+    },
+    {
+      "id": "anyhvac-week-2026-10-26-v1-linkedin-promo-psychrometric",
+      "packageId": "promo-psychrometric",
+      "platform": "linkedin",
+      "channelId": "6abd5811ea19ca0bde3709e4",
+      "proposedAt": "2026-10-28T16:00:00-04:00",
+      "timezone": "America/New_York",
+      "caption": "A dry-bulb temperature alone does not define a complete moist-air state.\n\nUse the free AnyHVAC Psychrometric Calculator to pair dry bulb with relative humidity, wet bulb or dew point, then establish elevation-derived or actual atmospheric pressure. The chart and calculated properties describe the same state.\n\nReview humidity ratio, enthalpy and specific volume together. These are calculated properties from supplied inputs—not a field measurement or equipment-performance guarantee.\n\nExplore the tool:\nhttps://www.anyhvac.net/tools/psychrometric-calculator\n\nPhoto: Alf van Beem, via Wikimedia Commons, CC0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG\nhttps://creativecommons.org/publicdomain/zero/1.0/\n\n#HVAC #Psychrometrics #HVACTools #MEPEngineering",
+      "title": null,
+      "destination": "https://www.anyhvac.net/tools/psychrometric-calculator",
+      "media": [
+        "promo-psychrometric-social.png"
+      ],
+      "status": "PROPOSED — NOT SCHEDULED",
+      "alt": "Contextual air-handler photograph and headline One state, several useful properties; invitation to use the free psychrometric calculator."
+    },
+    {
+      "id": "anyhvac-week-2026-10-26-v1-instagram-promo-psychrometric",
+      "packageId": "promo-psychrometric",
+      "platform": "instagram",
+      "channelId": "6abd5952ea19ca0bde37267c",
+      "proposedAt": "2026-10-28T18:00:00-04:00",
+      "timezone": "America/New_York",
+      "caption": "One state. Several useful properties.\n\nPair dry bulb with RH, wet bulb or dew point. Establish elevation or atmospheric pressure. Explore the chart, humidity ratio, enthalpy and specific volume with the free Psychrometric Calculator.\n\nCalculated properties depend on your inputs; they do not verify equipment performance.\n\nVisit anyhvac.net > Tools > Air Properties > Psychrometric Calculator.\n\nPhoto: Alf van Beem, via Wikimedia Commons, CC0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG\nhttps://creativecommons.org/publicdomain/zero/1.0/\n\n#HVAC #Psychrometrics #HVACTools #MEPEngineering",
+      "title": null,
+      "destination": "https://www.anyhvac.net/tools/psychrometric-calculator",
+      "media": [
+        "promo-psychrometric-social.png"
+      ],
+      "status": "PROPOSED — NOT SCHEDULED",
+      "alt": "Contextual air-handler photograph and headline One state, several useful properties; invitation to use the free psychrometric calculator."
+    },
+    {
+      "id": "anyhvac-week-2026-10-26-v1-linkedin-carousel-pressure-terms",
+      "packageId": "carousel-pressure-terms",
+      "platform": "linkedin",
+      "channelId": "6abd5811ea19ca0bde3709e4",
+      "proposedAt": "2026-10-29T17:00:00-04:00",
+      "timezone": "America/New_York",
+      "caption": "Static pressure, velocity pressure, total pressure and pressure drop answer different questions.\n\nAt the same measurement point, total pressure is static pressure plus velocity pressure. A pressure drop compares pressures across a defined component or section at a stated operating condition. TESP uses the equipment-defined external boundary.\n\nBefore comparing readings, identify the quantity, reference, location, instrument and operating condition. Do not interchange the terms or infer airflow from pressure alone.\n\nSwipe through the six-slide terminology check and read the measurement reference:\nhttps://www.anyhvac.net/resources/airflow-static-pressure-measurement\n\nPhoto: Alf van Beem, via Wikimedia Commons, CC0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG\nhttps://creativecommons.org/publicdomain/zero/1.0/\n\n#HVAC #Pressure #AirDistribution #MEPEngineering",
+      "title": null,
+      "destination": "https://www.anyhvac.net/resources/airflow-static-pressure-measurement",
+      "media": [
+        "carousel-pressure-terms-01.png",
+        "carousel-pressure-terms-02.png",
+        "carousel-pressure-terms-03.png",
+        "carousel-pressure-terms-04.png",
+        "carousel-pressure-terms-05.png",
+        "carousel-pressure-terms-06.png"
+      ],
+      "status": "PROPOSED — NOT SCHEDULED",
+      "alt": "See numbered slide text and technical limitations in carousels.json; equipment photos are contextual, not measurement procedures."
+    },
+    {
+      "id": "anyhvac-week-2026-10-26-v1-instagram-carousel-pressure-terms",
+      "packageId": "carousel-pressure-terms",
+      "platform": "instagram",
+      "channelId": "6abd5952ea19ca0bde37267c",
+      "proposedAt": "2026-10-29T09:00:00-04:00",
+      "timezone": "America/New_York",
+      "caption": "Which pressure are you comparing?\n\nStatic + velocity = total pressure at the same point. A component pressure drop compares defined locations. TESP depends on the equipment external boundary.\n\nSwipe to keep the quantities separate. Follow the governing measurement procedure; pressure alone does not establish airflow.\n\nVisit anyhvac.net > Resources > Airflow & Static Pressure Measurement.\n\nPhoto: Alf van Beem, via Wikimedia Commons, CC0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG\nhttps://creativecommons.org/publicdomain/zero/1.0/\n\n#HVAC #Pressure #AirDistribution #MEPEngineering",
+      "title": null,
+      "destination": "https://www.anyhvac.net/resources/airflow-static-pressure-measurement",
+      "media": [
+        "carousel-pressure-terms-01.png",
+        "carousel-pressure-terms-02.png",
+        "carousel-pressure-terms-03.png",
+        "carousel-pressure-terms-04.png",
+        "carousel-pressure-terms-05.png",
+        "carousel-pressure-terms-06.png"
+      ],
+      "status": "PROPOSED — NOT SCHEDULED",
+      "alt": "See numbered slide text and technical limitations in carousels.json; equipment photos are contextual, not measurement procedures."
+    },
+    {
+      "id": "anyhvac-week-2026-10-26-v1-youtube-promo-measurement",
+      "packageId": "promo-measurement",
+      "platform": "youtube",
+      "channelId": "6abd5b46ea19ca0bde375392",
+      "proposedAt": "2026-10-29T19:00:00-04:00",
+      "timezone": "America/New_York",
+      "caption": "Separate the field reading from the design input.\n\nThe free AnyHVAC Airflow & Static Pressure Measurement Reference separates measured TESP, airflow evaluation and a design pressure budget. It covers instruments, measurement limitations and the inputs each calculator actually needs.\n\nUse the exact equipment and instrument procedures. A TESP reading alone does not establish airflow or design available static pressure.\n\nRead the free guide and download the two-page PDF:\nhttps://www.anyhvac.net/resources/airflow-static-pressure-measurement\n\nPhoto: MTA Capital Construction Mega Projects, via Wikimedia Commons, CC BY 2.0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:Layout_and_installation_of_ducts_for_the_motor_fans_located_in_the_mechanical_room_of_a_ventilation_facility_in_Queens._(CS179,_02-13-2019)_(33228414918).jpg\nhttps://creativecommons.org/licenses/by/2.0/\n\nMusic: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit. Licensed synchronized video use.\nhttps://mixkit.co/license/modal/musicFree/\n\n#HVAC #Shorts",
+      "title": "Measurement before interpretation | Free HVAC reference",
+      "destination": "https://www.anyhvac.net/resources/airflow-static-pressure-measurement",
+      "media": [
+        "promo-measurement-short.mp4"
+      ],
+      "status": "PROPOSED — NOT SCHEDULED",
+      "alt": "Equipment-only duct photograph with invitation to read the free airflow and static-pressure measurement reference; not a depicted measurement procedure."
+    },
+    {
+      "id": "anyhvac-week-2026-10-26-v1-linkedin-main-pressure-budget",
+      "packageId": "main-pressure-budget",
+      "platform": "linkedin",
+      "channelId": "6abd5811ea19ca0bde3709e4",
+      "proposedAt": "2026-10-30T15:00:00-04:00",
+      "timezone": "America/New_York",
+      "caption": "Design available static pressure is a budget—not a measured TESP shortcut.\n\nIllustrative inputs only: a valid design fan external-static allowance at the intended airflow of 0.80 in. w.g. minus 0.30 in. w.g. of applicable external component losses leaves 0.50 in. w.g. available static pressure. With 250 ft total effective length, FR = 0.50 × 100 / 250 = 0.20 in. w.g./100 ft.\n\nAccount for each applicable loss once and use a valid design allowance and TEL. These are arithmetic examples, not recommended targets, measured system performance or a compliant-design finding.\n\nExplore the existing Friction Rate module:\nhttps://www.anyhvac.net/tools/air-distribution\n\nAnyHVAC original illustrative design diagram.\n\nMusic: New Bass 01 — Lily J, via Mixkit. Licensed synchronized video use.\nhttps://mixkit.co/license/modal/musicFree/\n\n#HVAC #DuctDesign #StaticPressure #MEPEngineering",
+      "title": null,
+      "destination": "https://www.anyhvac.net/tools/air-distribution",
+      "media": [
+        "main-pressure-budget.mp4"
+      ],
+      "status": "PROPOSED — NOT SCHEDULED",
+      "alt": "Animated illustrative design budget: 0.80 minus 0.30 equals 0.50 in. w.g. available static, then 0.50 times 100 divided by 250 feet equals 0.20 in. w.g. per 100 feet. Not measured TESP or design targets."
+    },
+    {
+      "id": "anyhvac-week-2026-10-26-v1-instagram-main-pressure-budget",
+      "packageId": "main-pressure-budget",
+      "platform": "instagram",
+      "channelId": "6abd5952ea19ca0bde37267c",
+      "proposedAt": "2026-10-30T18:00:00-04:00",
+      "timezone": "America/New_York",
+      "caption": "Build the design pressure budget before choosing friction rate.\n\nIllustrative inputs: 0.80 − 0.30 = 0.50 in. w.g. available static. At 250 ft TEL: 0.50 × 100 / 250 = 0.20 in. w.g./100 ft.\n\nExamples only—not targets. Start with a valid design allowance, deduct applicable external component losses once, and verify TEL. Measured TESP is not a substitute.\n\nVisit anyhvac.net > Tools > Air Distribution > Friction Rate.\n\nAnyHVAC original illustrative design diagram.\n\nMusic: New Bass 01 — Lily J, via Mixkit. Licensed synchronized video use.\nhttps://mixkit.co/license/modal/musicFree/\n\n#HVAC #DuctDesign #StaticPressure #MEPEngineering",
+      "title": null,
+      "destination": "https://www.anyhvac.net/tools/air-distribution",
+      "media": [
+        "main-pressure-budget.mp4"
+      ],
+      "status": "PROPOSED — NOT SCHEDULED",
+      "alt": "Animated illustrative design budget: 0.80 minus 0.30 equals 0.50 in. w.g. available static, then 0.50 times 100 divided by 250 feet equals 0.20 in. w.g. per 100 feet. Not measured TESP or design targets."
+    },
+    {
+      "id": "anyhvac-week-2026-10-26-v1-youtube-main-pressure-budget",
+      "packageId": "main-pressure-budget",
+      "platform": "youtube",
+      "channelId": "6abd5b46ea19ca0bde375392",
+      "proposedAt": "2026-10-30T16:00:00-04:00",
+      "timezone": "America/New_York",
+      "caption": "Design available static pressure is a budget—not a measured TESP shortcut.\n\nIllustrative inputs only: a valid design fan external-static allowance at the intended airflow of 0.80 in. w.g. minus 0.30 in. w.g. of applicable external component losses leaves 0.50 in. w.g. available static pressure. With 250 ft total effective length, FR = 0.50 × 100 / 250 = 0.20 in. w.g./100 ft.\n\nAccount for each applicable loss once and use a valid design allowance and TEL. These are arithmetic examples, not recommended targets, measured system performance or a compliant-design finding.\n\nExplore the existing Friction Rate module:\nhttps://www.anyhvac.net/tools/air-distribution\n\nAnyHVAC original illustrative design diagram.\n\nMusic: New Bass 01 — Lily J, via Mixkit. Licensed synchronized video use.\nhttps://mixkit.co/license/modal/musicFree/\n\n#HVAC #Shorts",
+      "title": "Design pressure budget: ESP to friction rate | HVAC example",
+      "destination": "https://www.anyhvac.net/tools/air-distribution",
+      "media": [
+        "main-pressure-budget.mp4"
+      ],
+      "status": "PROPOSED — NOT SCHEDULED",
+      "alt": "Animated illustrative design budget: 0.80 minus 0.30 equals 0.50 in. w.g. available static, then 0.50 times 100 divided by 250 feet equals 0.20 in. w.g. per 100 feet. Not measured TESP or design targets."
+    },
+    {
+      "id": "anyhvac-week-2026-10-26-v1-youtube-promo-psychrometric",
+      "packageId": "promo-psychrometric",
+      "platform": "youtube",
+      "channelId": "6abd5b46ea19ca0bde375392",
+      "proposedAt": "2026-10-31T19:00:00-04:00",
+      "timezone": "America/New_York",
+      "caption": "A dry-bulb temperature alone does not define a complete moist-air state.\n\nUse the free AnyHVAC Psychrometric Calculator to pair dry bulb with relative humidity, wet bulb or dew point, then establish elevation-derived or actual atmospheric pressure. The chart and calculated properties describe the same state.\n\nReview humidity ratio, enthalpy and specific volume together. These are calculated properties from supplied inputs—not a field measurement or equipment-performance guarantee.\n\nExplore the tool:\nhttps://www.anyhvac.net/tools/psychrometric-calculator\n\nPhoto: Alf van Beem, via Wikimedia Commons, CC0. Cropped and overlaid; equipment context only, no endorsement.\nhttps://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG\nhttps://creativecommons.org/publicdomain/zero/1.0/\n\nMusic: Sleepy Cat — Alejandro Magaña (A. M.), via Mixkit. Licensed synchronized video use.\nhttps://mixkit.co/license/modal/musicFree/\n\n#HVAC #Shorts",
+      "title": "One air state, several properties | Free psychrometric calculator",
+      "destination": "https://www.anyhvac.net/tools/psychrometric-calculator",
+      "media": [
+        "promo-psychrometric-short.mp4"
+      ],
+      "status": "PROPOSED — NOT SCHEDULED",
+      "alt": "Contextual air-handler photograph and headline One state, several useful properties; invitation to use the free psychrometric calculator."
+    }
+  ],
+  "assets": [
+    {
+      "file": "promo-measurement-social.png",
+      "bytes": 876112,
+      "sha256": "1c9e2d5e0f324fc170453a1cda10a59499d4f2266211d2828af1f592e88645ad",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "promo-measurement-vertical.png",
+      "bytes": 1355398,
+      "sha256": "fa111a0f71ed4482fb99dad71c568ebb79c7e63d9d52c11d36ec376d153d3eb1",
+      "width": 1080,
+      "height": 1920,
+      "type": "image/png"
+    },
+    {
+      "file": "promo-psychrometric-social.png",
+      "bytes": 1249704,
+      "sha256": "d6f5b8aab7fee02906a908ec82db569cf43943df7e6fbbe7ba70cef727db4a2e",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "promo-psychrometric-vertical.png",
+      "bytes": 1879823,
+      "sha256": "a93145fa5a30916fa7d6d9469050f5df69721876268da2dfba5b9534710a9d15",
+      "width": 1080,
+      "height": 1920,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-tesp-01.png",
+      "bytes": 1050783,
+      "sha256": "e309a8a5f7a3c24a91bce0e9625e3ca241055bb7b60ca15c1ddc638da60d5bb2",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-tesp-02.png",
+      "bytes": 117988,
+      "sha256": "b1b54371591e9ebb8791ef4e42cd94c25c3c4ce92f52db3ef8cc188b90853216",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-tesp-03.png",
+      "bytes": 120879,
+      "sha256": "c39c77d1b818fbd56a1895541db59946fc56360f08ae5dc2c7531397086d94c5",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-tesp-04.png",
+      "bytes": 120734,
+      "sha256": "b412b4068fc07eb457fab61cf8253a7d20f7d5c6a00ebf52ce7c5da0eef855be",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-tesp-05.png",
+      "bytes": 125844,
+      "sha256": "b73f24a4b5008e04436b2855b6db6d44fe775cf9f6c86fdc0df9b92619e43aa0",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-tesp-06.png",
+      "bytes": 1054828,
+      "sha256": "256a341c940520d50e893ba4de344d7d8df92daa3e2a625732923c386f69d51b",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-pressure-terms-01.png",
+      "bytes": 1317137,
+      "sha256": "2cd087bc648fbe12e188d01b96dd82bd5e83b4c2b6254b5702bebbc7e743ddbf",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-pressure-terms-02.png",
+      "bytes": 115096,
+      "sha256": "3aa47f6e632811c451254a42260a863d9cc43772e6063e6f0ac592c096a48e6a",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-pressure-terms-03.png",
+      "bytes": 114862,
+      "sha256": "61c6abb2a7bd50e50af71e7aed67be2e20e2a5d89f5de190ca464f6741a4bb53",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-pressure-terms-04.png",
+      "bytes": 113009,
+      "sha256": "61ec704a21e1ed993a0c6a5251f91652849365ff9e22b434acd5ea410e6a58da",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-pressure-terms-05.png",
+      "bytes": 119616,
+      "sha256": "b2899e920ebeb5754e963616c79b126f9ec5df3e2b5f8e36dee21a2f85c2bc0e",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "carousel-pressure-terms-06.png",
+      "bytes": 1325303,
+      "sha256": "107338d06ad2f6013041e8f062369ac94e9f8a9db204a189cfd4eb3fa09eb1b8",
+      "width": 1080,
+      "height": 1350,
+      "type": "image/png"
+    },
+    {
+      "file": "promo-measurement-short.mp4",
+      "bytes": 740877,
+      "sha256": "fa2229549b32a02dc774cc350ebc024e8160af3b43c8eb6162fed5825fb66217",
+      "width": 1080,
+      "height": 1920,
+      "duration": 16,
+      "type": "video/mp4",
+      "audio": true
+    },
+    {
+      "file": "promo-psychrometric-short.mp4",
+      "bytes": 745028,
+      "sha256": "7b198e2b12579b7d94c88a494e3775bc5cf0b587ca946600ff876cd3172432e8",
+      "width": 1080,
+      "height": 1920,
+      "duration": 16,
+      "type": "video/mp4",
+      "audio": true
+    },
+    {
+      "file": "main-pressure-budget-poster.png",
+      "bytes": 109465,
+      "sha256": "78d8650f405d067e429ca7fcfdf48dd04e487ac7356e54442c96ebb6e008e7ac",
+      "width": 1080,
+      "height": 1920,
+      "type": "image/png"
+    },
+    {
+      "file": "main-pressure-budget.mp4",
+      "bytes": 909051,
+      "sha256": "88e5a71d922132fc2435f1b115a7263ab970d8683bd2d7d3479840a4e65652dd",
+      "width": 1080,
+      "height": 1920,
+      "duration": 28,
+      "type": "video/mp4",
+      "audio": true
+    }
+  ],
+  "digest": "12a243c16bf90c14ba2eebb526927bc5d1f35ab785fad0d82c385e2b0460bf04"
+}

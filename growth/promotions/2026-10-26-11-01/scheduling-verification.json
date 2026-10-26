@@ -1,0 +1,163 @@
+{
+  "checkedAt": "2026-10-26T16:44:23.025Z",
+  "all13Verified": true,
+  "results": [
+    {
+      "post_id": "anyhvac-week-2026-10-26-v1-linkedin-promo-measurement",
+      "platform": "linkedin",
+      "package_id": "promo-measurement",
+      "id": "6adf835879dbb5e6f42615c9",
+      "scheduledAt": "2026-10-26T17:00:00-04:00",
+      "status": "scheduled",
+      "captionExact": true,
+      "channelExact": true,
+      "timeExact": true,
+      "mediaOrderExact": true
+    },
+    {
+      "post_id": "anyhvac-week-2026-10-26-v1-instagram-promo-measurement",
+      "platform": "instagram",
+      "package_id": "promo-measurement",
+      "id": "6adf83582bcc043904fb11b3",
+      "scheduledAt": "2026-10-26T19:00:00-04:00",
+      "status": "scheduled",
+      "captionExact": true,
+      "channelExact": true,
+      "timeExact": true,
+      "mediaOrderExact": true
+    },
+    {
+      "post_id": "anyhvac-week-2026-10-26-v1-linkedin-carousel-tesp",
+      "platform": "linkedin",
+      "package_id": "carousel-tesp",
+      "id": "6adf8359d0e68644af58eb54",
+      "scheduledAt": "2026-10-27T16:00:00-04:00",
+      "status": "scheduled",
+      "captionExact": true,
+      "channelExact": true,
+      "timeExact": true,
+      "mediaOrderExact": true
+    },
+    {
+      "post_id": "anyhvac-week-2026-10-26-v1-instagram-carousel-tesp",
+      "platform": "instagram",
+      "package_id": "carousel-tesp",
+      "id": "6adf835979dbb5e6f4261624",
+      "scheduledAt": "2026-10-27T19:00:00-04:00",
+      "status": "scheduled",
+      "captionExact": true,
+      "channelExact": true,
+      "timeExact": true,
+      "mediaOrderExact": true
+    },
+    {
+      "post_id": "anyhvac-week-2026-10-26-v1-linkedin-promo-psychrometric",
+      "platform": "linkedin",
+      "package_id": "promo-psychrometric",
+      "id": "6adf835ad0e68644af58eb85",
+      "scheduledAt": "2026-10-28T16:00:00-04:00",
+      "status": "scheduled",
+      "captionExact": true,
+      "channelExact": true,
+      "timeExact": true,
+      "mediaOrderExact": true
+    },
+    {
+      "post_id": "anyhvac-week-2026-10-26-v1-instagram-promo-psychrometric",
+      "platform": "instagram",
+      "package_id": "promo-psychrometric",
+      "id": "6adf835ad0e68644af58ebd2",
+      "scheduledAt": "2026-10-28T18:00:00-04:00",
+      "status": "scheduled",
+      "captionExact": true,
+      "channelExact": true,
+      "timeExact": true,
+      "mediaOrderExact": true
+    },
+    {
+      "post_id": "anyhvac-week-2026-10-26-v1-linkedin-carousel-pressure-terms",
+      "platform": "linkedin",
+      "package_id": "carousel-pressure-terms",
+      "id": "6adf835b193f91a89c03b2b5",
+      "scheduledAt": "2026-10-29T17:00:00-04:00",
+      "status": "scheduled",
+      "captionExact": true,
+      "channelExact": true,
+      "timeExact": true,
+      "mediaOrderExact": true
+    },
+    {
+      "post_id": "anyhvac-week-2026-10-26-v1-instagram-carousel-pressure-terms",
+      "platform": "instagram",
+      "package_id": "carousel-pressure-terms",
+      "id": "6adf835c2bcc043904fb124d",
+      "scheduledAt": "2026-10-29T09:00:00-04:00",
+      "status": "scheduled",
+      "captionExact": true,
+      "channelExact": true,
+      "timeExact": true,
+      "mediaOrderExact": true
+    },
+    {
+      "post_id": "anyhvac-week-2026-10-26-v1-youtube-promo-measurement",
+      "platform": "youtube",
+      "package_id": "promo-measurement",
+      "id": "6adf835cfbcc83d9686ed80f",
+      "scheduledAt": "2026-10-29T19:00:00-04:00",
+      "status": "scheduled",
+      "captionExact": true,
+      "channelExact": true,
+      "timeExact": true,
+      "mediaOrderExact": true
+    },
+    {
+      "post_id": "anyhvac-week-2026-10-26-v1-linkedin-main-pressure-budget",
+      "platform": "linkedin",
+      "package_id": "main-pressure-budget",
+      "id": "6adf835d193f91a89c03b32f",
+      "scheduledAt": "2026-10-30T15:00:00-04:00",
+      "status": "scheduled",
+      "captionExact": true,
+      "channelExact": true,
+      "timeExact": true,
+      "mediaOrderExact": true
+    },
+    {
+      "post_id": "anyhvac-week-2026-10-26-v1-instagram-main-pressure-budget",
+      "platform": "instagram",
+      "package_id": "main-pressure-budget",
+      "id": "6adf835e2bcc043904fb12d5",
+      "scheduledAt": "2026-10-30T18:00:00-04:00",
+      "status": "scheduled",
+      "captionExact": true,
+      "channelExact": true,
+      "timeExact": true,
+      "mediaOrderExact": true
+    },
+    {
+      "post_id": "anyhvac-week-2026-10-26-v1-youtube-main-pressure-budget",
+      "platform": "youtube",
+      "package_id": "main-pressure-budget",
+      "id": "6adf835f1675899b76eb4d68",
+      "scheduledAt": "2026-10-30T16:00:00-04:00",
+      "status": "scheduled",
+      "captionExact": true,
+      "channelExact": true,
+      "timeExact": true,
+      "mediaOrderExact": true
+    },
+    {
+      "post_id": "anyhvac-week-2026-10-26-v1-youtube-promo-psychrometric",
+      "platform": "youtube",
+      "package_id": "promo-psychrometric",
+      "id": "6adf835f193f91a89c03b386",
+      "scheduledAt": "2026-10-31T19:00:00-04:00",
+      "status": "scheduled",
+      "captionExact": true,
+      "channelExact": true,
+      "timeExact": true,
+      "mediaOrderExact": true
+    }
+  ],
+  "publicationVerified": false
+}

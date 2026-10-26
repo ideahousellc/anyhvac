@@ -1,0 +1,23 @@
+﻿{
+    "reviewer":  "William",
+    "reviewedAt":  "2026-10-26T16:03:29.5422243Z",
+    "verdict":  "PASS FOR OWNER REVIEW ONLY",
+    "assetCount":  20,
+    "hashMismatches":  0,
+    "boundFiles":  {
+                       "packages.json":  "9a0e7eceb9955724b9c7f18a6e27c1b27ede6ab0ba0d5b02f67dfdb827b91893",
+                       "calendar.json":  "f2140a1be456f66ee3324f82fba191addcd0ef1e20e275ab9bf7fbf87e476d99",
+                       "licensing.json":  "0204b9698fc31d7c72e4546427cf0e271543281ecb278f8a224958552654b10d",
+                       "media-manifest.json":  "d6574d0f2a120d088e58bba6409c2620e1d280f274b21fe243b9cc54669d4b67",
+                       "review-ready-batch.json":  "f5f99e850b9f3698f7a04371e7eb6f17f00438063310a8da46f9cf030bcdd1a5",
+                       "media-validation.json":  "aa414ceb8d26d1ccb69d25830ae063f7bdae774b1ede762e43d43142c6d5d5d3"
+                   },
+    "ownerPlaybackPending":  true,
+    "publicationApproved":  false,
+    "limitations":  [
+                        "Sampled visuals, not continuous playback",
+                        "No subjective listening claim",
+                        "Provider sent statuses are not native engagement analytics",
+                        "Fresh collision check required before authorized scheduling"
+                    ]
+}

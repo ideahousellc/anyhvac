@@ -1,0 +1,9 @@
+{
+  "checkedAt": "2026-10-26T16:44:07.171Z",
+  "state": "READY",
+  "verificationSource": "Owner Vercel Ready confirmation plus independent production media byte verification",
+  "alias": "www.anyhvac.net",
+  "all20ProductionAssetsMatch": true,
+  "commit": null,
+  "limitation": "Owner confirmed pushed media commit; commit ID not independently established. Exact approved bytes verified on canonical production host."
+}

@@ -1,0 +1,71 @@
+{
+  "checkedAt": "2026-10-26T15:58:48.657Z",
+  "checks": [
+    {
+      "postId": "anyhvac-week-2026-10-26-v1-linkedin-promo-measurement",
+      "exactCaptionDuplicate": false,
+      "slotCollision": []
+    },
+    {
+      "postId": "anyhvac-week-2026-10-26-v1-instagram-promo-measurement",
+      "exactCaptionDuplicate": false,
+      "slotCollision": []
+    },
+    {
+      "postId": "anyhvac-week-2026-10-26-v1-linkedin-carousel-tesp",
+      "exactCaptionDuplicate": false,
+      "slotCollision": []
+    },
+    {
+      "postId": "anyhvac-week-2026-10-26-v1-instagram-carousel-tesp",
+      "exactCaptionDuplicate": false,
+      "slotCollision": []
+    },
+    {
+      "postId": "anyhvac-week-2026-10-26-v1-linkedin-promo-psychrometric",
+      "exactCaptionDuplicate": false,
+      "slotCollision": []
+    },
+    {
+      "postId": "anyhvac-week-2026-10-26-v1-instagram-promo-psychrometric",
+      "exactCaptionDuplicate": false,
+      "slotCollision": []
+    },
+    {
+      "postId": "anyhvac-week-2026-10-26-v1-linkedin-carousel-pressure-terms",
+      "exactCaptionDuplicate": false,
+      "slotCollision": []
+    },
+    {
+      "postId": "anyhvac-week-2026-10-26-v1-instagram-carousel-pressure-terms",
+      "exactCaptionDuplicate": false,
+      "slotCollision": []
+    },
+    {
+      "postId": "anyhvac-week-2026-10-26-v1-youtube-promo-measurement",
+      "exactCaptionDuplicate": false,
+      "slotCollision": []
+    },
+    {
+      "postId": "anyhvac-week-2026-10-26-v1-linkedin-main-pressure-budget",
+      "exactCaptionDuplicate": false,
+      "slotCollision": []
+    },
+    {
+      "postId": "anyhvac-week-2026-10-26-v1-instagram-main-pressure-budget",
+      "exactCaptionDuplicate": false,
+      "slotCollision": []
+    },
+    {
+      "postId": "anyhvac-week-2026-10-26-v1-youtube-main-pressure-budget",
+      "exactCaptionDuplicate": false,
+      "slotCollision": []
+    },
+    {
+      "postId": "anyhvac-week-2026-10-26-v1-youtube-promo-psychrometric",
+      "exactCaptionDuplicate": false,
+      "slotCollision": []
+    }
+  ],
+  "limitations": "Exact caption/slot comparison plus manual topic review; sent is provider delivery, not native verification. Reused destination is intentional, not a duplicate post."
+}

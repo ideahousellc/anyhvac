@@ -1,0 +1,18 @@
+{
+  "technicalSources": [
+    {
+      "file": "app/resources/airflow-static-pressure-measurement/page.tsx",
+      "sha256": "3a81c5cb1ac8779130517370acbce93b49b7d699716f4e51568a87c5b8630eba"
+    },
+    {
+      "file": "components/psychrometrics/PsychrometricGuide.tsx",
+      "sha256": "b4dd835c1d4dc344be2f342b23fbb25e2d135612177cc69cc6bb38f2ed9c2344"
+    },
+    {
+      "file": "components/air-distribution/AirDistributionTools.tsx",
+      "sha256": "cf15c2a01b436c60c49bc6f092fd104d663ae88f511d94ba6c195ad8562da0ca"
+    }
+  ],
+  "arithmetic": "abs(-.20)+abs(.35)=.55; .80-.30=.50; .50*100/250=.20; all illustrative, not recommended values",
+  "recentHistory": "Oct19 approved v2 and fresh Buffer history inspected. Oct12 measurement resource reused with fresh interpretation angle. No retry of historic failures."
+}

@@ -1,0 +1,132 @@
+{
+  "carousels": [
+    {
+      "id": "carousel-tesp",
+      "slides": [
+        {
+          "file": "carousel-tesp-01.png",
+          "title": "TESP IS NOT AIRFLOW.",
+          "copy": [
+            "A pressure measurement needs context.",
+            "Start with the exact equipment procedure."
+          ],
+          "alt": "TESP IS NOT AIRFLOW. A pressure measurement needs context. Start with the exact equipment procedure."
+        },
+        {
+          "file": "carousel-tesp-02.png",
+          "title": "DEFINE THE BOUNDARY.",
+          "copy": [
+            "Use manufacturer-approved test locations.",
+            "Identify which components are inside or outside",
+            "the specified external-static boundary."
+          ],
+          "alt": "DEFINE THE BOUNDARY. Use manufacturer-approved test locations. Identify which components are inside or outside the specified external-static boundary."
+        },
+        {
+          "file": "carousel-tesp-03.png",
+          "title": "KEEP THE SIGNS STRAIGHT.",
+          "copy": [
+            "Illustrative return static: -0.20 in. w.g.",
+            "Illustrative supply static: +0.35 in. w.g.",
+            "TESP = 0.35 - (-0.20) = 0.55 in. w.g."
+          ],
+          "alt": "KEEP THE SIGNS STRAIGHT. Illustrative return static: -0.20 in. w.g. Illustrative supply static: +0.35 in. w.g. TESP = 0.35 - (-0.20) = 0.55 in. w.g."
+        },
+        {
+          "file": "carousel-tesp-04.png",
+          "title": "A PRESSURE IS NOT A FLOW.",
+          "copy": [
+            "Compare with manufacturer data for the exact",
+            "equipment and operating configuration.",
+            "TESP alone does not establish airflow."
+          ],
+          "alt": "A PRESSURE IS NOT A FLOW. Compare with manufacturer data for the exact equipment and operating configuration. TESP alone does not establish airflow."
+        },
+        {
+          "file": "carousel-tesp-05.png",
+          "title": "MEASURED TESP IS NOT DESIGN ASP.",
+          "copy": [
+            "Do not substitute a field pressure reading",
+            "for the available duct pressure in a design.",
+            "Use the appropriate calculation and boundary."
+          ],
+          "alt": "MEASURED TESP IS NOT DESIGN ASP. Do not substitute a field pressure reading for the available duct pressure in a design. Use the appropriate calculation and boundary."
+        },
+        {
+          "file": "carousel-tesp-06.png",
+          "title": "MEASURE. RECORD. THEN INTERPRET.",
+          "copy": [
+            "Record conditions and test locations.",
+            "Use the free airflow / static-pressure reference.",
+            "AnyHVAC.net / Resources"
+          ],
+          "alt": "MEASURE. RECORD. THEN INTERPRET. Record conditions and test locations. Use the free airflow / static-pressure reference. AnyHVAC.net / Resources"
+        }
+      ]
+    },
+    {
+      "id": "carousel-pressure-terms",
+      "slides": [
+        {
+          "file": "carousel-pressure-terms-01.png",
+          "title": "PRESSURE TERMS NEED A CONTEXT.",
+          "copy": [
+            "Static, velocity and total pressure",
+            "describe different things."
+          ],
+          "alt": "PRESSURE TERMS NEED A CONTEXT. Static, velocity and total pressure describe different things."
+        },
+        {
+          "file": "carousel-pressure-terms-02.png",
+          "title": "STATIC PRESSURE.",
+          "copy": [
+            "Static pressure acts in all directions.",
+            "Use an appropriate static-pressure method.",
+            "Probe placement and flow conditions matter."
+          ],
+          "alt": "STATIC PRESSURE. Static pressure acts in all directions. Use an appropriate static-pressure method. Probe placement and flow conditions matter."
+        },
+        {
+          "file": "carousel-pressure-terms-03.png",
+          "title": "VELOCITY PRESSURE.",
+          "copy": [
+            "Velocity pressure relates to air motion.",
+            "Density and velocity determine its value.",
+            "It is not a substitute for a static reading."
+          ],
+          "alt": "VELOCITY PRESSURE. Velocity pressure relates to air motion. Density and velocity determine its value. It is not a substitute for a static reading."
+        },
+        {
+          "file": "carousel-pressure-terms-04.png",
+          "title": "TOTAL PRESSURE.",
+          "copy": [
+            "At the same point and reference basis:",
+            "total pressure = static + velocity pressure.",
+            "Use compatible measurements and units."
+          ],
+          "alt": "TOTAL PRESSURE. At the same point and reference basis: total pressure = static + velocity pressure. Use compatible measurements and units."
+        },
+        {
+          "file": "carousel-pressure-terms-05.png",
+          "title": "DROP VS EQUIPMENT TESP.",
+          "copy": [
+            "Pressure drop compares specified points.",
+            "TESP uses a defined equipment external boundary.",
+            "These terms are not interchangeable."
+          ],
+          "alt": "DROP VS EQUIPMENT TESP. Pressure drop compares specified points. TESP uses a defined equipment external boundary. These terms are not interchangeable."
+        },
+        {
+          "file": "carousel-pressure-terms-06.png",
+          "title": "NAME THE MEASUREMENT.",
+          "copy": [
+            "Define the points, basis and procedure.",
+            "Follow the manufacturer reference.",
+            "AnyHVAC.net / Resources"
+          ],
+          "alt": "NAME THE MEASUREMENT. Define the points, basis and procedure. Follow the manufacturer reference. AnyHVAC.net / Resources"
+        }
+      ]
+    }
+  ]
+}

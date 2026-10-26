@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-10-26T16:01:58.938Z",
+  "method": "HEAD only; no browser analytics",
+  "links": [
+    {
+      "url": "https://www.anyhvac.net/resources/airflow-static-pressure-measurement",
+      "status": 200,
+      "finalUrl": "https://www.anyhvac.net/resources/airflow-static-pressure-measurement"
+    },
+    {
+      "url": "https://www.anyhvac.net/tools/psychrometric-calculator",
+      "status": 200,
+      "finalUrl": "https://www.anyhvac.net/tools/psychrometric-calculator"
+    },
+    {
+      "url": "https://www.anyhvac.net/tools/air-distribution",
+      "status": 200,
+      "finalUrl": "https://www.anyhvac.net/tools/air-distribution"
+    }
+  ]
+}

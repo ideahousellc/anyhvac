@@ -106,6 +106,25 @@ export default function AboutPage() {
         </ul>
       </ContentSection>
 
+      <ContentSection title="Calculation checks and corrections">
+        <p>
+          Calculator-generated examples show how the implemented methods behave;
+          they are not independent validation. Automated tests include a
+          PsychroLib dew-point reference comparison, unit consistency, mixing
+          conservation, and invalid-input checks. A library reference comparison
+          is not independent certification of AnyHVAC or verification of a
+          project-specific result.
+        </p>
+        <p>
+          To <Link href="/contact">report a calculation issue</Link>, include the
+          tool, inputs and units, pressure setting where relevant, actual result,
+          and expected result with its source. Reproducing the case and checking
+          method assumptions helps distinguish a defect from differing inputs or
+          methods. Confirmed defects need a focused regression check alongside
+          the correction. No professional review or response time is implied.
+        </p>
+      </ContentSection>
+
       <ContentSection title="Support AnyHVAC">
         <StatusPanel>
           <h3>Support AnyHVAC</h3>

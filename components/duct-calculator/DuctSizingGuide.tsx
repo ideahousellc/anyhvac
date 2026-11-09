@@ -319,10 +319,42 @@ const guideSections: readonly ToolGuideSection[] = [
     label: "Equal Friction Method",
     title: "Equal Friction Method",
     content: (
+      <>
       <p>
         The equal friction method sizes ductwork around a consistent friction
         rate while maintaining the airflow required by the system.
       </p>
+      <p className={styles.formula}>
+        D = (0.109136 × Q^1.9 / FR)^(1/5.02)
+      </p>
+      <p>
+        Q is CFM, D is inches, and FR is in. w.g./100 ft. The coefficient
+        0.109136 and exponents 1.9 and 5.02 are fixed in this implementation;
+        they are not recalculated for duct material, roughness, temperature,
+        or elevation. This explanation documents the code and does not attribute
+        this specific correlation to a standards organization or establish a
+        validated material or operating range.
+      </p>
+      <p>
+        Round area is πD²/576 ft² and velocity is 576Q/(πD²) FPM. The suggested
+        nominal diameter is the first size in the calculator&apos;s size list at
+        or above the calculated diameter; beyond that list it rounds up in
+        6-inch increments. Reported nominal friction uses the same correlation,
+        not a measured pressure drop.
+      </p>
+      <p className={styles.formula}>
+        De = 1.3 × (a × b)^0.625 / (a + b)^0.25
+      </p>
+      <p>
+        Rectangular sides a and b and equivalent round diameter De are in
+        inches. The calculator evaluates friction using De, while rectangular
+        velocity uses actual rectangular area. Equal area is not equal friction.
+        Candidate selection limits sides to 4–96 inches and aspect ratio to 4:1.
+        Its friction tolerance is 5%, with a 6.5% allowance for preferred-side
+        candidates after whole-inch rounding. These are software selection rules,
+        not code limits or evidence that the complete design is acceptable.
+      </p>
+      </>
     ),
   },
 ];

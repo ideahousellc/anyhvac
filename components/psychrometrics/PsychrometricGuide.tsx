@@ -46,6 +46,25 @@ const guideSections: readonly ToolGuideSection[] = [
           moisture, air density, and other moist-air properties change with
           atmospheric pressure and elevation.
         </p>
+        <p>
+          The engine calls PsychroLib&apos;s relative-humidity, wet-bulb, or
+          dew-point calculation for the selected input mode. Relative humidity
+          is entered as a percentage. IP uses °F and absolute psi; SI uses °C
+          and Pa internally, accepting manual kPa by conversion. SI enthalpy is
+          displayed in kJ/kg dry air rather than the backend&apos;s J/kg.
+          Humidity ratio is water-vapor mass per dry-air mass; the IP display
+          converts lb/lb to grains/lb. Specific volume is ft³/lb or m³/kg dry air.
+        </p>
+        <p>
+          Automated checks compare dew point with the published PsychroLib
+          reference of 21.3094°C at 25°C dry bulb, 80% RH, and 101,325 Pa.
+          That is a library reference check, not validation independent of
+          PsychroLib. Other tests check unit conversion, moisture-input round
+          trips, invalid inputs, and convergence at saturation. These checks
+          do not establish accuracy for every possible input. PsychroLib also
+          applies a minimum humidity ratio of 0.0000001, so extremely dry
+          states are subject to that numerical floor.
+        </p>
       </>
     ),
   },
@@ -155,7 +174,10 @@ const guideSections: readonly ToolGuideSection[] = [
     title: "Example Psychrometric Calculation",
     content: (
       <>
-        <p>Start with the calculator&apos;s default air state:</p>
+        <p>
+          Calculator-generated demonstration, not an independently validated
+          reference example. Start with the calculator&apos;s default air state:
+        </p>
         <dl className={guideStyles.exampleValues}>
           <div>
             <dt>Dry-bulb temperature:</dt>

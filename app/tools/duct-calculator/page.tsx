@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { AdPlaceholder } from "@/components/AdPlaceholder";
+import { CalculationIssueNote } from "@/components/CalculationIssueNote";
 import { DuctCalculator } from "@/components/duct-calculator/DuctCalculator";
 import { DuctSizingGuide } from "@/components/duct-calculator/DuctSizingGuide";
 import { EngineeringNotice } from "@/components/EngineeringNotice";
@@ -81,6 +82,23 @@ export default function DuctCalculatorPage() {
         </div>
 
         <div className={styles.contentBlock}>
+          <h2>Calculation method and scope</h2>
+          <p>
+            The implemented round-duct correlation is FR = 0.109136 × Q^1.9 / D^5.02,
+            with Q in CFM, D in inches, and FR in in. w.g./100 ft. The calculator
+            solves this for diameter, then recalculates velocity and friction at
+            the suggested nominal size. The fixed coefficient is tied to these units.
+          </p>
+          <p>
+            This is a fixed empirical approximation, not a material-specific
+            pressure-loss model: it does not accept roughness, air density, or
+            temperature corrections. It excludes fitting and equipment losses.
+            The detailed guide explains rectangular equivalence and selection limits.
+          </p>
+          <CalculationIssueNote />
+        </div>
+
+        <div className={styles.contentBlock}>
           <h2>Practical duct-sizing example</h2>
           <p>
             For illustrative inputs of 5,000 CFM and 0.10 in. w.g./100 ft, the
@@ -88,6 +106,11 @@ export default function DuctCalculatorPage() {
             26-inch nominal round size gives about 1,356 FPM and 0.092 in.
             w.g./100 ft. The nominal size changes both reported quantities;
             these values are not recommended design targets.
+          </p>
+          <p>
+            This is a demonstration of the implemented correlation, not an
+            independent reference measurement or validation of its applicability
+            to a particular duct material or project.
           </p>
           <p>
             The detailed guide below explains the equal-friction approach and

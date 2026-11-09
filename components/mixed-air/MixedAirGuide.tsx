@@ -30,7 +30,16 @@ const sections: readonly ToolGuideSection[] = [
   },
   {
     id: "mixed-air-method", label: "Mixing Method", title: "Dry-Air Mass Mixing Method",
-    content: <><p>AnyHVAC calculates each incoming psychrometric state with the locked engine, converts airflow to dry-air mass flow using specific volume, conserves moisture and enthalpy, and derives the final state at the common project pressure.</p><p><strong>Relative humidity is not directly averaged.</strong> It is calculated from the conserved mixed humidity ratio, mixed enthalpy, and pressure.</p></>,
+    content: <>
+      <p>AnyHVAC calculates each incoming psychrometric state with PsychroLib at the same project pressure. Each entered airflow must describe that stream at its entered temperature and humidity, rather than a standardized airflow at another reference condition.</p>
+      <p className={guideStyles.formula}>m₁ = Q₁ / v₁; m₂ = Q₂ / v₂</p>
+      <p>Here m is dry-air mass flow, Q is volumetric airflow, and v is specific volume per unit mass of dry air. IP CFM and ft³/lb give lb dry air/min. SI airflow is converted from L/s to m³/s before division by m³/kg, giving kg dry air/s.</p>
+      <p className={guideStyles.formula}>Wmix = (m₁W₁ + m₂W₂) / (m₁ + m₂)</p>
+      <p className={guideStyles.formula}>hmix = (m₁h₁ + m₂h₂) / (m₁ + m₂)</p>
+      <p>W is humidity ratio and h is enthalpy per unit mass of dry air. The model assumes steady, adiabatic mixing with no added moisture or external energy. PsychroLib recovers dry bulb from hmix and Wmix, then relative humidity at the common pressure. <strong>Relative humidity is not directly averaged.</strong></p>
+      <p>The solver rejects a mixture at or above saturation within its numerical tolerance; it does not calculate condensate or a two-phase balance. It does not model incomplete mixing, leakage, fan heat, or pressure differences between incoming streams.</p>
+      <p>Conservation, identical-stream, unit-consistency, and saturation tests check implementation behavior. They are not an independently measured mixing benchmark or certification of equipment performance.</p>
+    </>,
   },
   {
     id: "mixed-air-results", label: "Understanding Results", title: "Understanding Mixed-Air Results",
@@ -38,7 +47,7 @@ const sections: readonly ToolGuideSection[] = [
   },
   {
     id: "mixed-air-example", label: "Example", title: "Example Mixed-Air Calculation",
-    content: <><p>At sea level, mix 500 CFM of 90°F / 50% RH outdoor air with 1,500 CFM of 75°F / 50% RH return air. The implemented solver calculates:</p><dl className={guideStyles.exampleValues}><div><dt>Total airflow:</dt><dd>{example.value.totalInputAirflow.toFixed(0)} CFM</dd></div><div><dt>Outdoor / return air:</dt><dd>{example.value.outdoorAirPercent.toFixed(1)}% / {example.value.returnAirPercent.toFixed(1)}%</dd></div><div><dt>Mixed dry bulb:</dt><dd>{exampleState.dryBulb.toFixed(1)}°F</dd></div><div><dt>Mixed relative humidity:</dt><dd>{exampleState.relativeHumidity.toFixed(1)}%</dd></div><div><dt>Mixed humidity ratio:</dt><dd>{humidityRatioToGrainsPerPound(exampleState.humidityRatio).toFixed(1)} grains/lb</dd></div><div><dt>Mixed enthalpy:</dt><dd>{exampleState.enthalpy.toFixed(1)} Btu/lb</dd></div></dl></>,
+    content: <><p>Calculator-generated demonstration, not an independently validated reference example. At sea level, mix 500 CFM of 90°F / 50% RH outdoor air with 1,500 CFM of 75°F / 50% RH return air. The implemented solver calculates:</p><dl className={guideStyles.exampleValues}><div><dt>Total entered airflow:</dt><dd>{example.value.totalInputAirflow.toFixed(0)} CFM</dd></div><div><dt>Outdoor / return air:</dt><dd>{example.value.outdoorAirPercent.toFixed(1)}% / {example.value.returnAirPercent.toFixed(1)}%</dd></div><div><dt>Mixed dry bulb:</dt><dd>{exampleState.dryBulb.toFixed(1)}°F</dd></div><div><dt>Mixed relative humidity:</dt><dd>{exampleState.relativeHumidity.toFixed(1)}%</dd></div><div><dt>Mixed humidity ratio:</dt><dd>{humidityRatioToGrainsPerPound(exampleState.humidityRatio).toFixed(1)} grains/lb</dd></div><div><dt>Mixed enthalpy:</dt><dd>{exampleState.enthalpy.toFixed(1)} Btu/lb</dd></div></dl></>,
   },
   {
     id: "mixed-air-applications", label: "HVAC Applications", title: "HVAC Applications",

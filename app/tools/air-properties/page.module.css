@@ -3,6 +3,27 @@
   overflow-x: clip;
 }
 
+.comparison {
+  margin-top: 28px;
+  overflow-x: auto;
+  border-radius: 18px;
+  padding: 18px;
+  background: var(--surface);
+  box-shadow: 6px 7px 16px var(--shadow-dark), -6px -6px 16px var(--shadow-light);
+}
+
+.comparison table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.comparison caption { text-align: left; font-weight: 700; padding-bottom: 16px; }
+.comparison th, .comparison td { padding: 14px 10px; text-align: left; vertical-align: top; overflow-wrap: anywhere; font-size: 14px; line-height: 1.65; border-bottom: 1px solid color-mix(in srgb, var(--muted) 22%, transparent); }
+.comparison td { color: var(--muted); }
+.comparison th:first-child { width: 18%; }
+
+@media (max-width: 520px) {
+  .comparison { padding: 10px; }
+  .comparison th, .comparison td { padding: 12px 6px; font-size: 13px; }
+  .comparison th:first-child { width: 22%; }
+}
+
 .intro {
   padding-top: clamp(44px, 6vw, 72px);
   padding-bottom: 30px;

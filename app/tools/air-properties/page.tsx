@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { Header } from "@/components/Header";
 import { ToolCardGrid } from "@/components/ToolsDirectory";
-import type { HvacTool } from "@/data/tools";
+import { HVAC_TOOLS } from "@/data/tools";
 import { createPageMetadata } from "@/lib/seo";
 
 import styles from "./page.module.css";
@@ -15,33 +15,9 @@ export const metadata: Metadata = createPageMetadata({
   path: "/tools/air-properties",
 });
 
-const PSYCHROMETRIC_CALCULATOR_TOOL: HvacTool = {
-  id: "psychrometric-calculator",
-  title: "Psychrometric Calculator",
-  category: "Air Properties",
-  description:
-    "Interactive psychrometric chart and moist-air property calculations for temperature, humidity, enthalpy, and HVAC analysis.",
-  status: "Available",
-  href: "/tools/psychrometric-calculator",
-  cta: "Open Calculator",
-  icon: "psychrometric",
-  showOnHomepage: false,
-  showInDirectory: false,
-};
-
-const MIXED_AIR_CALCULATOR_TOOL: HvacTool = {
-  id: "mixed-air-calculator",
-  title: "Mixed Air Calculator",
-  category: "Air Properties",
-  description:
-    "Combine outdoor and return air using dry-air mass flow, humidity ratio, enthalpy, and project pressure.",
-  status: "Available",
-  href: "/tools/mixed-air-calculator",
-  cta: "Open Calculator",
-  icon: "psychrometric",
-  showOnHomepage: false,
-  showInDirectory: false,
-};
+const airPropertyTools = HVAC_TOOLS.filter((tool) =>
+  tool.category === "Air Properties" && tool.showInDirectory && tool.status === "Available",
+);
 
 export default function AirPropertiesPage() {
   return (
@@ -83,8 +59,19 @@ export default function AirPropertiesPage() {
           <h2 id="available-tools">Moist-air analysis</h2>
         </div>
 
-        <ToolCardGrid tools={[PSYCHROMETRIC_CALCULATOR_TOOL, MIXED_AIR_CALCULATOR_TOOL]} />
-
+        <ToolCardGrid tools={airPropertyTools} />
+        <div className={styles.comparison}>
+          <table>
+            <caption>Choose by the question and inputs you have</caption>
+            <thead><tr><th scope="col">Compare</th><th scope="col">Psychrometric Calculator</th><th scope="col">Mixed Air Calculator</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Use when</th><td>You need to describe one air state or explore it on a chart.</td><td>You need the ideal combined state of outdoor and return air before conditioning.</td></tr>
+              <tr><th scope="row">Inputs</th><td>Dry bulb plus RH, wet bulb, or dew point; elevation or absolute atmospheric pressure. IP and SI supported.</td><td>Airflow, dry bulb, and RH for each stream; one common elevation or absolute pressure. IP airflow is CFM; SI is L/s. Current weather is optional, not design weather.</td></tr>
+              <tr><th scope="row">Outputs</th><td>Wet bulb, dew point, RH, humidity ratio, enthalpy, specific volume, and related properties, with a chart marker.</td><td>Mixed-air properties, total entered airflow, and volumetric OA/RA percentages. Moisture and energy are balanced by dry-air mass.</td></tr>
+              <tr><th scope="row">Limits</th><td>One state, not a coil-load or leaving-air calculation. Elevation gives standard-atmosphere pressure, not a local observation.</td><td>Ideal adiabatic mixing at common pressure. Saturation produces a warning; condensate, coil loads, incomplete mixing, and ventilation compliance are not calculated.</td></tr>
+            </tbody>
+          </table>
+        </div>
       </section>
     </main>
   );

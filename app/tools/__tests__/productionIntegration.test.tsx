@@ -53,7 +53,8 @@ describe("psychrometric production integration", () => {
   it("links the tools library to the active Air Properties category", () => {
     const markup = render(<ToolsPage />);
     expect(markup).toContain('href="/tools/air-properties"');
-    expect(markup).toContain("Explore Tools");
+    expect(markup).toContain("Explore Air Properties");
+    expect(markup).toContain('href="/tools/psychrometric-calculator"');
   });
 
   it("renders the Air Properties category with exactly one H1", () => {

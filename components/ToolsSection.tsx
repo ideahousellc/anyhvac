@@ -80,7 +80,8 @@ export function ToolsSection() {
         <p>
           Start with the Duct Calculator to compare duct sizes. Choose Air
           Distribution for airflow, velocity and pressure-budget questions, or
-          Air Properties to work with temperature and moisture together.
+          the Psychrometric Calculator for one air state or Mixed Air for two
+          streams combining.
         </p>
       </div>
 

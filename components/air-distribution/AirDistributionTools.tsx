@@ -8,6 +8,7 @@ import { markSuccessfulToolUse } from "@/lib/support";
 
 import styles from "./AirDistributionTools.module.css";
 import { SystemPressureLoss } from "./SystemPressureLoss";
+import { AirDistributionGuidance } from "./AirDistributionGuidance";
 
 type ModuleId = "airflow" | "ach" | "friction" | "system-pressure";
 type AirflowSolveFor = "airflow" | "velocity" | "area";
@@ -453,6 +454,7 @@ export function AirDistributionTools() {
         ))}
       </div>
       <div id="active-air-distribution-calculator">
+        <AirDistributionGuidance key={activeModule} module={activeModule} />
         {activeModule === "airflow" ? <AirflowCalculator /> : null}
         {activeModule === "ach" ? <AchCalculator /> : null}
         {activeModule === "friction" ? <FrictionCalculator /> : null}

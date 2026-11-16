@@ -4,13 +4,14 @@ import Link from "next/link";
 import { NewsletterCTA } from "@/components/NewsletterCTA";
 import { NewsletterTrigger } from "@/components/ModalTriggers";
 import { SupportLink } from "@/components/SupportLink";
+import { HVAC_TOOLS } from "@/data/tools";
 
 import styles from "./Footer.module.css";
 
 const toolLinks = [
   { label: "All Tools", href: "/tools" },
-  { label: "HVAC Duct Calculator", href: "/tools/duct-calculator" },
-  { label: "Air Distribution Tools", href: "/tools/air-distribution" },
+  ...HVAC_TOOLS.filter((tool) => tool.showInDirectory && tool.status === "Available" && tool.href)
+    .map((tool) => ({ label: tool.title, href: tool.href! })),
 ];
 
 const legalLinks = [
@@ -65,6 +66,7 @@ export function Footer() {
             <ul>
               <li><Link href="/resources">HVAC Design Resources</Link></li>
               <li><Link href="/resources/duct-design-quick-reference">Duct Design Quick Reference</Link></li>
+              <li><Link href="/resources/airflow-static-pressure-measurement">Airflow &amp; Static Pressure Measurement</Link></li>
             </ul>
           </div>
 

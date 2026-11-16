@@ -93,6 +93,7 @@ export default function PsychrometricCalculatorPage() {
           <CalculationIssueNote />
         </div>
         <nav className={styles.relatedLinks} aria-label="Related tool navigation">
+          <Link href="/tools/mixed-air-calculator">Mixed Air Calculator</Link>
           <Link href="/tools/air-properties">Air Properties Tools</Link>
           <Link href="/tools">All HVAC Tools</Link>
         </nav>

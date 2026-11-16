@@ -20,3 +20,20 @@ export function getGoogleSearchDateWindow(now = new Date()) {
   startDate.setUTCDate(startDate.getUTCDate() - (GOOGLE_SEARCH_DAYS - 1));
   return { startDate: isoDate(startDate), endDate: isoDate(endDate) };
 }
+
+export function getGoogleSearchReportWindows(now = new Date()) {
+  const context = getGoogleSearchDateWindow(now);
+  const offset = (days: number) => {
+    const date = new Date(`${context.endDate}T00:00:00Z`);
+    date.setUTCDate(date.getUTCDate() + days);
+    return isoDate(date);
+  };
+  return {
+    context,
+    current: { startDate: offset(-6), endDate: context.endDate },
+    previous: { startDate: offset(-13), endDate: offset(-7) },
+    contextWeeks: [3, 2, 1, 0].map((week) => ({
+      startDate: offset(-week * 7 - 6), endDate: offset(-week * 7),
+    })),
+  };
+}

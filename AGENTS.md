@@ -61,6 +61,16 @@ An authorized implementation task may produce a local draft or worktree change.
 It does not authorize publication, commit, push, deployment, sending, or another
 external action unless the owner explicitly says so.
 
+Owner standing direction, November 24, 2026: approval of a finished weekly content
+batch explicitly authorizes routine hosting of its approved promotional media,
+the necessary asset-only commit/push/deployment through the existing
+`public/social/` + GitHub + Vercel workflow, and uploads, scheduling, publication
+and verification through the existing Buffer connection. Follow
+`docs/agents/weekly-publishing-sop.md`. No extra per-file or per-post approval is
+required. This narrow authorization does not extend to application behavior,
+design, navigation, engineering calculations, credentials, permissions, production
+configuration, private source/operational files, paid services or unrelated deployments.
+
 ### Red: explicit owner authorization for each action
 
 - production deployment;
